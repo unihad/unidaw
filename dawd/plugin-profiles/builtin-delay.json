@@ -1,0 +1,240 @@
+{
+ "plugin": {
+  "name": "Delay",
+  "format": "builtin",
+  "uid": "delay",
+  "vendor": "dawd",
+  "version": 6
+ },
+ "generated": "2026-10-27T14:38:25",
+ "measured": {
+  "version": 4,
+  "signal": "audio v4: pink noise 1 s, clicks, 4 noise bursts (100 ms loud, 150 ms 40 dB quieter), sine sweep 80 Hz–8 kHz, then silence",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 2.0,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0,
+   "burstOnset": 1.0,
+   "burstEarly": 1.0,
+   "burstLate": 1.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct",
+   "burstOnset": "dB",
+   "burstEarly": "dB",
+   "burstLate": "dB"
+  },
+  "noise": {
+   "lufs": 0.0,
+   "brightness": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0,
+   "burstOnset": 0.0,
+   "burstEarly": 0.0,
+   "burstLate": 0.0
+  },
+  "baseline": {
+   "lufs": -9.0,
+   "silent": false,
+   "brightness": -0.994,
+   "low": -4.6,
+   "high": -6.58,
+   "width": -40.0,
+   "tail": 1.05,
+   "attack": 20.0,
+   "burstOnset": -0.18,
+   "burstEarly": -10.31,
+   "burstLate": -5.98,
+   "burstLag": 0
+  },
+  "parameters": {
+   "Feedback": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-30.00 dB"
+     ],
+     [
+      0.25,
+      "-22.50 dB"
+     ],
+     [
+      0.5,
+      "-15.00 dB"
+     ],
+     [
+      0.75,
+      "-7.50 dB"
+     ],
+     [
+      1.0,
+      "+0.00 dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 3.36,
+      "atMin": 0.15,
+      "atMax": 3.51,
+      "direction": "up",
+      "ratio": 22.4
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 9.98,
+      "atMin": -11.89,
+      "atMax": -1.91,
+      "direction": "up",
+      "ratio": 10.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.8,
+      "atMin": -9.2,
+      "atMax": -3.4,
+      "direction": "up",
+      "ratio": 5.8
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 4.96,
+      "atMin": -5.94,
+      "atMax": -1.05,
+      "direction": "up",
+      "ratio": 5.0
+     },
+     {
+      "metric": "burstOnset",
+      "unit": "dB",
+      "span": 1.29,
+      "atMin": -0.25,
+      "atMax": 1.03,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "tail/decay ↑ 3.36 s, level right after a burst ↑ 9.98 dB, loudness ↑ 5.8 LU"
+   },
+   "Mix proportion": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0% wet"
+     ],
+     [
+      0.25,
+      "25% wet"
+     ],
+     [
+      0.5,
+      "50% wet"
+     ],
+     [
+      0.75,
+      "75% wet"
+     ],
+     [
+      1.0,
+      "100% wet"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 39.69,
+      "atMin": -39.63,
+      "atMax": -10.45,
+      "direction": "varies",
+      "ratio": 39.7
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 36.31,
+      "atMin": -39.73,
+      "atMax": -6.11,
+      "direction": "varies",
+      "ratio": 36.3
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 1.2,
+      "atMin": 0.01,
+      "atMax": 1.21,
+      "direction": "up",
+      "ratio": 8.0
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 150.0,
+      "atMin": 20.0,
+      "atMax": 20.0,
+      "direction": "varies",
+      "ratio": 6.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -8.9,
+      "atMax": -8.1,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "level right after a burst ↕ 39.69 dB, level between bursts ↕ 36.31 dB, tail/decay ↑ 1.2 s"
+   }
+  },
+  "switches": []
+ }
+}

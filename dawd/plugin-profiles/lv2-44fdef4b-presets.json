@@ -1,0 +1,12 @@
+{
+ "plugin": {
+  "name": "Buskman's Holiday Percussion",
+  "format": "LV2",
+  "uid": "44fdef4b",
+  "vendor": "Robin Gareus",
+  "version": 5358
+ },
+ "generated": "2026-10-17T15:15:48",
+ "signal": "MIDI: chord C3–E4 held 1.5 s, short C5, long C2 (120 BPM)",
+ "presets": []
+}

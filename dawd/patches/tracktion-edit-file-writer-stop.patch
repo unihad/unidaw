@@ -1,0 +1,15 @@
+--- a/modules/tracktion_engine/model/edit/tracktion_EditFileOperations.cpp
++++ b/modules/tracktion_engine/model/edit/tracktion_EditFileOperations.cpp
+@@ -19,6 +19,12 @@
+     ~ThreadedEditFileWriter() override
+     {
+         flushAllFiles();
++
++        // stopThread() only wakes the thread's own event, not the waiter: if the
++        // thread took the signal from flushAllFiles() before the exit flag was set,
++        // it slept another second in waiter.wait (1000) and blocked this destructor
++        signalThreadShouldExit();
++        waiter.signal();
+         stopThread (10000);
+         jassert (pending.isEmpty());
+     }

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sketch B: Side panel</title>
+<link rel="stylesheet" href="skizze.css">
+<style>
+  /* Variante B: rechte Spalte „Referenz + Analyse“ immer sichtbar; Dock unten
+     mit Reitern, Plugin-Karte neben der Kette */
+  :root { --right-w: 23rem; }
+  @media (max-width: 1500px) { :root { --side-w: 15rem; --right-w: 20rem; } }
+  #app { grid-template-columns: var(--side-w) minmax(0, 1fr) var(--right-w); }
+  #dock { height: 42%; }
+  #side { background: var(--panel); border-left: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; min-width: 0; }
+  #side > [data-slot-ref] { flex: none; padding: .6rem .7rem; border-bottom: 1px solid var(--line); }
+  #side > [data-slot-analysis] { flex: 1; min-height: 0; }
+  .tabpane[data-tab=routing].on { overflow: hidden; }
+</style>
+</head>
+<body>
+<header id="topbar"></header>
+<div id="app">
+  <aside id="tree"></aside>
+  <main id="work">
+    <div id="timeline"></div>
+    <div id="dock">
+      <div class="tabs">
+        <button class="tab on" data-tabbtn="routing" data-ctl="tab.routing">Routing</button>
+        <button class="tab" data-tabbtn="mixer" data-ctl="tab.mixer">Mixer</button>
+        <button class="tab" data-tabbtn="notes" data-ctl="tab.notes">Notes</button>
+        <button class="tab" data-tabbtn="recipes" data-ctl="tab.recipes">Recipes</button>
+      </div>
+      <div class="tabpane on" data-tab="routing"><div data-slot-routing style="height:100%"></div></div>
+      <div class="tabpane" data-tab="mixer"><div data-slot-mixer style="height:100%"></div></div>
+      <div class="tabpane" data-tab="notes"><div data-slot-notes style="height:100%"></div></div>
+      <div class="tabpane" data-tab="recipes"><div data-slot-recipes></div></div>
+    </div>
+  </main>
+  <aside id="side"><div data-slot-ref></div><div data-slot-analysis></div></aside>
+</div>
+<script src="skizze.js"></script>
+<script>build({ note: 'Sketch B — side panel', ref: 'side', card: 'inline' });</script>
+</body>
+</html>

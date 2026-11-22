@@ -1,0 +1,7 @@
+mode=blocks cpus=16 sr=44100 block=512 budgetMs=11.61
+scenario,n,mean1Ms,p99_1Ms,max1Ms,over1,meanAllMs,p99AllMs,maxAllMs,overAll,blocks
+builtinModules,0,0.195,0.275,0.321,0,0.055,0.091,0.179,0,2583
+builtinModules,16,0.471,0.748,0.816,0,0.148,0.214,0.389,0,2583
+builtinModules,32,0.844,1.024,1.167,0,0.214,0.286,3.144,0,2583
+builtinModules,64,1.749,1.879,2.273,0,0.335,0.441,0.782,0,2583
+builtinModules,128,3.543,3.594,4.784,0,0.774,0.993,2.387,0,2583

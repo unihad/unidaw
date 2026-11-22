@@ -1,0 +1,428 @@
+diff --git a/modules/tracktion_engine/plugins/effects/tracktion_SamplerPlugin.cpp b/modules/tracktion_engine/plugins/effects/tracktion_SamplerPlugin.cpp
+--- a/modules/tracktion_engine/plugins/effects/tracktion_SamplerPlugin.cpp	2026-10-24 16:02:50.149057561 +0200
++++ b/modules/tracktion_engine/plugins/effects/tracktion_SamplerPlugin.cpp	2026-10-24 16:02:50.154964542 +0200
+@@ -14,6 +14,13 @@
+ static constexpr int minimumSamplesToPlayWhenStopping = 8;
+ static constexpr int maximumSimultaneousNotes = 32;
+ 
++namespace SamplerIDs
++{
++    static const juce::Identifier minVelocity ("minVelocity"), maxVelocity ("maxVelocity"),
++                                  roundRobinGroup ("roundRobinGroup"), chokeGroup ("chokeGroup"),
++                                  attack ("attack"), release ("release");
++}
++
+ 
+ struct SamplerPlugin::SampledNote   : public ReferenceCountedObject
+ {
+@@ -45,6 +52,46 @@
+         samplesLeftToPlay = playbackRatio > 0 ? (1 + (int) (lengthInSamples / playbackRatio)) : 0;
+     }
+ 
++    void setEnvelope (double attackSeconds, double releaseSeconds, double sampleRate)
++    {
++        attackSamples = std::max (0, juce::roundToInt (attackSeconds * sampleRate));
++        releaseSamples = std::max (0, juce::roundToInt (releaseSeconds * sampleRate));
++    }
++
++    // note-off (or retrigger) at a sample of the current block: with a release
++    // time the note fades out from there, otherwise it stops
++    void stop (int sampleInBlock)
++    {
++        if (releaseSamples <= 0)
++        {
++            choke (sampleInBlock);
++        }
++        else if (releaseAt < 0)
++        {
++            const int delay = std::max (0, sampleInBlock - std::max (0, -offset));
++            releaseAt = age + delay;
++            samplesLeftToPlay = std::min (samplesLeftToPlay, delay + releaseSamples);
++        }
++    }
++
++    void choke (int sampleInBlock)
++    {
++        samplesLeftToPlay = std::min (samplesLeftToPlay, std::max (minimumSamplesToPlayWhenStopping, sampleInBlock));
++    }
++
++    float envelopeAt (int sample) const
++    {
++        float g = 1.0f;
++
++        if (sample < attackSamples)
++            g = (float) sample / (float) attackSamples;
++
++        if (releaseAt >= 0 && releaseSamples > 0)
++            g *= juce::jlimit (0.0f, 1.0f, 1.0f - (float) (sample - releaseAt) / (float) releaseSamples);
++
++        return g;
++    }
++
+     void addNextBlock (juce::AudioBuffer<float>& outBuffer, int startSamp, int numSamples)
+     {
+         jassert (! isFinished);
+@@ -63,24 +110,55 @@
+         {
+             int numUsed = 0;
+ 
+-            for (int i = std::min (2, outBuffer.getNumChannels()); --i >= 0;)
++            if (age >= attackSamples && (releaseAt < 0 || releaseSamples <= 0))
++            {
++                for (int i = std::min (2, outBuffer.getNumChannels()); --i >= 0;)
++                {
++                    numUsed = resampler[i]
++                                .processAdding (playbackRatio,
++                                                audioData.getReadPointer (std::min (i, audioData.getNumChannels() - 1), offset),
++                                                outBuffer.getWritePointer (i, startSamp),
++                                                numSamps,
++                                                gains[i]);
++                }
++            }
++            else
+             {
+-                numUsed = resampler[i]
+-                            .processAdding (playbackRatio,
+-                                            audioData.getReadPointer (std::min (i, audioData.getNumChannels() - 1), offset),
+-                                            outBuffer.getWritePointer (i, startSamp),
+-                                            numSamps,
+-                                            gains[i]);
++                // attack or release running: resample, then apply the envelope
++                AudioScratchBuffer scratch (2, numSamps);
++                scratch.buffer.clear();
++
++                for (int i = std::min (2, outBuffer.getNumChannels()); --i >= 0;)
++                {
++                    numUsed = resampler[i]
++                                .processAdding (playbackRatio,
++                                                audioData.getReadPointer (std::min (i, audioData.getNumChannels() - 1), offset),
++                                                scratch.buffer.getWritePointer (i),
++                                                numSamps,
++                                                gains[i]);
++
++                    auto* src = scratch.buffer.getReadPointer (i);
++                    auto* dest = outBuffer.getWritePointer (i, startSamp);
++
++                    for (int j = 0; j < numSamps; ++j)
++                        dest[j] += src[j] * envelopeAt (age + j);
++                }
+             }
+ 
+             offset += numUsed;
+             samplesLeftToPlay -= numSamps;
++            age += numSamps;
+ 
+             jassert (offset <= audioData.getNumSamples());
+         }
+ 
+-        if (numSamples > numSamps && startFade > 0.0f)
++        // the release has faded the note out
++        if (numSamples > numSamps && releaseAt >= 0 && releaseSamples > 0 && age >= releaseAt + releaseSamples)
++            isFinished = true;
++
++        if (numSamples > numSamps && startFade > 0.0f && ! isFinished)
+         {
++            const float envelope = envelopeAt (age);
+             startSamp += numSamps;
+             numSamps = numSamples - numSamps;
+             float endFade;
+@@ -120,7 +198,7 @@
+                 numUsed = resampler[i].processAdding (playbackRatio,
+                                                       scratch.buffer.getReadPointer (std::min (i, scratch.buffer.getNumChannels() - 1)),
+                                                       outBuffer.getWritePointer (i, startSamp),
+-                                                      numSamps, gains[i]);
++                                                      numSamps, gains[i] * envelope);
+ 
+             offset += numUsed;
+ 
+@@ -132,6 +210,7 @@
+     juce::LagrangeInterpolator resampler[2];
+     int note;
+     int offset, samplesLeftToPlay = 0;
++    int chokeGroup = 0, age = 0, attackSamples = 0, releaseSamples = 0, releaseAt = -1;
+     float gains[2];
+     double playbackRatio = 1.0;
+     const juce::AudioBuffer<float>& audioData;
+@@ -192,6 +271,12 @@
+             s->maxNote      = juce::jlimit (0, 127, static_cast<int> (v[IDs::maxNote]));
+             s->pan          = juce::jlimit (-1.0f, 1.0f, static_cast<float> (v[IDs::pan]));
+             s->openEnded    = v[IDs::openEnded];
++            s->minVelocity  = juce::jlimit (1, 127, static_cast<int> (v.getProperty (SamplerIDs::minVelocity, 1)));
++            s->maxVelocity  = juce::jlimit (1, 127, static_cast<int> (v.getProperty (SamplerIDs::maxVelocity, 127)));
++            s->roundRobinGroup = juce::jlimit (0, 127, static_cast<int> (v[SamplerIDs::roundRobinGroup]));
++            s->chokeGroup   = juce::jlimit (0, 127, static_cast<int> (v[SamplerIDs::chokeGroup]));
++            s->attack       = std::max (0.0, static_cast<double> (v[SamplerIDs::attack]));
++            s->release      = std::max (0.0, static_cast<double> (v[SamplerIDs::release]));
+ 
+             newSounds.add (s);
+         }
+@@ -247,45 +332,89 @@
+             if ((! keysDown [playingNotes.getUnchecked(i)->note])
+                  && highlightedNotes [playingNotes.getUnchecked(i)->note]
+                  && ! playingNotes.getUnchecked(i)->openEnded)
+-                playingNotes.getUnchecked(i)->samplesLeftToPlay = minimumSamplesToPlayWhenStopping;
++                playingNotes.getUnchecked(i)->stop (0);
+ 
+         for (int note = 128; --note >= 0;)
+-        {
+             if (keysDown [note] && ! highlightedNotes [note])
+-            {
+-                for (auto ss : soundList)
+-                {
+-                    if (ss->minNote <= note
+-                         && ss->maxNote >= note
+-                         && ss->audioData.getNumSamples() > 0
+-                         && (! ss->audioFile.isNull())
+-                         && playingNotes.size() < maximumSimultaneousNotes)
+-                    {
+-                        playingNotes.add (new SampledNote (note,
+-                                                           ss->keyNote,
+-                                                           0.75f,
+-                                                           ss->audioFile,
+-                                                           sampleRate,
+-                                                           0,
+-                                                           ss->audioData,
+-                                                           ss->fileLengthSamples,
+-                                                           ss->gainDb,
+-                                                           ss->pan,
+-                                                           ss->openEnded));
+-                    }
+-                }
+-            }
+-        }
++                startNote (note, 95, 0.75f, 0, false);
+ 
+         highlightedNotes = keysDown;
+     }
+ }
+ 
++// Starts the sounds a note-on triggers: those whose keys and velocity range
++// match, of each round-robin group the next in turn; a sound in a choke group
++// stops the notes of that group that were already playing
++void SamplerPlugin::startNote (int note, int velocity, float gain, int sampleDelay, bool highlight)
++{
++    auto plays = [&] (const SamplerSound* ss)
++    {
++        return ss->minNote <= note && ss->maxNote >= note
++            && ss->minVelocity <= velocity && ss->maxVelocity >= velocity
++            && ss->audioData.getNumSamples() > 0 && ! ss->audioFile.isNull();
++    };
++
++    const int playingBefore = playingNotes.size();
++    juce::BigInteger groupsDone;
++
++    for (auto ss : soundList)
++    {
++        if (! plays (ss) || playingNotes.size() >= maximumSimultaneousNotes)
++            continue;
++
++        auto chosen = ss;
++
++        if (const int group = ss->roundRobinGroup; group > 0)
++        {
++            if (groupsDone[group])
++                continue;
++
++            groupsDone.setBit (group);
++            int num = 0;
++
++            for (auto o : soundList)
++                if (o->roundRobinGroup == group && plays (o))
++                    ++num;
++
++            int k = nextRoundRobin[group] % num;
++            nextRoundRobin[group] = k + 1;
++
++            for (auto o : soundList)
++                if (o->roundRobinGroup == group && plays (o) && k-- == 0)
++                    { chosen = o; break; }
++        }
++
++        if (chosen->chokeGroup > 0)
++            for (int i = 0; i < playingBefore; ++i)
++                if (playingNotes.getUnchecked (i)->chokeGroup == chosen->chokeGroup)
++                    playingNotes.getUnchecked (i)->choke (sampleDelay);
++
++        if (highlight)
++            highlightedNotes.setBit (note);
++
++        auto sn = new SampledNote (note,
++                                   chosen->keyNote,
++                                   gain,
++                                   chosen->audioFile,
++                                   sampleRate,
++                                   sampleDelay,
++                                   chosen->audioData,
++                                   chosen->fileLengthSamples,
++                                   chosen->gainDb,
++                                   chosen->pan,
++                                   chosen->openEnded);
++        sn->chokeGroup = chosen->chokeGroup;
++        sn->setEnvelope (chosen->attack, chosen->release, sampleRate);
++        playingNotes.add (sn);
++    }
++}
++
+ void SamplerPlugin::allNotesOff()
+ {
+     const juce::ScopedLock sl (lock);
+     playingNotes.clear();
+     highlightedNotes.clear();
++    std::fill (std::begin (nextRoundRobin), std::end (nextRoundRobin), 0);
+ }
+ 
+ void SamplerPlugin::applyToBuffer (const PluginRenderContext& fc)
+@@ -304,6 +433,7 @@
+             {
+                 playingNotes.clear();
+                 highlightedNotes.clear();
++                std::fill (std::begin (nextRoundRobin), std::end (nextRoundRobin), 0);
+             }
+ 
+             for (auto& m : *fc.bufferForMidiMessages)
+@@ -317,35 +447,12 @@
+                     {
+                         if (playingNote->note == note && ! playingNote->openEnded)
+                         {
+-                            playingNote->samplesLeftToPlay = std::min (playingNote->samplesLeftToPlay,
+-                                                                       std::max (minimumSamplesToPlayWhenStopping,
+-                                                                                 noteTimeSample));
++                            playingNote->stop (noteTimeSample);
+                             highlightedNotes.clearBit (note);
+                         }
+                     }
+ 
+-                    for (auto ss : soundList)
+-                    {
+-                        if (ss->minNote <= note
+-                            && ss->maxNote >= note
+-                            && ss->audioData.getNumSamples() > 0
+-                            && playingNotes.size() < maximumSimultaneousNotes)
+-                        {
+-                            highlightedNotes.setBit (note);
+-
+-                            playingNotes.add (new SampledNote (note,
+-                                                               ss->keyNote,
+-                                                               m.getVelocity() / 127.0f,
+-                                                               ss->audioFile,
+-                                                               sampleRate,
+-                                                               noteTimeSample,
+-                                                               ss->audioData,
+-                                                               ss->fileLengthSamples,
+-                                                               ss->gainDb,
+-                                                               ss->pan,
+-                                                               ss->openEnded));
+-                        }
+-                    }
++                    startNote (note, m.getVelocity(), m.getVelocity() / 127.0f, noteTimeSample, true);
+                 }
+                 else if (m.isNoteOff())
+                 {
+@@ -356,9 +463,7 @@
+                     {
+                         if (playingNote->note == note && ! playingNote->openEnded)
+                         {
+-                            playingNote->samplesLeftToPlay = std::min (playingNote->samplesLeftToPlay,
+-                                                                       std::max (minimumSamplesToPlayWhenStopping,
+-                                                                                 noteTimeSample));
++                            playingNote->stop (noteTimeSample);
+ 
+                             highlightedNotes.clearBit (note);
+                         }
+@@ -535,6 +640,48 @@
+     v.setProperty (IDs::openEnded, b, um);
+ }
+ 
++// Defaults are not stored, so a sound without layers, groups or envelope
++// keeps its state as before
++static void setOrRemove (juce::ValueTree v, const juce::Identifier& id, const juce::var& value,
++                         const juce::var& defaultValue, juce::UndoManager* um)
++{
++    if (value == defaultValue)
++        v.removeProperty (id, um);
++    else
++        v.setProperty (id, value, um);
++}
++
++int SamplerPlugin::getSoundMinVelocity (int index) const        { return getSound (index).getProperty (SamplerIDs::minVelocity, 1); }
++int SamplerPlugin::getSoundMaxVelocity (int index) const        { return getSound (index).getProperty (SamplerIDs::maxVelocity, 127); }
++int SamplerPlugin::getSoundRoundRobinGroup (int index) const    { return getSound (index)[SamplerIDs::roundRobinGroup]; }
++int SamplerPlugin::getSoundChokeGroup (int index) const         { return getSound (index)[SamplerIDs::chokeGroup]; }
++double SamplerPlugin::getSoundAttack (int index) const          { return getSound (index)[SamplerIDs::attack]; }
++double SamplerPlugin::getSoundRelease (int index) const         { return getSound (index)[SamplerIDs::release]; }
++
++void SamplerPlugin::setSoundVelocityRange (int index, int minVelocity, int maxVelocity)
++{
++    auto um = getUndoManager();
++    auto v = getSound (index);
++    setOrRemove (v, SamplerIDs::minVelocity, juce::jlimit (1, 127, std::min (minVelocity, maxVelocity)), 1, um);
++    setOrRemove (v, SamplerIDs::maxVelocity, juce::jlimit (1, 127, std::max (minVelocity, maxVelocity)), 127, um);
++}
++
++void SamplerPlugin::setSoundGroups (int index, int roundRobinGroup, int chokeGroup)
++{
++    auto um = getUndoManager();
++    auto v = getSound (index);
++    setOrRemove (v, SamplerIDs::roundRobinGroup, juce::jlimit (0, 127, roundRobinGroup), 0, um);
++    setOrRemove (v, SamplerIDs::chokeGroup, juce::jlimit (0, 127, chokeGroup), 0, um);
++}
++
++void SamplerPlugin::setSoundEnvelope (int index, double attackSeconds, double releaseSeconds)
++{
++    auto um = getUndoManager();
++    auto v = getSound (index);
++    setOrRemove (v, SamplerIDs::attack, std::max (0.0, attackSeconds), 0.0, um);
++    setOrRemove (v, SamplerIDs::release, std::max (0.0, releaseSeconds), 0.0, um);
++}
++
+ void SamplerPlugin::setSoundMedia (int index, const juce::String& source)
+ {
+     auto v = getSound (index);
+diff --git a/modules/tracktion_engine/plugins/effects/tracktion_SamplerPlugin.h b/modules/tracktion_engine/plugins/effects/tracktion_SamplerPlugin.h
+--- a/modules/tracktion_engine/plugins/effects/tracktion_SamplerPlugin.h	2026-10-24 16:02:50.146136582 +0200
++++ b/modules/tracktion_engine/plugins/effects/tracktion_SamplerPlugin.h	2026-10-24 16:02:50.152061932 +0200
+@@ -42,6 +42,24 @@
+     void setSoundOpenEnded (int index, bool isOpenEnded);
+     void setSoundMedia (int index, const juce::String& sourcePathOrProjectID);
+ 
++    // Velocity layers: a sound only plays for note-on velocities in [min, max] (1..127)
++    int getSoundMinVelocity (int index) const;
++    int getSoundMaxVelocity (int index) const;
++    void setSoundVelocityRange (int index, int minVelocity, int maxVelocity);
++
++    // Groups (0 = none, 1..127). Of the sounds a note-on triggers, those sharing a
++    // round-robin group play one at a time, in turn; a sound in a choke group stops
++    // the notes still playing from sounds of the same group (open/closed hi-hat).
++    int getSoundRoundRobinGroup (int index) const;
++    int getSoundChokeGroup (int index) const;
++    void setSoundGroups (int index, int roundRobinGroup, int chokeGroup);
++
++    // Linear attack from the note-on, release after the note-off (not for
++    // open-ended sounds), in seconds
++    double getSoundAttack (int index) const;
++    double getSoundRelease (int index) const;
++    void setSoundEnvelope (int index, double attackSeconds, double releaseSeconds);
++
+     void playNotes (const juce::BigInteger& keysDown);
+     void allNotesOff();
+ 
+@@ -89,6 +107,8 @@
+         juce::String source;
+         juce::String name;
+         int keyNote = -1, minNote = 0, maxNote = 0;
++        int minVelocity = 1, maxVelocity = 127, roundRobinGroup = 0, chokeGroup = 0;
++        double attack = 0, release = 0;
+         int fileStartSample = 0, fileLengthSamples = 0;
+         bool openEnded = false;
+         float gainDb = 0, pan = 0;
+@@ -109,8 +129,10 @@
+     juce::ReferenceCountedArray<SampledNote> playingNotes;
+     juce::OwnedArray<SamplerSound> soundList;
+     juce::BigInteger highlightedNotes;
++    int nextRoundRobin[128] = {};
+ 
+     juce::ValueTree getSound (int index) const;
++    void startNote (int note, int velocity, float gain, int sampleDelay, bool highlight);
+ 
+     void valueTreeChanged() override;
+     void handleAsyncUpdate() override;

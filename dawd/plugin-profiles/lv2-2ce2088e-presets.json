@@ -1,0 +1,215 @@
+{
+ "plugin": {
+  "name": "MDA ePiano",
+  "format": "LV2",
+  "uid": "2ce2088e",
+  "vendor": "David Robillard",
+  "version": 4
+ },
+ "generated": "2026-10-27T10:20:08",
+ "signal": "MIDI v3: legato line C4 E4 G4 E4 (overlapping), long A3 1 s, rest 0.25 s, staccato C5 velocity 50 50 120 120, chord C2+C3 E3 G3 1 s (120 BPM)",
+ "phrase": 3,
+ "presets": [
+  {
+   "name": "Autopan",
+   "category": "",
+   "source": "program",
+   "class": "synth",
+   "classFrom": "sound",
+   "words": [
+    "hard attack",
+    "short release"
+   ],
+   "features": {
+    "lufs": -14.0,
+    "brightness": -1.686,
+    "width": -7.8,
+    "attack": 0.0,
+    "sustain": -7.2,
+    "tail": 0.09,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 5.800000000000001,
+    "detune": 1.8,
+    "correlation": 0.71,
+    "velocity": 11.45
+   },
+   "phrase": 3,
+   "clap": "9gD/9gIKBQMD/vn/+wUA9gEHBwYA/fv//vgB//oFAQYK/vsCCP7++QMHAPj4BQIEAAv38/4B/QP8AgUACPr+/P/8APwAAgL/AwEK/gH39gH6AgYA/fwBAwoBAQb7+gMA/vMACfv+AQID/voLAAXz9PwBBgL/+vrzCQAEBf7//QIC+/4AB/gJAv39CAIAAAMIBwQI+AEB9v34DAP9/vwEAAoG/QQD9wID/QP0BwH9AfkKBPoHDfUD+gf7AP/89fgAAv4BCf4G//0GBQgLCPQBB/j9AgT8/v7/+/8K+goA/wv39gIDBvn9/vj8/Qz99v0FAAIB/QP/AP3/APsB+//9AwIM/wf5/AECDPUGCAT6/g7+A/0F/v/39f8AAPUD/voB+v4E/P0BAQcIBAECAQIIAPMG+vz/APoD/PoABf/7AQX9CvoN9QAC/foMAwD+BfwAAwQADQMHBvgEBAYCAPv8AQIBDAD5CAEEAvEDC/L3/gL7AggLBwD5+QAEAvwN9vkG/PoB/P8CAQQD/f0DBAT8/QH9Bvr8+/8EBfry/P0GAgD6BQL8Af4D/gEFBgoJ+v//Bf4A+v3yAAAEAQAAAfwFBfIABAUDAf0F/QEB/gH7/QMAAggH/P0D/Ab/BAMDAf4A+voG+P35DP4LCPn8//3zBPsGBPv+//P/+P4FCAED/Qo=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 1.0,
+    "punchDb": 2.1,
+    "low": 0.207,
+    "brightness": 357,
+    "pitchHz": 261.1,
+    "note": "C4",
+    "bpm": 87.9,
+    "peakDb": -3.1
+   },
+   "program": 4
+  },
+  {
+   "name": "Bright",
+   "category": "",
+   "source": "program",
+   "class": "synth",
+   "classFrom": "sound",
+   "words": [
+    "hard attack",
+    "short release"
+   ],
+   "features": {
+    "lufs": -16.7,
+    "brightness": -1.229,
+    "width": -15.8,
+    "attack": 0.0,
+    "sustain": -6.4,
+    "tail": 0.1,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 6.800000000000001,
+    "detune": 1.0,
+    "correlation": 0.96,
+    "velocity": 10.59
+   },
+   "phrase": 3,
+   "clap": "9vz++QcECAMD/fr8+AAA+QMFBAIA/fr+Av4D/PsCAgMNAQEDCwH6+gYIAff6BgIG/wf49wX9/gL/Agb/Bvr7+wH5AP8CAAIAAQEM/wP39wH9AQgAAvgHBgoE/gf9+AP/+vEBB/b+AgH9AfgKAgD3+P7/AwMJ/v33B/0EA/8C/AUD+/z+Af0LBP4AAgMAAgMKBAIH+f8F9wD7DQD7AP4E/goE+wb+8wH//gbvAgP7AvwHAv4KC/EH/AL9/wH49vwCAf0ABPsBAP8DAwILBPQCA/QCBQH+//n//P0G+wv+/Ar59wH/Bff6+fr++w0E9v0BAwQF+gD+B/0BA/kD+fkGCgMG/Qf3+f7+B/YDBQT1/A8AAfwG+gD89AD/BPgA//r/9/4E//sFAwoFAQL/BQQHAfIE/AD6A/sE/vcCCQL3Av38DfcF9fsA+vsKBf38Cfv6BwL/CwUGAvEGAgQCAf0AAAEFCwL9Bf8DBvMADvv5/f37CAMICAH1/AAEAvwE9vkD/f0F+/4A/AMAAvoEBAT5+v7+Bvf8/AAAAvfx//kHAv/7BQP9Av3/AQMDBwcH9gAFBfn8/wH6/wIE/v7+Af0IAvEAAwIBAfsD/AED+v73/gICAwkH+gEG/wj//wH/AQEA/fsH9vz7CQIKCv/7/f3z//cFBwAC+/X++/wEAwQC/g0=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 21.0,
+    "punchDb": 0.6,
+    "low": 0.21,
+    "brightness": 500,
+    "pitchHz": 219.9,
+    "note": "A3",
+    "bpm": 88.0,
+    "peakDb": -3.0
+   },
+   "program": 2
+  },
+  {
+   "name": "Default",
+   "category": "",
+   "source": "program",
+   "class": "synth",
+   "classFrom": "sound",
+   "words": [
+    "hard attack",
+    "short release"
+   ],
+   "features": {
+    "lufs": -14.7,
+    "brightness": -1.692,
+    "width": -16.1,
+    "attack": 0.0,
+    "sustain": -7.4,
+    "tail": 0.09,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 5.5,
+    "detune": 1.8,
+    "correlation": 0.96,
+    "velocity": 11.46
+   },
+   "phrase": 3,
+   "clap": "9QD/9wIJBAIE/voA+wQA9gEHBwYB/Pv//vgC/voEAgUL/vsCCf7++AIGAPn4BQIE/wv38/8A/QL8AgUCCPr9/AD7//0AAgIAAwEK/gL49wH6AQYB/fwBBAkCAQf7+gIB/vIACfv+AgIB//oLAQXz9fwBBgIA+fr0CAEEBv7//QIC/P4ABvkJAfz+CAMAAQIIBwMI+AEA9v33DAL9//0EAQoH/QQD9gMD/QL0BgD8AfkKBPoGDfUE+gX8AP789ff/A/0BCf4GAP0GBQgLCPUBB/j9AgP7/v4A+/4J+goB/w339wECBvj+/vf8/Qz+9v0FAAIA/QL+AP0AAfsB+/79BAEM/wf5/QEBDPYGCAP6/Q/+A/0F/f/39f8AAPYC/voB+v8E/f0BAQcHAwABAAMIAPQG+vwAAfoE+/kABf76AgT9CvoN9v8C/voNBAD/BvsBAwUADAMHBvkFAwUCAPv9AAEBDP/5CAEEAvADC/L2/gL7AwgKBv/3+v8EAv0N9/oH/PoB/AACAQQC/f0DBAT8/QH+Bfr8+wAEBfny/P0GAwD6BAP8Af4D/gEFBgoJ+v//BP0B+v3yAAAEAQH/AfwFBfH/BAUCAfwF/AEC/QH7/QIAAggH/P0D/QYABAICAf7/+vsG+P75DP8MCPr8APzyBfsGBPr+APMA9/8FBwED/Qs=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 1.0,
+    "punchDb": 1.2,
+    "low": 0.189,
+    "brightness": 359,
+    "pitchHz": 261.4,
+    "note": "C4",
+    "bpm": 87.9,
+    "peakDb": -3.0
+   },
+   "program": 1
+  },
+  {
+   "name": "Mellow",
+   "category": "",
+   "source": "program",
+   "class": "synth",
+   "classFrom": "sound",
+   "words": [
+    "hard attack",
+    "short release"
+   ],
+   "features": {
+    "lufs": -14.7,
+    "brightness": -1.692,
+    "width": -16.1,
+    "attack": 0.0,
+    "sustain": -7.4,
+    "tail": 0.09,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 5.5,
+    "detune": 1.8,
+    "correlation": 0.96,
+    "velocity": 11.46
+   },
+   "phrase": 3,
+   "clap": "9QD/9wIJBAIE/voA+wQA9gEHBwYB/Pv//vgC/voEAgUL/vsCCf7++AIGAPn4BQIE/wv38/8A/QL8AgUCCPr9/AD7//0AAgIAAwEK/gL49wH6AQYB/fwBBAkCAQf7+gIB/vIACfv+AgIB//oLAQXz9fwBBgIA+fr0CAEEBv7//QIC/P4ABvkJAfz+CAMAAQIIBwMI+AEA9v33DAL9//0EAQoH/QQD9gMD/QL0BgD8AfkKBPoGDfUE+gX8AP789ff/A/0BCf4GAP0GBQgLCPUBB/j9AgP7/v4A+/4J+goB/w339wECBvj+/vf8/Qz+9v0FAAIA/QL+AP0AAfsB+/79BAEM/wf5/QEBDPYGCAP6/Q/+A/0F/f/39f8AAPYC/voB+v8E/f0BAQcHAwABAAMIAPQG+vwAAfoE+/kABf76AgT9CvoN9v8C/voNBAD/BvsBAwUADAMHBvkFAwUCAPv9AAEBDP/5CAEEAvADC/L2/gL7AwgKBv/3+v8EAv0N9/oH/PoB/AACAQQC/f0DBAT8/QH+Bfr8+wAEBfny/P0GAwD6BAP8Af4D/gEFBgoJ+v//BP0B+v3yAAAEAQH/AfwFBfH/BAUCAfwF/AEC/QH7/QIAAggH/P0D/QYABAICAf7/+vsG+P75DP8MCPr8APzyBfsGBPr+APMA9/8FBwED/Qs=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 1.0,
+    "punchDb": 1.2,
+    "low": 0.189,
+    "brightness": 359,
+    "pitchHz": 261.4,
+    "note": "C4",
+    "bpm": 87.9,
+    "peakDb": -3.0
+   },
+   "program": 0
+  },
+  {
+   "name": "Tremolo",
+   "category": "",
+   "source": "program",
+   "class": "synth",
+   "classFrom": "sound",
+   "words": [
+    "hard attack",
+    "short release"
+   ],
+   "features": {
+    "lufs": -14.1,
+    "brightness": -1.693,
+    "width": -16.3,
+    "attack": 0.0,
+    "sustain": -9.2,
+    "tail": 0.07,
+    "silent": false,
+    "sweep": 0.11,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 8.5,
+    "detune": 2.5,
+    "correlation": 0.96,
+    "velocity": 11.58
+   },
+   "phrase": 3,
+   "clap": "9gAA9/4KCAMA+/n++QQA9P4HBwUF//3//fkCAvoEAwUG+foEBv3++QIFAPX2AQIB/gv39/4D/AP7AgEABvr8/v/4APz5BwMBAQEH/QP3+wX6AgH//v8DAgkFAQT9+wAD//X/DQD/AwEF+foNAAbz8vsABgP/+PjzCgIDAvz//wYC+v4BA/cIAPz8CAMA/gAGCAUI+gL+9v/6CwT///sIAAkFAP8F9gQD/gP4BwD7APkIBvoJC/UD/gX7/v/89/cBA/3/Cf4DAf4HBQkNCvT/Bff9AwT//QEC+/8H9wr//Qv69gUFBvv9/fr/+wz/9/8C/v4BAAP+Af7/+/oB/QH9Bf8M/wP+/QIADfYEBwX3/Q38BPwDAQD49v8A//gDAPsC+gEI+vv//ggHAv8CBQQJAfEE+/wAAvwB+/z+BgD8AwX+DfsN9gIC/fkKBAMDBPkBAQQBDgMBBfkCBQYDBPn7BAMDDgL6CP8DBPMCCvL3/gT/AQgICAH49wEHBP4M9fsF/v0A/f0C/wMB/P4DAwL+///6Bv38+P4FAvvy/vsE/wH5CQL5//4C/wAEBgwJ9/7/Bf///QDxAQIGAAABAfkEBfX/BggD/f0G+wAD/wL+/wT/BQQF+fwB+wb9AgMFAf4D+voG+f/4CwAFB/v8AP7xA/oEAPv7/vMD+AAHCAAF/QU=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 1.0,
+    "punchDb": 4.2,
+    "low": 0.206,
+    "brightness": 359,
+    "pitchHz": 261.1,
+    "note": "C4",
+    "bpm": 88.4,
+    "peakDb": -1.1
+   },
+   "program": 3
+  }
+ ]
+}

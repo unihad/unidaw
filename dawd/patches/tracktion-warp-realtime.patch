@@ -1,0 +1,285 @@
+--- a/modules/tracktion_engine/playback/graph/tracktion_WaveNode.cpp
++++ b/modules/tracktion_engine/playback/graph/tracktion_WaveNode.cpp
+@@ -577,6 +577,66 @@
+     }
+ };
+ 
++//==============================================================================
++// Real-time warp: one time-stretcher plays the source file through a WarpMap.
++// The TimeRangeReader maps each block's warp-time range to source time (so the
++// read position stays locked to the map), the TimeStretchReader sets the
++// stretcher's ratio per fed chunk from the map at the source position the
++// stretcher is about to process. Changing the ratio per output block instead
++// lands transients up to ~7 ms off, because audio already buffered in the
++// stretcher is then stretched with the new ratio. Before the first and after
++// the last marker the source plays at speed 1.
++namespace realtime_warp
++{
++    inline TimePosition warpToSource (const WarpMap& map, TimePosition warp)
++    {
++        if (map.empty())
++            return warp;
++
++        if (warp <= map.front().warpTime)
++            return map.front().sourceTime + (warp - map.front().warpTime);
++
++        for (size_t i = 1; i < map.size(); ++i)
++        {
++            if (warp <= map[i].warpTime)
++            {
++                const auto span = map[i].warpTime - map[i - 1].warpTime;
++
++                if (span <= 0s)
++                    return map[i].sourceTime;
++
++                return map[i - 1].sourceTime + (map[i].sourceTime - map[i - 1].sourceTime) * ((warp - map[i - 1].warpTime) / span);
++            }
++        }
++
++        return map.back().sourceTime + (warp - map.back().warpTime);
++    }
++
++    /** Source seconds per warp second at a source position. */
++    inline double sourceSpeedAt (const WarpMap& map, TimePosition source)
++    {
++        for (size_t i = 1; i < map.size(); ++i)
++        {
++            if (source < map[i].sourceTime)
++            {
++                if (source < map[i - 1].sourceTime)
++                    return 1.0;
++
++                const auto warpSpan = map[i].warpTime - map[i - 1].warpTime;
++                return warpSpan > 0s ? (map[i].sourceTime - map[i - 1].sourceTime) / warpSpan : 1.0;
++            }
++        }
++
++        return 1.0;
++    }
++
++    /** How far behind the next fed sample the stretcher works on, in samples at the
++        stretcher's rate. Found by measuring click onsets in renders (Rubberband R2,
++        44.1 and 48 kHz sources, 0.7x..1.45x between markers): 384 keeps them
++        within +-4.5 ms, 0 and 768 put them up to 7 ms off. */
++    constexpr SampleCount lookBehindSamples = 384;
++}
++
+ class TimeStretchReaderBase : public SingleInputAudioReader
+ 
+ {
+@@ -589,6 +649,10 @@
+     virtual ~TimeStretchReaderBase() = default;
+     virtual void setSpeed (double speedRatio) = 0;
+     virtual void setPitch (double semitones) = 0;
++
++    /** Real-time warp: tempoSpeed is the speed without the warp (source time per
++        output time of the unwarped file). Only TimeStretchReader supports it. */
++    virtual void setWarp (std::shared_ptr<const WarpMap>, double /*tempoSpeed*/) {}
+ };
+ 
+ class TimeStretchReader final   : public TimeStretchReaderBase
+@@ -607,6 +671,7 @@
+ 
+         source->setPosition (getReadPosition());
+         timeStretcher.reset();
++        warpStreamStart = getReadPosition();
+         setSpeedAndPitch (playbackSpeedRatio, semitonesShift);
+         inputFifo.reset();
+         outputFifo.reset();
+@@ -627,6 +692,7 @@
+ 
+         source->setPosition (t);
+         timeStretcher.reset();
++        warpStreamStart = t;
+         setSpeedAndPitch (playbackSpeedRatio, semitonesShift);
+         inputFifo.reset();
+         outputFifo.reset();
+@@ -665,10 +731,20 @@
+         playbackSpeedRatio = speedRatio;
+         semitonesShift = semitones;
+ 
+-        [[ maybe_unused ]] const bool ok = timeStretcher.setSpeedAndPitch ((float) (1.0 / speedRatio), (float) semitonesShift);
++        // With a warp map, playbackSpeedRatio only advances the read position;
++        // the stretcher runs at the speed of the audio it processes
++        stretcherSpeed = warpMap != nullptr ? warpTempoSpeed * warpSpeedAtFeed() : speedRatio;
++
++        [[ maybe_unused ]] const bool ok = timeStretcher.setSpeedAndPitch ((float) (1.0 / stretcherSpeed), (float) semitonesShift);
+         assert (ok);
+     }
+ 
++    void setWarp (std::shared_ptr<const WarpMap> map, double tempoSpeed) override
++    {
++        warpMap = std::move (map);
++        warpTempoSpeed = tempoSpeed;
++    }
++
+     bool readSamples (choc::buffer::ChannelArrayView<float>& destBuffer) override
+     {
+         assert (numChannels == (int) destBuffer.getNumChannels());
+@@ -699,17 +775,38 @@
+     TimeStretcher timeStretcher;
+     AudioFifo inputFifo { numChannels, chunkSize }, outputFifo { numChannels, chunkSize };
+     double playbackSpeedRatio = 1.0, semitonesShift = 0.0, readPosition = 0.0;
++    std::shared_ptr<const WarpMap> warpMap;
++    double warpTempoSpeed = 1.0, stretcherSpeed = 1.0;
++    SampleCount warpStreamStart = 0;
+ 
+     SampleCount getReadPosition() const
+     {
+         return static_cast<SampleCount> (readPosition + 0.5);
+     }
+ 
++    // Speed of the source (per warp second) where the stretcher is working:
++    // a little behind the next fed sample, never before the stream started
++    double warpSpeedAtFeed()
++    {
++        const auto pos = std::max (warpStreamStart, source->getPosition() - realtime_warp::lookBehindSamples);
++        return realtime_warp::sourceSpeedAt (*warpMap, TimePosition::fromSamples (pos, getSampleRate()));
++    }
++
+     // Reads source audio, feeds it to the stretcher, and produces output into the FIFO
+     bool feedAndProcess()
+     {
+         const auto numThisTime = timeStretcher.getFramesNeeded();
+ 
++        if (warpMap != nullptr)
++        {
++            if (const auto speed = warpTempoSpeed * warpSpeedAtFeed(); speed != stretcherSpeed)
++            {
++                stretcherSpeed = speed;
++                [[ maybe_unused ]] const bool ok = timeStretcher.setSpeedAndPitch ((float) (1.0 / stretcherSpeed), (float) semitonesShift);
++                assert (ok);
++            }
++        }
++
+         if (numThisTime > 0)
+         {
+             AudioScratchBuffer scratchBuffer (numChannels, numThisTime);
+@@ -1147,6 +1244,15 @@
+                bool isContiguous,
+                double playbackSpeedRatio)
+     {
++        // Real-time warp: tr is in warp time, read the source range it maps to
++        if (warpMap != nullptr && editDuration > 0s)
++        {
++            if (timeStretchSource)
++                timeStretchSource->setWarp (warpMap, (tr.getLength() / editDuration) * playbackSpeedRatio);
++
++            tr = { realtime_warp::warpToSource (*warpMap, tr.getStart()), realtime_warp::warpToSource (*warpMap, tr.getEnd()) };
++        }
++
+         const auto numSourceSamples = toSamples (tr.getLength(), getSampleRate());
+ 
+         if (numSourceSamples == 0)
+@@ -1172,6 +1278,7 @@
+ 
+     ResamplerReader* resamplerReader = nullptr;
+     TimeStretchReaderBase* timeStretchSource = nullptr;
++    std::shared_ptr<const WarpMap> warpMap;   // real-time warp, see realtime_warp
+ };
+ 
+ 
+@@ -2219,20 +2326,18 @@
+                                                                         destChannels, channelsToUse);
+     std::unique_ptr<AudioReader> loopReader;
+ 
+-    if (warpMap)
+-    {
+-        // If we're using a warp map, the looping as to be applied above the warp so the loop times don't get warped
+-        // This can have performance hits though
+-        loopReader = std::make_unique<WarpReader> (std::move (audioFileCacheReader), std::move (*warpMap), timeStretcherMode, elastiqueProOptions);
++    // Real-time warp (see realtime_warp): the TimeRangeReader maps warp time to
++    // source time and the one time-stretcher follows the map. A second stretcher
++    // below the tempo stretcher (WarpReader) changed its speed per block and put
++    // transients up to ~90 ms off the beat. Looping stays above the warp: the
++    // beat reader loops in warp time
++    std::shared_ptr<const WarpMap> realtimeWarpMap;
+ 
+-        if (! loopSectionTime.isEmpty())
+-            loopReader = std::make_unique<LoopReader> (std::move (loopReader), loopSectionTime);
+-    }
+-    else
+-    {
+-        audioFileCacheReader->setLoopRange (loopSectionTime);
+-        loopReader = std::move (audioFileCacheReader);
+-    }
++    if (warpMap && ! warpMap->empty())
++        realtimeWarpMap = std::make_shared<const WarpMap> (*warpMap);
++
++    audioFileCacheReader->setLoopRange (loopSectionTime);
++    loopReader = std::move (audioFileCacheReader);
+ 
+     const bool timestretchDisabled = timeStretcherMode == TimeStretcher::Mode::disabled;
+     std::unique_ptr<ResamplerReader> resamplerAudioReader;
+@@ -2247,7 +2352,7 @@
+ 
+     if (! timestretchDisabled)
+     {
+-        if (readAhead == ReadAhead::no)
++        if (readAhead == ReadAhead::no || realtimeWarpMap)
+             timeStretchReader = std::make_unique<TimeStretchReader> (std::move (resamplerAudioReader), timeStretcherMode, elastiqueProOptions);
+         else
+             timeStretchReader = std::make_unique<ReadAheadTimeStretchReader> (std::move (resamplerAudioReader), timeStretcherMode, elastiqueProOptions, outputBlockSize);
+@@ -2285,6 +2390,8 @@
+         }
+     }
+ 
++    timeRangeReader->warpMap = realtimeWarpMap;
++
+     if (syncTempo == SyncTempo::yes || syncPitch == SyncPitch::yes)
+     {
+         assert (fileTempoSequence);
+@@ -2411,7 +2518,12 @@
+                 sourceBeats = loopSectionBeats.getStart() + BeatDuration::fromBeats (std::fmod (pastStart, loopLen));
+             }
+ 
+-            playhead->setPosition (fileTempoSequence->toTime (sourceBeats));
++            auto fileTime = fileTempoSequence->toTime (sourceBeats);
++
++            if (warpMap)
++                fileTime = realtime_warp::warpToSource (*warpMap, fileTime);
++
++            playhead->setPosition (fileTime);
+         }
+     }
+ 
+--- a/modules/tracktion_engine/playback/graph/tracktion_EditNodeBuilder.cpp
++++ b/modules/tracktion_engine/playback/graph/tracktion_EditNodeBuilder.cpp
+@@ -252,7 +252,20 @@
+     std::optional<WarpMap> getWarpMap (const AudioClipBase& clip)
+     {
+         if (! clip.getWarpTime())
+-            return {};
++        {
++            // Warp points the application keeps itself (real-time warp, see WaveNodeRealTime)
++            auto points = clip.edit.engine.getEngineBehaviour().getWarpPointsForClip (clip);
++
++            if (points.empty())
++                return {};
++
++            WarpMap map;
++
++            for (auto& [sourceTime, warpTime] : points)
++                map.push_back ({ sourceTime, warpTime });
++
++            return map;
++        }
+ 
+         WarpMap map;
+ 
+--- a/modules/tracktion_engine/utilities/tracktion_EngineBehaviour.h
++++ b/modules/tracktion_engine/utilities/tracktion_EngineBehaviour.h
+@@ -124,6 +124,13 @@
+     /// thread to reduce audio CPU use.
+     virtual bool enableReadAheadForTimeStretchNodes()                               { return false; }
+ 
++    /// Warp points { source time, warp time } for an audio clip that doesn't use the
++    /// clip's own WarpTimeManager (getWarpTime() is false). If not empty, the clip plays its
++    /// file through these points in real time: its tempo/beat position gives a warp time,
++    /// the points map it to a time in the file (speed 1 before the first and after the last).
++    /// Called while building the playback graph; only used for clips that sync to the tempo.
++    virtual std::vector<std::pair<TimePosition, TimePosition>> getWarpPointsForClip (const AudioClipBase&)  { return {}; }
++
+     /// Should return true if the incoming timestamp for MIDI messages should be used.
+     /// If this returns false, the current system time will be used (which could be less accurate).
+     /// N.B. this is called from multiple threads, including the MIDI thread for every

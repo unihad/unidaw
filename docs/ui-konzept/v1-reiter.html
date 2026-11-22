@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sketch A: Dock tabs</title>
+<link rel="stylesheet" href="skizze.css">
+<style>
+  /* Variante A: Dock mit Reitern, Referenz-Bereich als Chip in der Reiterleiste,
+     Plugin-Karte als Popover an der Kette, Analyse im Referenz-Reiter */
+  #app { grid-template-columns: var(--side-w) 1fr; }
+  #dock { height: 45%; }
+  .refsplit { display: flex; gap: .8rem; height: 100%; min-height: 0; }
+  .refsplit > [data-slot-ref] { flex: 2.2; min-width: 0; overflow: auto; }
+  .refsplit > [data-slot-analysis] { flex: 1; min-width: 15rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); min-height: 0; }
+  .tabpane.reftab.on { overflow: hidden; }
+</style>
+</head>
+<body>
+<header id="topbar"></header>
+<div id="app">
+  <aside id="tree"></aside>
+  <main id="work">
+    <div id="timeline"></div>
+    <div id="dock">
+      <div class="tabs">
+        <button class="tab on" data-tabbtn="routing" data-ctl="tab.routing">Routing</button>
+        <button class="tab" data-tabbtn="mixer" data-ctl="tab.mixer">Mixer</button>
+        <button class="tab" data-tabbtn="notes" data-ctl="tab.notes">Notes</button>
+        <button class="tab" data-tabbtn="recipes" data-ctl="tab.recipes">Recipes</button>
+        <button class="tab" data-tabbtn="reference" data-ctl="tab.reference">Reference &amp; analysis</button>
+        <span class="spacer"></span><span data-slot-chip onclick="document.querySelector('[data-tabbtn=reference]').click()"></span>
+      </div>
+      <div class="tabpane on" data-tab="routing"><div data-slot-routing></div></div>
+      <div class="tabpane" data-tab="mixer"><div data-slot-mixer style="height:100%"></div></div>
+      <div class="tabpane" data-tab="notes"><div data-slot-notes style="height:100%"></div></div>
+      <div class="tabpane" data-tab="recipes"><div data-slot-recipes></div></div>
+      <div class="tabpane reftab" data-tab="reference"><div class="refsplit"><div data-slot-ref></div><div data-slot-analysis></div></div></div>
+    </div>
+  </main>
+</div>
+<script src="skizze.js"></script>
+<script>build({ note: 'Sketch A — dock tabs', ref: 'wide', card: 'popover' });</script>
+</body>
+</html>

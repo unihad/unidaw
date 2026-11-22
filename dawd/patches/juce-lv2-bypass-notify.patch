@@ -1,0 +1,20 @@
+--- a/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
++++ b/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
+@@ -2455,13 +2455,15 @@
+     void setDenormalisedValue (float denormalised)
+     {
+         cache.set ((size_t) getParameterIndex(), denormalised, Update::yes);
+-        sendValueChangedMessageToListeners (range.convertTo0to1 (denormalised));
++        // getValue() rather than the port's normalised value: BypassParameter
++        // inverts the lv2:enabled port, listeners must see the bypass value
++        sendValueChangedMessageToListeners (getValue());
+     }
+ 
+     void setDenormalisedValueWithoutTriggeringUpdate (float denormalised)
+     {
+         cache.set ((size_t) getParameterIndex(), denormalised, Update::no);
+-        sendValueChangedMessageToListeners (range.convertTo0to1 (denormalised));
++        sendValueChangedMessageToListeners (getValue());
+     }
+ 
+     float getDenormalisedValue() const noexcept

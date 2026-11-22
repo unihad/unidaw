@@ -1,0 +1,7 @@
+cpus=16 tracks=16 sr=44100 block=512 render=30s
+modules,modulesPerTrack,graphTracks,buildMedianMs,buildMaxMs,edgeOpUs,render1ThreadMs,renderAllMs,rtf1,rtfAll
+0,0,23,0.25,0.27,0.0,1073,762,27.9,39.3
+16,1,39,1.16,1.19,16.4,1974,1189,15.2,25.2
+32,2,55,2.57,2.59,27.3,3467,1658,8.7,18.1
+64,4,87,6.95,7.30,65.6,6898,3274,4.3,9.2
+128,8,151,19.51,19.79,194.1,14862,7995,2.0,3.8

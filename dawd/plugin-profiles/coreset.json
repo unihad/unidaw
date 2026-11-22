@@ -1,0 +1,281 @@
+{
+  "comment": "Kernset: was listPlugins Agenten standardmäßig zeigt (core: true). format = bevorzugtes Format, wenn es mehrere gibt (VST3 zeigt Einheiten, LV2 oft nur Zahlen). category und purpose stehen in listPlugins und pluginInfo.",
+  "plugins": [
+    {
+      "name": "4OSC",
+      "format": "builtin",
+      "category": "synth",
+      "purpose": "simple 4-oscillator subtractive synth — set Wave/Filter Type/effects first (all off by default)"
+    },
+    {
+      "name": "Sampler",
+      "format": "builtin",
+      "category": "sampler",
+      "purpose": "plays your own samples on keys or key ranges (setSamples)"
+    },
+    {
+      "name": "Drum Kit",
+      "format": "builtin",
+      "category": "drums",
+      "purpose": "sampler with dawd's basic kit in GM layout (36 kick, 38 snare, 42 hihat); swap samples with setSamples"
+    },
+    {
+      "name": "Reverb",
+      "format": "builtin",
+      "category": "reverb",
+      "purpose": "basic reverb"
+    },
+    {
+      "name": "Delay",
+      "format": "builtin",
+      "category": "delay",
+      "purpose": "basic delay"
+    },
+    {
+      "name": "Chorus",
+      "format": "builtin",
+      "category": "modulation",
+      "purpose": "basic chorus"
+    },
+    {
+      "name": "Compressor",
+      "format": "builtin",
+      "category": "dynamics",
+      "purpose": "basic compressor"
+    },
+    {
+      "name": "Limiter",
+      "format": "builtin",
+      "category": "dynamics",
+      "purpose": "true-peak limiter for the master (Gain, Ceiling, Release)"
+    },
+    {
+      "name": "Equaliser",
+      "format": "builtin",
+      "category": "eq",
+      "purpose": "4-band EQ (shelves + 2 peaks)"
+    },
+    {
+      "name": "Low Pass",
+      "format": "builtin",
+      "category": "filter",
+      "purpose": "low-pass / high-pass filter"
+    },
+    {
+      "name": "Pitch Shifter",
+      "format": "builtin",
+      "category": "pitch",
+      "purpose": "pitch shift in semitones"
+    },
+    {
+      "name": "Surge XT",
+      "format": "VST3",
+      "category": "synth",
+      "purpose": "versatile hybrid synth (subtractive, wavetable, FM) with ~3000 categorised presets — start from listPresets"
+    },
+    {
+      "name": "Diva",
+      "format": "VST3",
+      "category": "synth",
+      "purpose": "u-he analog-modelled poly synth (warm basses, pads, leads) with categorised .h2p presets"
+    },
+    {
+      "name": "Dexed",
+      "format": "VST3",
+      "category": "synth",
+      "purpose": "DX7 FM synth: electric pianos, bells, FM basses, plucks — 32 programs per cartridge"
+    },
+    {
+      "name": "MDA ePiano",
+      "format": "LV2",
+      "category": "keys",
+      "purpose": "Rhodes-like electric piano, few parameters, 5 presets"
+    },
+    {
+      "name": "MDA Piano",
+      "format": "LV2",
+      "category": "keys",
+      "purpose": "simple acoustic piano"
+    },
+    {
+      "name": "MDA JX10",
+      "format": "LV2",
+      "category": "synth",
+      "purpose": "simple analog-style poly synth with presets"
+    },
+    {
+      "name": "Helm",
+      "format": "LV2",
+      "category": "synth",
+      "purpose": "free subtractive poly synth (2 osc + sub, filter, 3 LFOs, step sequencer, effects) with ~270 presets — basses, leads, pads, arps"
+    },
+    {
+      "name": "Black Pearl Drumkit",
+      "format": "LV2",
+      "category": "drums",
+      "purpose": "acoustic rock/pop drum kit (AVL), GM layout"
+    },
+    {
+      "name": "Red Zeppelin Drumkit",
+      "format": "LV2",
+      "category": "drums",
+      "purpose": "acoustic vintage rock drum kit (AVL), GM layout"
+    },
+    {
+      "name": "Blonde Bop Drumkit",
+      "format": "LV2",
+      "category": "drums",
+      "purpose": "acoustic jazz drum kit (AVL), GM layout"
+    },
+    {
+      "name": "Buskman's Holiday Percussion",
+      "format": "LV2",
+      "category": "drums",
+      "purpose": "hand percussion (AVL)"
+    },
+    {
+      "name": "sfizz",
+      "format": "VST3",
+      "category": "sampler",
+      "purpose": "SFZ sampler for multisampled instruments — listPresets shows the .sfz instruments in ~/sfz (Salamander Grand Piano installed)"
+    },
+    {
+      "name": "Surge XT Effects",
+      "format": "VST3",
+      "category": "multi-fx",
+      "purpose": "Surge's effect units as one plugin: reverbs, delays, chorus, EQ, distortion / overdrive / waveshaper (drive, amp-like crunch), tape saturation, Mid-Side Tool (stereo width, M/S), Airwindows Cabs (amp cabinets; FX Type Airwindows)"
+    },
+    {
+      "name": "Dragonfly Hall Reverb",
+      "format": "VST3",
+      "category": "reverb",
+      "purpose": "natural hall reverb (Size, Decay, Predelay, Early/Late Level, Dry Level 2)"
+    },
+    {
+      "name": "Dragonfly Room Reverb",
+      "format": "VST3",
+      "category": "reverb",
+      "purpose": "small to medium room reverb"
+    },
+    {
+      "name": "Dragonfly Plate Reverb",
+      "format": "VST3",
+      "category": "reverb",
+      "purpose": "plate reverb for vocals, snares"
+    },
+    {
+      "name": "Dragonfly Early Reflections",
+      "format": "VST3",
+      "category": "reverb",
+      "purpose": "early reflections only — space without a tail"
+    },
+    {
+      "name": "LSP Parametric Equalizer x8 Stereo",
+      "format": "LV2",
+      "category": "eq",
+      "purpose": "precise 8-band parametric EQ"
+    },
+    {
+      "name": "LSP Compressor Stereo",
+      "format": "LV2",
+      "category": "dynamics",
+      "purpose": "full-featured compressor (bus, drums, glue)"
+    },
+    {
+      "name": "LSP Sidechain Compressor Stereo",
+      "format": "LV2",
+      "category": "dynamics",
+      "purpose": "compressor keyed from another signal (pumping, ducking)"
+    },
+    {
+      "name": "LSP Multiband Compressor Stereo x8",
+      "format": "LV2",
+      "category": "dynamics",
+      "purpose": "multiband compressor for master or bus"
+    },
+    {
+      "name": "LSP Gate Stereo",
+      "format": "LV2",
+      "category": "dynamics",
+      "purpose": "noise gate / transient shaping"
+    },
+    {
+      "name": "LSP Limiter Stereo",
+      "format": "LV2",
+      "category": "dynamics",
+      "purpose": "transparent brickwall limiter"
+    },
+    {
+      "name": "x42-eq - Parametric Equalizer Stereo",
+      "format": "LV2",
+      "category": "eq",
+      "purpose": "simple, clean parametric EQ (fil4)"
+    },
+    {
+      "name": "x42-comp - Dynamic Compressor Stereo",
+      "format": "LV2",
+      "category": "dynamics",
+      "purpose": "simple compressor with few controls"
+    },
+    {
+      "name": "x42-dpl - Digital Peak Limiter Stereo",
+      "format": "LV2",
+      "category": "dynamics",
+      "purpose": "simple peak limiter"
+    },
+    {
+      "name": "MDA Ambience",
+      "format": "LV2",
+      "category": "reverb",
+      "purpose": "small ambience / room"
+    },
+    {
+      "name": "MDA DubDelay",
+      "format": "LV2",
+      "category": "delay",
+      "purpose": "dub-style feedback delay"
+    },
+    {
+      "name": "MDA Overdrive",
+      "format": "LV2",
+      "category": "distortion",
+      "purpose": "soft overdrive / saturation — warm drive, grit and crunch like a driven amp (drive, muffle, output)"
+    },
+    {
+      "name": "MDA Bandisto",
+      "format": "LV2",
+      "category": "distortion",
+      "purpose": "multiband distortion — drive per band (low/mid/high), crunchy amp-like grit, tube or transistor character"
+    },
+    {
+      "name": "MDA Transient",
+      "format": "LV2",
+      "category": "dynamics",
+      "purpose": "transient shaper — harder or softer hits (attack/release emphasis), punch for chords, plucks and drums"
+    },
+    {
+      "name": "LSP Clipper Stereo",
+      "format": "LV2",
+      "category": "distortion",
+      "purpose": "clipper — hard/soft clipping of peaks, adds edge and density (drive); on by default: 'Enable input LUFS limitation' (threshold -3) and 'Overdrive protection' (threshold -1.5) — switch them off for plain clipping"
+    },
+    {
+      "name": "MDA Image",
+      "format": "LV2",
+      "category": "stereo",
+      "purpose": "stereo widener and M/S — S Width sets the side level (0.5 = mono, 0.75 = unchanged, 1 = wider), M Level the centre the same way, S Pan, M Pan; dawd starts Mode at 0.75 (left/right) — the plugin default 0.0 treats left/right as side/mid"
+    },
+    {
+      "name": "Stereo Balance Control",
+      "format": "LV2",
+      "category": "stereo",
+      "purpose": "x42 utility: polarity (phase invert left/right), L/R balance, trim, delay per channel in samples (Haas delay), channel swap or mono downmix"
+    },
+    {
+      "name": "MDA Combo",
+      "format": "LV2",
+      "category": "amp",
+      "purpose": "amp and speaker cabinet simulator — Model (D.I., speaker, radio, small combo, large stack), Drive, Bias, high-pass; mono unless Stereo is on"
+    }
+  ]
+}

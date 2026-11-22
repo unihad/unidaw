@@ -1,0 +1,2088 @@
+{
+ "plugin": {
+  "name": "Dexed",
+  "format": "VST3",
+  "uid": "d7709eec",
+  "vendor": "Digital Suburban",
+  "version": 6
+ },
+ "generated": "2026-10-27T10:04:17",
+ "measured": {
+  "version": 3,
+  "signal": "MIDI v3: legato line C4 E4 G4 E4 (overlapping), long A3 1 s, rest 0.25 s, staccato C5 velocity 50 50 120 120, chord C2+C3 E3 G3 1 s (120 BPM)",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 2.0,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct"
+  },
+  "noise": {
+   "lufs": 0.0,
+   "brightness": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0,
+   "sustain": 0.0,
+   "glide": 0.0,
+   "vibrato": 0.0,
+   "beating": 0.0,
+   "correlation": 0.0,
+   "velocity": 0.0,
+   "detune": 0.0
+  },
+  "baseline": {
+   "lufs": -21.4,
+   "silent": false,
+   "brightness": -2.408,
+   "low": -3.84,
+   "high": -40.0,
+   "width": -40.0,
+   "tail": 0.02,
+   "attack": 10.0,
+   "sustain": -13.100000000000001,
+   "glide": 0.0,
+   "vibrato": 0.0,
+   "beating": 5.0,
+   "detune": 3.0,
+   "correlation": 1.0,
+   "beatingHz": 20.0,
+   "velocity": 0.02
+  },
+  "parameters": {
+   "Cutoff": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "1"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "0.25"
+     ],
+     [
+      0.75,
+      "0.5"
+     ],
+     [
+      1.0,
+      "0.75"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 17.5,
+      "atMin": -38.9,
+      "atMax": -21.4,
+      "direction": "up",
+      "ratio": 17.5
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.16,
+      "atMin": -4.55,
+      "atMax": -2.41,
+      "direction": "up",
+      "ratio": 8.6
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 22.5,
+      "atMin": 25.5,
+      "atMax": 3.0,
+      "direction": "down",
+      "ratio": 4.5
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 3.89,
+      "atMin": -0.0,
+      "atMax": -3.84,
+      "direction": "down",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 17.5 LU, brightness ↑ 2.16 oct, detune ↓ 22.5 ct"
+   },
+   "Resonance": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "0.25"
+     ],
+     [
+      0.75,
+      "0.5"
+     ],
+     [
+      1.0,
+      "0.75"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Output": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "1"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "0.25"
+     ],
+     [
+      0.75,
+      "0.5"
+     ],
+     [
+      1.0,
+      "0.75"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 48.6,
+      "atMin": -70.0,
+      "atMax": -21.4,
+      "direction": "up",
+      "ratio": 48.6
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.7,
+      "atMin": -9.4,
+      "atMax": -13.1,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 48.6 LU, sustain ↓ 3.7 dB"
+   },
+   "MonoMode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "POLY"
+     ],
+     [
+      0.25,
+      "POLY"
+     ],
+     [
+      0.5,
+      "POLY"
+     ],
+     [
+      0.75,
+      "POLY"
+     ],
+     [
+      1.0,
+      "POLY"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.4,
+      "atMin": -21.4,
+      "atMax": -24.8,
+      "direction": "down",
+      "ratio": 3.4
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.57,
+      "atMin": -2.41,
+      "atMax": -1.84,
+      "direction": "up",
+      "ratio": 2.3
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 5.6,
+      "atMin": -13.1,
+      "atMax": -7.5,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.44,
+      "atMin": -3.84,
+      "atMax": -6.28,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↓ 3.4 LU, brightness ↑ 0.57 oct, sustain ↑ 5.6 dB"
+   },
+   "MASTER TUNE ADJ": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "-1"
+     ],
+     [
+      0.5,
+      "-0.5"
+     ],
+     [
+      0.75,
+      "0"
+     ],
+     [
+      1.0,
+      "0.499878"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.8,
+      "atMin": -11.4,
+      "atMax": -14.5,
+      "direction": "varies",
+      "ratio": 2.9
+     },
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.5,
+      "atMin": 0.25,
+      "atMax": 0.5,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 8.8 dB, glide ↑ 0.5 share"
+   },
+   "ALGORITHM": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "32"
+     ],
+     [
+      0.25,
+      "1"
+     ],
+     [
+      0.5,
+      "9"
+     ],
+     [
+      0.75,
+      "17"
+     ],
+     [
+      1.0,
+      "24"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 17.53,
+      "atMin": -40.0,
+      "atMax": -40.0,
+      "direction": "varies",
+      "ratio": 8.8
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.4,
+      "atMin": -5.1,
+      "atMax": -13.1,
+      "direction": "down",
+      "ratio": 2.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.38,
+      "atMin": -2.06,
+      "atMax": -2.41,
+      "direction": "down",
+      "ratio": 1.5
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 6.8,
+      "atMin": 9.8,
+      "atMax": 3.0,
+      "direction": "down",
+      "ratio": 1.4
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.14,
+      "atMin": -5.96,
+      "atMax": -3.84,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "highs ↕ 17.53 dB, sustain ↓ 8.4 dB, brightness ↓ 0.38 oct"
+   },
+   "FEEDBACK": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "7"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "2"
+     ],
+     [
+      0.75,
+      "4"
+     ],
+     [
+      1.0,
+      "5"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.7,
+      "atMin": -9.4,
+      "atMax": -13.1,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 3.7 dB"
+   },
+   "OSC KEY SYNC": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "ON"
+     ],
+     [
+      0.25,
+      "OFF"
+     ],
+     [
+      0.5,
+      "OFF"
+     ],
+     [
+      0.75,
+      "OFF"
+     ],
+     [
+      1.0,
+      "ON"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "LFO SPEED": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "35"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "LFO DELAY": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "LFO PM DEPTH": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 9.3,
+      "atMin": -13.1,
+      "atMax": -4.4,
+      "direction": "up",
+      "ratio": 3.1
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 9.0,
+      "atMin": 3.0,
+      "atMax": 12.0,
+      "direction": "up",
+      "ratio": 1.8
+     },
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.5,
+      "atMin": 0.0,
+      "atMax": 0.5,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↑ 9.3 dB, detune ↑ 9.0 ct, glide ↑ 0.5 share"
+   },
+   "LFO AM DEPTH": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "LFO KEY SYNC": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "ON"
+     ],
+     [
+      0.25,
+      "OFF"
+     ],
+     [
+      0.5,
+      "OFF"
+     ],
+     [
+      0.75,
+      "OFF"
+     ],
+     [
+      1.0,
+      "ON"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "LFO WAVE": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "TRIANGE"
+     ],
+     [
+      0.25,
+      "TRIANGE"
+     ],
+     [
+      0.5,
+      "SAW DOWN"
+     ],
+     [
+      0.75,
+      "SAW UP"
+     ],
+     [
+      1.0,
+      "SINE"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "TRANSPOSE": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "-24"
+     ],
+     [
+      0.5,
+      "-12"
+     ],
+     [
+      0.75,
+      "0"
+     ],
+     [
+      1.0,
+      "12"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 79.7,
+      "atMin": -89.3,
+      "atMax": -10.5,
+      "direction": "varies",
+      "ratio": 26.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 3.37,
+      "atMin": -3.84,
+      "atMax": -0.47,
+      "direction": "up",
+      "ratio": 13.5
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 14.23,
+      "atMin": -0.0,
+      "atMax": -14.23,
+      "direction": "down",
+      "ratio": 7.1
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.2,
+      "atMin": -24.9,
+      "atMax": -19.7,
+      "direction": "up",
+      "ratio": 5.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "sustain ↕ 79.7 dB, brightness ↑ 3.37 oct, lows ↓ 14.23 dB"
+   },
+   "P MODE SENS.": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "3"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "2"
+     ],
+     [
+      0.75,
+      "4"
+     ],
+     [
+      1.0,
+      "5"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "PITCH EG RATE 1": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "99"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "PITCH EG LEVEL 1": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "50"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 19.61,
+      "atMin": -40.0,
+      "atMax": -20.39,
+      "direction": "up",
+      "ratio": 9.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.19,
+      "atMin": -3.14,
+      "atMax": -0.95,
+      "direction": "up",
+      "ratio": 8.8
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 39.0,
+      "atMin": 27.2,
+      "atMax": 42.0,
+      "direction": "varies",
+      "ratio": 7.8
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 8.41,
+      "atMin": -1.88,
+      "atMax": -10.29,
+      "direction": "down",
+      "ratio": 4.2
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.7,
+      "atMin": -23.0,
+      "atMax": -20.3,
+      "direction": "up",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "strong",
+    "summary": "highs ↑ 19.61 dB, brightness ↑ 2.19 oct, detune ↕ 39.0 ct"
+   },
+   "OP1 EG RATE 1": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "70"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 105.0,
+      "atMin": 0.0,
+      "atMax": 0.0,
+      "direction": "varies",
+      "ratio": 4.2
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 5.1,
+      "atMin": 9.6,
+      "atMax": 5.2,
+      "direction": "down",
+      "ratio": 2.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.5,
+      "atMin": -23.7,
+      "atMax": -21.4,
+      "direction": "up",
+      "ratio": 2.5
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.6,
+      "atMin": -2.95,
+      "atMax": -2.37,
+      "direction": "up",
+      "ratio": 2.4
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.0,
+      "atMin": -13.3,
+      "atMax": -13.8,
+      "direction": "varies",
+      "ratio": 2.3
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.41,
+      "atMin": -1.58,
+      "atMax": -3.95,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "attack ↕ 105.0 ms, level beating ↓ 5.1 dB, loudness ↑ 2.5 LU"
+   },
+   "OP1 EG LEVEL 1": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "99"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 160.0,
+      "atMin": 95.0,
+      "atMax": 10.0,
+      "direction": "varies",
+      "ratio": 6.4
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.6,
+      "atMin": -22.4,
+      "atMax": -21.4,
+      "direction": "varies",
+      "ratio": 2.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.58,
+      "atMin": -2.99,
+      "atMax": -2.41,
+      "direction": "up",
+      "ratio": 2.3
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.24,
+      "atMin": -1.6,
+      "atMax": -3.84,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "attack ↕ 160.0 ms, loudness ↕ 2.6 LU, brightness ↑ 0.58 oct"
+   },
+   "OP1 OUTPUT LEVEL": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "99"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 2.0,
+      "atMin": 0.28,
+      "atMax": -1.65,
+      "direction": "down",
+      "ratio": 13.3
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 9.0,
+      "atMin": -14.6,
+      "atMax": -13.1,
+      "direction": "varies",
+      "ratio": 3.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.7,
+      "atMin": -23.7,
+      "atMax": -21.4,
+      "direction": "up",
+      "ratio": 2.7
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 5.2,
+      "atMin": 10.1,
+      "atMax": 5.0,
+      "direction": "down",
+      "ratio": 2.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.54,
+      "atMin": -2.95,
+      "atMax": -2.41,
+      "direction": "up",
+      "ratio": 2.2
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.25,
+      "atMin": -1.59,
+      "atMax": -3.84,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↓ 2.0 oct, sustain ↕ 9.0 dB, loudness ↑ 2.7 LU"
+   },
+   "OP1 MODE": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "RATIO"
+     ],
+     [
+      0.25,
+      "RATIO"
+     ],
+     [
+      0.5,
+      "RATIO"
+     ],
+     [
+      0.75,
+      "RATIO"
+     ],
+     [
+      1.0,
+      "FIXED"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.1,
+      "atMin": -21.4,
+      "atMax": -24.5,
+      "direction": "down",
+      "ratio": 3.1
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.59,
+      "atMin": -2.41,
+      "atMax": -2.99,
+      "direction": "down",
+      "ratio": 2.3
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.3,
+      "atMin": -3.84,
+      "atMax": -1.54,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↓ 3.1 LU, brightness ↓ 0.59 oct, lows ↑ 2.3 dB"
+   },
+   "OP1 F COARSE": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "1"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "8"
+     ],
+     [
+      0.75,
+      "16"
+     ],
+     [
+      1.0,
+      "23"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 37.98,
+      "atMin": -40.0,
+      "atMax": -2.02,
+      "direction": "up",
+      "ratio": 19.0
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 4.15,
+      "atMin": -3.08,
+      "atMax": 1.07,
+      "direction": "up",
+      "ratio": 16.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 4.0,
+      "atMin": -21.9,
+      "atMax": -17.9,
+      "direction": "up",
+      "ratio": 4.0
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.6,
+      "atMin": -0.0,
+      "atMax": 0.01,
+      "direction": "varies",
+      "ratio": 4.0
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 5.5,
+      "atMin": -1.21,
+      "atMax": -6.7,
+      "direction": "down",
+      "ratio": 2.8
+     }
+    ],
+    "strength": "strong",
+    "summary": "highs ↑ 37.98 dB, brightness ↑ 4.15 oct, loudness ↑ 4.0 LU"
+   },
+   "OP1 F FINE": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 1.98,
+      "atMin": -1.88,
+      "atMax": 0.1,
+      "direction": "up",
+      "ratio": 13.2
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.7,
+      "atMin": -2.41,
+      "atMax": -1.71,
+      "direction": "up",
+      "ratio": 2.8
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 6.6,
+      "atMin": -13.1,
+      "atMax": -9.4,
+      "direction": "varies",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↑ 1.98 oct, brightness ↑ 0.7 oct, sustain ↕ 6.6 dB"
+   },
+   "OP1 OSC DETUNE": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "-7"
+     ],
+     [
+      0.5,
+      "-3"
+     ],
+     [
+      0.75,
+      "0"
+     ],
+     [
+      1.0,
+      "3"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "OP1 BREAK POINT": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "A-1"
+     ],
+     [
+      0.25,
+      "A-1"
+     ],
+     [
+      0.5,
+      "A#1"
+     ],
+     [
+      0.75,
+      "B3"
+     ],
+     [
+      1.0,
+      "B5"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "OP1 L SCALE DEPTH": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "OP1 R SCALE DEPTH": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "25"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "74"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 2.02,
+      "atMin": -1.65,
+      "atMax": 0.28,
+      "direction": "up",
+      "ratio": 13.5
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.8,
+      "atMin": -21.4,
+      "atMax": -23.7,
+      "direction": "down",
+      "ratio": 2.8
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.3,
+      "atMin": -13.1,
+      "atMax": -14.6,
+      "direction": "varies",
+      "ratio": 2.8
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 5.1,
+      "atMin": 5.0,
+      "atMax": 10.1,
+      "direction": "up",
+      "ratio": 2.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.58,
+      "atMin": -2.41,
+      "atMax": -2.95,
+      "direction": "down",
+      "ratio": 2.3
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.32,
+      "atMin": -3.84,
+      "atMax": -1.59,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↑ 2.02 oct, loudness ↓ 2.8 LU, sustain ↕ 8.3 dB"
+   },
+   "OP1 L KEY SCALE": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "-LN"
+     ],
+     [
+      0.25,
+      "-LN"
+     ],
+     [
+      0.5,
+      "-EX"
+     ],
+     [
+      0.75,
+      "+EX"
+     ],
+     [
+      1.0,
+      "+EX"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "OP1 R KEY SCALE": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "-LN"
+     ],
+     [
+      0.25,
+      "-LN"
+     ],
+     [
+      0.5,
+      "-EX"
+     ],
+     [
+      0.75,
+      "+EX"
+     ],
+     [
+      1.0,
+      "+EX"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "OP1 RATE SCALING": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "2"
+     ],
+     [
+      0.75,
+      "4"
+     ],
+     [
+      1.0,
+      "5"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 1.11,
+      "atMin": -0.07,
+      "atMax": -1.18,
+      "direction": "down",
+      "ratio": 7.4
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.6,
+      "atMin": -21.4,
+      "atMax": -25.0,
+      "direction": "down",
+      "ratio": 3.6
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 4.2,
+      "atMin": 5.0,
+      "atMax": 9.2,
+      "direction": "up",
+      "ratio": 2.1
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.33,
+      "atMin": -2.41,
+      "atMax": -2.74,
+      "direction": "down",
+      "ratio": 1.3
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": -13.1,
+      "atMax": -14.6,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↓ 1.11 oct, loudness ↓ 3.6 LU, level beating ↑ 4.2 dB"
+   },
+   "OP1 A MOD SENS.": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "2"
+     ],
+     [
+      1.0,
+      "2"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "OP1 KEY VELOCITY": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "2"
+     ],
+     [
+      0.75,
+      "4"
+     ],
+     [
+      1.0,
+      "5"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 18.81,
+      "atMin": 0.02,
+      "atMax": 18.83,
+      "direction": "up",
+      "ratio": 9.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "velocity response ↑ 18.81 dB"
+   },
+   "OP1 SWITCH": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "OP1 SWITCH ON"
+     ],
+     [
+      0.25,
+      "OP1 SWITCH OFF"
+     ],
+     [
+      0.5,
+      "OP1 SWITCH ON"
+     ],
+     [
+      0.75,
+      "OP1 SWITCH ON"
+     ],
+     [
+      1.0,
+      "OP1 SWITCH ON"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 5.1,
+      "atMin": 10.1,
+      "atMax": 5.0,
+      "direction": "down",
+      "ratio": 2.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.3,
+      "atMin": -23.7,
+      "atMax": -21.4,
+      "direction": "up",
+      "ratio": 2.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.54,
+      "atMin": -2.95,
+      "atMax": -2.41,
+      "direction": "up",
+      "ratio": 2.2
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.25,
+      "atMin": -1.59,
+      "atMax": -3.84,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "level beating ↓ 5.1 dB, loudness ↑ 2.3 LU, brightness ↑ 0.54 oct"
+   },
+   "PITCH EG RATE 2": {
+    "sameAs": "PITCH EG RATE 1"
+   },
+   "PITCH EG RATE 3": {
+    "sameAs": "PITCH EG RATE 1"
+   },
+   "PITCH EG RATE 4": {
+    "sameAs": "PITCH EG RATE 1"
+   },
+   "PITCH EG LEVEL 2": {
+    "sameAs": "PITCH EG LEVEL 1"
+   },
+   "PITCH EG LEVEL 3": {
+    "sameAs": "PITCH EG LEVEL 1"
+   },
+   "PITCH EG LEVEL 4": {
+    "sameAs": "PITCH EG LEVEL 1"
+   },
+   "OP1 EG RATE 2": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP1 EG RATE 3": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP1 EG RATE 4": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP1 EG LEVEL 2": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP1 EG LEVEL 3": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP1 EG LEVEL 4": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP2 EG RATE 1": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP2 EG RATE 2": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP2 EG RATE 3": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP2 EG RATE 4": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP2 EG LEVEL 1": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP2 EG LEVEL 2": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP2 EG LEVEL 3": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP2 EG LEVEL 4": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP2 OUTPUT LEVEL": {
+    "sameAs": "OP1 OUTPUT LEVEL"
+   },
+   "OP2 MODE": {
+    "sameAs": "OP1 MODE"
+   },
+   "OP2 F COARSE": {
+    "sameAs": "OP1 F COARSE"
+   },
+   "OP2 F FINE": {
+    "sameAs": "OP1 F FINE"
+   },
+   "OP2 OSC DETUNE": {
+    "sameAs": "OP1 OSC DETUNE"
+   },
+   "OP2 BREAK POINT": {
+    "sameAs": "OP1 BREAK POINT"
+   },
+   "OP2 L SCALE DEPTH": {
+    "sameAs": "OP1 L SCALE DEPTH"
+   },
+   "OP2 R SCALE DEPTH": {
+    "sameAs": "OP1 R SCALE DEPTH"
+   },
+   "OP2 L KEY SCALE": {
+    "sameAs": "OP1 L KEY SCALE"
+   },
+   "OP2 R KEY SCALE": {
+    "sameAs": "OP1 R KEY SCALE"
+   },
+   "OP2 RATE SCALING": {
+    "sameAs": "OP1 RATE SCALING"
+   },
+   "OP2 A MOD SENS.": {
+    "sameAs": "OP1 A MOD SENS."
+   },
+   "OP2 KEY VELOCITY": {
+    "sameAs": "OP1 KEY VELOCITY"
+   },
+   "OP2 SWITCH": {
+    "sameAs": "OP1 SWITCH"
+   },
+   "OP3 EG RATE 1": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP3 EG RATE 2": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP3 EG RATE 3": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP3 EG RATE 4": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP3 EG LEVEL 1": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP3 EG LEVEL 2": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP3 EG LEVEL 3": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP3 EG LEVEL 4": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP3 OUTPUT LEVEL": {
+    "sameAs": "OP1 OUTPUT LEVEL"
+   },
+   "OP3 MODE": {
+    "sameAs": "OP1 MODE"
+   },
+   "OP3 F COARSE": {
+    "sameAs": "OP1 F COARSE"
+   },
+   "OP3 F FINE": {
+    "sameAs": "OP1 F FINE"
+   },
+   "OP3 OSC DETUNE": {
+    "sameAs": "OP1 OSC DETUNE"
+   },
+   "OP3 BREAK POINT": {
+    "sameAs": "OP1 BREAK POINT"
+   },
+   "OP3 L SCALE DEPTH": {
+    "sameAs": "OP1 L SCALE DEPTH"
+   },
+   "OP3 R SCALE DEPTH": {
+    "sameAs": "OP1 R SCALE DEPTH"
+   },
+   "OP3 L KEY SCALE": {
+    "sameAs": "OP1 L KEY SCALE"
+   },
+   "OP3 R KEY SCALE": {
+    "sameAs": "OP1 R KEY SCALE"
+   },
+   "OP3 RATE SCALING": {
+    "sameAs": "OP1 RATE SCALING"
+   },
+   "OP3 A MOD SENS.": {
+    "sameAs": "OP1 A MOD SENS."
+   },
+   "OP3 KEY VELOCITY": {
+    "sameAs": "OP1 KEY VELOCITY"
+   },
+   "OP3 SWITCH": {
+    "sameAs": "OP1 SWITCH"
+   },
+   "OP4 EG RATE 1": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP4 EG RATE 2": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP4 EG RATE 3": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP4 EG RATE 4": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP4 EG LEVEL 1": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP4 EG LEVEL 2": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP4 EG LEVEL 3": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP4 EG LEVEL 4": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP4 OUTPUT LEVEL": {
+    "sameAs": "OP1 OUTPUT LEVEL"
+   },
+   "OP4 MODE": {
+    "sameAs": "OP1 MODE"
+   },
+   "OP4 F COARSE": {
+    "sameAs": "OP1 F COARSE"
+   },
+   "OP4 F FINE": {
+    "sameAs": "OP1 F FINE"
+   },
+   "OP4 OSC DETUNE": {
+    "sameAs": "OP1 OSC DETUNE"
+   },
+   "OP4 BREAK POINT": {
+    "sameAs": "OP1 BREAK POINT"
+   },
+   "OP4 L SCALE DEPTH": {
+    "sameAs": "OP1 L SCALE DEPTH"
+   },
+   "OP4 R SCALE DEPTH": {
+    "sameAs": "OP1 R SCALE DEPTH"
+   },
+   "OP4 L KEY SCALE": {
+    "sameAs": "OP1 L KEY SCALE"
+   },
+   "OP4 R KEY SCALE": {
+    "sameAs": "OP1 R KEY SCALE"
+   },
+   "OP4 RATE SCALING": {
+    "sameAs": "OP1 RATE SCALING"
+   },
+   "OP4 A MOD SENS.": {
+    "sameAs": "OP1 A MOD SENS."
+   },
+   "OP4 KEY VELOCITY": {
+    "sameAs": "OP1 KEY VELOCITY"
+   },
+   "OP4 SWITCH": {
+    "sameAs": "OP1 SWITCH"
+   },
+   "OP5 EG RATE 1": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP5 EG RATE 2": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP5 EG RATE 3": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP5 EG RATE 4": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP5 EG LEVEL 1": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP5 EG LEVEL 2": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP5 EG LEVEL 3": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP5 EG LEVEL 4": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP5 OUTPUT LEVEL": {
+    "sameAs": "OP1 OUTPUT LEVEL"
+   },
+   "OP5 MODE": {
+    "sameAs": "OP1 MODE"
+   },
+   "OP5 F COARSE": {
+    "sameAs": "OP1 F COARSE"
+   },
+   "OP5 F FINE": {
+    "sameAs": "OP1 F FINE"
+   },
+   "OP5 OSC DETUNE": {
+    "sameAs": "OP1 OSC DETUNE"
+   },
+   "OP5 BREAK POINT": {
+    "sameAs": "OP1 BREAK POINT"
+   },
+   "OP5 L SCALE DEPTH": {
+    "sameAs": "OP1 L SCALE DEPTH"
+   },
+   "OP5 R SCALE DEPTH": {
+    "sameAs": "OP1 R SCALE DEPTH"
+   },
+   "OP5 L KEY SCALE": {
+    "sameAs": "OP1 L KEY SCALE"
+   },
+   "OP5 R KEY SCALE": {
+    "sameAs": "OP1 R KEY SCALE"
+   },
+   "OP5 RATE SCALING": {
+    "sameAs": "OP1 RATE SCALING"
+   },
+   "OP5 A MOD SENS.": {
+    "sameAs": "OP1 A MOD SENS."
+   },
+   "OP5 KEY VELOCITY": {
+    "sameAs": "OP1 KEY VELOCITY"
+   },
+   "OP5 SWITCH": {
+    "sameAs": "OP1 SWITCH"
+   },
+   "OP6 EG RATE 1": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP6 EG RATE 2": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP6 EG RATE 3": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP6 EG RATE 4": {
+    "sameAs": "OP1 EG RATE 1"
+   },
+   "OP6 EG LEVEL 1": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP6 EG LEVEL 2": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP6 EG LEVEL 3": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP6 EG LEVEL 4": {
+    "sameAs": "OP1 EG LEVEL 1"
+   },
+   "OP6 OUTPUT LEVEL": {
+    "sameAs": "OP1 OUTPUT LEVEL"
+   },
+   "OP6 MODE": {
+    "sameAs": "OP1 MODE"
+   },
+   "OP6 F COARSE": {
+    "sameAs": "OP1 F COARSE"
+   },
+   "OP6 F FINE": {
+    "sameAs": "OP1 F FINE"
+   },
+   "OP6 OSC DETUNE": {
+    "sameAs": "OP1 OSC DETUNE"
+   },
+   "OP6 BREAK POINT": {
+    "sameAs": "OP1 BREAK POINT"
+   },
+   "OP6 L SCALE DEPTH": {
+    "sameAs": "OP1 L SCALE DEPTH"
+   },
+   "OP6 R SCALE DEPTH": {
+    "sameAs": "OP1 R SCALE DEPTH"
+   },
+   "OP6 L KEY SCALE": {
+    "sameAs": "OP1 L KEY SCALE"
+   },
+   "OP6 R KEY SCALE": {
+    "sameAs": "OP1 R KEY SCALE"
+   },
+   "OP6 RATE SCALING": {
+    "sameAs": "OP1 RATE SCALING"
+   },
+   "OP6 A MOD SENS.": {
+    "sameAs": "OP1 A MOD SENS."
+   },
+   "OP6 KEY VELOCITY": {
+    "sameAs": "OP1 KEY VELOCITY"
+   },
+   "OP6 SWITCH": {
+    "sameAs": "OP1 SWITCH"
+   }
+  },
+  "switches": []
+ }
+}

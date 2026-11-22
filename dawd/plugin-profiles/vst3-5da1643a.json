@@ -1,0 +1,1661 @@
+{
+ "plugin": {
+  "name": "sfizz",
+  "format": "VST3",
+  "uid": "5da1643a",
+  "vendor": "SFZTools",
+  "version": 392
+ },
+ "generated": "2026-10-17T14:20:25",
+ "measured": {
+  "signal": "MIDI: chord C3–E4 held 1.5 s, short C5, long C2 (120 BPM)",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st"
+  },
+  "noise": {
+   "lufs": 0.0,
+   "brightness": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0
+  },
+  "baseline": {
+   "lufs": -6.2,
+   "silent": false,
+   "brightness": -2.355,
+   "low": -5.15,
+   "high": -40.0,
+   "width": -40.0,
+   "tail": 0.06,
+   "attack": 25.0
+  },
+  "parameters": {
+   "Volume": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-60.0000"
+     ],
+     [
+      0.25,
+      "-43.5000"
+     ],
+     [
+      0.5,
+      "-27.0000"
+     ],
+     [
+      0.75,
+      "-10.5000"
+     ],
+     [
+      1.0,
+      "6.0000"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 60.5,
+      "atMin": -63.7,
+      "atMax": -3.2,
+      "direction": "up",
+      "ratio": 60.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 60.5 LU"
+   },
+   "Controller 0": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0000"
+     ],
+     [
+      0.25,
+      "0.2500"
+     ],
+     [
+      0.5,
+      "0.5000"
+     ],
+     [
+      0.75,
+      "0.7500"
+     ],
+     [
+      1.0,
+      "1.0000"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Controller 1": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 2": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 3": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 4": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 5": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 6": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 7": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 8": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 9": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 10": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 11": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 12": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 13": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 14": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 15": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 16": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 17": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 18": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 19": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 20": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 21": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 22": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 23": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 24": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 25": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 26": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 27": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 28": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 29": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 30": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 31": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 32": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 33": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 34": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 35": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 36": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 37": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 38": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 39": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 40": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 41": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 42": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 43": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 44": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 45": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 46": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 47": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 48": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 49": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 50": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 51": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 52": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 53": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 54": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 55": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 56": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 57": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 58": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 59": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 60": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 61": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 62": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 63": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 64": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 65": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 66": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 67": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 68": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 69": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 70": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 71": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 72": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 73": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 74": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 75": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 76": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 77": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 78": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 79": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 80": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 81": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 82": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 83": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 84": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 85": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 86": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 87": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 88": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 89": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 90": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 91": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 92": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 93": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 94": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 95": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 96": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 97": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 98": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 99": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 100": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 101": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 102": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 103": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 104": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 105": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 106": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 107": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 108": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 109": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 110": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 111": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 112": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 113": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 114": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 115": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 116": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 117": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 118": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 119": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 120": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 121": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 122": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 123": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 124": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 125": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 126": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 127": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 128": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 129": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 130": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 131": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 132": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 133": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 134": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 135": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 136": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 137": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 138": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 139": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 140": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 141": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 142": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 143": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 144": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 145": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 146": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 147": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 148": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 149": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 150": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 151": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 152": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 153": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 154": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 155": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 156": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 157": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 158": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 159": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 160": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 161": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 162": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 163": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 164": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 165": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 166": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 167": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 168": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 169": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 170": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 171": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 172": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 173": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 174": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 175": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 176": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 177": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 178": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 179": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 180": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 181": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 182": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 183": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 184": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 185": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 186": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 187": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 188": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 189": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 190": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 191": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 192": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 193": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 194": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 195": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 196": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 197": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 198": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 199": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 200": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 201": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 202": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 203": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 204": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 205": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 206": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 207": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 208": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 209": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 210": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 211": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 212": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 213": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 214": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 215": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 216": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 217": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 218": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 219": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 220": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 221": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 222": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 223": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 224": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 225": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 226": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 227": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 228": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 229": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 230": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 231": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 232": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 233": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 234": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 235": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 236": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 237": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 238": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 239": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 240": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 241": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 242": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 243": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 244": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 245": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 246": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 247": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 248": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 249": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 250": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 251": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 252": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 253": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 254": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 255": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 256": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 257": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 258": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 259": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 260": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 261": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 262": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 263": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 264": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 265": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 266": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 267": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 268": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 269": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 270": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 271": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 272": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 273": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 274": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 275": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 276": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 277": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 278": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 279": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 280": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 281": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 282": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 283": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 284": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 285": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 286": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 287": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 288": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 289": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 290": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 291": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 292": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 293": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 294": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 295": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 296": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 297": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 298": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 299": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 300": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 301": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 302": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 303": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 304": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 305": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 306": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 307": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 308": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 309": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 310": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 311": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 312": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 313": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 314": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 315": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 316": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 317": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 318": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 319": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 320": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 321": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 322": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 323": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 324": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 325": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 326": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 327": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 328": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 329": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 330": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 331": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 332": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 333": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 334": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 335": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 336": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 337": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 338": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 339": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 340": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 341": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 342": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 343": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 344": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 345": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 346": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 347": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 348": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 349": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 350": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 351": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 352": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 353": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 354": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 355": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 356": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 357": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 358": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 359": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 360": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 361": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 362": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 363": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 364": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 365": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 366": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 367": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 368": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 369": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 370": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 371": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 372": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 373": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 374": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 375": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 376": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 377": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 378": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 379": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 380": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 381": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 382": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 383": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 384": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 385": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 386": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 387": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 388": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 389": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 390": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 391": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 392": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 393": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 394": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 395": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 396": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 397": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 398": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 399": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 400": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 401": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 402": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 403": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 404": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 405": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 406": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 407": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 408": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 409": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 410": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 411": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 412": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 413": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 414": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 415": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 416": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 417": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 418": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 419": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 420": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 421": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 422": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 423": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 424": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 425": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 426": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 427": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 428": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 429": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 430": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 431": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 432": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 433": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 434": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 435": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 436": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 437": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 438": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 439": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 440": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 441": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 442": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 443": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 444": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 445": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 446": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 447": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 448": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 449": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 450": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 451": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 452": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 453": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 454": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 455": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 456": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 457": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 458": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 459": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 460": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 461": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 462": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 463": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 464": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 465": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 466": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 467": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 468": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 469": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 470": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 471": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 472": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 473": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 474": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 475": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 476": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 477": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 478": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 479": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 480": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 481": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 482": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 483": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 484": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 485": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 486": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 487": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 488": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 489": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 490": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 491": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 492": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 493": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 494": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 495": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 496": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 497": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 498": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 499": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 500": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 501": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 502": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 503": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 504": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 505": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 506": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 507": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 508": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 509": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 510": {
+    "sameAs": "Controller 0"
+   },
+   "Controller 511": {
+    "sameAs": "Controller 0"
+   }
+  },
+  "switches": []
+ }
+}

@@ -1,0 +1,7 @@
+mode=helm cpus=16 sr=44100 block=512 budgetMs=11.61
+scenario,n,mean1Ms,p99_1Ms,max1Ms,over1,meanAllMs,p99AllMs,maxAllMs,overAll,blocks,peak
+helmInstances,1,0.073,0.115,0.221,0,0.135,0.288,0.512,0,2583,0.775
+helmInstances,4,0.368,0.599,0.826,0,0.184,0.318,0.610,0,2583,2.035
+helmInstances,8,0.957,1.334,1.590,0,0.248,0.387,0.807,0,2583,3.550
+helmInstances,16,1.988,2.698,3.159,0,0.480,0.755,1.094,0,2583,6.686
+helmInstances,32,3.954,5.372,11.256,0,1.056,1.524,2.534,0,2583,13.434

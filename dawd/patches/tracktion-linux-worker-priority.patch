@@ -1,0 +1,27 @@
+--- a/modules/tracktion_graph/utilities/tracktion_Threads.cpp	2026-10-17 20:45:27.638625965 +0200
++++ b/modules/tracktion_graph/utilities/tracktion_Threads.cpp	2026-10-17 20:45:27.654018359 +0200
+@@ -50,6 +50,24 @@
+         const int maxPriority = sched_get_priority_max (policy);
+ 
+         param.sched_priority = ((maxPriority - minPriority) * priority) / 10 + minPriority;
++
++        // TRACKTION_RT_PRIORITY (1..99): fixed SCHED_FIFO priority for realtime levels.
++        // Without it, level 10 asks for SCHED_RR 99, which fails under the usual
++        // RLIMIT_RTPRIO (e.g. 95) and leaves the audio workers non-realtime; and a
++        // priority above the sound server's own thread starves it while workers spin.
++        if (priority > 0)
++        {
++            if (const char* env = std::getenv ("TRACKTION_RT_PRIORITY"))
++            {
++                if (const int fixed = std::atoi (env); fixed > 0)
++                {
++                    policy = SCHED_FIFO;
++                    param.sched_priority = std::max (sched_get_priority_min (SCHED_FIFO),
++                                                     std::min (sched_get_priority_max (SCHED_FIFO), fixed));
++                }
++            }
++        }
++
+         return pthread_setschedparam ((pthread_t) handle, policy, &param) == 0;
+     }
+ #endif

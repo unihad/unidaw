@@ -1,0 +1,20 @@
+#!/bin/sh
+# Startet unidaw im AppImage mit den gebuendelten Bibliotheken aus diesem
+# Ordner (usr/lib). unidaw selbst liegt in usr/bin — von dort findet es seine
+# Ressourcen in usr/share/unidaw (dawd/source/Resources.h).
+#
+# libstdc++/libgcc_s (usr/lib/cxx) stammen von der aelteren Basis
+# (docs/appimage.md). Hat das System eine neuere libstdc++, nimmt unidaw die
+# des Systems: Plugins, die gegen sie gebaut sind, laden sonst nicht.
+here="$(dirname "$(readlink -f "$0")")"
+newest () { grep -ao 'GLIBCXX_3\.4\.[0-9]*' "$1" 2>/dev/null | sed 's/.*\.//' | sort -n | tail -1; }
+path="$here"
+sys=""
+for f in /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /usr/lib64/libstdc++.so.6 /usr/lib/libstdc++.so.6; do
+    if [ -f "$f" ]; then sys="$f"; break; fi
+done
+if [ -z "$sys" ] || [ "$(newest "$sys")" -le "$(newest "$here/cxx/libstdc++.so.6")" ] 2>/dev/null \
+    || [ -z "$(newest "$sys")" ]; then
+    path="$here:$here/cxx"
+fi
+LD_LIBRARY_PATH="$path${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" exec "$here/../bin/unidaw" "$@"

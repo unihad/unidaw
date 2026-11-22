@@ -1,0 +1,23 @@
+--- a/modules/tracktion_engine/playback/tracktion_EditPlaybackContext.cpp
++++ b/modules/tracktion_engine/playback/tracktion_EditPlaybackContext.cpp
+@@ -548,8 +548,20 @@
+     TRACKTION_ASSERT_MESSAGE_THREAD
+     CRASH_TRACER
+ 
++    // clearNodes() stops the play head, and the transport then stops itself when its
++    // timer finds the play head stopped. Rebuilding the devices (e.g. a MIDI port
++    // appearing) shouldn't end playback, so keep the play head rolling; the graph is
++    // rebuilt by the restart that follows. Recordings are discarded here, so those stop.
++    const bool keepPlaying = nodePlaybackContext != nullptr
++                              && nodePlaybackContext->playHead.isPlaying()
++                              && ! transport.isRecording();
++
+     const juce::ScopedValueSetter<bool> alocateSetter (isAllocated, isAllocated);
+     clearNodes();
++
++    if (keepPlaying)
++        nodePlaybackContext->playHead.play();
++
+     midiDispatcher.setMidiDeviceList (juce::OwnedArray<MidiOutputDeviceInstance>());
+ 
+     // Clear the outputs before the inputs as the midi inputs will be referenced by the MidiDeviceInstanceBase::Consumer

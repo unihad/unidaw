@@ -1,0 +1,50 @@
+diff --git a/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h b/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
+index e74c93c..ec4ca94 100644
+--- a/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
++++ b/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
+@@ -3126,6 +3126,23 @@ public:
+                                         });
+     }
+ 
++    /*  Values set by the host that have not been passed to the processor yet.
++        Clears their "needs processor update" flags; hand them back with
++        restorePendingProcessorValues().
++    */
++    std::vector<std::pair<size_t, float>> takePendingProcessorValues()
++    {
++        std::vector<std::pair<size_t, float>> result;
++        cache.ifProcessorValuesChanged ([&] (size_t index, float value) { result.emplace_back (index, value); });
++        return result;
++    }
++
++    void restorePendingProcessorValues (const std::vector<std::pair<size_t, float>>& pending)
++    {
++        for (const auto& [index, value] : pending)
++            cache.set (index, value, Update::yes);
++    }
++
+     void postChangedParametersToUi (UiEventListener* target,
+                                     const ParameterWriterUrids helperUrids,
+                                     MessageBufferInterface<UiMessageHeader>& uiMessages)
+@@ -3461,6 +3478,13 @@ public:
+ 
+         deactivate();
+ 
++        // Parameter changes made since the last processBlock() only live in the
++        // parameter cache, not in the control ports that the saved state is read
++        // from, and restoring the state below overwrites the cache. Keep them and
++        // re-apply them to the new instance, otherwise a value set before the
++        // first prepareToPlay() (or between two prepareToPlay() calls) is lost.
++        const auto pending = parameterValues.takePendingProcessorValues();
++
+         MemoryBlock mb;
+         getStateInformation (mb);
+ 
+@@ -3473,6 +3497,7 @@ public:
+ 
+         // prepareToPlay is *guaranteed* not to be called concurrently with processBlock
+         setStateInformationImpl (mb.getData(), (int) mb.getSize(), ConcurrentWithAudioCallback::no);
++        parameterValues.restorePendingProcessorValues (pending);
+ 
+         jassert (numSamples == instance->features.getMaxBlockSize());
+         activate();

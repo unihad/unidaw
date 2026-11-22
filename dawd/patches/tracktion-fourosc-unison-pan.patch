@@ -1,0 +1,15 @@
+--- a/modules/tracktion_engine/utilities/tracktion_Oscillators.cpp
++++ b/modules/tracktion_engine/utilities/tracktion_Oscillators.cpp
+@@ -289,8 +289,10 @@
+             int voiceIndex = (i / 2);
+             float localPan = juce::jlimit (-1.0f, 1.0f, ((voiceIndex % 2 == 0) ? 1 : -1) * spread);
+ 
+-            float leftGain  = 1.0f - localPan;
+-            float rightGain = 1.0f + localPan;
++            // Pan works as a balance on top of the spread, as with a single voice:
++            // centred it changes nothing, fully left silences the right side
++            float leftGain  = (1.0f - localPan) * (1.0f - pan);
++            float rightGain = (1.0f + localPan) * (1.0f + pan);
+ 
+             float base = note - detune / 2;
+             float delta = detune / float (voices - 1);

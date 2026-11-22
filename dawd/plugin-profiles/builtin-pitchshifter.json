@@ -1,0 +1,193 @@
+{
+ "plugin": {
+  "name": "Pitch Shifter",
+  "format": "builtin",
+  "uid": "pitchShifter",
+  "vendor": "dawd",
+  "version": 6
+ },
+ "generated": "2026-10-27T14:40:42",
+ "measured": {
+  "version": 4,
+  "signal": "audio v4: pink noise 1 s, clicks, 4 noise bursts (100 ms loud, 150 ms 40 dB quieter), sine sweep 80 Hz–8 kHz, then silence",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 2.0,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0,
+   "burstOnset": 1.0,
+   "burstEarly": 1.0,
+   "burstLate": 1.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct",
+   "burstOnset": "dB",
+   "burstEarly": "dB",
+   "burstLate": "dB"
+  },
+  "noise": {
+   "lufs": 0.0,
+   "brightness": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0,
+   "burstOnset": 0.0,
+   "burstEarly": 0.0,
+   "burstLate": 0.0
+  },
+  "baseline": {
+   "lufs": -8.8,
+   "silent": false,
+   "brightness": -1.142,
+   "low": -4.21,
+   "high": -6.82,
+   "width": -40.0,
+   "tail": 0.01,
+   "attack": 20.0,
+   "burstOnset": -0.26,
+   "burstEarly": -39.62,
+   "burstLate": -39.7,
+   "burstLag": 0
+  },
+  "parameters": {
+   "Semitones": {
+    "scale": "text",
+    "points": [
+     [
+      0.0,
+      "-24 semitones"
+     ],
+     [
+      0.25,
+      "-12 semitones"
+     ],
+     [
+      0.5,
+      "(Original pitch)"
+     ],
+     [
+      0.75,
+      "+12 semitones"
+     ],
+     [
+      1.0,
+      "+24 semitones"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 32.36,
+      "atMin": -7.61,
+      "atMax": -39.97,
+      "direction": "varies",
+      "ratio": 32.4
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 26.87,
+      "atMin": -17.37,
+      "atMax": -12.75,
+      "direction": "varies",
+      "ratio": 26.9
+     },
+     {
+      "metric": "burstOnset",
+      "unit": "dB",
+      "span": 24.82,
+      "atMin": -3.87,
+      "atMax": -18.14,
+      "direction": "varies",
+      "ratio": 24.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.42,
+      "atMin": -2.54,
+      "atMax": -0.12,
+      "direction": "up",
+      "ratio": 9.7
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 7.5,
+      "atMin": -16.3,
+      "atMax": -10.7,
+      "direction": "varies",
+      "ratio": 7.5
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 185.0,
+      "atMin": 25.0,
+      "atMax": 190.0,
+      "direction": "varies",
+      "ratio": 7.4
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 5.65,
+      "atMin": -2.15,
+      "atMax": -7.8,
+      "direction": "down",
+      "ratio": 2.8
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 4.68,
+      "atMin": -10.51,
+      "atMax": -5.83,
+      "direction": "up",
+      "ratio": 2.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "level between bursts ↕ 32.36 dB, level right after a burst ↕ 26.87 dB, burst onset ↕ 24.82 dB"
+   }
+  },
+  "switches": []
+ }
+}

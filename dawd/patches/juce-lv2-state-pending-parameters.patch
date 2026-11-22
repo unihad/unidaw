@@ -1,0 +1,36 @@
+diff --git a/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h b/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
+--- a/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
++++ b/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
+@@ -3183,6 +3183,21 @@
+         return it != portIndices.end() ? it->second : nullptr;
+     }
+ 
++    /*  The saved state is read from the control ports, but values set by the host only
++        reach the ports in the next processBlock(). Write those pending values into their
++        ports now, so that a state saved before that block includes them. They stay
++        pending, so the next processBlock() still passes them on (patch-backed
++        parameters can only be passed on there).
++    */
++    void writePendingValuesToPorts()
++    {
++        for (const auto& [index, value] : takePendingProcessorValues())
++        {
++            writers[index].writeToProcessor ({}, nullptr, value);
++            cache.set (index, value, Update::yes);
++        }
++    }
++
+     void updateFromControlPorts (const ControlPortAccelerationStructure& ports) const
+     {
+         for (const auto& pair : portIndices)
+@@ -3599,6 +3614,10 @@
+     {
+         JUCE_ASSERT_MESSAGE_THREAD;
+ 
++        // Without this, a value set since the last processBlock() (or with no audio
++        // running at all) would be missing from the saved state.
++        parameterValues.writePendingValuesToPorts();
++
+         // TODO where should the state URI come from?
+         PortMap portStateManager (instance->ports);
+         const auto stateUri = String::fromUTF8 (instance->instance.getUri()) + "/savedState";

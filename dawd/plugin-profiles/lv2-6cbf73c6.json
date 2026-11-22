@@ -1,0 +1,493 @@
+{
+ "plugin": {
+  "name": "MDA Combo",
+  "format": "LV2",
+  "uid": "6cbf73c6",
+  "vendor": "David Robillard",
+  "version": 6
+ },
+ "generated": "2026-10-27T14:39:33",
+ "measured": {
+  "version": 4,
+  "signal": "audio v4: pink noise 1 s, clicks, 4 noise bursts (100 ms loud, 150 ms 40 dB quieter), sine sweep 80 Hz–8 kHz, then silence",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 2.0,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0,
+   "burstOnset": 1.0,
+   "burstEarly": 1.0,
+   "burstLate": 1.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct",
+   "burstOnset": "dB",
+   "burstEarly": "dB",
+   "burstLate": "dB"
+  },
+  "noise": {
+   "lufs": 0.0,
+   "brightness": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0,
+   "burstOnset": 0.0,
+   "burstEarly": 0.0,
+   "burstLate": 0.0
+  },
+  "baseline": {
+   "lufs": -16.3,
+   "silent": false,
+   "brightness": -0.387,
+   "low": -11.36,
+   "high": -13.5,
+   "width": -40.0,
+   "tail": 0.01,
+   "attack": 15.0,
+   "burstOnset": 0.18,
+   "burstEarly": -40.19,
+   "burstLate": -22.75,
+   "burstLag": 1
+  },
+  "parameters": {
+   "Model": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "D.I. (flat frequency response)"
+     ],
+     [
+      0.25,
+      "Tradtional speaker simulator"
+     ],
+     [
+      0.5,
+      "Small combo (close mic)"
+     ],
+     [
+      0.75,
+      "Small combo (far mic)"
+     ],
+     [
+      1.0,
+      "Large stack (side mic, scooped mids)"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 16.78,
+      "atMin": -39.53,
+      "atMax": -22.75,
+      "direction": "varies",
+      "ratio": 16.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.89,
+      "atMin": -0.54,
+      "atMax": -0.39,
+      "direction": "varies",
+      "ratio": 7.6
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 7.41,
+      "atMin": -34.52,
+      "atMax": -40.19,
+      "direction": "varies",
+      "ratio": 7.4
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 7.0,
+      "atMin": -9.3,
+      "atMax": -16.3,
+      "direction": "varies",
+      "ratio": 7.0
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 11.93,
+      "atMin": -5.68,
+      "atMax": -11.36,
+      "direction": "varies",
+      "ratio": 6.0
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 9.57,
+      "atMin": -5.91,
+      "atMax": -13.5,
+      "direction": "varies",
+      "ratio": 4.8
+     }
+    ],
+    "strength": "strong",
+    "summary": "level between bursts ↕ 16.78 dB, brightness ↕ 1.89 oct, level right after a burst ↕ 7.41 dB"
+   },
+   "Drive": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 37.76,
+      "atMin": -9.56,
+      "atMax": -2.43,
+      "direction": "varies",
+      "ratio": 37.8
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 21.49,
+      "atMin": -8.53,
+      "atMax": -1.26,
+      "direction": "varies",
+      "ratio": 21.5
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.1,
+      "atMin": -17.2,
+      "atMax": -17.4,
+      "direction": "varies",
+      "ratio": 3.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "level right after a burst ↕ 37.76 dB, level between bursts ↕ 21.49 dB, loudness ↕ 3.1 LU"
+   },
+   "Bias": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Output": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 35.7,
+      "atMin": -36.3,
+      "atMax": -0.6,
+      "direction": "up",
+      "ratio": 35.7
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 2.83,
+      "atMin": -40.19,
+      "atMax": -37.36,
+      "direction": "up",
+      "ratio": 2.8
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 3.78,
+      "atMin": -13.5,
+      "atMax": -9.72,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 1.87,
+      "atMin": -22.75,
+      "atMax": -20.88,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.16,
+      "atMin": -11.36,
+      "atMax": -9.2,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 35.7 LU, level right after a burst ↑ 2.83 dB, highs ↑ 3.78 dB"
+   },
+   "Stereo": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "On"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 15.62,
+      "atMin": -22.75,
+      "atMax": -38.37,
+      "direction": "down",
+      "ratio": 15.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 6.3,
+      "atMin": -16.3,
+      "atMax": -22.6,
+      "direction": "down",
+      "ratio": 6.3
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.71,
+      "atMin": -11.36,
+      "atMax": -14.07,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "level between bursts ↓ 15.62 dB, loudness ↓ 6.3 LU, lows ↓ 2.71 dB"
+   },
+   "HPF Freq": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 18.8,
+      "atMin": -16.3,
+      "atMax": -33.7,
+      "direction": "varies",
+      "ratio": 18.8
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 28.64,
+      "atMin": -11.36,
+      "atMax": -32.66,
+      "direction": "varies",
+      "ratio": 14.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.3,
+      "atMin": -0.39,
+      "atMax": 1.22,
+      "direction": "varies",
+      "ratio": 9.2
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 12.51,
+      "atMin": -13.5,
+      "atMax": -3.49,
+      "direction": "varies",
+      "ratio": 6.3
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 6.27,
+      "atMin": -22.75,
+      "atMax": -27.18,
+      "direction": "varies",
+      "ratio": 6.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 18.8 LU, lows ↕ 28.64 dB, brightness ↕ 2.3 oct"
+   },
+   "HPF Reso": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   }
+  },
+  "switches": [
+   "Stereo"
+  ]
+ }
+}

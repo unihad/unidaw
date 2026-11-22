@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# Starter: startet unidaw, wenn auf dem Port noch keiner antwortet, und oeffnet
+# die Flow-UI im Browser.
+#
+#   unidaw-start [--port N] [--no-open] [--foreground] [-- <weitere unidaw-Argumente>]
+#
+# --foreground: unidaw laeuft im Vordergrund und endet mit dem Starter (Ctrl+C);
+# das AppImage braucht das, sein Dateisystem verschwindet mit dem Starter.
+# unidaw liegt neben diesem Skript (Build-Ordner: CMake legt dort einen Link an;
+# Installation; AppImage) oder im PATH; UNIDAW_BIN ueberschreibt das.
+# Laufordner je Port (Event-Log, Session, unidaw.err):
+#   ${XDG_STATE_HOME:-~/.local/state}/unidaw/<port>
+set -eu
+
+port=7400
+open=1
+foreground=0
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --port) port="$2"; shift 2 ;;
+        --no-open) open=0; shift ;;
+        --foreground) foreground=1; shift ;;
+        --) shift; break ;;
+        -h|--help) sed -n '2,14p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+        *) echo "unidaw-start: unknown option $1" >&2; exit 2 ;;
+    esac
+done
+
+here="$(cd "$(dirname "$0")" && pwd)"
+bin="${UNIDAW_BIN:-}"
+if [ -z "$bin" ] && [ -x "$here/unidaw" ]; then bin="$here/unidaw"; fi
+if [ -z "$bin" ]; then bin="$(command -v unidaw || true)"; fi
+if [ -z "$bin" ]; then
+    echo "unidaw-start: unidaw not found (next to $here or in PATH)" >&2
+    exit 1
+fi
+
+url="http://127.0.0.1:$port"
+up() { curl -fsS -m 1 "$url/health" >/dev/null 2>&1; }
+
+pid=
+if up; then
+    echo "unidaw-start: unidaw already running on $url"
+    foreground=0
+else
+    run="${XDG_STATE_HOME:-$HOME/.local/state}/unidaw/$port"
+    mkdir -p "$run"
+    # eigene Sitzung: unidaw laeuft weiter, wenn das Terminal zugeht;
+    # --session oeffnet beim naechsten Start das zuletzt offene Projekt
+    if [ "$foreground" = 1 ]; then
+        cd "$run"
+        "$bin" --port "$port" --log events.jsonl --session session.json "$@" </dev/null >>unidaw.out 2>>unidaw.err &
+        pid=$!
+        # Signal auch waehrend des Hochfahrens: unidaw beenden und abwarten,
+        # erst dann endet der Starter (sonst laeuft unidaw kurz weiter)
+        stop() {
+            kill "$pid" 2>/dev/null || true
+            while kill -0 "$pid" 2>/dev/null; do sleep 0.1; done
+            exit "$1"
+        }
+        trap 'stop 130' INT
+        trap 'stop 143' TERM
+        trap 'stop 129' HUP
+    else
+        (cd "$run" && exec setsid "$bin" --port "$port" --log events.jsonl --session session.json "$@" \
+            </dev/null >>unidaw.out 2>>unidaw.err &)
+    fi
+    for _ in $(seq 300); do
+        up && break
+        [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null && break
+        sleep 0.1
+    done
+    if ! up; then
+        echo "unidaw-start: unidaw did not come up on $url (log: $run/unidaw.err)" >&2
+        exit 1
+    fi
+    echo "unidaw-start: unidaw started on $url (folder: $run)"
+fi
+
+if [ "$open" = 1 ]; then
+    if command -v xdg-open >/dev/null; then
+        xdg-open "$url/ui" >/dev/null 2>&1 || true
+    elif command -v open >/dev/null; then
+        open "$url/ui" || true
+    else
+        echo "unidaw-start: open $url/ui in a browser"
+    fi
+fi
+
+if [ "$foreground" = 1 ]; then
+    echo "unidaw-start: unidaw runs in the foreground — Ctrl+C stops it"
+    status=0
+    wait "$pid" || status=$?
+    # nach einem Signal: wait kehrt frueh zurueck, unidaw beendet sich noch
+    while kill -0 "$pid" 2>/dev/null; do wait "$pid" || status=$?; done
+    exit "$status"
+fi

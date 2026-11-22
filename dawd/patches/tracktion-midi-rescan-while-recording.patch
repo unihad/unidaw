@@ -1,0 +1,21 @@
+--- a/modules/tracktion_engine/playback/tracktion_DeviceManager.cpp
++++ b/modules/tracktion_engine/playback/tracktion_DeviceManager.cpp
+@@ -404,6 +404,18 @@
+ 
+     restartMidiCheckTimer();
+ 
++    // Applying a changed device list rebuilds the devices of every playback
++    // context (clearAllContextDevices), which discards running recordings and
++    // stops their transports. Wait until nothing records and check again then.
++    for (auto tc : TransportControl::getAllActiveTransports (engine))
++    {
++        if (tc->isRecording())
++        {
++            startTimer (1000);
++            return;
++        }
++    }
++
+     if (lastMIDIDeviceList == nullptr)
+         lastMIDIDeviceList = std::make_unique<MIDIDeviceList>();
+ 

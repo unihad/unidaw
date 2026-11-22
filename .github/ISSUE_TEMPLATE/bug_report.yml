@@ -1,0 +1,59 @@
+name: Bug report
+description: Something in unidaw does not work as expected.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for the report. unidaw has no support and no promise of a reply (see CONTRIBUTING.md).
+        Security problems: do not use this form, see SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: unidaw version
+      description: The name of the AppImage, or the output of the "licenses" command.
+      placeholder: unidaw-0.1.0-x86_64.AppImage
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Linux distribution and version
+      placeholder: Ubuntu 26.04
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where did it happen?
+      options:
+        - Browser UI
+        - Agent over MCP
+        - HTTP API or script
+        - Start or install
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to repeat
+      description: The smallest set of steps. For the API or MCP, the commands you sent.
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected and what happened
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: |
+        The end of unidaw.err from the run folder (~/.local/state/unidaw/7400/unidaw.err for the default port).
+      render: text

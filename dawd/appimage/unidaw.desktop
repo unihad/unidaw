@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=unidaw
+Comment=DAW for AI agents with a browser UI
+Exec=unidaw
+Icon=unidaw
+Terminal=true
+Categories=AudioVideo;Audio;

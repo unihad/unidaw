@@ -1,0 +1,44 @@
+--- a/modules/tracktion_engine/model/automation/tracktion_AutomatableEditItem.cpp
++++ b/modules/tracktion_engine/model/automation/tracktion_AutomatableEditItem.cpp
+@@ -310,7 +310,7 @@
+ 
+     for (auto ap : automatableParams)
+     {
+-        if (ap->getCurrentValue() != ap->getCurrentExplicitValue())
++        if (ap->needsExplicitValueSaved())
+         {
+             stream.writeString (ap->paramID);
+             stream.writeFloat (ap->getCurrentExplicitValue());
+--- a/modules/tracktion_engine/model/automation/tracktion_AutomatableParameter.h
++++ b/modules/tracktion_engine/model/automation/tracktion_AutomatableParameter.h
+@@ -44,6 +44,12 @@
+     void updateFromAttachedValue();
+     void detachFromCurrentValue();
+ 
++    /** True if a saved state has to carry the explicit value apart from the attached
++        value: the parameter is modified, or the attached value still holds an earlier
++        modified value (it takes the current value asynchronously).
++    */
++    bool needsExplicitValueSaved() const;
++
+     //==============================================================================
+     virtual juce::String getParameterName() const               { return paramName; }
+     virtual juce::String getParameterShortName (int) const      { return paramName; }
+--- a/modules/tracktion_engine/model/automation/tracktion_AutomatableParameter.cpp
++++ b/modules/tracktion_engine/model/automation/tracktion_AutomatableParameter.cpp
+@@ -1313,6 +1313,15 @@
+         attachedValue->updateParameterFromValue();
+ }
+ 
++bool AutomatableParameter::needsExplicitValueSaved() const
++{
++    // Right after a modifier is removed the current value is back at the explicit
++    // one, but the attached value can still hold a modified value until its async
++    // update: a state saved then would load that as the explicit value
++    return getCurrentValue() != getCurrentExplicitValue()
++        || (attachedValue != nullptr && attachedValue->getValue() != getCurrentExplicitValue());
++}
++
+ void AutomatableParameter::detachFromCurrentValue()
+ {
+     if (attachedValue == nullptr)

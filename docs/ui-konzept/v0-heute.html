@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sketch 0: Today</title>
+<link rel="stylesheet" href="skizze.css">
+<style>
+  /* Vergleichsbasis: heutiges Dock nachgebaut (Routing mit offenen Karten,
+     Rezepte, Referenz untereinander in einem scrollenden Dock, max. 45 %) —
+     gleicher Inhalt wie die Skizzen A–C, nur für das Modell */
+  #app { grid-template-columns: var(--side-w) 1fr; }
+  #dock { max-height: 45%; overflow: auto; display: block; }
+  .stripx { padding: .55rem .9rem; border-bottom: 1px solid var(--line); }
+  .stripx > .t { font-size: 11px; letter-spacing: .12em; color: var(--warn); font-weight: 700; display: block; margin-bottom: .4rem; }
+  .stripx .chains { flex-direction: row; flex-wrap: wrap; }
+  .stripx [data-slot-analysis] { height: 260px; margin-top: .5rem; }
+</style>
+</head>
+<body>
+<header id="topbar"></header>
+<div id="app">
+  <aside id="tree"></aside>
+  <main id="work">
+    <div id="timeline"></div>
+    <div id="dock">
+      <div class="stripx"><span class="t">ROUTING</span><div data-slot-routing></div></div>
+      <div class="stripx"><span class="t">RECIPES</span><div data-slot-recipes></div></div>
+      <div class="stripx"><span class="t">REFERENCE</span><div data-slot-ref></div><div data-slot-analysis></div></div>
+      <div data-slot-mixer style="display:none"></div><div data-slot-notes style="display:none"></div>
+    </div>
+  </main>
+</div>
+<script src="skizze.js"></script>
+<script>build({ note: 'Today (rebuilt for the model)', ref: 'wide', card: 'stack' });</script>
+</body>
+</html>

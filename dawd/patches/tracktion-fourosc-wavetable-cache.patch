@@ -1,0 +1,16 @@
+--- a/modules/tracktion_engine/utilities/tracktion_Oscillators.cpp
++++ b/modules/tracktion_engine/utilities/tracktion_Oscillators.cpp
+@@ -321,6 +321,13 @@
+             return table;
+ 
+     Ptr table = new BandlimitedWaveLookupTables (sampleRate, 1024);
++
++    // Keep the tables for the lifetime of the process: building them takes
++    // ~0.1-0.7 s on the message thread, and without a reference they were
++    // freed with the last 4OSC (every Edit reload) and rebuilt on the next
++    // play/render. Deliberately leaked (no destruction order issues at exit).
++    static auto* keepAlive = new juce::Array<Ptr>();
++    keepAlive->add (table);
+     return table;
+ }
+ 

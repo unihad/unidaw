@@ -1,0 +1,363 @@
+{
+ "plugin": {
+  "name": "MDA Image",
+  "format": "LV2",
+  "uid": "6d12eb93",
+  "vendor": "David Robillard",
+  "version": 6
+ },
+ "generated": "2026-10-29T15:15:08",
+ "measured": {
+  "version": 4,
+  "signal": "audio v4: pink noise 1 s, clicks, 4 noise bursts (100 ms loud, 150 ms 40 dB quieter), sine sweep 80 Hz–8 kHz, then silence",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 2.0,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0,
+   "burstOnset": 1.0,
+   "burstEarly": 1.0,
+   "burstLate": 1.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct",
+   "burstOnset": "dB",
+   "burstEarly": "dB",
+   "burstLate": "dB"
+  },
+  "noise": {
+   "lufs": 0.0,
+   "brightness": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0,
+   "burstOnset": 0.0,
+   "burstEarly": 0.0,
+   "burstLate": 0.0
+  },
+  "baseline": {
+   "lufs": -8.9,
+   "silent": false,
+   "brightness": -1.086,
+   "low": -4.26,
+   "high": -6.64,
+   "width": -40.0,
+   "tail": 0.01,
+   "attack": 20.0,
+   "burstOnset": -0.26,
+   "burstEarly": -39.63,
+   "burstLate": -39.73,
+   "burstLag": 0
+  },
+  "parameters": {
+   "Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Stereo image adjustment"
+     ],
+     [
+      0.25,
+      "Encode to MS"
+     ],
+     [
+      0.5,
+      "Decode from MS"
+     ],
+     [
+      0.75,
+      "Decode from MS (input channels reversed)"
+     ],
+     [
+      1.0,
+      "Decode from MS (input channels reversed)"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 40.0,
+      "atMin": 0.0,
+      "atMax": 0.0,
+      "direction": "varies",
+      "ratio": 13.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.4,
+      "atMin": -6.5,
+      "atMax": -11.9,
+      "direction": "down",
+      "ratio": 5.4
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 1.15,
+      "atMin": -38.48,
+      "atMax": -39.63,
+      "direction": "down",
+      "ratio": 1.2
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 1.15,
+      "atMin": -38.58,
+      "atMax": -39.73,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↕ 40.0 dB, loudness ↓ 5.4 LU, level right after a burst ↓ 1.15 dB"
+   },
+   "S Width": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "S Pan": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "M Level": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 66.5,
+      "atMin": -3.5,
+      "atMax": -3.5,
+      "direction": "varies",
+      "ratio": 66.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 66.5 LU"
+   },
+   "M Pan": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 40.0,
+      "atMin": 0.0,
+      "atMax": 0.0,
+      "direction": "varies",
+      "ratio": 13.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.4,
+      "atMin": -6.5,
+      "atMax": -6.5,
+      "direction": "varies",
+      "ratio": 2.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↕ 40.0 dB, loudness ↕ 2.4 LU"
+   },
+   "Output": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 30.2,
+      "atMin": -28.9,
+      "atMax": 1.3,
+      "direction": "up",
+      "ratio": 30.2
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 11.34,
+      "atMin": -39.63,
+      "atMax": -28.29,
+      "direction": "up",
+      "ratio": 11.3
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 11.33,
+      "atMin": -39.73,
+      "atMax": -28.4,
+      "direction": "up",
+      "ratio": 11.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.8,
+      "atMin": -1.09,
+      "atMax": -0.28,
+      "direction": "up",
+      "ratio": 3.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 30.2 LU, level right after a burst ↑ 11.34 dB, level between bursts ↑ 11.33 dB"
+   }
+  },
+  "switches": []
+ }
+}

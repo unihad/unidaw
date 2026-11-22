@@ -1,0 +1,15 @@
+--- a/modules/tracktion_engine/timestretch/tracktion_TimeStretch.cpp
++++ b/modules/tracktion_engine/timestretch/tracktion_TimeStretch.cpp
+@@ -813,7 +813,11 @@
+         int numAvailable = rubberBandStretcher.available();
+         jassert (numAvailable >= 0);
+ 
+-        if (numSamplesToDrop > 0)
++        // Drop the whole start delay before returning any output: dropping only one
++        // block's worth here and then retrieving would hand out start-delay samples
++        // as audio and drop real samples on the next call (a transient right at a
++        // clip or loop start lost its first samplesPerOutputBuffer frames)
++        while (numSamplesToDrop > 0 && numAvailable > 0)
+         {
+             auto numToDropThisTime = std::min (numSamplesToDrop, std::min (numAvailable, samplesPerOutputBuffer));
+             rubberBandStretcher.retrieve (outChannels, (size_t) numToDropThisTime);

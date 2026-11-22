@@ -1,0 +1,2017 @@
+{
+ "plugin": {
+  "name": "4OSC",
+  "format": "builtin",
+  "uid": "4osc",
+  "vendor": "dawd",
+  "version": 6
+ },
+ "generated": "2026-10-27T10:21:22",
+ "measured": {
+  "version": 3,
+  "signal": "MIDI v3: legato line C4 E4 G4 E4 (overlapping), long A3 1 s, rest 0.25 s, staccato C5 velocity 50 50 120 120, chord C2+C3 E3 G3 1 s (120 BPM)",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 2.0,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct"
+  },
+  "noise": {
+   "lufs": 0.0,
+   "brightness": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0,
+   "sustain": 0.0,
+   "glide": 0.0,
+   "vibrato": 0.0,
+   "beating": 0.0,
+   "correlation": 0.0,
+   "velocity": 0.0,
+   "detune": 0.0
+  },
+  "baseline": {
+   "lufs": -10.5,
+   "silent": false,
+   "brightness": -2.31,
+   "low": -4.73,
+   "high": -40.0,
+   "width": -40.0,
+   "tail": 0.09,
+   "attack": 55.0,
+   "sustain": -2.5,
+   "glide": 0.0,
+   "vibrato": 0.0,
+   "beating": 2.7,
+   "detune": 3.0,
+   "correlation": 1.0,
+   "beatingHz": 16.6,
+   "velocity": 23.12
+  },
+  "parameters": {
+   "Tune 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-36st"
+     ],
+     [
+      0.25,
+      "-18st"
+     ],
+     [
+      0.5,
+      "0st"
+     ],
+     [
+      0.75,
+      "18st"
+     ],
+     [
+      1.0,
+      "36st"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 5.43,
+      "atMin": -4.74,
+      "atMax": 0.69,
+      "direction": "up",
+      "ratio": 21.7
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 40.0,
+      "atMin": -0.0,
+      "atMax": -40.0,
+      "direction": "down",
+      "ratio": 20.0
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 31.4,
+      "atMin": -40.0,
+      "atMax": -8.6,
+      "direction": "up",
+      "ratio": 15.7
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 10.4,
+      "atMin": -18.0,
+      "atMax": -7.6,
+      "direction": "up",
+      "ratio": 10.4
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.3,
+      "atMin": 0.01,
+      "atMax": 0.0,
+      "direction": "varies",
+      "ratio": 2.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "brightness ↑ 5.43 oct, lows ↓ 40.0 dB, highs ↑ 31.4 dB"
+   },
+   "Fine Tune 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.0ct"
+     ],
+     [
+      0.25,
+      "-50.0ct"
+     ],
+     [
+      0.5,
+      "0.000ct"
+     ],
+     [
+      0.75,
+      "50.0ct"
+     ],
+     [
+      1.0,
+      "100.0ct"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.5,
+      "atMin": 0.0,
+      "atMax": 0.5,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "glide ↑ 0.5 share"
+   },
+   "Level 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.0dB"
+     ],
+     [
+      0.25,
+      "-29.3dB"
+     ],
+     [
+      0.5,
+      "-15.9dB"
+     ],
+     [
+      0.75,
+      "-6.94dB"
+     ],
+     [
+      1.0,
+      "0.000dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 59.5,
+      "atMin": -70.0,
+      "atMax": -10.5,
+      "direction": "up",
+      "ratio": 59.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 59.5 LU"
+   },
+   "Pulse Width 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1%"
+     ],
+     [
+      0.25,
+      "26%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "74%"
+     ],
+     [
+      1.0,
+      "99%"
+     ]
+    ],
+    "needs": [
+     "Wave 1 = square"
+    ],
+    "does": [
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 3.78,
+      "atMin": 1.88,
+      "atMax": 1.91,
+      "direction": "varies",
+      "ratio": 15.1
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 11.4,
+      "atMin": -18.3,
+      "atMax": -18.3,
+      "direction": "varies",
+      "ratio": 11.4
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 17.18,
+      "atMin": -18.08,
+      "atMax": -22.59,
+      "direction": "varies",
+      "ratio": 8.6
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 13.78,
+      "atMin": -1.86,
+      "atMax": -1.8,
+      "direction": "varies",
+      "ratio": 6.9
+     }
+    ],
+    "strength": "strong",
+    "summary": "brightness ↕ 3.78 oct, loudness ↕ 11.4 LU, lows ↕ 17.18 dB"
+   },
+   "Detune 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "12%"
+     ],
+     [
+      0.5,
+      "25%"
+     ],
+     [
+      0.75,
+      "38%"
+     ],
+     [
+      1.0,
+      "50%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Spread 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.0%"
+     ],
+     [
+      0.25,
+      "-50.0%"
+     ],
+     [
+      0.5,
+      "0.000%"
+     ],
+     [
+      0.75,
+      "50.0%"
+     ],
+     [
+      1.0,
+      "100.0%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Pan 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100%"
+     ],
+     [
+      0.25,
+      "-50%"
+     ],
+     [
+      0.5,
+      "0%"
+     ],
+     [
+      0.75,
+      "50%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 40.0,
+      "atMin": 0.0,
+      "atMax": 0.0,
+      "direction": "varies",
+      "ratio": 13.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.7,
+      "atMin": -7.8,
+      "atMax": -7.8,
+      "direction": "varies",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↕ 40.0 dB, loudness ↕ 2.7 LU"
+   },
+   "Rate 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000Hz"
+     ],
+     [
+      0.25,
+      "4.92Hz"
+     ],
+     [
+      0.5,
+      "49.6Hz"
+     ],
+     [
+      0.75,
+      "192Hz"
+     ],
+     [
+      1.0,
+      "500Hz"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Depth 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Mod Attack 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0ms"
+     ],
+     [
+      0.25,
+      "59ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Mod Decay 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0ms"
+     ],
+     [
+      0.25,
+      "59ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Mod Sustain 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000%"
+     ],
+     [
+      0.25,
+      "25.0%"
+     ],
+     [
+      0.5,
+      "50.0%"
+     ],
+     [
+      0.75,
+      "75.0%"
+     ],
+     [
+      1.0,
+      "100.0%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Mod Release 1": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "1ms"
+     ],
+     [
+      0.25,
+      "60ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Amp Attack": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "1ms"
+     ],
+     [
+      0.25,
+      "60ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 36.0,
+      "atMin": -9.9,
+      "atMax": -45.9,
+      "direction": "down",
+      "ratio": 36.0
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 165.0,
+      "atMin": 0.0,
+      "atMax": 165.0,
+      "direction": "up",
+      "ratio": 6.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.45,
+      "atMin": -2.17,
+      "atMax": -2.62,
+      "direction": "down",
+      "ratio": 1.8
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 5.3,
+      "atMin": -2.0,
+      "atMax": 1.5,
+      "direction": "up",
+      "ratio": 1.8
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.01,
+      "atMin": -5.31,
+      "atMax": -3.3,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↓ 36.0 LU, attack ↑ 165.0 ms, brightness ↓ 0.45 oct"
+   },
+   "Amp Decay": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "1ms"
+     ],
+     [
+      0.25,
+      "60ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.6,
+      "atMin": -10.6,
+      "atMax": -9.0,
+      "direction": "up",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "weak",
+    "summary": "loudness ↑ 1.6 LU"
+   },
+   "Amp Sustain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000%"
+     ],
+     [
+      0.25,
+      "25.0%"
+     ],
+     [
+      0.5,
+      "50.0%"
+     ],
+     [
+      0.75,
+      "75.0%"
+     ],
+     [
+      1.0,
+      "100.0%"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 6.5,
+      "atMin": -14.4,
+      "atMax": -9.0,
+      "direction": "varies",
+      "ratio": 6.5
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 10.9,
+      "atMin": -12.9,
+      "atMax": -2.0,
+      "direction": "up",
+      "ratio": 3.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.58,
+      "atMin": -1.78,
+      "atMax": -2.36,
+      "direction": "down",
+      "ratio": 2.3
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 3.03,
+      "atMin": -7.56,
+      "atMax": -4.53,
+      "direction": "up",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 6.5 LU, sustain ↑ 10.9 dB, brightness ↓ 0.58 oct"
+   },
+   "Amp Release": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "1ms"
+     ],
+     [
+      0.25,
+      "60ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 2.24,
+      "atMin": 0.01,
+      "atMax": 2.25,
+      "direction": "up",
+      "ratio": 14.9
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 22.56,
+      "atMin": 23.14,
+      "atMax": 0.6,
+      "direction": "down",
+      "ratio": 11.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 7.4,
+      "atMin": -10.7,
+      "atMax": -3.3,
+      "direction": "up",
+      "ratio": 7.4
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 5.36,
+      "atMin": -4.64,
+      "atMax": -10.0,
+      "direction": "down",
+      "ratio": 2.7
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.59,
+      "atMin": -2.33,
+      "atMax": -1.73,
+      "direction": "up",
+      "ratio": 2.4
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": -2.1,
+      "atMax": 0.9,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "tail/decay ↑ 2.24 s, velocity response ↓ 22.56 dB, loudness ↑ 7.4 LU"
+   },
+   "Amp Velocity": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000%"
+     ],
+     [
+      0.25,
+      "25.0%"
+     ],
+     [
+      0.5,
+      "50.0%"
+     ],
+     [
+      0.75,
+      "75.0%"
+     ],
+     [
+      1.0,
+      "100.0%"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 23.2,
+      "atMin": -0.08,
+      "atMax": 23.12,
+      "direction": "up",
+      "ratio": 11.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 7.5,
+      "atMin": -3.0,
+      "atMax": -10.5,
+      "direction": "down",
+      "ratio": 7.5
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.1,
+      "atMin": 1.1,
+      "atMax": 2.7,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "velocity response ↑ 23.2 dB, loudness ↓ 7.5 LU, level beating ↑ 2.1 dB"
+   },
+   "Filter Attack": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0ms"
+     ],
+     [
+      0.25,
+      "59ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Filter Decay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0ms"
+     ],
+     [
+      0.25,
+      "59ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Filter Sustain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000%"
+     ],
+     [
+      0.25,
+      "25.0%"
+     ],
+     [
+      0.5,
+      "50.0%"
+     ],
+     [
+      0.75,
+      "75.0%"
+     ],
+     [
+      1.0,
+      "100.0%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Filter Release": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0ms"
+     ],
+     [
+      0.25,
+      "59ms"
+     ],
+     [
+      0.5,
+      "1.88s"
+     ],
+     [
+      0.75,
+      "14.24s"
+     ],
+     [
+      1.0,
+      "60.00s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Filter Freq": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "8Hz"
+     ],
+     [
+      0.25,
+      "57Hz"
+     ],
+     [
+      0.5,
+      "404Hz"
+     ],
+     [
+      0.75,
+      "2844Hz"
+     ],
+     [
+      1.0,
+      "20000Hz"
+     ]
+    ],
+    "needs": [
+     "Filter Type = lowpass",
+     "Filter Slope = 24"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 59.5,
+      "atMin": -70.0,
+      "atMax": -10.5,
+      "direction": "up",
+      "ratio": 59.5
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 16.3,
+      "atMin": 18.9,
+      "atMax": 2.7,
+      "direction": "down",
+      "ratio": 8.2
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.67,
+      "atMin": -3.98,
+      "atMax": -2.31,
+      "direction": "up",
+      "ratio": 6.7
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 4.73,
+      "atMin": -0.0,
+      "atMax": -4.73,
+      "direction": "down",
+      "ratio": 2.4
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 60.0,
+      "atMin": 0.0,
+      "atMax": 55.0,
+      "direction": "up",
+      "ratio": 2.4
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 5.0,
+      "atMin": -7.3,
+      "atMax": -2.5,
+      "direction": "up",
+      "ratio": 1.7
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 3.32,
+      "atMin": 26.43,
+      "atMax": 23.12,
+      "direction": "down",
+      "ratio": 1.7
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 59.5 LU, level beating ↓ 16.3 dB, brightness ↑ 1.67 oct"
+   },
+   "Filter Resonance": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000%"
+     ],
+     [
+      0.25,
+      "25.0%"
+     ],
+     [
+      0.5,
+      "50.0%"
+     ],
+     [
+      0.75,
+      "75.0%"
+     ],
+     [
+      1.0,
+      "100.0%"
+     ]
+    ],
+    "needs": [
+     "Filter Type = lowpass",
+     "Filter Slope = 24"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 4.2,
+      "atMin": -11.6,
+      "atMax": -7.4,
+      "direction": "up",
+      "ratio": 4.2
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 5.3,
+      "atMin": 23.11,
+      "atMax": 17.81,
+      "direction": "down",
+      "ratio": 2.7
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.47,
+      "atMin": -2.52,
+      "atMax": -2.05,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 3.17,
+      "atMin": -3.77,
+      "atMax": -6.94,
+      "direction": "down",
+      "ratio": 1.6
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 7.7,
+      "atMin": 32.5,
+      "atMax": 40.2,
+      "direction": "up",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↑ 4.2 LU, velocity response ↓ 5.3 dB, brightness ↑ 0.47 oct"
+   },
+   "Filter Amount": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100%"
+     ],
+     [
+      0.25,
+      "-50%"
+     ],
+     [
+      0.5,
+      "0%"
+     ],
+     [
+      0.75,
+      "50%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "needs": [
+     "Filter Type = lowpass",
+     "Filter Slope = 24"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 31.2,
+      "atMin": -41.7,
+      "atMax": -10.5,
+      "direction": "up",
+      "ratio": 31.2
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.58,
+      "atMin": -3.54,
+      "atMax": -2.31,
+      "direction": "varies",
+      "ratio": 6.3
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 4.6,
+      "atMin": 0.6,
+      "atMax": 4.4,
+      "direction": "up",
+      "ratio": 2.3
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 55.0,
+      "atMin": 5.0,
+      "atMax": 55.0,
+      "direction": "up",
+      "ratio": 2.2
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 3.91,
+      "atMin": -0.82,
+      "atMax": -4.73,
+      "direction": "down",
+      "ratio": 2.0
+     },
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.5,
+      "atMin": 0.5,
+      "atMax": 0.0,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 31.2 LU, brightness ↕ 1.58 oct, level beating ↑ 4.6 dB"
+   },
+   "Filter Key": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000%"
+     ],
+     [
+      0.25,
+      "25.0%"
+     ],
+     [
+      0.5,
+      "50.0%"
+     ],
+     [
+      0.75,
+      "75.0%"
+     ],
+     [
+      1.0,
+      "100.0%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Filter Velocity": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000%"
+     ],
+     [
+      0.25,
+      "25.0%"
+     ],
+     [
+      0.5,
+      "50.0%"
+     ],
+     [
+      0.75,
+      "75.0%"
+     ],
+     [
+      1.0,
+      "100.0%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Distortion": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "needs": [
+     "Distortion On = True"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 8.3,
+      "atMin": -10.5,
+      "atMax": -2.2,
+      "direction": "up",
+      "ratio": 8.3
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 3.63,
+      "atMin": 23.12,
+      "atMax": 19.49,
+      "direction": "down",
+      "ratio": 1.8
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 8.3 LU, velocity response ↓ 3.63 dB"
+   },
+   "Size": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Damping": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Reverb Width": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "needs": [
+     "Reverb On = True",
+     "Reverb Mix > 0"
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 32.0,
+      "atMin": -40.0,
+      "atMax": -8.0,
+      "direction": "up",
+      "ratio": 10.7
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 0.25,
+      "atMin": 1.0,
+      "atMax": 0.75,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↑ 32.0 dB, L/R correlation ↓ 0.25 "
+   },
+   "Reverb Mix": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "needs": [
+     "Reverb On = True"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 7.4,
+      "atMin": -4.8,
+      "atMax": -12.2,
+      "direction": "down",
+      "ratio": 7.4
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 130.0,
+      "atMin": 55.0,
+      "atMax": 185.0,
+      "direction": "up",
+      "ratio": 5.2
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 22.7,
+      "atMin": 1.5,
+      "atMax": 24.2,
+      "direction": "up",
+      "ratio": 4.5
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.46,
+      "atMin": 0.1,
+      "atMax": 0.56,
+      "direction": "up",
+      "ratio": 3.1
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 6.15,
+      "atMin": 23.06,
+      "atMax": 16.91,
+      "direction": "down",
+      "ratio": 3.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.24,
+      "atMin": 0.29,
+      "atMax": 0.52,
+      "direction": "up",
+      "ratio": 1.6
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.95,
+      "atMin": -5.18,
+      "atMax": -8.13,
+      "direction": "down",
+      "ratio": 1.5
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.34,
+      "atMin": -2.26,
+      "atMax": -1.91,
+      "direction": "up",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↓ 7.4 LU, attack ↑ 130.0 ms, detune ↑ 22.7 ct"
+   },
+   "Feedback": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.0dB"
+     ],
+     [
+      0.25,
+      "-29.3dB"
+     ],
+     [
+      0.5,
+      "-15.9dB"
+     ],
+     [
+      0.75,
+      "-6.94dB"
+     ],
+     [
+      1.0,
+      "0.000dB"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Crossfeed": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.0dB"
+     ],
+     [
+      0.25,
+      "-29.3dB"
+     ],
+     [
+      0.5,
+      "-15.9dB"
+     ],
+     [
+      0.75,
+      "-6.94dB"
+     ],
+     [
+      1.0,
+      "0.000dB"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Delay Mix": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "needs": [
+     "Delay On = True"
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 30.47,
+      "atMin": 23.12,
+      "atMax": -7.35,
+      "direction": "down",
+      "ratio": 15.2
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 2.16,
+      "atMin": 0.09,
+      "atMax": 2.25,
+      "direction": "up",
+      "ratio": 14.4
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 28.0,
+      "atMin": 3.0,
+      "atMax": 31.0,
+      "direction": "up",
+      "ratio": 5.6
+     }
+    ],
+    "strength": "strong",
+    "summary": "velocity response ↓ 30.47 dB, tail/decay ↑ 2.16 s, detune ↑ 28.0 ct"
+   },
+   "Speed": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.100Hz"
+     ],
+     [
+      0.25,
+      "2.57Hz"
+     ],
+     [
+      0.5,
+      "5.05Hz"
+     ],
+     [
+      0.75,
+      "7.52Hz"
+     ],
+     [
+      1.0,
+      "10.00Hz"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Depth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.100ms"
+     ],
+     [
+      0.25,
+      "5.07ms"
+     ],
+     [
+      0.5,
+      "10.1ms"
+     ],
+     [
+      0.75,
+      "15.0ms"
+     ],
+     [
+      1.0,
+      "20.0ms"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Chorus Width": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "needs": [
+     "Chorus On = True",
+     "Chorus Mix > 0"
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 36.6,
+      "atMin": -40.0,
+      "atMax": -4.0,
+      "direction": "up",
+      "ratio": 12.2
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 0.61,
+      "atMin": 1.0,
+      "atMax": 0.43,
+      "direction": "down",
+      "ratio": 3.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↑ 36.6 dB, L/R correlation ↓ 0.61 "
+   },
+   "Chorus Mix": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0%"
+     ],
+     [
+      0.25,
+      "25%"
+     ],
+     [
+      0.5,
+      "50%"
+     ],
+     [
+      0.75,
+      "75%"
+     ],
+     [
+      1.0,
+      "100%"
+     ]
+    ],
+    "needs": [
+     "Chorus On = True"
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 40.0,
+      "atMin": -40.0,
+      "atMax": -0.0,
+      "direction": "up",
+      "ratio": 13.3
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 1.0,
+      "atMin": 1.0,
+      "atMax": 0.0,
+      "direction": "down",
+      "ratio": 5.0
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 9.97,
+      "atMin": 23.12,
+      "atMax": 13.18,
+      "direction": "down",
+      "ratio": 5.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↑ 40.0 dB, L/R correlation ↓ 1.0 , velocity response ↓ 9.97 dB"
+   },
+   "Legato": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.000ms"
+     ],
+     [
+      0.25,
+      "125ms"
+     ],
+     [
+      0.5,
+      "250ms"
+     ],
+     [
+      0.75,
+      "375ms"
+     ],
+     [
+      1.0,
+      "500ms"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Level": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.0dB"
+     ],
+     [
+      0.25,
+      "-29.3dB"
+     ],
+     [
+      0.5,
+      "-15.9dB"
+     ],
+     [
+      0.75,
+      "-6.94dB"
+     ],
+     [
+      1.0,
+      "0.000dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 59.5,
+      "atMin": -70.0,
+      "atMax": -10.5,
+      "direction": "up",
+      "ratio": 59.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 59.5 LU"
+   },
+   "Tune 2": {
+    "sameAs": "Tune 1"
+   },
+   "Fine Tune 2": {
+    "sameAs": "Fine Tune 1"
+   },
+   "Level 2": {
+    "sameAs": "Level 1"
+   },
+   "Pulse Width 2": {
+    "sameAs": "Pulse Width 1"
+   },
+   "Detune 2": {
+    "sameAs": "Detune 1"
+   },
+   "Spread 2": {
+    "sameAs": "Spread 1"
+   },
+   "Pan 2": {
+    "sameAs": "Pan 1"
+   },
+   "Tune 3": {
+    "sameAs": "Tune 1"
+   },
+   "Fine Tune 3": {
+    "sameAs": "Fine Tune 1"
+   },
+   "Level 3": {
+    "sameAs": "Level 1"
+   },
+   "Pulse Width 3": {
+    "sameAs": "Pulse Width 1"
+   },
+   "Detune 3": {
+    "sameAs": "Detune 1"
+   },
+   "Spread 3": {
+    "sameAs": "Spread 1"
+   },
+   "Pan 3": {
+    "sameAs": "Pan 1"
+   },
+   "Tune 4": {
+    "sameAs": "Tune 1"
+   },
+   "Fine Tune 4": {
+    "sameAs": "Fine Tune 1"
+   },
+   "Level 4": {
+    "sameAs": "Level 1"
+   },
+   "Pulse Width 4": {
+    "sameAs": "Pulse Width 1"
+   },
+   "Detune 4": {
+    "sameAs": "Detune 1"
+   },
+   "Spread 4": {
+    "sameAs": "Spread 1"
+   },
+   "Pan 4": {
+    "sameAs": "Pan 1"
+   },
+   "Rate 2": {
+    "sameAs": "Rate 1"
+   },
+   "Depth 2": {
+    "sameAs": "Depth 1"
+   },
+   "Mod Attack 2": {
+    "sameAs": "Mod Attack 1"
+   },
+   "Mod Decay 2": {
+    "sameAs": "Mod Decay 1"
+   },
+   "Mod Sustain 2": {
+    "sameAs": "Mod Sustain 1"
+   },
+   "Mod Release 2": {
+    "sameAs": "Mod Release 1"
+   }
+  },
+  "switches": []
+ }
+}

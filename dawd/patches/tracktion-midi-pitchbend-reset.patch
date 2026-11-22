@@ -1,0 +1,42 @@
+--- a/modules/tracktion_engine/playback/graph/tracktion_MidiNodeHelpers.h
++++ b/modules/tracktion_engine/playback/graph/tracktion_MidiNodeHelpers.h
+@@ -14,6 +14,20 @@
+ 
+ namespace MidiNodeHelpers
+ {
++    inline bool hasPitchWheelBefore (const juce::MidiMessageSequence& sequence, int channel, double time)
++    {
++        for (auto* meh : sequence)
++        {
++            if (meh->message.getTimeStamp() > time)
++                break;
++
++            if (meh->message.isPitchWheel() && meh->message.isForChannel (channel))
++                return true;
++        }
++
++        return false;
++    }
++
+     inline void createMessagesForTime (MidiMessageArray& destBuffer,
+                                        juce::MidiMessageSequence& sourceSequence,
+                                        double time,
+@@ -41,8 +55,18 @@
+                 controllerMessagesScratchBuffer.clearQuick();
+ 
+                 for (int i = channelNumbers.getStart(); i < channelNumbers.getEnd(); ++i)
++                {
+                     sourceSequence.createControllerUpdatesForTime (i, time, controllerMessagesScratchBuffer);
+ 
++                    // Without a pitch-bend value at the start, reset the bend to its centre.
++                    // Otherwise the instrument keeps the bend of an earlier clip, playback or
++                    // render (e.g. of a bend curve that has since been deleted).
++                    // Bends up to 0.0001 after the start are left alone: the centre is sent at
++                    // that offset and would come after them
++                    if (! hasPitchWheelBefore (sourceSequence, i, std::max (time, 0.0) + 0.0001))
++                        controllerMessagesScratchBuffer.add (juce::MidiMessage::pitchWheel (i, 8192));
++                }
++
+                 for (auto& m : controllerMessagesScratchBuffer)
+                     destBuffer.addMidiMessage (m, 0.0001, midiSourceID);
+             }

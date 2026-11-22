@@ -1,0 +1,20 @@
+--- a/modules/tracktion_engine/model/edit/tracktion_EditFileOperations.cpp
++++ b/modules/tracktion_engine/model/edit/tracktion_EditFileOperations.cpp
+@@ -317,7 +317,7 @@
+                         if (ops.editSnapshot != nullptr)
+                             ops.editSnapshot->refreshCacheAndNotifyListeners();
+ 
+-                        if (! tempFile.moveFileTo (editFile))
++                        if (! tempFile.replaceFileIn (editFile))
+                         {
+                             editSaveError (*ed, editFile, warnOfFailure, callback);
+                             return;
+@@ -348,7 +348,7 @@
+         if (editSnapshot != nullptr)
+             editSnapshot->refreshCacheAndNotifyListeners();
+ 
+-        if (! tempFile.moveFileTo (editFile))
++        if (! tempFile.replaceFileIn (editFile))
+         {
+             editSaveError (edit, editFile, warnOfFailure, callback);
+             return;

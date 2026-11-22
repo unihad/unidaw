@@ -1,0 +1,6 @@
+mode=live cpus=16 sr=44100 block=512 budgetMs=11.61
+scenario,device,sampleRate,bufferSize,seconds,xruns,cpuAvgPct,cpuMaxPct
+builtin0,Default ALSA Output (currently PipeWire Media Server),44100,512,15,0,2.5,8.8
+builtin128,Default ALSA Output (currently PipeWire Media Server),44100,512,15,0,13.4,16.6
+helm8,Default ALSA Output (currently PipeWire Media Server),44100,512,15,0,6.5,7.2
+helm16,Default ALSA Output (currently PipeWire Media Server),44100,512,15,0,8.0,9.6

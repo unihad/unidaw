@@ -1,0 +1,50 @@
+# bench/sandbox/dawd_plugins_phase4.py, Ryzen 7 4800H, Kernel 7.0, ohne Audio-Geraet (bwrap --tmpfs /dev/snd, PIPEWIRE_REMOTE ungueltig), nur Render; Branch sandbox-phase4 (aff54c5); andere Agents bauten zeitweise (loadavg je Kopfzeile)
+# Tabelle in docs/plugin-sandboxing.md: die zwei Laeufe mit loadavg ~2 (12:55 und 12:56)
+# 2026-10-26T12:55:18 n=4 song 30 s runs=3 live=0 s, loadavg 2.21 4.83 5.30
+{"scenario": "mix", "mode": "in-process", "load_s": 0.603, "plugins": 24, "hosts": 0, "pss_mb": 179.5, "pss_dawd_mb": 179.5, "render_wall_s": 3.669, "render_cpu_s": 13.41, "render_runs": [3.03, 3.67, 3.73], "render_blocks": 2583}
+{"scenario": "mix", "mode": "plugin", "load_s": 1.365, "plugins": 24, "hosts": 6, "pss_mb": 275.8, "pss_dawd_mb": 83.2, "render_wall_s": 3.009, "render_cpu_s": 14.89, "render_runs": [2.93, 3.01, 3.17], "render_blocks": 2583}
+{"scenario": "mix", "mode": "single", "load_s": 1.903, "plugins": 24, "hosts": 24, "pss_mb": 403.3, "pss_dawd_mb": 84.5, "render_wall_s": 2.663, "render_cpu_s": 13.86, "render_runs": [2.46, 2.69, 2.66], "render_blocks": 2583}
+# 2026-10-26T12:56:01 n=2 song 30 s runs=3 live=0 s, loadavg 1.90 4.39 5.13
+{"scenario": "add", "mode": "in-process", "Surge XT VST3": 0.157, "Dexed VST3": 0.026, "MDA JX10 LV2": 0.017, "x42-eq - Parametric Equalizer Stereo LV2": 0.022, "Dragonfly Room Reverb LV2": 0.017, "Dragonfly Room Reverb VST3": 0.017}
+{"scenario": "add", "mode": "plugin", "Surge XT VST3": 0.225, "Dexed VST3": 0.123, "MDA JX10 LV2": 0.064, "x42-eq - Parametric Equalizer Stereo LV2": 0.06, "Dragonfly Room Reverb LV2": 0.053, "Dragonfly Room Reverb VST3": 0.043}
+{"scenario": "chain", "mode": "in-process", "load_s": 0.167, "plugins": 5, "hosts": 0, "pss_mb": 69.3, "pss_dawd_mb": 69.3, "render_wall_s": 1.966, "render_cpu_s": 2.72, "render_runs": [2.01, 1.93, 1.97], "render_blocks": 2583}
+{"scenario": "chain", "mode": "plugin", "load_s": 0.423, "plugins": 5, "hosts": 4, "pss_mb": 103.1, "pss_dawd_mb": 28.2, "render_wall_s": 2.147, "render_cpu_s": 3.24, "render_runs": [2.15, 2.15, 2.19], "render_blocks": 2583}
+{"scenario": "chain", "mode": "single", "load_s": 0.402, "plugins": 5, "hosts": 5, "pss_mb": 109.6, "pss_dawd_mb": 28.6, "render_wall_s": 2.157, "render_cpu_s": 3.2, "render_runs": [2.21, 2.16, 2.13], "render_blocks": 2583}
+{"scenario": "mix", "mode": "in-process", "load_s": 0.312, "plugins": 12, "hosts": 0, "pss_mb": 111.0, "pss_dawd_mb": 111.0, "render_wall_s": 2.092, "render_cpu_s": 6.38, "render_runs": [2.23, 2.09, 1.94], "render_blocks": 2583}
+{"scenario": "mix", "mode": "plugin", "load_s": 0.884, "plugins": 12, "hosts": 6, "pss_mb": 177.1, "pss_dawd_mb": 48.6, "render_wall_s": 1.964, "render_cpu_s": 6.89, "render_runs": [1.96, 1.92, 2.06], "render_blocks": 2583}
+{"scenario": "mix", "mode": "single", "load_s": 1.005, "plugins": 12, "hosts": 12, "pss_mb": 221.0, "pss_dawd_mb": 49.9, "render_wall_s": 1.794, "render_cpu_s": 6.41, "render_runs": [1.74, 1.79, 1.85], "render_blocks": 2583}
+# Fruehere Laeufe derselben Messung, laut loadavg mit Last durch parallele Builds
+# 2026-10-26T12:44:40 n=2 song 30 s runs=3 live=0 s, loadavg 1.67 4.81 4.46
+{"scenario": "add", "mode": "in-process", "Surge XT VST3": 0.156, "Dexed VST3": 0.028, "MDA JX10 LV2": 0.017, "x42-eq - Parametric Equalizer Stereo LV2": 0.022, "Dragonfly Room Reverb LV2": 0.017, "Dragonfly Room Reverb VST3": 0.017}
+{"scenario": "add", "mode": "plugin", "Surge XT VST3": 0.264, "Dexed VST3": 0.12, "MDA JX10 LV2": 0.065, "x42-eq - Parametric Equalizer Stereo LV2": 0.071, "Dragonfly Room Reverb LV2": 0.057, "Dragonfly Room Reverb VST3": 0.053}
+{"scenario": "chain", "mode": "in-process", "load_s": 0.164, "plugins": 5, "hosts": 0, "pss_mb": 67.7, "pss_dawd_mb": 67.7, "render_wall_s": 1.965, "render_cpu_s": 2.66, "render_runs": [1.96, 1.94, 1.98], "render_blocks": 2583}
+{"scenario": "chain", "mode": "plugin", "load_s": 0.38, "plugins": 5, "hosts": 4, "pss_mb": 102.8, "pss_dawd_mb": 28.1, "render_wall_s": 2.144, "render_cpu_s": 3.21, "render_runs": [2.14, 2.18, 2.11], "render_blocks": 2583}
+{"scenario": "chain", "mode": "single", "load_s": 0.391, "plugins": 5, "hosts": 5, "pss_mb": 109.2, "pss_dawd_mb": 28.5, "render_wall_s": 2.302, "render_cpu_s": 3.37, "render_runs": [2.3, 2.28, 2.43], "render_blocks": 2583}
+{"scenario": "mix", "mode": "in-process", "load_s": 0.334, "plugins": 12, "hosts": 0, "pss_mb": 111.0, "pss_dawd_mb": 111.0, "render_wall_s": 2.712, "render_cpu_s": 6.82, "render_runs": [2.82, 2.7, 2.71], "render_blocks": 2583}
+{"scenario": "mix", "mode": "plugin", "load_s": 0.766, "plugins": 12, "hosts": 6, "pss_mb": 176.8, "pss_dawd_mb": 48.5, "render_wall_s": 2.156, "render_cpu_s": 7.92, "render_runs": [2.16, 2.53, 2.12], "render_blocks": 2583}
+{"scenario": "mix", "mode": "single", "load_s": 0.956, "plugins": 12, "hosts": 12, "pss_mb": 220.7, "pss_dawd_mb": 49.6, "render_wall_s": 2.018, "render_cpu_s": 7.26, "render_runs": [1.97, 2.02, 2.25], "render_blocks": 2583}
+# 2026-10-26T12:45:37 n=2 song 30 s runs=3 live=0 s, loadavg 3.97 4.86 4.50
+{"scenario": "add", "mode": "in-process", "Surge XT VST3": 0.165, "Dexed VST3": 0.03, "MDA JX10 LV2": 0.018, "x42-eq - Parametric Equalizer Stereo LV2": 0.028, "Dragonfly Room Reverb LV2": 0.018, "Dragonfly Room Reverb VST3": 0.019}
+{"scenario": "add", "mode": "plugin", "Surge XT VST3": 0.254, "Dexed VST3": 0.094, "MDA JX10 LV2": 0.071, "x42-eq - Parametric Equalizer Stereo LV2": 0.064, "Dragonfly Room Reverb LV2": 0.054, "Dragonfly Room Reverb VST3": 0.048}
+{"scenario": "chain", "mode": "in-process", "load_s": 0.177, "plugins": 5, "hosts": 0, "pss_mb": 67.4, "pss_dawd_mb": 67.4, "render_wall_s": 2.612, "render_cpu_s": 3.48, "render_runs": [2.63, 2.61, 2.35], "render_blocks": 2583}
+{"scenario": "chain", "mode": "plugin", "load_s": 0.417, "plugins": 5, "hosts": 4, "pss_mb": 102.9, "pss_dawd_mb": 28.4, "render_wall_s": 3.161, "render_cpu_s": 4.86, "render_runs": [3.16, 3.11, 3.21], "render_blocks": 2583}
+{"scenario": "chain", "mode": "single", "load_s": 0.465, "plugins": 5, "hosts": 5, "pss_mb": 110.4, "pss_dawd_mb": 29.4, "render_wall_s": 3.166, "render_cpu_s": 4.86, "render_runs": [3.18, 3.14, 3.17], "render_blocks": 2583}
+{"scenario": "mix", "mode": "in-process", "load_s": 0.339, "plugins": 12, "hosts": 0, "pss_mb": 111.6, "pss_dawd_mb": 111.6, "render_wall_s": 3.364, "render_cpu_s": 7.59, "render_runs": [3.51, 3.15, 3.36], "render_blocks": 2583}
+{"scenario": "mix", "mode": "plugin", "load_s": 0.853, "plugins": 12, "hosts": 6, "pss_mb": 176.8, "pss_dawd_mb": 48.7, "render_wall_s": 2.374, "render_cpu_s": 8.69, "render_runs": [2.41, 2.37, 2.37], "render_blocks": 2583}
+{"scenario": "mix", "mode": "single", "load_s": 1.15, "plugins": 12, "hosts": 12, "pss_mb": 219.3, "pss_dawd_mb": 48.5, "render_wall_s": 2.372, "render_cpu_s": 8.93, "render_runs": [2.24, 2.37, 3.04], "render_blocks": 2583}
+# 2026-10-26T12:46:46 n=4 song 30 s runs=3 live=0 s, loadavg 17.03 7.59 5.42
+{"scenario": "mix", "mode": "in-process", "load_s": 0.652, "plugins": 24, "hosts": 0, "pss_mb": 179.2, "pss_dawd_mb": 179.2, "render_wall_s": 5.235, "render_cpu_s": 15.16, "render_runs": [5.48, 5.24, 4.97], "render_blocks": 2583}
+{"scenario": "mix", "mode": "plugin", "load_s": 1.473, "plugins": 24, "hosts": 6, "pss_mb": 275.5, "pss_dawd_mb": 83.1, "render_wall_s": 4.109, "render_cpu_s": 24.3, "render_runs": [3.62, 4.11, 6.28], "render_blocks": 2583}
+{"scenario": "mix", "mode": "single", "load_s": 2.179, "plugins": 24, "hosts": 24, "pss_mb": 402.5, "pss_dawd_mb": 83.9, "render_wall_s": 4.574, "render_cpu_s": 34.22, "render_runs": [4.63, 3.68, 4.57], "render_blocks": 2583}
+# Befund Message-Thread (Scratchpad-Skript msgthread.py): zwei Dexed bzw. zwei Surge XT (VST3), eigener Xvfb mit Mini-WM aus tests/run_tests.py, Editor von A offen/zu, listParameters von B (5 Laeufe, Median/Max); plugin = beide in einem Host, single = je eigener Host; Surge-Lauf bei loadavg ~5.8
+{"mode": "plugin", "sameHost": true, "params": 160, "window": true, "closed_median_s": 0.075, "closed_max_s": 0.088, "open_median_s": 0.086, "open_max_s": 0.107}
+{"mode": "single", "sameHost": false, "params": 160, "window": true, "closed_median_s": 0.056, "closed_max_s": 0.079, "open_median_s": 0.072, "open_max_s": 0.075}
+{"mode": "plugin", "sameHost": true, "params": 776, "window": true, "closed_median_s": 0.597, "closed_max_s": 0.628, "open_median_s": 0.608, "open_max_s": 0.678}
+{"mode": "single", "sameHost": false, "params": 776, "window": true, "closed_median_s": 0.568, "closed_max_s": 0.64, "open_median_s": 0.617, "open_max_s": 0.721}
+# listParameters (alle Parameter, je ein getText) im Prozess (sandbox 0) und im Host (1), Median aus 7, loadavg ~6 (Scratchpad-Skript lp.py)
+{"sandbox": "0", "plugin": "Surge XT VST3", "params": 776, "median_s": 0.223}
+{"sandbox": "0", "plugin": "Dexed VST3", "params": 160, "median_s": 0.012}
+{"sandbox": "0", "plugin": "x42-eq - Parametric Equalizer Stereo LV2", "params": 35, "median_s": 0.002}
+{"sandbox": "1", "plugin": "Surge XT VST3", "params": 776, "median_s": 0.502}
+{"sandbox": "1", "plugin": "Dexed VST3", "params": 160, "median_s": 0.079}
+{"sandbox": "1", "plugin": "x42-eq - Parametric Equalizer Stereo LV2", "params": 35, "median_s": 0.015}

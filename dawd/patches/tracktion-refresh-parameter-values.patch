@@ -1,0 +1,22 @@
+--- a/modules/tracktion_engine/plugins/external/tracktion_ExternalPlugin.h
++++ b/modules/tracktion_engine/plugins/external/tracktion_ExternalPlugin.h
+@@ -56,6 +56,11 @@
+     */
+     bool isInitialisingAsync() const;
+ 
++    /** Updates every parameter from the plugin's current value now, not in the next
++        message loop round as the plugin's value-changed callbacks do.
++    */
++    void refreshParameterValues();
++
+     static const char* xmlTypeName;
+ 
+     //==============================================================================
+@@ -269,7 +274,6 @@
+     //==============================================================================
+     void doFullInitialisation();
+     void buildParameterList();
+-    void refreshParameterValues();
+     void updateDebugName();
+     void processPluginBlock (juce::AudioPluginInstance&, const PluginRenderContext&, bool processedBypass);
+ 

@@ -1,0 +1,20 @@
+{
+  "name": "unidaw",
+  "displayName": "unidaw",
+  "version": "0.1.0",
+  "description": "Make music with unidaw, a DAW for people and AI agents: tracks, clips, plugins, mixing, rendering and audio analysis over one command API. Needs a running unidaw (Linux).",
+  "author": {
+    "name": "unihad",
+    "url": "https://github.com/unihad"
+  },
+  "homepage": "https://github.com/unihad/unidaw",
+  "repository": "https://github.com/unihad/unidaw",
+  "license": "AGPL-3.0-only",
+  "keywords": ["music", "daw", "audio", "midi", "mcp"],
+  "mcpServers": {
+    "unidaw": {
+      "command": "python3",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/unidaw_mcp.py"]
+    }
+  }
+}

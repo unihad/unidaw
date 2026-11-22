@@ -1,0 +1,23 @@
+dawd/build/
+dawd/build-ubuntu-22.04/
+dawd/run/
+plugins/testgain/build/
+__pycache__/
+dawd/third_party/
+dawd/models/
+recipes/**/preview.wav
+
+# Log und Session der Entwickler-Instanz (dawd --log/--session im Repo-Ordner)
+/events.jsonl
+/session.json
+
+# Mess-Prototypen (bench/<name>/build)
+bench/*/build/
+
+# tools/remeasure_all.sh: Lauf-Ordner und abgebrochene Steckbriefe
+remeasure-run/
+dawd/plugin-profiles/*.partial.json
+dawd/plugin-profiles/*.tmp
+
+# Einstellungen einer Test-Instanz (dawd --config config)
+/config/

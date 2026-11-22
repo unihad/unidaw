@@ -1,0 +1,74 @@
+--- a/modules/tracktion_engine/playback/graph/tracktion_ChannelRemappingNode.cpp
++++ b/modules/tracktion_engine/playback/graph/tracktion_ChannelRemappingNode.cpp
+@@ -101,9 +101,12 @@
+     return input->hasProcessed();
+ }
+ 
+-void ChannelRemappingNode::prepareToPlay (const tracktion::graph::PlaybackInitialisationInfo&)
++void ChannelRemappingNode::prepareToPlay (const tracktion::graph::PlaybackInitialisationInfo& info)
+ {
+-    // Nothing special needed - input handles its own preparation
++    // Room to copy the input aside when it shares memory with the output (see processExplicitMapping)
++    if (mode == Mode::ExplicitMapping)
++        inputCopy.resize ({ (choc::buffer::ChannelCount) std::max (1, input->getNodeProperties().numberOfChannels),
++                            (choc::buffer::FrameCount) std::max (1, info.blockSize) });
+ }
+ 
+ void ChannelRemappingNode::process (ProcessContext& pc)
+@@ -119,17 +122,44 @@
+ {
+     auto inputBuffers = input->getProcessedOutput();
+ 
++    auto source = inputBuffers.audio;
++
+     // Always pass through MIDI
+     pc.buffers.midi.copyFrom (inputBuffers.midi);
+ 
++    // Inside a CombiningNode every Node of a clip's chain writes into the same buffer,
++    // so the output can be the input's memory and is not cleared: add() then summed the
++    // input onto itself (a mono clip upmixed next to a stereo clip played 6 dB too loud).
++    // Copy the input aside and start from silence
++    const auto sharesMemory = [&]
++    {
++        for (choc::buffer::ChannelCount i = 0; i < source.getNumChannels(); ++i)
++            for (choc::buffer::ChannelCount j = 0; j < pc.buffers.audio.getNumChannels(); ++j)
++                if (source.getChannel (i).data.data == pc.buffers.audio.getChannel (j).data.data)
++                    return true;
++
++        return false;
++    };
++
++    if (sharesMemory())
++    {
++        if (inputCopy.getNumChannels() < source.getNumChannels() || inputCopy.getNumFrames() < source.getNumFrames())
++            inputCopy.resize (source.getSize());
++
++        auto copyView = inputCopy.getView().getFirstChannels (source.getNumChannels()).getStart (source.getNumFrames());
++        copy (copyView, source);
++        source = copyView;
++        pc.buffers.audio.clear();
++    }
++
+     // Remap audio channels - use add() to accumulate (allows multiple sources to one dest)
+     for (const auto& e : channelMap.entries)
+     {
+-        if (e.source < static_cast<int> (inputBuffers.audio.getNumChannels())
++        if (e.source < static_cast<int> (source.getNumChannels())
+             && e.dest < static_cast<int> (pc.buffers.audio.getNumChannels()))
+         {
+             auto destChan = pc.buffers.audio.getChannel (static_cast<choc::buffer::ChannelCount> (e.dest));
+-            auto srcChan = inputBuffers.audio.getChannel (static_cast<choc::buffer::ChannelCount> (e.source));
++            auto srcChan = source.getChannel (static_cast<choc::buffer::ChannelCount> (e.source));
+ 
+             if (e.gain == 1.0f)
+                 add (destChan, srcChan);
+--- a/modules/tracktion_engine/playback/graph/tracktion_ChannelRemappingNode.h
++++ b/modules/tracktion_engine/playback/graph/tracktion_ChannelRemappingNode.h
+@@ -83,6 +83,7 @@
+ 
+     // Explicit mapping mode
+     ChannelMap channelMap;
++    choc::buffer::ChannelArrayBuffer<float> inputCopy;
+ 
+     // Processor passthrough mode
+     ChannelConfiguration inputChannelConfig;

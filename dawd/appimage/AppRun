@@ -1,0 +1,44 @@
+#!/bin/sh
+# Einstieg des AppImage (tools/build_appimage.sh legt es in die Wurzel des
+# AppDir). Das Dateisystem des AppImage gibt es nur, solange dieser Prozess
+# laeuft — darum startet unidaw im Vordergrund (unidaw-start --foreground).
+set -eu
+here="$(dirname "$(readlink -f "$0")")"
+doc="$here/usr/share/doc/unidaw"
+
+# unidaw mit den gebuendelten Bibliotheken (usr/lib/unidaw-exec); nur unidaw
+# bekommt sie, nicht der Browser, den der Starter oeffnet
+export UNIDAW_BIN="$here/usr/lib/unidaw-exec"
+
+case "${1:-}" in
+    unidaw)
+        shift
+        exec "$UNIDAW_BIN" "$@" ;;
+    fetch-models)
+        shift
+        exec "$here/usr/bin/unidaw-fetch-models" "$@" ;;
+    licenses|--licenses)
+        cat "$doc/SOURCE"
+        echo
+        cat "$doc/LICENSE-NOTICE"
+        echo
+        echo "License texts: $doc (inside the AppImage; --appimage-extract unpacks them)"
+        exit 0 ;;
+    -h|--help|help)
+        cat <<EOF
+unidaw $(cat "$here/usr/share/unidaw/VERSION") — a DAW for AI agents, with a browser UI
+
+Usage:
+  $(basename "${APPIMAGE:-unidaw.AppImage}") [--port N] [--no-open] [-- <unidaw options>]
+      Start unidaw and open the UI in the browser. unidaw stops with Ctrl+C.
+  $(basename "${APPIMAGE:-unidaw.AppImage}") unidaw [<unidaw options>]
+      Run the unidaw daemon directly (e.g. --port 7400 --no-audio).
+  $(basename "${APPIMAGE:-unidaw.AppImage}") fetch-models [<folder>]
+      Download the ML models (about 1.2 GB) with their licenses.
+  $(basename "${APPIMAGE:-unidaw.AppImage}") licenses
+      Show the license of unidaw and where the source code is.
+EOF
+        exit 0 ;;
+esac
+
+exec "$here/usr/bin/unidaw-start" --foreground "$@"

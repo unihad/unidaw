@@ -1,0 +1,42 @@
+{
+  "manifest_version": "0.3",
+  "name": "unidaw",
+  "display_name": "unidaw",
+  "version": "0.1.0",
+  "description": "MCP server for unidaw, a DAW for people and AI agents. Needs a running unidaw on 127.0.0.1:7400 (Linux).",
+  "author": {
+    "name": "unihad",
+    "url": "https://github.com/unihad"
+  },
+  "license": "AGPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unihad/unidaw.git"
+  },
+  "homepage": "https://github.com/unihad/unidaw",
+  "compatibility": {
+    "platforms": ["linux"],
+    "runtimes": {
+      "python": ">=3.8"
+    }
+  },
+  "tools": [
+    {
+      "name": "unidaw_start",
+      "description": "Start unidaw, or report the song tree that is open in the running unidaw"
+    },
+    {
+      "name": "unidaw_command",
+      "description": "Run one command of the unidaw API and return its JSON result"
+    }
+  ],
+  "server": {
+    "type": "python",
+    "entry_point": "unidaw_mcp.py",
+    "mcp_config": {
+      "command": "python3",
+      "args": ["${__dirname}/unidaw_mcp.py"],
+      "env": {}
+    }
+  }
+}

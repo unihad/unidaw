@@ -1,0 +1,169 @@
+--- a/modules/tracktion_engine/plugins/external/tracktion_ExternalPlugin.h
++++ b/modules/tracktion_engine/plugins/external/tracktion_ExternalPlugin.h
+@@ -63,6 +63,21 @@
+ 
+     void flushPluginStateToValueTree() override;
+ 
++    /** Some values only reach the plugin in its next processed block: LV2 patch
++        parameters, the component of a VST3 that does not take them from its
++        controller, messages an open LV2 editor queued. Restored LV2 patch parameters
++        only reach the host's parameters from a block, too. With no graph running that
++        block never comes: a saved state misses them, the parameters show old values.
++        If the plugin got a value or a state since its last block (or has an open
++        editor), this passes them on with one sample of silence - only while no graph
++        holds the plugin; one that was not prepared is prepared for it (and stays so).
++        Called by flushPluginStateToValueTree() and after a new instance restored its state.
++    */
++    void passPendingValuesToPlugin();
++
++    /** Marks that the plugin got a value which only its next block passes on. */
++    void markValuesPending() noexcept       { valuesPending = true; }
++
+     /** Writes the current bus layout to the plugin's ValueTree state. */
+     void flushBusesLayoutToValueTree();
+ 
+@@ -208,6 +223,9 @@
+     class LoadedInstance;
+     std::unique_ptr<LoadedInstance> loadedInstance;
+     std::atomic<bool> hasLoadedInstance { false }, isInstancePrepared { false }, isAsyncInitialising { false };
++    std::atomic<bool> valuesPending { false };
++    std::atomic<int> numOpenEditors { 0 };
++    friend struct AudioProcessorEditorContentComp;
+     bool deleteInstanceSynchronously = false;
+ 
+    #if TRACKTION_ENABLE_ARA
+--- a/modules/tracktion_engine/plugins/external/tracktion_ExternalPlugin.cpp
++++ b/modules/tracktion_engine/plugins/external/tracktion_ExternalPlugin.cpp
+@@ -43,6 +43,10 @@
+         if (plugin.edit.isLoading())
+             return;
+ 
++        // From the host or an editor; values the plugin reports itself come from its block
++        if (juce::MessageManager::existsAndIsCurrentThread())
++            plugin.markValuesPending();
++
+         paramChanged = true;
+         triggerAsyncUpdate();
+     }
+@@ -1071,6 +1075,8 @@
+         TRACKTION_ASSERT_MESSAGE_THREAD
+         juce::MemoryBlock chunk;
+ 
++        passPendingValuesToPlugin();
++
+         pi->suspendProcessing (true);
+         pi->getStateInformation (chunk);
+         saveChangedParametersToState();
+@@ -1105,6 +1111,40 @@
+     }
+ }
+ 
++void ExternalPlugin::passPendingValuesToPlugin()
++{
++    TRACKTION_ASSERT_MESSAGE_THREAD
++    auto pi = getAudioPluginInstance();
++
++    // A graph that holds the plugin passes them on in its next block - never process
++    // it from here then. A disabled plugin gets no blocks from a graph either.
++    if (pi == nullptr || ! (valuesPending || numOpenEditors > 0) || ! baseClassNeedsInitialising() || ! isEnabled())
++        return;
++
++    CRASH_TRACER_PLUGIN (getDebugName());
++    const juce::ScopedLock sl (processMutex);
++
++    // Prepared once and left prepared, as a released graph leaves it: a graph that
++    // starts with the same settings does not prepare it again
++    if (! isInstancePrepared)
++    {
++        auto& dm = engine.getDeviceManager();
++        lastSampleRate = dm.getSampleRate();
++        lastBlockSizeSamples = dm.getBlockSize();
++        pi->prepareToPlay (lastSampleRate, lastBlockSizeSamples);
++        isInstancePrepared = true;
++    }
++
++    // One sample of silence: some plugins (e.g. VST3s) skip a block of 0 samples
++    juce::AudioBuffer<float> buffer (std::max (1, std::max (pi->getTotalNumInputChannels(), pi->getTotalNumOutputChannels())), 1);
++    buffer.clear();
++    juce::MidiBuffer midi;
++    pi->processBlock (buffer, midi);
++
++    // Values the plugin reported in this block came from it, not for it
++    valuesPending = false;
++}
++
+ void ExternalPlugin::restorePluginStateFromValueTree (const juce::ValueTree& v)
+ {
+     juce::String s;
+@@ -1138,7 +1178,12 @@
+         chunk.fromBase64Encoding (s);
+ 
+         if (chunk.getSize() > 0)
++        {
+             callBlockingCatching ([&pi, &chunk] { pi->setStateInformation (chunk.getData(), (int) chunk.getSize()); });
++
++            // Some plugins report restored values (LV2 patch parameters) only from a block
++            markValuesPending();
++        }
+     }
+ }
+ 
+@@ -1395,6 +1440,7 @@
+ 
+     const juce::ScopedLock sl (processMutex);
+     auto pi = getAudioPluginInstance();
++    valuesPending = false;
+ 
+     if (playhead != nullptr)
+         playhead->setCurrentContext (&fc);
+@@ -1911,6 +1957,7 @@
+ 
+     newInstance->enableAllBuses();
+     loadedInstance = LoadedInstance::create (*this, std::move (newInstance));
++    isInstancePrepared = false;
+     hasLoadedInstance = true;
+     isAsyncInitialising = false;
+ 
+@@ -1934,6 +1981,7 @@
+     restorePluginStateFromValueTree (state);
+     buildParameterList();
+     restoreChannelLayout (*this);
++    passPendingValuesToPlugin();
+ }
+ 
+ void ExternalPlugin::deletePluginInstance()
+@@ -2092,6 +2140,8 @@
+                 if (editor == nullptr)
+                     return;
+ 
++                // An LV2 editor queues its changes for the next block
++                ++plugin.numOpenEditors;
+                 addAndMakeVisible (*editor);
+             }
+         }
+@@ -2099,6 +2149,15 @@
+         resizeToFitEditor (true);
+     }
+ 
++    ~AudioProcessorEditorContentComp() override
++    {
++        if (editor != nullptr)
++        {
++            --plugin.numOpenEditors;
++            plugin.markValuesPending();
++        }
++    }
++
+     bool allowWindowResizing() override
+     {
+         if (isCmajorPatchPluginFormat (plugin.desc))
+--- a/modules/tracktion_engine/plugins/external/tracktion_ExternalAutomatableParameter.h
++++ b/modules/tracktion_engine/plugins/external/tracktion_ExternalAutomatableParameter.h
+@@ -80,6 +80,7 @@
+                     markAsChanged();
+ 
+                 p->setValue (newValue);
++                static_cast<ExternalPlugin&> (*plugin).markValuesPending();
+             }
+         }
+     }

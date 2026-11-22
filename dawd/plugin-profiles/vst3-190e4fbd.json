@@ -1,0 +1,7215 @@
+{
+ "plugin": {
+  "name": "Surge XT",
+  "format": "VST3",
+  "uid": "190e4fbd",
+  "vendor": "Surge Synth Team",
+  "version": 6
+ },
+ "generated": "2026-10-27T09:59:44",
+ "measured": {
+  "version": 3,
+  "signal": "MIDI v3: legato line C4 E4 G4 E4 (overlapping), long A3 1 s, rest 0.25 s, staccato C5 velocity 50 50 120 120, chord C2+C3 E3 G3 1 s (120 BPM)",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.1999999999999957,
+   "brightness": 0.3540000000000001,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 4.800000000000001,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct"
+  },
+  "noise": {
+   "lufs": 0.5999999999999979,
+   "brightness": 0.17700000000000005,
+   "low": 0.7000000000000002,
+   "high": 0.6899999999999995,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0,
+   "sustain": 1.3000000000000003,
+   "glide": 0.0,
+   "vibrato": 0.0,
+   "beating": 2.4000000000000004,
+   "correlation": 0.0,
+   "velocity": 0.02,
+   "detune": 0.0
+  },
+  "baseline": {
+   "lufs": -17.1,
+   "silent": false,
+   "brightness": -1.752,
+   "low": -5.21,
+   "high": -14.59,
+   "width": -40.0,
+   "tail": 0.03,
+   "attack": 0.0,
+   "sustain": -4.2,
+   "glide": 0.0,
+   "vibrato": 0.0,
+   "beating": 6.800000000000001,
+   "detune": 1.0,
+   "correlation": 1.0,
+   "beatingHz": 3.1,
+   "velocity": 0.01
+  },
+  "parameters": {
+   "Send FX 1 Return": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-inf dB"
+     ],
+     [
+      0.25,
+      "-36.00 dB"
+     ],
+     [
+      0.5,
+      "-18.00 dB"
+     ],
+     [
+      0.75,
+      "-7.47 dB"
+     ],
+     [
+      1.0,
+      "0.00 dB"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Global Volume": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-48.00 dB"
+     ],
+     [
+      0.25,
+      "-36.00 dB"
+     ],
+     [
+      0.5,
+      "-24.00 dB"
+     ],
+     [
+      0.75,
+      "-12.00 dB"
+     ],
+     [
+      1.0,
+      "0.00 dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 49.0,
+      "atMin": -63.8,
+      "atMax": -14.8,
+      "direction": "up",
+      "ratio": 40.8
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 49.0 LU"
+   },
+   "Active Scene": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.7,
+      "atMin": -1.7,
+      "atMax": -4.6,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 3.7 dB"
+   },
+   "Scene Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Single"
+     ],
+     [
+      0.25,
+      "Key Split"
+     ],
+     [
+      0.5,
+      "Dual"
+     ],
+     [
+      0.75,
+      "Dual"
+     ],
+     [
+      1.0,
+      "Channel Split"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 4.6,
+      "atMin": -17.7,
+      "atMax": -17.2,
+      "direction": "varies",
+      "ratio": 3.8
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↕ 4.6 LU"
+   },
+   "Split Point": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "C4"
+     ],
+     [
+      0.25,
+      "C-1"
+     ],
+     [
+      0.5,
+      "G1"
+     ],
+     [
+      0.75,
+      "E4"
+     ],
+     [
+      1.0,
+      "C7"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "FX Disable": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "-"
+     ],
+     [
+      0.25,
+      "-"
+     ],
+     [
+      0.5,
+      "-"
+     ],
+     [
+      0.75,
+      "-"
+     ],
+     [
+      1.0,
+      "-"
+     ]
+    ],
+    "needs": [
+     "FX A1 FX Type = Delay"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.15,
+      "atMin": 0.17,
+      "atMax": 0.04,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.15 oct"
+   },
+   "Polyphony Limit": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "2"
+     ],
+     [
+      0.25,
+      "17"
+     ],
+     [
+      0.5,
+      "33"
+     ],
+     [
+      0.75,
+      "49"
+     ],
+     [
+      1.0,
+      "64"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.5,
+      "atMin": -18.7,
+      "atMax": -17.2,
+      "direction": "up",
+      "ratio": 1.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.42,
+      "atMin": -1.33,
+      "atMax": -1.59,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "loudness ↑ 1.5 LU, brightness ↓ 0.42 oct"
+   },
+   "FX Chain Bypass": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "All FX"
+     ],
+     [
+      0.25,
+      "No Send FX"
+     ],
+     [
+      0.5,
+      "No Send and Global FX"
+     ],
+     [
+      0.75,
+      "No Send and Global FX"
+     ],
+     [
+      1.0,
+      "All FX Off"
+     ]
+    ],
+    "needs": [
+     "FX A1 FX Type = Delay"
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.74,
+      "atMin": 0.77,
+      "atMax": 0.03,
+      "direction": "down",
+      "ratio": 4.9
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.6,
+      "atMin": -20.5,
+      "atMax": -16.9,
+      "direction": "up",
+      "ratio": 3.0
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.63,
+      "atMin": -16.93,
+      "atMax": -14.87,
+      "direction": "up",
+      "ratio": 1.3
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.15,
+      "atMin": -6.01,
+      "atMax": -4.67,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "tail/decay ↓ 0.74 s, loudness ↑ 3.6 LU, highs ↑ 2.63 dB"
+   },
+   "FX A1 FX Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Freq Shift"
+     ],
+     [
+      0.5,
+      "Neuron"
+     ],
+     [
+      0.75,
+      "Nimbus"
+     ],
+     [
+      1.0,
+      "Audio In"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.7,
+      "atMin": -17.2,
+      "atMax": -17.1,
+      "direction": "varies",
+      "ratio": 4.8
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↕ 5.7 LU"
+   },
+   "FX A1 Param 1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "-"
+     ],
+     [
+      0.25,
+      "-"
+     ],
+     [
+      0.5,
+      "-"
+     ],
+     [
+      0.75,
+      "-"
+     ],
+     [
+      1.0,
+      "-"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.27,
+      "atMin": -6.72,
+      "atMax": -4.45,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.27 dB"
+   },
+   "FX B1 FX Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Freq Shift"
+     ],
+     [
+      0.5,
+      "Neuron"
+     ],
+     [
+      0.75,
+      "Nimbus"
+     ],
+     [
+      1.0,
+      "Audio In"
+     ]
+    ],
+    "needs": [
+     "Active Scene"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 6.3,
+      "atMin": -16.9,
+      "atMax": -17.5,
+      "direction": "varies",
+      "ratio": 5.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.36,
+      "atMin": -1.8,
+      "atMax": -1.72,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 6.3 LU, brightness ↑ 0.36 oct"
+   },
+   "FX B1 Param 1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "-"
+     ],
+     [
+      0.25,
+      "-"
+     ],
+     [
+      0.5,
+      "-"
+     ],
+     [
+      0.75,
+      "-"
+     ],
+     [
+      1.0,
+      "-"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.9,
+      "atMin": -6.2,
+      "atMax": -2.3,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 3.9 dB"
+   },
+   "FX S1 FX Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Freq Shift"
+     ],
+     [
+      0.5,
+      "Neuron"
+     ],
+     [
+      0.75,
+      "Nimbus"
+     ],
+     [
+      1.0,
+      "Audio In"
+     ]
+    ],
+    "needs": [
+     "FX S2 FX Type = Delay"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 4.1,
+      "atMin": -5.0,
+      "atMax": -0.9,
+      "direction": "up",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 4.1 dB"
+   },
+   "FX S1 Param 1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "-"
+     ],
+     [
+      0.25,
+      "-"
+     ],
+     [
+      0.5,
+      "-"
+     ],
+     [
+      0.75,
+      "-"
+     ],
+     [
+      1.0,
+      "-"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "FX G1 FX Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Freq Shift"
+     ],
+     [
+      0.5,
+      "Neuron"
+     ],
+     [
+      0.75,
+      "Nimbus"
+     ],
+     [
+      1.0,
+      "Audio In"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 6.2,
+      "atMin": -17.9,
+      "atMax": -17.2,
+      "direction": "varies",
+      "ratio": 5.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 6.2 LU"
+   },
+   "FX G1 Param 1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "-"
+     ],
+     [
+      0.25,
+      "-"
+     ],
+     [
+      0.5,
+      "-"
+     ],
+     [
+      0.75,
+      "-"
+     ],
+     [
+      1.0,
+      "-"
+     ]
+    ],
+    "needs": [
+     "FX G1 FX Type = Delay"
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 34.4,
+      "atMin": -40.0,
+      "atMax": -8.2,
+      "direction": "up",
+      "ratio": 11.5
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 1.49,
+      "atMin": 0.76,
+      "atMax": 2.25,
+      "direction": "up",
+      "ratio": 9.9
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 9.1,
+      "atMin": -9.2,
+      "atMax": -0.1,
+      "direction": "up",
+      "ratio": 3.0
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 5.82,
+      "atMin": 4.24,
+      "atMax": -1.58,
+      "direction": "down",
+      "ratio": 2.9
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.12,
+      "atMin": -7.23,
+      "atMax": -6.13,
+      "direction": "up",
+      "ratio": 1.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.16,
+      "atMin": 0.24,
+      "atMax": 0.08,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↑ 34.4 dB, tail/decay ↑ 1.49 s, sustain ↑ 9.1 dB"
+   },
+   "Character": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Warm"
+     ],
+     [
+      0.25,
+      "Warm"
+     ],
+     [
+      0.5,
+      "Neutral"
+     ],
+     [
+      0.75,
+      "Bright"
+     ],
+     [
+      1.0,
+      "Bright"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 5.01,
+      "atMin": -15.71,
+      "atMax": -11.47,
+      "direction": "up",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "highs ↑ 5.01 dB"
+   },
+   "A Octave": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-3"
+     ],
+     [
+      0.25,
+      "-2"
+     ],
+     [
+      0.5,
+      "0"
+     ],
+     [
+      0.75,
+      "2"
+     ],
+     [
+      1.0,
+      "3"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 37.25,
+      "atMin": -1.01,
+      "atMax": -38.26,
+      "direction": "down",
+      "ratio": 18.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 4.54,
+      "atMin": -3.5,
+      "atMax": 1.04,
+      "direction": "up",
+      "ratio": 12.8
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 14.76,
+      "atMin": -19.6,
+      "atMax": -4.84,
+      "direction": "up",
+      "ratio": 7.4
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 8.4,
+      "atMin": -23.4,
+      "atMax": -15.0,
+      "direction": "up",
+      "ratio": 7.0
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 35.0,
+      "atMin": 35.0,
+      "atMax": 0.0,
+      "direction": "down",
+      "ratio": 1.4
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 6.2,
+      "atMin": 5.4,
+      "atMax": 0.4,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "lows ↓ 37.25 dB, brightness ↑ 4.54 oct, highs ↑ 14.76 dB"
+   },
+   "A Pitch": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-7.00 semitones"
+     ],
+     [
+      0.25,
+      "-3.50 semitones"
+     ],
+     [
+      0.5,
+      "0.00 semitones"
+     ],
+     [
+      0.75,
+      "3.50 semitones"
+     ],
+     [
+      1.0,
+      "7.00 semitones"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 7.7,
+      "atMin": -2.5,
+      "atMax": -10.2,
+      "direction": "down",
+      "ratio": 3.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.32,
+      "atMin": -2.37,
+      "atMax": -1.05,
+      "direction": "up",
+      "ratio": 3.7
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 3.79,
+      "atMin": -16.07,
+      "atMax": -12.28,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.3,
+      "atMin": -3.0,
+      "atMax": -0.6,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "lows ↓ 7.7 dB, brightness ↑ 1.32 oct, highs ↑ 3.79 dB"
+   },
+   "A Portamento": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "22.1 ms"
+     ],
+     [
+      0.5,
+      "125.0 ms"
+     ],
+     [
+      0.75,
+      "707.1 ms"
+     ],
+     [
+      1.0,
+      "4.00 s"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 21.5,
+      "atMin": 1.0,
+      "atMax": 22.5,
+      "direction": "up",
+      "ratio": 4.3
+     },
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 1.0,
+      "atMin": 0.0,
+      "atMax": 0.0,
+      "direction": "varies",
+      "ratio": 2.0
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.7,
+      "atMin": -5.3,
+      "atMax": -1.6,
+      "direction": "up",
+      "ratio": 1.2
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 5.2,
+      "atMin": 6.5,
+      "atMax": 1.3,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "detune ↑ 21.5 ct, glide ↕ 1.0 share, sustain ↑ 3.7 dB"
+   },
+   "A Play Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Poly"
+     ],
+     [
+      0.25,
+      "Mono"
+     ],
+     [
+      0.5,
+      "Mono (Fingered Portamento)"
+     ],
+     [
+      0.75,
+      "Mono (Single Trigger & Fingered Portamento)"
+     ],
+     [
+      1.0,
+      "Latch (Monophonic)"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 2.22,
+      "atMin": 0.03,
+      "atMax": 2.25,
+      "direction": "up",
+      "ratio": 14.8
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 24.13,
+      "atMin": -4.95,
+      "atMax": -29.08,
+      "direction": "down",
+      "ratio": 12.1
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 11.6,
+      "atMin": 4.4,
+      "atMax": 0.2,
+      "direction": "varies",
+      "ratio": 2.4
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.8,
+      "atMin": -17.1,
+      "atMax": -19.1,
+      "direction": "varies",
+      "ratio": 2.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.69,
+      "atMin": -1.79,
+      "atMax": -1.16,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 4.7,
+      "atMin": -2.6,
+      "atMax": -7.3,
+      "direction": "down",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "strong",
+    "summary": "tail/decay ↑ 2.22 s, lows ↓ 24.13 dB, level beating ↕ 11.6 dB"
+   },
+   "A FM Routing": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "2 > 1"
+     ],
+     [
+      0.5,
+      "3 > 2 > 1"
+     ],
+     [
+      0.75,
+      "3 > 2 > 1"
+     ],
+     [
+      1.0,
+      "2 > 1 < 3"
+     ]
+    ],
+    "needs": [
+     "B FM Routing = 2 > 1"
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.36,
+      "atMin": -7.01,
+      "atMax": -6.28,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.36 dB"
+   },
+   "A FM Depth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-48.00 dB"
+     ],
+     [
+      0.25,
+      "-30.00 dB"
+     ],
+     [
+      0.5,
+      "-12.00 dB"
+     ],
+     [
+      0.75,
+      "6.00 dB"
+     ],
+     [
+      1.0,
+      "24.00 dB"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Osc Drift": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.2,
+      "atMin": -6.17,
+      "atMax": -4.87,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.2 dB"
+   },
+   "A Noise Color": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 %"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 %"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 5.6,
+      "atMin": 10.0,
+      "atMax": 4.4,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 5.6 dB"
+   },
+   "A Keytrack Root Key": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "C4"
+     ],
+     [
+      0.25,
+      "C-1"
+     ],
+     [
+      0.5,
+      "G1"
+     ],
+     [
+      0.75,
+      "E4"
+     ],
+     [
+      1.0,
+      "C7"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.17,
+      "atMin": 0.2,
+      "atMax": 0.06,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "tail/decay ↓ 0.17 s"
+   },
+   "A Volume": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-inf dB"
+     ],
+     [
+      0.25,
+      "-36.00 dB"
+     ],
+     [
+      0.5,
+      "-18.00 dB"
+     ],
+     [
+      0.75,
+      "-7.47 dB"
+     ],
+     [
+      1.0,
+      "0.00 dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 55.8,
+      "atMin": -70.0,
+      "atMax": -14.2,
+      "direction": "up",
+      "ratio": 46.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 55.8 LU"
+   },
+   "A Pan": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 % (Left)"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 % (Center)"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 % (Right)"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 43.5,
+      "atMin": 3.5,
+      "atMax": 3.5,
+      "direction": "varies",
+      "ratio": 14.5
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 2.0,
+      "atMin": -1.0,
+      "atMax": -1.0,
+      "direction": "varies",
+      "ratio": 10.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.4,
+      "atMin": -15.1,
+      "atMax": -15.4,
+      "direction": "varies",
+      "ratio": 2.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↕ 43.5 dB, L/R correlation ↕ 2.0 , loudness ↕ 2.4 LU"
+   },
+   "A Width": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 %"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 %"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.4,
+      "atMin": -17.5,
+      "atMax": -17.5,
+      "direction": "varies",
+      "ratio": 2.0
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": -3.8,
+      "atMax": -3.0,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↕ 2.4 LU, sustain ↑ 3.0 dB"
+   },
+   "A Send FX 1 Level": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-inf dB"
+     ],
+     [
+      0.25,
+      "-24.00 dB"
+     ],
+     [
+      0.5,
+      "-6.00 dB"
+     ],
+     [
+      0.75,
+      "4.53 dB"
+     ],
+     [
+      1.0,
+      "12.00 dB"
+     ]
+    ],
+    "needs": [
+     "FX A1 FX Type = Delay"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.29,
+      "atMin": -0.05,
+      "atMax": 0.24,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.29 oct"
+   },
+   "A Pitch Bend Up Range": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0 semitones"
+     ],
+     [
+      0.25,
+      "6 semitones"
+     ],
+     [
+      0.5,
+      "12 semitones"
+     ],
+     [
+      0.75,
+      "18 semitones"
+     ],
+     [
+      1.0,
+      "24 semitones"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Pitch Bend Down Range": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0 semitones"
+     ],
+     [
+      0.25,
+      "6 semitones"
+     ],
+     [
+      0.5,
+      "12 semitones"
+     ],
+     [
+      0.75,
+      "18 semitones"
+     ],
+     [
+      1.0,
+      "24 semitones"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A VCA Gain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-48.00 dB"
+     ],
+     [
+      0.25,
+      "-24.00 dB"
+     ],
+     [
+      0.5,
+      "0.00 dB"
+     ],
+     [
+      0.75,
+      "24.00 dB"
+     ],
+     [
+      1.0,
+      "48.00 dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 66.6,
+      "atMin": -64.7,
+      "atMax": 1.9,
+      "direction": "up",
+      "ratio": 55.5
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 3.94,
+      "atMin": -6.29,
+      "atMax": -9.8,
+      "direction": "down",
+      "ratio": 2.0
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.8,
+      "atMin": -3.8,
+      "atMax": -0.0,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 66.6 LU, lows ↓ 3.94 dB, sustain ↑ 3.8 dB"
+   },
+   "A Velocity > VCA Gain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-48.00 dB"
+     ],
+     [
+      0.25,
+      "-36.00 dB"
+     ],
+     [
+      0.5,
+      "-24.00 dB"
+     ],
+     [
+      0.75,
+      "-12.00 dB"
+     ],
+     [
+      1.0,
+      "0.00 dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 26.45,
+      "atMin": 26.48,
+      "atMax": 0.03,
+      "direction": "down",
+      "ratio": 13.2
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 10.8,
+      "atMin": -28.5,
+      "atMax": -17.7,
+      "direction": "up",
+      "ratio": 9.0
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.52,
+      "atMin": -7.11,
+      "atMax": -5.69,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "velocity response ↓ 26.45 dB, loudness ↑ 10.8 LU, lows ↑ 2.52 dB"
+   },
+   "A Feedback": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 %"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 %"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 17.1,
+      "atMin": -23.0,
+      "atMax": -5.9,
+      "direction": "up",
+      "ratio": 14.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 4.9,
+      "atMin": -14.37,
+      "atMax": -18.68,
+      "direction": "down",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 17.1 LU, highs ↓ 4.9 dB"
+   },
+   "A Filter Configuration": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Serial 1"
+     ],
+     [
+      0.25,
+      "Serial 3"
+     ],
+     [
+      0.5,
+      "Dual 2"
+     ],
+     [
+      0.75,
+      "Stereo"
+     ],
+     [
+      1.0,
+      "Wide"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.2,
+      "atMin": -17.3,
+      "atMax": -17.9,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "loudness ↓ 1.2 LU"
+   },
+   "A Filter Balance": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 %"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 %"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Highpass": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "6.88 Hz"
+     ],
+     [
+      0.25,
+      "24.15 Hz"
+     ],
+     [
+      0.5,
+      "84.82 Hz"
+     ],
+     [
+      0.75,
+      "297.94 Hz"
+     ],
+     [
+      1.0,
+      "1046.50 Hz"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 23.44,
+      "atMin": -6.28,
+      "atMax": -29.72,
+      "direction": "down",
+      "ratio": 11.7
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.88,
+      "atMin": -1.57,
+      "atMax": 1.31,
+      "direction": "up",
+      "ratio": 8.1
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 8.9,
+      "atMin": -17.9,
+      "atMax": -26.2,
+      "direction": "down",
+      "ratio": 7.4
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 10.74,
+      "atMin": -13.65,
+      "atMax": -3.55,
+      "direction": "up",
+      "ratio": 5.4
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 6.0,
+      "atMin": -1.6,
+      "atMax": -1.0,
+      "direction": "varies",
+      "ratio": 2.0
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 6.0,
+      "atMin": 4.6,
+      "atMax": 0.7,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "lows ↓ 23.44 dB, brightness ↑ 2.88 oct, loudness ↓ 8.9 LU"
+   },
+   "A Waveshaper Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Full Wave"
+     ],
+     [
+      0.5,
+      "Additive 12345"
+     ],
+     [
+      0.75,
+      "Sin 7x + x"
+     ],
+     [
+      1.0,
+      "Soft Single Fold"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 18.9,
+      "atMin": -17.1,
+      "atMax": -11.4,
+      "direction": "varies",
+      "ratio": 15.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.18,
+      "atMin": -1.78,
+      "atMax": -1.87,
+      "direction": "varies",
+      "ratio": 3.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 6.16,
+      "atMin": -14.54,
+      "atMax": -15.65,
+      "direction": "varies",
+      "ratio": 3.1
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 5.37,
+      "atMin": -4.55,
+      "atMax": -5.23,
+      "direction": "varies",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 18.9 LU, brightness ↕ 1.18 oct, highs ↕ 6.16 dB"
+   },
+   "A Waveshaper Drive": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-24.00 dB"
+     ],
+     [
+      0.25,
+      "-12.00 dB"
+     ],
+     [
+      0.5,
+      "0.00 dB"
+     ],
+     [
+      0.75,
+      "12.00 dB"
+     ],
+     [
+      1.0,
+      "24.00 dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.5,
+      "atMin": -5.0,
+      "atMax": -1.5,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 3.5 dB"
+   },
+   "A Filter 2 Offset Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Link Resonance": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "needs": [
+     "FX A1 FX Type = Delay"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.2,
+      "atMin": 0.22,
+      "atMax": 0.02,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.2 oct"
+   },
+   "A Osc 1 Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Classic"
+     ],
+     [
+      0.25,
+      "S&H Noise"
+     ],
+     [
+      0.5,
+      "FM2"
+     ],
+     [
+      0.75,
+      "Modern"
+     ],
+     [
+      1.0,
+      "Alias"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 25.77,
+      "atMin": -14.87,
+      "atMax": -40.0,
+      "direction": "varies",
+      "ratio": 12.9
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 13.2,
+      "atMin": -16.9,
+      "atMax": -16.2,
+      "direction": "varies",
+      "ratio": 11.0
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.04,
+      "atMin": -1.81,
+      "atMax": -2.51,
+      "direction": "varies",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "strong",
+    "summary": "highs ↕ 25.77 dB, loudness ↕ 13.2 LU, brightness ↕ 1.04 oct"
+   },
+   "A Osc 1 Octave": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-3"
+     ],
+     [
+      0.25,
+      "-2"
+     ],
+     [
+      0.5,
+      "0"
+     ],
+     [
+      0.75,
+      "2"
+     ],
+     [
+      1.0,
+      "3"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 37.16,
+      "atMin": -1.01,
+      "atMax": -38.17,
+      "direction": "down",
+      "ratio": 18.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 4.62,
+      "atMin": -3.54,
+      "atMax": 1.08,
+      "direction": "up",
+      "ratio": 13.1
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 15.03,
+      "atMin": -19.7,
+      "atMax": -4.67,
+      "direction": "up",
+      "ratio": 7.5
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 8.2,
+      "atMin": -23.3,
+      "atMax": -15.1,
+      "direction": "up",
+      "ratio": 6.8
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 30.0,
+      "atMin": 30.0,
+      "atMax": 0.0,
+      "direction": "down",
+      "ratio": 1.2
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.4,
+      "atMin": -4.9,
+      "atMax": -1.5,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "lows ↓ 37.16 dB, brightness ↑ 4.62 oct, highs ↑ 15.03 dB"
+   },
+   "A Osc 1 Pitch": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-7.00 semitones"
+     ],
+     [
+      0.25,
+      "-3.50 semitones"
+     ],
+     [
+      0.5,
+      "0.00 semitones"
+     ],
+     [
+      0.75,
+      "3.50 semitones"
+     ],
+     [
+      1.0,
+      "7.00 semitones"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 8.06,
+      "atMin": -2.77,
+      "atMax": -10.83,
+      "direction": "down",
+      "ratio": 4.0
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.12,
+      "atMin": -2.33,
+      "atMax": -1.21,
+      "direction": "up",
+      "ratio": 3.2
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 8.3,
+      "atMin": 10.3,
+      "atMax": 2.0,
+      "direction": "down",
+      "ratio": 1.7
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.82,
+      "atMin": -15.9,
+      "atMax": -13.08,
+      "direction": "up",
+      "ratio": 1.4
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.5,
+      "atMin": -18.1,
+      "atMax": -16.6,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "lows ↓ 8.06 dB, brightness ↑ 1.12 oct, level beating ↓ 8.3 dB"
+   },
+   "A Osc 1 Shape": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 %"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 %"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.7,
+      "atMin": -12.7,
+      "atMax": -16.9,
+      "direction": "varies",
+      "ratio": 4.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.27,
+      "atMin": -2.02,
+      "atMax": -0.75,
+      "direction": "up",
+      "ratio": 3.6
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 6.02,
+      "atMin": -4.59,
+      "atMax": -10.09,
+      "direction": "down",
+      "ratio": 3.0
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 5.14,
+      "atMin": -16.13,
+      "atMax": -10.99,
+      "direction": "up",
+      "ratio": 2.6
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 4.1,
+      "atMin": -5.6,
+      "atMax": -1.5,
+      "direction": "up",
+      "ratio": 1.4
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 6.0,
+      "atMin": 7.1,
+      "atMax": 1.9,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↕ 5.7 LU, brightness ↑ 1.27 oct, lows ↓ 6.02 dB"
+   },
+   "A Osc 1 Width 1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.5,
+      "atMin": 0.5,
+      "atMax": 0.0,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "glide ↓ 0.5 share"
+   },
+   "A Osc 1 Sub Mix": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.2,
+      "atMin": -17.3,
+      "atMax": -14.2,
+      "direction": "varies",
+      "ratio": 4.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.22,
+      "atMin": -1.62,
+      "atMax": -2.84,
+      "direction": "down",
+      "ratio": 3.5
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 4.9,
+      "atMin": -6.39,
+      "atMax": -1.49,
+      "direction": "up",
+      "ratio": 2.4
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 4.27,
+      "atMin": -14.27,
+      "atMax": -18.54,
+      "direction": "down",
+      "ratio": 2.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↕ 5.2 LU, brightness ↓ 1.22 oct, lows ↑ 4.9 dB"
+   },
+   "A Osc 1 Sync": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 semitones"
+     ],
+     [
+      0.25,
+      "15.00 semitones"
+     ],
+     [
+      0.5,
+      "30.00 semitones"
+     ],
+     [
+      0.75,
+      "45.00 semitones"
+     ],
+     [
+      1.0,
+      "60.00 semitones"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 35.13,
+      "atMin": -4.87,
+      "atMax": -40.0,
+      "direction": "down",
+      "ratio": 17.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 4.41,
+      "atMin": -1.73,
+      "atMax": 2.68,
+      "direction": "up",
+      "ratio": 12.4
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 13.71,
+      "atMin": -14.35,
+      "atMax": -0.64,
+      "direction": "up",
+      "ratio": 6.9
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.0,
+      "atMin": -17.4,
+      "atMax": -15.0,
+      "direction": "varies",
+      "ratio": 2.5
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.5,
+      "atMin": -3.9,
+      "atMax": -1.1,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "lows ↓ 35.13 dB, brightness ↑ 4.41 oct, highs ↑ 13.71 dB"
+   },
+   "A Osc 1 Unison Detune": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 cents"
+     ],
+     [
+      0.25,
+      "25.00 cents"
+     ],
+     [
+      0.5,
+      "50.00 cents"
+     ],
+     [
+      0.75,
+      "75.00 cents"
+     ],
+     [
+      1.0,
+      "100.00 cents"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Osc 1 Unison Voices": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1 voice"
+     ],
+     [
+      0.25,
+      "5 voices"
+     ],
+     [
+      0.5,
+      "9 voices"
+     ],
+     [
+      0.75,
+      "12 voices"
+     ],
+     [
+      1.0,
+      "16 voices"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 35.6,
+      "atMin": -40.0,
+      "atMax": -9.2,
+      "direction": "varies",
+      "ratio": 11.9
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.8,
+      "atMin": -16.9,
+      "atMax": -13.1,
+      "direction": "up",
+      "ratio": 3.2
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 0.53,
+      "atMin": 1.0,
+      "atMax": 0.78,
+      "direction": "varies",
+      "ratio": 2.6
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 9.0,
+      "atMin": 1.0,
+      "atMax": 8.5,
+      "direction": "up",
+      "ratio": 1.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.51,
+      "atMin": -1.79,
+      "atMax": -2.28,
+      "direction": "down",
+      "ratio": 1.4
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.88,
+      "atMin": -14.8,
+      "atMax": -17.68,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↕ 35.6 dB, loudness ↑ 3.8 LU, L/R correlation ↕ 0.53 "
+   },
+   "A Osc 1 Keytrack": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 23.94,
+      "atMin": -28.3,
+      "atMax": -4.94,
+      "direction": "up",
+      "ratio": 12.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.9,
+      "atMin": -14.5,
+      "atMax": -16.6,
+      "direction": "down",
+      "ratio": 2.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "lows ↑ 23.94 dB, loudness ↓ 2.9 LU"
+   },
+   "A Osc 1 Retrigger": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "needs": [
+     "A Osc 2 Retrigger"
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.3,
+      "atMin": -6.79,
+      "atMax": -4.88,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.3 dB"
+   },
+   "A Osc 1 Volume": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-inf dB"
+     ],
+     [
+      0.25,
+      "-36.00 dB"
+     ],
+     [
+      0.5,
+      "-18.00 dB"
+     ],
+     [
+      0.75,
+      "-7.47 dB"
+     ],
+     [
+      1.0,
+      "0.00 dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 52.9,
+      "atMin": -70.0,
+      "atMax": -17.1,
+      "direction": "up",
+      "ratio": 44.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 52.9 LU"
+   },
+   "A Osc 1 Mute": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 53.0,
+      "atMin": -17.4,
+      "atMax": -70.0,
+      "direction": "varies",
+      "ratio": 44.2
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.45,
+      "atMin": -6.94,
+      "atMax": -4.49,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 53.0 LU, lows ↑ 2.45 dB"
+   },
+   "A Osc 1 Solo": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Osc 1 Route": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Filter 1"
+     ],
+     [
+      0.25,
+      "Filter 1"
+     ],
+     [
+      0.5,
+      "Both"
+     ],
+     [
+      0.75,
+      "Filter 2"
+     ],
+     [
+      1.0,
+      "Filter 2"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 40.0,
+      "atMin": 0.0,
+      "atMax": 0.0,
+      "direction": "varies",
+      "ratio": 13.3
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 1.0,
+      "atMin": 0.0,
+      "atMax": 1.0,
+      "direction": "up",
+      "ratio": 5.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.8,
+      "atMin": -20.2,
+      "atMax": -20.1,
+      "direction": "varies",
+      "ratio": 3.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↕ 40.0 dB, L/R correlation ↑ 1.0 , loudness ↕ 3.8 LU"
+   },
+   "A Ring Modulation 1x2 Volume": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-inf dB"
+     ],
+     [
+      0.25,
+      "-36.00 dB"
+     ],
+     [
+      0.5,
+      "-18.00 dB"
+     ],
+     [
+      0.75,
+      "-7.47 dB"
+     ],
+     [
+      1.0,
+      "0.00 dB"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Ring Modulation 1x2 Mute": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.12,
+      "atMin": -5.96,
+      "atMax": -4.62,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.12 dB"
+   },
+   "A Ring Modulation 1x2 Solo": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 9.5,
+      "atMin": -17.0,
+      "atMax": -26.5,
+      "direction": "down",
+      "ratio": 7.9
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.25,
+      "atMin": -1.8,
+      "atMax": -0.68,
+      "direction": "up",
+      "ratio": 3.5
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 5.74,
+      "atMin": -4.64,
+      "atMax": -9.87,
+      "direction": "varies",
+      "ratio": 2.9
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 4.5,
+      "atMin": -14.9,
+      "atMax": -11.45,
+      "direction": "varies",
+      "ratio": 2.2
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.18,
+      "atMin": 0.03,
+      "atMax": 0.19,
+      "direction": "up",
+      "ratio": 1.2
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": -4.0,
+      "atMax": -1.5,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↓ 9.5 LU, brightness ↑ 1.25 oct, lows ↕ 5.74 dB"
+   },
+   "A Ring Modulation 1x2 Route": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Filter 1"
+     ],
+     [
+      0.25,
+      "Filter 1"
+     ],
+     [
+      0.5,
+      "Both"
+     ],
+     [
+      0.75,
+      "Filter 2"
+     ],
+     [
+      1.0,
+      "Filter 2"
+     ]
+    ],
+    "needs": [
+     "FX A1 FX Type = Delay"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.28,
+      "atMin": 0.39,
+      "atMax": 0.23,
+      "direction": "down",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.28 oct"
+   },
+   "A Noise Volume": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-inf dB"
+     ],
+     [
+      0.25,
+      "-36.00 dB"
+     ],
+     [
+      0.5,
+      "-18.00 dB"
+     ],
+     [
+      0.75,
+      "-7.47 dB"
+     ],
+     [
+      1.0,
+      "0.00 dB"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Noise Mute": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 38.1,
+      "atMin": -1.9,
+      "atMax": -40.0,
+      "direction": "down",
+      "ratio": 12.7
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 3.63,
+      "atMin": 1.84,
+      "atMax": -1.78,
+      "direction": "down",
+      "ratio": 10.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 9.8,
+      "atMin": -7.9,
+      "atMax": -17.0,
+      "direction": "varies",
+      "ratio": 8.2
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 12.85,
+      "atMin": -1.74,
+      "atMax": -14.58,
+      "direction": "down",
+      "ratio": 6.4
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 0.78,
+      "atMin": 0.22,
+      "atMax": 1.0,
+      "direction": "up",
+      "ratio": 3.9
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 7.25,
+      "atMin": -11.65,
+      "atMax": -4.54,
+      "direction": "up",
+      "ratio": 3.6
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↓ 38.1 dB, brightness ↓ 3.63 oct, loudness ↕ 9.8 LU"
+   },
+   "A Noise Solo": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 40.0,
+      "atMin": -40.0,
+      "atMax": 0.0,
+      "direction": "up",
+      "ratio": 13.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 4.63,
+      "atMin": -1.82,
+      "atMax": 2.8,
+      "direction": "up",
+      "ratio": 13.1
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 16.58,
+      "atMin": -4.92,
+      "atMax": -21.15,
+      "direction": "down",
+      "ratio": 8.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 8.7,
+      "atMin": -16.7,
+      "atMax": -8.4,
+      "direction": "up",
+      "ratio": 7.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 14.34,
+      "atMin": -15.06,
+      "atMax": -0.73,
+      "direction": "up",
+      "ratio": 7.2
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 1.0,
+      "atMin": 1.0,
+      "atMax": -0.0,
+      "direction": "down",
+      "ratio": 5.0
+     },
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.5,
+      "atMin": 0.0,
+      "atMax": 0.25,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↑ 40.0 dB, brightness ↑ 4.63 oct, lows ↓ 16.58 dB"
+   },
+   "A Noise Route": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Filter 1"
+     ],
+     [
+      0.25,
+      "Filter 1"
+     ],
+     [
+      0.5,
+      "Both"
+     ],
+     [
+      0.75,
+      "Filter 2"
+     ],
+     [
+      1.0,
+      "Filter 2"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Pre-Filter Gain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-48.00 dB"
+     ],
+     [
+      0.25,
+      "-24.00 dB"
+     ],
+     [
+      0.5,
+      "0.00 dB"
+     ],
+     [
+      0.75,
+      "24.00 dB"
+     ],
+     [
+      1.0,
+      "48.00 dB"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 66.8,
+      "atMin": -64.9,
+      "atMax": 1.9,
+      "direction": "up",
+      "ratio": 55.7
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 4.67,
+      "atMin": -6.87,
+      "atMax": -9.79,
+      "direction": "varies",
+      "ratio": 2.3
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.15,
+      "atMin": 0.03,
+      "atMax": 0.18,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 66.8 LU, lows ↕ 4.67 dB, tail/decay ↑ 0.15 s"
+   },
+   "A Filter 1 Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "FX Comb +"
+     ],
+     [
+      0.5,
+      "HP Cutoff Warp"
+     ],
+     [
+      0.75,
+      "FX Comb -"
+     ],
+     [
+      1.0,
+      "MULTI Tri-pole"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 37.11,
+      "atMin": -14.18,
+      "atMax": -40.0,
+      "direction": "varies",
+      "ratio": 18.6
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 3.56,
+      "atMin": -1.62,
+      "atMax": -2.5,
+      "direction": "varies",
+      "ratio": 10.1
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 8.3,
+      "atMin": -17.4,
+      "atMax": -16.0,
+      "direction": "varies",
+      "ratio": 6.9
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 8.84,
+      "atMin": -6.78,
+      "atMax": -3.37,
+      "direction": "varies",
+      "ratio": 4.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "highs ↕ 37.11 dB, brightness ↕ 3.56 oct, loudness ↕ 8.3 LU"
+   },
+   "A Filter 1 Subtype": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "None"
+     ],
+     [
+      0.25,
+      "None"
+     ],
+     [
+      0.5,
+      "None"
+     ],
+     [
+      0.75,
+      "None"
+     ],
+     [
+      1.0,
+      "None"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Filter 1 Cutoff": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "13.75 Hz"
+     ],
+     [
+      0.25,
+      "89.87 Hz"
+     ],
+     [
+      0.5,
+      "587.33 Hz"
+     ],
+     [
+      0.75,
+      "3838.59 Hz"
+     ],
+     [
+      1.0,
+      "25087.71 Hz"
+     ]
+    ],
+    "needs": [
+     "A Filter 2 Offset Mode"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.2,
+      "atMin": -17.7,
+      "atMax": -16.8,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "loudness ↑ 1.2 LU"
+   },
+   "A Filter 1 Resonance": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.5,
+      "atMin": 0.0,
+      "atMax": 0.0,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "glide ↓ 0.5 share"
+   },
+   "A Filter 1 FEG Mod Amount": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-96.00 semitones"
+     ],
+     [
+      0.25,
+      "-48.00 semitones"
+     ],
+     [
+      0.5,
+      "0.00 semitones"
+     ],
+     [
+      0.75,
+      "48.00 semitones"
+     ],
+     [
+      1.0,
+      "96.00 semitones"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.56,
+      "atMin": 0.56,
+      "atMax": -0.0,
+      "direction": "down",
+      "ratio": 3.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.56 oct"
+   },
+   "A Filter 1 Keytrack": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 %"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 %"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "needs": [
+     "A Filter 2 Offset Mode"
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.26,
+      "atMin": -4.94,
+      "atMax": -4.48,
+      "direction": "up",
+      "ratio": 1.1
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": -4.7,
+      "atMax": -2.9,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.26 dB, sustain ↑ 3.0 dB"
+   },
+   "A Amp EG Attack": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 33.6,
+      "atMin": -17.0,
+      "atMax": -50.6,
+      "direction": "down",
+      "ratio": 28.0
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 170.0,
+      "atMin": 0.0,
+      "atMax": 165.0,
+      "direction": "up",
+      "ratio": 6.8
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 5.6,
+      "atMin": -5.3,
+      "atMax": 0.3,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↓ 33.6 LU, attack ↑ 170.0 ms, sustain ↑ 5.6 dB"
+   },
+   "A Amp EG Attack Shape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Convex"
+     ],
+     [
+      0.25,
+      "Convex"
+     ],
+     [
+      0.5,
+      "Linear"
+     ],
+     [
+      0.75,
+      "Concave"
+     ],
+     [
+      1.0,
+      "Concave"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.74,
+      "atMin": -0.03,
+      "atMax": 0.71,
+      "direction": "up",
+      "ratio": 4.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.74 oct"
+   },
+   "A Amp EG Decay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Amp EG Decay Shape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Linear"
+     ],
+     [
+      0.25,
+      "Linear"
+     ],
+     [
+      0.5,
+      "Quadratic"
+     ],
+     [
+      0.75,
+      "Cubic"
+     ],
+     [
+      1.0,
+      "Cubic"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Amp EG Sustain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 38.0,
+      "atMin": -40.6,
+      "atMax": -2.6,
+      "direction": "up",
+      "ratio": 12.7
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 7.6,
+      "atMin": -24.9,
+      "atMax": -17.7,
+      "direction": "up",
+      "ratio": 6.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.72,
+      "atMin": -1.03,
+      "atMax": -1.57,
+      "direction": "varies",
+      "ratio": 2.0
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 3.77,
+      "atMin": -8.9,
+      "atMax": -5.87,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.41,
+      "atMin": -12.1,
+      "atMax": -13.9,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "sustain ↑ 38.0 dB, loudness ↑ 7.6 LU, brightness ↕ 0.72 oct"
+   },
+   "A Amp EG Release": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 2.22,
+      "atMin": 0.03,
+      "atMax": 2.25,
+      "direction": "up",
+      "ratio": 14.8
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 6.0,
+      "atMin": -17.2,
+      "atMax": -11.2,
+      "direction": "up",
+      "ratio": 5.0
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.0,
+      "atMin": -0.5,
+      "atMax": 2.1,
+      "direction": "varies",
+      "ratio": 2.3
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.3,
+      "atMin": -0.03,
+      "atMax": 0.14,
+      "direction": "varies",
+      "ratio": 2.0
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.63,
+      "atMin": -1.78,
+      "atMax": -1.15,
+      "direction": "up",
+      "ratio": 1.8
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.56,
+      "atMin": -4.78,
+      "atMax": -7.34,
+      "direction": "down",
+      "ratio": 1.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.57,
+      "atMin": -14.57,
+      "atMax": -12.0,
+      "direction": "up",
+      "ratio": 1.3
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 2.67,
+      "atMin": -0.05,
+      "atMax": 2.46,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "tail/decay ↑ 2.22 s, loudness ↑ 6.0 LU, sustain ↕ 7.0 dB"
+   },
+   "A Amp EG Release Shape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Linear"
+     ],
+     [
+      0.25,
+      "Linear"
+     ],
+     [
+      0.5,
+      "Quadratic"
+     ],
+     [
+      0.75,
+      "Cubic"
+     ],
+     [
+      1.0,
+      "Cubic"
+     ]
+    ],
+    "needs": [
+     "FX A1 FX Type = Delay"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.47,
+      "atMin": 0.42,
+      "atMax": -0.05,
+      "direction": "down",
+      "ratio": 3.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.47 oct"
+   },
+   "A Amp EG Envelope Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Digital"
+     ],
+     [
+      0.25,
+      "Digital"
+     ],
+     [
+      0.5,
+      "Analog"
+     ],
+     [
+      0.75,
+      "Analog"
+     ],
+     [
+      1.0,
+      "Analog"
+     ]
+    ],
+    "needs": [
+     "A Filter 2 Offset Mode"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.3,
+      "atMin": -4.3,
+      "atMax": -5.6,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 3.3 dB"
+   },
+   "A Filter EG Attack": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.5,
+      "atMin": 0.0,
+      "atMax": 0.25,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "glide ↑ 0.5 share"
+   },
+   "A Filter EG Attack Shape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Convex"
+     ],
+     [
+      0.25,
+      "Convex"
+     ],
+     [
+      0.5,
+      "Linear"
+     ],
+     [
+      0.75,
+      "Concave"
+     ],
+     [
+      1.0,
+      "Concave"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Filter EG Decay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "needs": [
+     "A Filter 2 Offset Mode"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.2,
+      "atMin": -6.5,
+      "atMax": -3.8,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 3.2 dB"
+   },
+   "A Filter EG Decay Shape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Linear"
+     ],
+     [
+      0.25,
+      "Linear"
+     ],
+     [
+      0.5,
+      "Quadratic"
+     ],
+     [
+      0.75,
+      "Cubic"
+     ],
+     [
+      1.0,
+      "Cubic"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.57,
+      "atMin": 0.58,
+      "atMax": 0.01,
+      "direction": "down",
+      "ratio": 3.8
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.57 oct"
+   },
+   "A Filter EG Sustain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Filter EG Release": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Filter EG Release Shape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Linear"
+     ],
+     [
+      0.25,
+      "Linear"
+     ],
+     [
+      0.5,
+      "Quadratic"
+     ],
+     [
+      0.75,
+      "Cubic"
+     ],
+     [
+      1.0,
+      "Cubic"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Filter EG Envelope Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Digital"
+     ],
+     [
+      0.25,
+      "Digital"
+     ],
+     [
+      0.5,
+      "Analog"
+     ],
+     [
+      0.75,
+      "Analog"
+     ],
+     [
+      1.0,
+      "Analog"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 5.8,
+      "atMin": -7.3,
+      "atMax": -2.1,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 5.3,
+      "atMin": 9.6,
+      "atMax": 4.3,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 5.8 dB, level beating ↓ 5.3 dB"
+   },
+   "A LFO 1 Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Sine"
+     ],
+     [
+      0.25,
+      "Square"
+     ],
+     [
+      0.5,
+      "Sample & Hold"
+     ],
+     [
+      0.75,
+      "Step Sequencer"
+     ],
+     [
+      1.0,
+      "Formula"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A LFO 1 Rate": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "0.008 Hz"
+     ],
+     [
+      0.25,
+      "0.125 Hz"
+     ],
+     [
+      0.5,
+      "2.000 Hz"
+     ],
+     [
+      0.75,
+      "32.000 Hz"
+     ],
+     [
+      1.0,
+      "512.000 Hz"
+     ]
+    ],
+    "needs": [
+     "A LFO 1 Unipolar"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 4.0,
+      "atMin": -3.9,
+      "atMax": -5.9,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 4.0 dB"
+   },
+   "A LFO 1 Phase": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "needs": [
+     "A LFO 1 Unipolar"
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.09,
+      "atMin": -6.66,
+      "atMax": -6.9,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↓ 2.09 dB"
+   },
+   "A LFO 1 Amplitude": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A LFO 1 Deform": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 %"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 %"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A LFO 1 Trigger Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Freerun"
+     ],
+     [
+      0.25,
+      "Freerun"
+     ],
+     [
+      0.5,
+      "Keytrigger"
+     ],
+     [
+      0.75,
+      "Random"
+     ],
+     [
+      1.0,
+      "Random"
+     ]
+    ],
+    "needs": [
+     "A Filter 2 Offset Mode"
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.27,
+      "atMin": -6.82,
+      "atMax": -4.66,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.27 dB"
+   },
+   "A LFO 1 Unipolar": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A LFO 1 Delay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A LFO 1 Attack": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A LFO 1 Hold": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "needs": [
+     "A LFO 1 Unipolar"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.7,
+      "atMin": -5.7,
+      "atMax": -2.0,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 3.7 dB"
+   },
+   "A LFO 1 Decay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A LFO 1 Sustain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "needs": [
+     "A LFO 1 Unipolar"
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.13,
+      "atMin": -6.37,
+      "atMax": -6.96,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↓ 2.13 dB"
+   },
+   "A LFO 1 Release": {
+    "scale": "text",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "Forever"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.11,
+      "atMin": -6.77,
+      "atMax": -5.08,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.11 dB"
+   },
+   "A Scene LFO 1 Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Sine"
+     ],
+     [
+      0.25,
+      "Square"
+     ],
+     [
+      0.5,
+      "Sample & Hold"
+     ],
+     [
+      0.75,
+      "Step Sequencer"
+     ],
+     [
+      1.0,
+      "Formula"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.49,
+      "atMin": 0.0,
+      "atMax": 0.49,
+      "direction": "up",
+      "ratio": 3.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.49 oct"
+   },
+   "A Scene LFO 1 Rate": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "0.008 Hz"
+     ],
+     [
+      0.25,
+      "0.125 Hz"
+     ],
+     [
+      0.5,
+      "2.000 Hz"
+     ],
+     [
+      0.75,
+      "32.000 Hz"
+     ],
+     [
+      1.0,
+      "512.000 Hz"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.8,
+      "atMin": -5.6,
+      "atMax": -2.0,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 3.8 dB"
+   },
+   "A Scene LFO 1 Phase": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Scene LFO 1 Amplitude": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.35,
+      "atMin": -4.77,
+      "atMax": -6.94,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↓ 2.35 dB"
+   },
+   "A Scene LFO 1 Deform": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00 %"
+     ],
+     [
+      0.25,
+      "-50.00 %"
+     ],
+     [
+      0.5,
+      "0.00 %"
+     ],
+     [
+      0.75,
+      "50.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "needs": [
+     "A Scene LFO 1 Unipolar"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.2,
+      "atMin": -5.7,
+      "atMax": -2.5,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 3.2 dB"
+   },
+   "A Scene LFO 1 Trigger Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Freerun"
+     ],
+     [
+      0.25,
+      "Freerun"
+     ],
+     [
+      0.5,
+      "Keytrigger"
+     ],
+     [
+      0.75,
+      "Random"
+     ],
+     [
+      1.0,
+      "Random"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Scene LFO 1 Unipolar": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "Off"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Scene LFO 1 Delay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "needs": [
+     "A Scene LFO 1 Unipolar"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": -2.5,
+      "atMax": -5.5,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 3.0 dB"
+   },
+   "A Scene LFO 1 Attack": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Scene LFO 1 Hold": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 4.6,
+      "atMin": -2.6,
+      "atMax": -7.2,
+      "direction": "down",
+      "ratio": 1.5
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 4.9,
+      "atMin": 4.4,
+      "atMax": 9.3,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 4.6 dB, level beating ↑ 4.9 dB"
+   },
+   "A Scene LFO 1 Decay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "32.00 s"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "A Scene LFO 1 Sustain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00 %"
+     ],
+     [
+      0.25,
+      "25.00 %"
+     ],
+     [
+      0.5,
+      "50.00 %"
+     ],
+     [
+      0.75,
+      "75.00 %"
+     ],
+     [
+      1.0,
+      "100.00 %"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.9,
+      "atMin": -1.0,
+      "atMax": -4.9,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 3.9 dB"
+   },
+   "A Scene LFO 1 Release": {
+    "scale": "text",
+    "points": [
+     [
+      0.0,
+      "0.0 ms"
+     ],
+     [
+      0.25,
+      "37.2 ms"
+     ],
+     [
+      0.5,
+      "353.6 ms"
+     ],
+     [
+      0.75,
+      "3.36 s"
+     ],
+     [
+      1.0,
+      "Forever"
+     ]
+    ],
+    "needs": [
+     "A Scene LFO 1 Unipolar"
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.42,
+      "atMin": -6.41,
+      "atMax": -4.75,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "lows ↑ 2.42 dB"
+   },
+   "Send FX 2 Return": {
+    "sameAs": "Send FX 1 Return"
+   },
+   "Send FX 3 Return": {
+    "sameAs": "Send FX 1 Return"
+   },
+   "Send FX 4 Return": {
+    "sameAs": "Send FX 1 Return"
+   },
+   "FX A1 Param 2": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 3": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 4": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 5": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 6": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 7": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 8": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 9": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 10": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 11": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A1 Param 12": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 FX Type": {
+    "sameAs": "FX A1 FX Type"
+   },
+   "FX A2 Param 1": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 2": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 3": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 4": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 5": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 6": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 7": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 8": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 9": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 10": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 11": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A2 Param 12": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX B1 Param 2": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 3": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 4": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 5": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 6": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 7": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 8": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 9": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 10": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 11": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B1 Param 12": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 FX Type": {
+    "sameAs": "FX B1 FX Type"
+   },
+   "FX B2 Param 1": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 2": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 3": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 4": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 5": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 6": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 7": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 8": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 9": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 10": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 11": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B2 Param 12": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX S1 Param 2": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 3": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 4": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 5": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 6": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 7": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 8": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 9": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 10": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 11": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S1 Param 12": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 FX Type": {
+    "sameAs": "FX S1 FX Type"
+   },
+   "FX S2 Param 1": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 2": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 3": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 4": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 5": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 6": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 7": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 8": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 9": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 10": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 11": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S2 Param 12": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX G1 Param 2": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 3": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 4": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 5": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 6": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 7": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 8": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 9": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 10": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 11": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G1 Param 12": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 FX Type": {
+    "sameAs": "FX G1 FX Type"
+   },
+   "FX G2 Param 1": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 2": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 3": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 4": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 5": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 6": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 7": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 8": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 9": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 10": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 11": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G2 Param 12": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX A3 FX Type": {
+    "sameAs": "FX A1 FX Type"
+   },
+   "FX A3 Param 1": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 2": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 3": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 4": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 5": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 6": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 7": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 8": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 9": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 10": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 11": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A3 Param 12": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 FX Type": {
+    "sameAs": "FX A1 FX Type"
+   },
+   "FX A4 Param 1": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 2": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 3": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 4": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 5": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 6": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 7": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 8": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 9": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 10": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 11": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX A4 Param 12": {
+    "sameAs": "FX A1 Param 1"
+   },
+   "FX B3 FX Type": {
+    "sameAs": "FX B1 FX Type"
+   },
+   "FX B3 Param 1": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 2": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 3": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 4": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 5": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 6": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 7": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 8": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 9": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 10": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 11": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B3 Param 12": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 FX Type": {
+    "sameAs": "FX B1 FX Type"
+   },
+   "FX B4 Param 1": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 2": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 3": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 4": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 5": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 6": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 7": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 8": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 9": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 10": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 11": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX B4 Param 12": {
+    "sameAs": "FX B1 Param 1"
+   },
+   "FX S3 FX Type": {
+    "sameAs": "FX S1 FX Type"
+   },
+   "FX S3 Param 1": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 2": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 3": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 4": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 5": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 6": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 7": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 8": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 9": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 10": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 11": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S3 Param 12": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 FX Type": {
+    "sameAs": "FX S1 FX Type"
+   },
+   "FX S4 Param 1": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 2": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 3": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 4": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 5": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 6": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 7": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 8": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 9": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 10": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 11": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX S4 Param 12": {
+    "sameAs": "FX S1 Param 1"
+   },
+   "FX G3 FX Type": {
+    "sameAs": "FX G1 FX Type"
+   },
+   "FX G3 Param 1": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 2": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 3": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 4": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 5": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 6": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 7": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 8": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 9": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 10": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 11": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G3 Param 12": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 FX Type": {
+    "sameAs": "FX G1 FX Type"
+   },
+   "FX G4 Param 1": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 2": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 3": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 4": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 5": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 6": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 7": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 8": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 9": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 10": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 11": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "FX G4 Param 12": {
+    "sameAs": "FX G1 Param 1"
+   },
+   "A Send FX 2 Level": {
+    "sameAs": "A Send FX 1 Level"
+   },
+   "A Send FX 3 Level": {
+    "sameAs": "A Send FX 1 Level"
+   },
+   "A Send FX 4 Level": {
+    "sameAs": "A Send FX 1 Level"
+   },
+   "A Osc 1 Width 2": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "A Osc 2 Type": {
+    "sameAs": "A Osc 1 Type"
+   },
+   "A Osc 2 Octave": {
+    "sameAs": "A Osc 1 Octave"
+   },
+   "A Osc 2 Pitch": {
+    "sameAs": "A Osc 1 Pitch"
+   },
+   "A Osc 2 Shape": {
+    "sameAs": "A Osc 1 Shape"
+   },
+   "A Osc 2 Width 1": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "A Osc 2 Width 2": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "A Osc 2 Sub Mix": {
+    "sameAs": "A Osc 1 Sub Mix"
+   },
+   "A Osc 2 Sync": {
+    "sameAs": "A Osc 1 Sync"
+   },
+   "A Osc 2 Unison Detune": {
+    "sameAs": "A Osc 1 Unison Detune"
+   },
+   "A Osc 2 Unison Voices": {
+    "sameAs": "A Osc 1 Unison Voices"
+   },
+   "A Osc 2 Keytrack": {
+    "sameAs": "A Osc 1 Keytrack"
+   },
+   "A Osc 2 Retrigger": {
+    "sameAs": "A Osc 1 Retrigger"
+   },
+   "A Osc 3 Type": {
+    "sameAs": "A Osc 1 Type"
+   },
+   "A Osc 3 Octave": {
+    "sameAs": "A Osc 1 Octave"
+   },
+   "A Osc 3 Pitch": {
+    "sameAs": "A Osc 1 Pitch"
+   },
+   "A Osc 3 Shape": {
+    "sameAs": "A Osc 1 Shape"
+   },
+   "A Osc 3 Width 1": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "A Osc 3 Width 2": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "A Osc 3 Sub Mix": {
+    "sameAs": "A Osc 1 Sub Mix"
+   },
+   "A Osc 3 Sync": {
+    "sameAs": "A Osc 1 Sync"
+   },
+   "A Osc 3 Unison Detune": {
+    "sameAs": "A Osc 1 Unison Detune"
+   },
+   "A Osc 3 Unison Voices": {
+    "sameAs": "A Osc 1 Unison Voices"
+   },
+   "A Osc 3 Keytrack": {
+    "sameAs": "A Osc 1 Keytrack"
+   },
+   "A Osc 3 Retrigger": {
+    "sameAs": "A Osc 1 Retrigger"
+   },
+   "A Osc 2 Volume": {
+    "sameAs": "A Osc 1 Volume"
+   },
+   "A Osc 2 Mute": {
+    "sameAs": "A Osc 1 Mute"
+   },
+   "A Osc 2 Solo": {
+    "sameAs": "A Osc 1 Solo"
+   },
+   "A Osc 2 Route": {
+    "sameAs": "A Osc 1 Route"
+   },
+   "A Osc 3 Volume": {
+    "sameAs": "A Osc 1 Volume"
+   },
+   "A Osc 3 Mute": {
+    "sameAs": "A Osc 1 Mute"
+   },
+   "A Osc 3 Solo": {
+    "sameAs": "A Osc 1 Solo"
+   },
+   "A Osc 3 Route": {
+    "sameAs": "A Osc 1 Route"
+   },
+   "A Ring Modulation 2x3 Volume": {
+    "sameAs": "A Ring Modulation 1x2 Volume"
+   },
+   "A Ring Modulation 2x3 Mute": {
+    "sameAs": "A Ring Modulation 1x2 Mute"
+   },
+   "A Ring Modulation 2x3 Solo": {
+    "sameAs": "A Ring Modulation 1x2 Solo"
+   },
+   "A Ring Modulation 2x3 Route": {
+    "sameAs": "A Ring Modulation 1x2 Route"
+   },
+   "A Filter 2 Type": {
+    "sameAs": "A Filter 1 Type"
+   },
+   "A Filter 2 Subtype": {
+    "sameAs": "A Filter 1 Subtype"
+   },
+   "A Filter 2 Cutoff": {
+    "sameAs": "A Filter 1 Cutoff"
+   },
+   "A Filter 2 Resonance": {
+    "sameAs": "A Filter 1 Resonance"
+   },
+   "A Filter 2 FEG Mod Amount": {
+    "sameAs": "A Filter 1 FEG Mod Amount"
+   },
+   "A Filter 2 Keytrack": {
+    "sameAs": "A Filter 1 Keytrack"
+   },
+   "A LFO 2 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "A LFO 2 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "A LFO 2 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "A LFO 2 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "A LFO 2 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "A LFO 2 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "A LFO 2 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "A LFO 2 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "A LFO 2 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "A LFO 2 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "A LFO 2 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "A LFO 2 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "A LFO 2 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "A LFO 3 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "A LFO 3 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "A LFO 3 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "A LFO 3 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "A LFO 3 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "A LFO 3 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "A LFO 3 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "A LFO 3 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "A LFO 3 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "A LFO 3 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "A LFO 3 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "A LFO 3 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "A LFO 3 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "A LFO 4 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "A LFO 4 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "A LFO 4 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "A LFO 4 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "A LFO 4 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "A LFO 4 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "A LFO 4 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "A LFO 4 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "A LFO 4 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "A LFO 4 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "A LFO 4 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "A LFO 4 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "A LFO 4 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "A LFO 5 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "A LFO 5 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "A LFO 5 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "A LFO 5 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "A LFO 5 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "A LFO 5 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "A LFO 5 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "A LFO 5 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "A LFO 5 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "A LFO 5 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "A LFO 5 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "A LFO 5 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "A LFO 5 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "A LFO 6 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "A LFO 6 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "A LFO 6 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "A LFO 6 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "A LFO 6 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "A LFO 6 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "A LFO 6 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "A LFO 6 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "A LFO 6 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "A LFO 6 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "A LFO 6 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "A LFO 6 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "A LFO 6 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "A Scene LFO 2 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "A Scene LFO 2 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "A Scene LFO 2 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "A Scene LFO 2 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "A Scene LFO 2 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "A Scene LFO 2 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "A Scene LFO 2 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "A Scene LFO 2 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "A Scene LFO 2 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "A Scene LFO 2 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "A Scene LFO 2 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "A Scene LFO 2 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "A Scene LFO 2 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "A Scene LFO 3 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "A Scene LFO 3 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "A Scene LFO 3 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "A Scene LFO 3 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "A Scene LFO 3 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "A Scene LFO 3 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "A Scene LFO 3 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "A Scene LFO 3 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "A Scene LFO 3 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "A Scene LFO 3 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "A Scene LFO 3 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "A Scene LFO 3 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "A Scene LFO 3 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "A Scene LFO 4 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "A Scene LFO 4 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "A Scene LFO 4 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "A Scene LFO 4 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "A Scene LFO 4 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "A Scene LFO 4 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "A Scene LFO 4 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "A Scene LFO 4 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "A Scene LFO 4 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "A Scene LFO 4 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "A Scene LFO 4 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "A Scene LFO 4 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "A Scene LFO 4 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "A Scene LFO 5 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "A Scene LFO 5 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "A Scene LFO 5 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "A Scene LFO 5 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "A Scene LFO 5 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "A Scene LFO 5 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "A Scene LFO 5 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "A Scene LFO 5 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "A Scene LFO 5 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "A Scene LFO 5 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "A Scene LFO 5 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "A Scene LFO 5 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "A Scene LFO 5 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "A Scene LFO 6 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "A Scene LFO 6 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "A Scene LFO 6 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "A Scene LFO 6 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "A Scene LFO 6 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "A Scene LFO 6 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "A Scene LFO 6 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "A Scene LFO 6 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "A Scene LFO 6 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "A Scene LFO 6 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "A Scene LFO 6 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "A Scene LFO 6 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "A Scene LFO 6 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "B Octave": {
+    "sameAs": "A Octave"
+   },
+   "B Pitch": {
+    "sameAs": "A Pitch"
+   },
+   "B Portamento": {
+    "sameAs": "A Portamento"
+   },
+   "B Play Mode": {
+    "sameAs": "A Play Mode"
+   },
+   "B FM Routing": {
+    "sameAs": "A FM Routing"
+   },
+   "B FM Depth": {
+    "sameAs": "A FM Depth"
+   },
+   "B Osc Drift": {
+    "sameAs": "A Osc Drift"
+   },
+   "B Noise Color": {
+    "sameAs": "A Noise Color"
+   },
+   "B Keytrack Root Key": {
+    "sameAs": "A Keytrack Root Key"
+   },
+   "B Volume": {
+    "sameAs": "A Volume"
+   },
+   "B Pan": {
+    "sameAs": "A Pan"
+   },
+   "B Width": {
+    "sameAs": "A Width"
+   },
+   "B Send FX 1 Level": {
+    "sameAs": "A Send FX 1 Level"
+   },
+   "B Send FX 2 Level": {
+    "sameAs": "A Send FX 1 Level"
+   },
+   "B Send FX 3 Level": {
+    "sameAs": "A Send FX 1 Level"
+   },
+   "B Send FX 4 Level": {
+    "sameAs": "A Send FX 1 Level"
+   },
+   "B Pitch Bend Up Range": {
+    "sameAs": "A Pitch Bend Up Range"
+   },
+   "B Pitch Bend Down Range": {
+    "sameAs": "A Pitch Bend Down Range"
+   },
+   "B VCA Gain": {
+    "sameAs": "A VCA Gain"
+   },
+   "B Velocity > VCA Gain": {
+    "sameAs": "A Velocity > VCA Gain"
+   },
+   "B Feedback": {
+    "sameAs": "A Feedback"
+   },
+   "B Filter Configuration": {
+    "sameAs": "A Filter Configuration"
+   },
+   "B Filter Balance": {
+    "sameAs": "A Filter Balance"
+   },
+   "B Highpass": {
+    "sameAs": "A Highpass"
+   },
+   "B Waveshaper Type": {
+    "sameAs": "A Waveshaper Type"
+   },
+   "B Waveshaper Drive": {
+    "sameAs": "A Waveshaper Drive"
+   },
+   "B Filter 2 Offset Mode": {
+    "sameAs": "A Filter 2 Offset Mode"
+   },
+   "B Link Resonance": {
+    "sameAs": "A Link Resonance"
+   },
+   "B Osc 1 Type": {
+    "sameAs": "A Osc 1 Type"
+   },
+   "B Osc 1 Octave": {
+    "sameAs": "A Osc 1 Octave"
+   },
+   "B Osc 1 Pitch": {
+    "sameAs": "A Osc 1 Pitch"
+   },
+   "B Osc 1 Shape": {
+    "sameAs": "A Osc 1 Shape"
+   },
+   "B Osc 1 Width 1": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "B Osc 1 Width 2": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "B Osc 1 Sub Mix": {
+    "sameAs": "A Osc 1 Sub Mix"
+   },
+   "B Osc 1 Sync": {
+    "sameAs": "A Osc 1 Sync"
+   },
+   "B Osc 1 Unison Detune": {
+    "sameAs": "A Osc 1 Unison Detune"
+   },
+   "B Osc 1 Unison Voices": {
+    "sameAs": "A Osc 1 Unison Voices"
+   },
+   "B Osc 1 Keytrack": {
+    "sameAs": "A Osc 1 Keytrack"
+   },
+   "B Osc 1 Retrigger": {
+    "sameAs": "A Osc 1 Retrigger"
+   },
+   "B Osc 2 Type": {
+    "sameAs": "A Osc 1 Type"
+   },
+   "B Osc 2 Octave": {
+    "sameAs": "A Osc 1 Octave"
+   },
+   "B Osc 2 Pitch": {
+    "sameAs": "A Osc 1 Pitch"
+   },
+   "B Osc 2 Shape": {
+    "sameAs": "A Osc 1 Shape"
+   },
+   "B Osc 2 Width 1": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "B Osc 2 Width 2": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "B Osc 2 Sub Mix": {
+    "sameAs": "A Osc 1 Sub Mix"
+   },
+   "B Osc 2 Sync": {
+    "sameAs": "A Osc 1 Sync"
+   },
+   "B Osc 2 Unison Detune": {
+    "sameAs": "A Osc 1 Unison Detune"
+   },
+   "B Osc 2 Unison Voices": {
+    "sameAs": "A Osc 1 Unison Voices"
+   },
+   "B Osc 2 Keytrack": {
+    "sameAs": "A Osc 1 Keytrack"
+   },
+   "B Osc 2 Retrigger": {
+    "sameAs": "A Osc 1 Retrigger"
+   },
+   "B Osc 3 Type": {
+    "sameAs": "A Osc 1 Type"
+   },
+   "B Osc 3 Octave": {
+    "sameAs": "A Osc 1 Octave"
+   },
+   "B Osc 3 Pitch": {
+    "sameAs": "A Osc 1 Pitch"
+   },
+   "B Osc 3 Shape": {
+    "sameAs": "A Osc 1 Shape"
+   },
+   "B Osc 3 Width 1": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "B Osc 3 Width 2": {
+    "sameAs": "A Osc 1 Width 1"
+   },
+   "B Osc 3 Sub Mix": {
+    "sameAs": "A Osc 1 Sub Mix"
+   },
+   "B Osc 3 Sync": {
+    "sameAs": "A Osc 1 Sync"
+   },
+   "B Osc 3 Unison Detune": {
+    "sameAs": "A Osc 1 Unison Detune"
+   },
+   "B Osc 3 Unison Voices": {
+    "sameAs": "A Osc 1 Unison Voices"
+   },
+   "B Osc 3 Keytrack": {
+    "sameAs": "A Osc 1 Keytrack"
+   },
+   "B Osc 3 Retrigger": {
+    "sameAs": "A Osc 1 Retrigger"
+   },
+   "B Osc 1 Volume": {
+    "sameAs": "A Osc 1 Volume"
+   },
+   "B Osc 1 Mute": {
+    "sameAs": "A Osc 1 Mute"
+   },
+   "B Osc 1 Solo": {
+    "sameAs": "A Osc 1 Solo"
+   },
+   "B Osc 1 Route": {
+    "sameAs": "A Osc 1 Route"
+   },
+   "B Osc 2 Volume": {
+    "sameAs": "A Osc 1 Volume"
+   },
+   "B Osc 2 Mute": {
+    "sameAs": "A Osc 1 Mute"
+   },
+   "B Osc 2 Solo": {
+    "sameAs": "A Osc 1 Solo"
+   },
+   "B Osc 2 Route": {
+    "sameAs": "A Osc 1 Route"
+   },
+   "B Osc 3 Volume": {
+    "sameAs": "A Osc 1 Volume"
+   },
+   "B Osc 3 Mute": {
+    "sameAs": "A Osc 1 Mute"
+   },
+   "B Osc 3 Solo": {
+    "sameAs": "A Osc 1 Solo"
+   },
+   "B Osc 3 Route": {
+    "sameAs": "A Osc 1 Route"
+   },
+   "B Ring Modulation 1x2 Volume": {
+    "sameAs": "A Ring Modulation 1x2 Volume"
+   },
+   "B Ring Modulation 1x2 Mute": {
+    "sameAs": "A Ring Modulation 1x2 Mute"
+   },
+   "B Ring Modulation 1x2 Solo": {
+    "sameAs": "A Ring Modulation 1x2 Solo"
+   },
+   "B Ring Modulation 1x2 Route": {
+    "sameAs": "A Ring Modulation 1x2 Route"
+   },
+   "B Ring Modulation 2x3 Volume": {
+    "sameAs": "A Ring Modulation 1x2 Volume"
+   },
+   "B Ring Modulation 2x3 Mute": {
+    "sameAs": "A Ring Modulation 1x2 Mute"
+   },
+   "B Ring Modulation 2x3 Solo": {
+    "sameAs": "A Ring Modulation 1x2 Solo"
+   },
+   "B Ring Modulation 2x3 Route": {
+    "sameAs": "A Ring Modulation 1x2 Route"
+   },
+   "B Noise Volume": {
+    "sameAs": "A Noise Volume"
+   },
+   "B Noise Mute": {
+    "sameAs": "A Noise Mute"
+   },
+   "B Noise Solo": {
+    "sameAs": "A Noise Solo"
+   },
+   "B Noise Route": {
+    "sameAs": "A Noise Route"
+   },
+   "B Pre-Filter Gain": {
+    "sameAs": "A Pre-Filter Gain"
+   },
+   "B Filter 1 Type": {
+    "sameAs": "A Filter 1 Type"
+   },
+   "B Filter 1 Subtype": {
+    "sameAs": "A Filter 1 Subtype"
+   },
+   "B Filter 1 Cutoff": {
+    "sameAs": "A Filter 1 Cutoff"
+   },
+   "B Filter 1 Resonance": {
+    "sameAs": "A Filter 1 Resonance"
+   },
+   "B Filter 1 FEG Mod Amount": {
+    "sameAs": "A Filter 1 FEG Mod Amount"
+   },
+   "B Filter 1 Keytrack": {
+    "sameAs": "A Filter 1 Keytrack"
+   },
+   "B Filter 2 Type": {
+    "sameAs": "A Filter 1 Type"
+   },
+   "B Filter 2 Subtype": {
+    "sameAs": "A Filter 1 Subtype"
+   },
+   "B Filter 2 Cutoff": {
+    "sameAs": "A Filter 1 Cutoff"
+   },
+   "B Filter 2 Resonance": {
+    "sameAs": "A Filter 1 Resonance"
+   },
+   "B Filter 2 FEG Mod Amount": {
+    "sameAs": "A Filter 1 FEG Mod Amount"
+   },
+   "B Filter 2 Keytrack": {
+    "sameAs": "A Filter 1 Keytrack"
+   },
+   "B Amp EG Attack": {
+    "sameAs": "A Amp EG Attack"
+   },
+   "B Amp EG Attack Shape": {
+    "sameAs": "A Amp EG Attack Shape"
+   },
+   "B Amp EG Decay": {
+    "sameAs": "A Amp EG Decay"
+   },
+   "B Amp EG Decay Shape": {
+    "sameAs": "A Amp EG Decay Shape"
+   },
+   "B Amp EG Sustain": {
+    "sameAs": "A Amp EG Sustain"
+   },
+   "B Amp EG Release": {
+    "sameAs": "A Amp EG Release"
+   },
+   "B Amp EG Release Shape": {
+    "sameAs": "A Amp EG Release Shape"
+   },
+   "B Amp EG Envelope Mode": {
+    "sameAs": "A Amp EG Envelope Mode"
+   },
+   "B Filter EG Attack": {
+    "sameAs": "A Filter EG Attack"
+   },
+   "B Filter EG Attack Shape": {
+    "sameAs": "A Filter EG Attack Shape"
+   },
+   "B Filter EG Decay": {
+    "sameAs": "A Filter EG Decay"
+   },
+   "B Filter EG Decay Shape": {
+    "sameAs": "A Filter EG Decay Shape"
+   },
+   "B Filter EG Sustain": {
+    "sameAs": "A Filter EG Sustain"
+   },
+   "B Filter EG Release": {
+    "sameAs": "A Filter EG Release"
+   },
+   "B Filter EG Release Shape": {
+    "sameAs": "A Filter EG Release Shape"
+   },
+   "B Filter EG Envelope Mode": {
+    "sameAs": "A Filter EG Envelope Mode"
+   },
+   "B LFO 1 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "B LFO 1 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "B LFO 1 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "B LFO 1 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "B LFO 1 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "B LFO 1 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "B LFO 1 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "B LFO 1 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "B LFO 1 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "B LFO 1 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "B LFO 1 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "B LFO 1 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "B LFO 1 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "B LFO 2 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "B LFO 2 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "B LFO 2 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "B LFO 2 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "B LFO 2 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "B LFO 2 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "B LFO 2 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "B LFO 2 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "B LFO 2 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "B LFO 2 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "B LFO 2 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "B LFO 2 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "B LFO 2 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "B LFO 3 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "B LFO 3 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "B LFO 3 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "B LFO 3 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "B LFO 3 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "B LFO 3 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "B LFO 3 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "B LFO 3 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "B LFO 3 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "B LFO 3 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "B LFO 3 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "B LFO 3 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "B LFO 3 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "B LFO 4 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "B LFO 4 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "B LFO 4 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "B LFO 4 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "B LFO 4 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "B LFO 4 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "B LFO 4 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "B LFO 4 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "B LFO 4 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "B LFO 4 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "B LFO 4 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "B LFO 4 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "B LFO 4 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "B LFO 5 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "B LFO 5 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "B LFO 5 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "B LFO 5 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "B LFO 5 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "B LFO 5 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "B LFO 5 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "B LFO 5 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "B LFO 5 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "B LFO 5 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "B LFO 5 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "B LFO 5 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "B LFO 5 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "B LFO 6 Type": {
+    "sameAs": "A LFO 1 Type"
+   },
+   "B LFO 6 Rate": {
+    "sameAs": "A LFO 1 Rate"
+   },
+   "B LFO 6 Phase": {
+    "sameAs": "A LFO 1 Phase"
+   },
+   "B LFO 6 Amplitude": {
+    "sameAs": "A LFO 1 Amplitude"
+   },
+   "B LFO 6 Deform": {
+    "sameAs": "A LFO 1 Deform"
+   },
+   "B LFO 6 Trigger Mode": {
+    "sameAs": "A LFO 1 Trigger Mode"
+   },
+   "B LFO 6 Unipolar": {
+    "sameAs": "A LFO 1 Unipolar"
+   },
+   "B LFO 6 Delay": {
+    "sameAs": "A LFO 1 Delay"
+   },
+   "B LFO 6 Attack": {
+    "sameAs": "A LFO 1 Attack"
+   },
+   "B LFO 6 Hold": {
+    "sameAs": "A LFO 1 Hold"
+   },
+   "B LFO 6 Decay": {
+    "sameAs": "A LFO 1 Decay"
+   },
+   "B LFO 6 Sustain": {
+    "sameAs": "A LFO 1 Sustain"
+   },
+   "B LFO 6 Release": {
+    "sameAs": "A LFO 1 Release"
+   },
+   "B Scene LFO 1 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "B Scene LFO 1 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "B Scene LFO 1 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "B Scene LFO 1 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "B Scene LFO 1 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "B Scene LFO 1 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "B Scene LFO 1 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "B Scene LFO 1 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "B Scene LFO 1 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "B Scene LFO 1 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "B Scene LFO 1 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "B Scene LFO 1 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "B Scene LFO 1 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "B Scene LFO 2 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "B Scene LFO 2 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "B Scene LFO 2 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "B Scene LFO 2 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "B Scene LFO 2 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "B Scene LFO 2 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "B Scene LFO 2 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "B Scene LFO 2 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "B Scene LFO 2 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "B Scene LFO 2 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "B Scene LFO 2 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "B Scene LFO 2 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "B Scene LFO 2 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "B Scene LFO 3 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "B Scene LFO 3 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "B Scene LFO 3 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "B Scene LFO 3 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "B Scene LFO 3 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "B Scene LFO 3 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "B Scene LFO 3 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "B Scene LFO 3 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "B Scene LFO 3 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "B Scene LFO 3 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "B Scene LFO 3 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "B Scene LFO 3 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "B Scene LFO 3 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "B Scene LFO 4 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "B Scene LFO 4 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "B Scene LFO 4 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "B Scene LFO 4 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "B Scene LFO 4 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "B Scene LFO 4 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "B Scene LFO 4 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "B Scene LFO 4 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "B Scene LFO 4 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "B Scene LFO 4 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "B Scene LFO 4 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "B Scene LFO 4 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "B Scene LFO 4 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "B Scene LFO 5 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "B Scene LFO 5 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "B Scene LFO 5 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "B Scene LFO 5 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "B Scene LFO 5 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "B Scene LFO 5 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "B Scene LFO 5 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "B Scene LFO 5 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "B Scene LFO 5 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "B Scene LFO 5 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "B Scene LFO 5 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "B Scene LFO 5 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "B Scene LFO 5 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   },
+   "B Scene LFO 6 Type": {
+    "sameAs": "A Scene LFO 1 Type"
+   },
+   "B Scene LFO 6 Rate": {
+    "sameAs": "A Scene LFO 1 Rate"
+   },
+   "B Scene LFO 6 Phase": {
+    "sameAs": "A Scene LFO 1 Phase"
+   },
+   "B Scene LFO 6 Amplitude": {
+    "sameAs": "A Scene LFO 1 Amplitude"
+   },
+   "B Scene LFO 6 Deform": {
+    "sameAs": "A Scene LFO 1 Deform"
+   },
+   "B Scene LFO 6 Trigger Mode": {
+    "sameAs": "A Scene LFO 1 Trigger Mode"
+   },
+   "B Scene LFO 6 Unipolar": {
+    "sameAs": "A Scene LFO 1 Unipolar"
+   },
+   "B Scene LFO 6 Delay": {
+    "sameAs": "A Scene LFO 1 Delay"
+   },
+   "B Scene LFO 6 Attack": {
+    "sameAs": "A Scene LFO 1 Attack"
+   },
+   "B Scene LFO 6 Hold": {
+    "sameAs": "A Scene LFO 1 Hold"
+   },
+   "B Scene LFO 6 Decay": {
+    "sameAs": "A Scene LFO 1 Decay"
+   },
+   "B Scene LFO 6 Sustain": {
+    "sameAs": "A Scene LFO 1 Sustain"
+   },
+   "B Scene LFO 6 Release": {
+    "sameAs": "A Scene LFO 1 Release"
+   }
+  },
+  "switches": [
+   "Active Scene",
+   "FX A1 FX Type",
+   "FX A2 FX Type",
+   "FX B1 FX Type",
+   "FX B2 FX Type",
+   "FX S1 FX Type",
+   "FX S2 FX Type",
+   "FX G1 FX Type",
+   "FX G2 FX Type",
+   "FX A3 FX Type",
+   "FX A4 FX Type",
+   "FX B3 FX Type",
+   "FX B4 FX Type",
+   "FX S3 FX Type",
+   "FX S4 FX Type",
+   "FX G3 FX Type",
+   "FX G4 FX Type",
+   "A FM Routing",
+   "A Waveshaper Type",
+   "A Filter 2 Offset Mode",
+   "A Osc 1 Retrigger",
+   "A Osc 2 Retrigger",
+   "A Osc 3 Retrigger",
+   "A Filter 1 Type",
+   "A Filter 2 Type",
+   "A LFO 1 Unipolar",
+   "A LFO 2 Unipolar",
+   "A LFO 3 Unipolar",
+   "A LFO 4 Unipolar",
+   "A LFO 5 Unipolar",
+   "A LFO 6 Unipolar",
+   "A Scene LFO 1 Unipolar",
+   "A Scene LFO 2 Unipolar",
+   "A Scene LFO 3 Unipolar",
+   "A Scene LFO 4 Unipolar",
+   "A Scene LFO 5 Unipolar",
+   "A Scene LFO 6 Unipolar",
+   "B FM Routing",
+   "B Waveshaper Type",
+   "B Filter 2 Offset Mode",
+   "B Osc 1 Retrigger",
+   "B Osc 2 Retrigger",
+   "B Osc 3 Retrigger",
+   "B Filter 1 Type",
+   "B Filter 2 Type",
+   "B LFO 1 Unipolar",
+   "B LFO 2 Unipolar",
+   "B LFO 3 Unipolar",
+   "B LFO 4 Unipolar",
+   "B LFO 5 Unipolar",
+   "B LFO 6 Unipolar",
+   "B Scene LFO 1 Unipolar",
+   "B Scene LFO 2 Unipolar",
+   "B Scene LFO 3 Unipolar",
+   "B Scene LFO 4 Unipolar",
+   "B Scene LFO 5 Unipolar",
+   "B Scene LFO 6 Unipolar"
+  ]
+ }
+}

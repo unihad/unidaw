@@ -1,0 +1,1027 @@
+{
+ "plugin": {
+  "name": "LSP Clipper Stereo",
+  "format": "LV2",
+  "uid": "6059f060",
+  "vendor": "LSP LV2",
+  "version": 6
+ },
+ "generated": "2026-10-27T14:37:29",
+ "measured": {
+  "version": 4,
+  "signal": "audio v4: pink noise 1 s, clicks, 4 noise bursts (100 ms loud, 150 ms 40 dB quieter), sine sweep 80 Hz–8 kHz, then silence",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.15,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 2.0,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0,
+   "burstOnset": 1.0,
+   "burstEarly": 1.0,
+   "burstLate": 1.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct",
+   "burstOnset": "dB",
+   "burstEarly": "dB",
+   "burstLate": "dB"
+  },
+  "noise": {
+   "lufs": 0.0,
+   "brightness": 0.0,
+   "low": 0.0,
+   "high": 0.0,
+   "width": 0.0,
+   "tail": 0.0,
+   "attack": 0.0,
+   "burstOnset": 0.0,
+   "burstEarly": 0.0,
+   "burstLate": 0.0
+  },
+  "baseline": {
+   "lufs": -8.9,
+   "silent": false,
+   "brightness": -1.08,
+   "low": -4.26,
+   "high": -6.61,
+   "width": -40.0,
+   "tail": 0.01,
+   "attack": 20.0,
+   "burstOnset": -0.23,
+   "burstEarly": -39.61,
+   "burstLate": -39.71,
+   "burstLag": 0
+  },
+  "parameters": {
+   "Input gain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "250"
+     ],
+     [
+      0.5,
+      "500"
+     ],
+     [
+      0.75,
+      "750"
+     ],
+     [
+      1.0,
+      "1000"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 66.4,
+      "atMin": -70.0,
+      "atMax": -3.6,
+      "direction": "up",
+      "ratio": 66.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 66.4 LU"
+   },
+   "Output gain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "250"
+     ],
+     [
+      0.5,
+      "500"
+     ],
+     [
+      0.75,
+      "750"
+     ],
+     [
+      1.0,
+      "1000"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 72.9,
+      "atMin": -70.0,
+      "atMax": 2.9,
+      "direction": "up",
+      "ratio": 72.9
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 2.64,
+      "atMin": -3.36,
+      "atMax": -0.72,
+      "direction": "up",
+      "ratio": 2.6
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 2.43,
+      "atMin": -3.07,
+      "atMax": -0.64,
+      "direction": "up",
+      "ratio": 2.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 72.9 LU, level between bursts ↑ 2.64 dB, level right after a burst ↑ 2.43 dB"
+   },
+   "Enable input LUFS limitation": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "On"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "needs": [
+     "Input LUFS limiter threshold = -32.4"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 17.0,
+      "atMin": -8.9,
+      "atMax": -25.9,
+      "direction": "down",
+      "ratio": 17.0
+     },
+     {
+      "metric": "burstOnset",
+      "unit": "dB",
+      "span": 2.43,
+      "atMin": -0.23,
+      "atMax": 2.2,
+      "direction": "up",
+      "ratio": 2.4
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.36,
+      "atMin": -1.08,
+      "atMax": -1.44,
+      "direction": "down",
+      "ratio": 1.4
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 1.19,
+      "atMin": -39.61,
+      "atMax": -40.8,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↓ 17.0 LU, burst onset ↑ 2.43 dB, brightness ↓ 0.36 oct"
+   },
+   "Input LUFS limiter threshold": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-36"
+     ],
+     [
+      0.25,
+      "-27"
+     ],
+     [
+      0.5,
+      "-18"
+     ],
+     [
+      0.75,
+      "-9"
+     ],
+     [
+      1.0,
+      "0"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 16.9,
+      "atMin": -25.8,
+      "atMax": -8.9,
+      "direction": "up",
+      "ratio": 16.9
+     },
+     {
+      "metric": "burstOnset",
+      "unit": "dB",
+      "span": 2.43,
+      "atMin": 2.2,
+      "atMax": -0.23,
+      "direction": "down",
+      "ratio": 2.4
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.35,
+      "atMin": -1.43,
+      "atMax": -1.08,
+      "direction": "up",
+      "ratio": 1.4
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 1.19,
+      "atMin": -40.8,
+      "atMax": -39.61,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 16.9 LU, burst onset ↓ 2.43 dB, brightness ↑ 0.35 oct"
+   },
+   "Clipping threshold": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-48"
+     ],
+     [
+      0.25,
+      "-36"
+     ],
+     [
+      0.5,
+      "-24"
+     ],
+     [
+      0.75,
+      "-12"
+     ],
+     [
+      1.0,
+      "0"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.2,
+      "atMin": -3.7,
+      "atMax": -8.9,
+      "direction": "down",
+      "ratio": 5.2
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 3.22,
+      "atMin": -36.53,
+      "atMax": -39.71,
+      "direction": "down",
+      "ratio": 3.2
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 1.86,
+      "atMin": -37.75,
+      "atMax": -39.61,
+      "direction": "down",
+      "ratio": 1.9
+     },
+     {
+      "metric": "burstOnset",
+      "unit": "dB",
+      "span": 1.4,
+      "atMin": 1.17,
+      "atMax": -0.23,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↓ 5.2 LU, level between bursts ↓ 3.22 dB, level right after a burst ↓ 1.86 dB"
+   },
+   "Boosting mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "On"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "needs": [
+     "Clipping threshold = -43.2"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 43.1,
+      "atMin": -47.0,
+      "atMax": -3.9,
+      "direction": "up",
+      "ratio": 43.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 43.1 LU"
+   },
+   "Dithering mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "None"
+     ],
+     [
+      0.25,
+      "8bit"
+     ],
+     [
+      0.5,
+      "12bit"
+     ],
+     [
+      0.75,
+      "16bit"
+     ],
+     [
+      1.0,
+      "24bit"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 1.44,
+      "atMin": 0.01,
+      "atMax": 0.01,
+      "direction": "varies",
+      "ratio": 9.6
+     }
+    ],
+    "strength": "strong",
+    "summary": "tail/decay ↕ 1.44 s"
+   },
+   "Clipper logarithmic display": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "On"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Overdrive protection": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "On"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "needs": [
+     "Clipping threshold = -43.2"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.8,
+      "atMin": -2.1,
+      "atMax": -3.9,
+      "direction": "down",
+      "ratio": 1.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.45,
+      "atMin": -0.8,
+      "atMax": -1.25,
+      "direction": "down",
+      "ratio": 1.8
+     }
+    ],
+    "strength": "weak",
+    "summary": "loudness ↓ 1.8 LU, brightness ↓ 0.45 oct"
+   },
+   "Overdrive protection threshold": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-12"
+     ],
+     [
+      0.25,
+      "-9"
+     ],
+     [
+      0.5,
+      "-6"
+     ],
+     [
+      0.75,
+      "-3"
+     ],
+     [
+      1.0,
+      "0"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 2.02,
+      "atMin": -37.59,
+      "atMax": -39.61,
+      "direction": "down",
+      "ratio": 2.0
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 1.95,
+      "atMin": -37.76,
+      "atMax": -39.71,
+      "direction": "down",
+      "ratio": 2.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.9,
+      "atMin": -10.8,
+      "atMax": -8.9,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "burstOnset",
+      "unit": "dB",
+      "span": 1.03,
+      "atMin": 0.8,
+      "atMax": -0.23,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "level right after a burst ↓ 2.02 dB, level between bursts ↓ 1.95 dB, loudness ↑ 1.9 LU"
+   },
+   "Overdrive protection knee": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "1.5"
+     ],
+     [
+      0.5,
+      "3"
+     ],
+     [
+      0.75,
+      "4.5"
+     ],
+     [
+      1.0,
+      "6"
+     ]
+    ],
+    "needs": [
+     "Overdrive protection threshold = -10.8"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -9.8,
+      "atMax": -10.8,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "loudness ↓ 1.0 LU"
+   },
+   "Overdrive protection reactivity": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1"
+     ],
+     [
+      0.25,
+      "50.75"
+     ],
+     [
+      0.5,
+      "100.5"
+     ],
+     [
+      0.75,
+      "150.25"
+     ],
+     [
+      1.0,
+      "200"
+     ]
+    ],
+    "needs": [
+     "Enable input LUFS limitation",
+     "Clipper enable"
+    ],
+    "does": [
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 55.0,
+      "atMin": 75.0,
+      "atMax": 20.0,
+      "direction": "down",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "attack ↓ 55.0 ms"
+   },
+   "Clipper enable": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "On"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 130.0,
+      "atMin": 150.0,
+      "atMax": 20.0,
+      "direction": "down",
+      "ratio": 5.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "attack ↓ 130.0 ms"
+   },
+   "Clipper sigmoid function": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Hard clip"
+     ],
+     [
+      0.25,
+      "Sine"
+     ],
+     [
+      0.5,
+      "Hyperbolic tangent"
+     ],
+     [
+      0.75,
+      "Error function"
+     ],
+     [
+      1.0,
+      "Circle"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Clipper sigmoid threshold": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.5"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Clipper DC offset": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100"
+     ],
+     [
+      0.25,
+      "-50"
+     ],
+     [
+      0.5,
+      "0"
+     ],
+     [
+      0.75,
+      "50"
+     ],
+     [
+      1.0,
+      "100"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 25.6,
+      "atMin": -14.39,
+      "atMax": -14.11,
+      "direction": "varies",
+      "ratio": 25.6
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 25.42,
+      "atMin": -14.31,
+      "atMax": -14.19,
+      "direction": "varies",
+      "ratio": 25.4
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 3.5,
+      "atMin": 3.51,
+      "atMax": 3.51,
+      "direction": "varies",
+      "ratio": 23.3
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 205.0,
+      "atMin": 20.0,
+      "atMax": 225.0,
+      "direction": "up",
+      "ratio": 8.2
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 4.8,
+      "atMin": -13.7,
+      "atMax": -13.6,
+      "direction": "varies",
+      "ratio": 4.8
+     },
+     {
+      "metric": "burstOnset",
+      "unit": "dB",
+      "span": 4.45,
+      "atMin": -4.47,
+      "atMax": -1.37,
+      "direction": "varies",
+      "ratio": 4.5
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.29,
+      "atMin": -0.79,
+      "atMax": -1.05,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "level between bursts ↕ 25.6 dB, level right after a burst ↕ 25.42 dB, tail/decay ↕ 3.5 s"
+   },
+   "Clipper DC compensate": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "On"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Clipper sigmoid pumping": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-12"
+     ],
+     [
+      0.25,
+      "-6"
+     ],
+     [
+      0.5,
+      "0"
+     ],
+     [
+      0.75,
+      "6"
+     ],
+     [
+      1.0,
+      "12"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 20.8,
+      "atMin": -20.9,
+      "atMax": -0.1,
+      "direction": "up",
+      "ratio": 20.8
+     },
+     {
+      "metric": "burstEarly",
+      "unit": "dB",
+      "span": 4.68,
+      "atMin": -39.63,
+      "atMax": -34.95,
+      "direction": "up",
+      "ratio": 4.7
+     },
+     {
+      "metric": "burstLate",
+      "unit": "dB",
+      "span": 4.67,
+      "atMin": -39.73,
+      "atMax": -35.06,
+      "direction": "up",
+      "ratio": 4.7
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.46,
+      "atMin": -1.09,
+      "atMax": -0.63,
+      "direction": "up",
+      "ratio": 1.8
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 20.8 LU, level right after a burst ↑ 4.68 dB, level between bursts ↑ 4.67 dB"
+   },
+   "Clipper graph view": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Combined"
+     ],
+     [
+      0.25,
+      "Combined"
+     ],
+     [
+      0.5,
+      "Dynamics"
+     ],
+     [
+      0.75,
+      "Dynamics"
+     ],
+     [
+      1.0,
+      "Waveform"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   },
+   "Stereo link": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "25"
+     ],
+     [
+      0.5,
+      "50"
+     ],
+     [
+      0.75,
+      "75"
+     ],
+     [
+      1.0,
+      "100"
+     ]
+    ],
+    "does": [],
+    "strength": "none",
+    "summary": "no audible effect with the test signal"
+   }
+  },
+  "switches": [
+   "Enable input LUFS limitation",
+   "Clipper enable"
+  ]
+ }
+}

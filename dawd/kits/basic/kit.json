@@ -1,0 +1,109 @@
+{
+ "name": "basic",
+ "description": "dawd basic kit \u2014 synthesized one-shots, GM layout",
+ "sounds": [
+  {
+   "note": 35,
+   "name": "kick deep",
+   "file": "035 kick deep.wav"
+  },
+  {
+   "note": 36,
+   "name": "kick",
+   "file": "036 kick.wav"
+  },
+  {
+   "note": 37,
+   "name": "side stick",
+   "file": "037 side stick.wav"
+  },
+  {
+   "note": 38,
+   "name": "snare",
+   "file": "038 snare.wav"
+  },
+  {
+   "note": 39,
+   "name": "clap",
+   "file": "039 clap.wav"
+  },
+  {
+   "note": 40,
+   "name": "snare bright",
+   "file": "040 snare bright.wav"
+  },
+  {
+   "note": 41,
+   "name": "tom floor low",
+   "file": "041 tom floor low.wav"
+  },
+  {
+   "note": 42,
+   "name": "hihat closed",
+   "file": "042 hihat closed.wav",
+   "choke": 1
+  },
+  {
+   "note": 43,
+   "name": "tom floor high",
+   "file": "043 tom floor high.wav"
+  },
+  {
+   "note": 44,
+   "name": "hihat pedal",
+   "file": "044 hihat pedal.wav",
+   "choke": 1
+  },
+  {
+   "note": 45,
+   "name": "tom low",
+   "file": "045 tom low.wav"
+  },
+  {
+   "note": 46,
+   "name": "hihat open",
+   "file": "046 hihat open.wav",
+   "choke": 1
+  },
+  {
+   "note": 47,
+   "name": "tom low mid",
+   "file": "047 tom low mid.wav"
+  },
+  {
+   "note": 48,
+   "name": "tom high mid",
+   "file": "048 tom high mid.wav"
+  },
+  {
+   "note": 49,
+   "name": "crash",
+   "file": "049 crash.wav"
+  },
+  {
+   "note": 50,
+   "name": "tom high",
+   "file": "050 tom high.wav"
+  },
+  {
+   "note": 51,
+   "name": "ride",
+   "file": "051 ride.wav"
+  },
+  {
+   "note": 54,
+   "name": "tambourine",
+   "file": "054 tambourine.wav"
+  },
+  {
+   "note": 56,
+   "name": "cowbell",
+   "file": "056 cowbell.wav"
+  },
+  {
+   "note": 70,
+   "name": "shaker",
+   "file": "070 shaker.wav"
+  }
+ ]
+}

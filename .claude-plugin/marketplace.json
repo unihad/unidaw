@@ -1,0 +1,15 @@
+{
+  "name": "unihad",
+  "description": "Plugins from unihad",
+  "owner": {
+    "name": "unihad",
+    "url": "https://github.com/unihad"
+  },
+  "plugins": [
+    {
+      "name": "unidaw",
+      "source": "./mcp",
+      "description": "MCP server for unidaw, a DAW for people and AI agents (Linux)"
+    }
+  ]
+}

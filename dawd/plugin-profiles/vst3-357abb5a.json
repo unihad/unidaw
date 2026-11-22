@@ -1,0 +1,10361 @@
+{
+ "plugin": {
+  "name": "Diva",
+  "format": "VST3",
+  "uid": "357abb5a",
+  "vendor": "u-he",
+  "version": 6
+ },
+ "generated": "2026-10-27T10:30:01",
+ "measured": {
+  "version": 3,
+  "signal": "MIDI v3: legato line C4 E4 G4 E4 (overlapping), long A3 1 s, rest 0.25 s, staccato C5 velocity 50 50 120 120, chord C2+C3 E3 G3 1 s (120 BPM)",
+  "points": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "thresholds": {
+   "lufs": 1.0,
+   "brightness": 0.25,
+   "low": 2.0,
+   "high": 2.0,
+   "width": 3.0,
+   "tail": 0.18000000000000016,
+   "attack": 25.0,
+   "pitch": 0.5,
+   "sustain": 3.0,
+   "sweep": 0.15,
+   "glide": 0.5,
+   "vibrato": 15.0,
+   "beating": 2.0,
+   "correlation": 0.2,
+   "velocity": 2.0,
+   "detune": 5.0
+  },
+  "units": {
+   "lufs": "LU",
+   "brightness": "oct",
+   "low": "dB",
+   "high": "dB",
+   "width": "dB",
+   "tail": "s",
+   "attack": "ms",
+   "pitch": "st",
+   "sustain": "dB",
+   "sweep": "oct",
+   "glide": "share",
+   "vibrato": "ct",
+   "beating": "dB",
+   "correlation": "",
+   "velocity": "dB",
+   "detune": "ct"
+  },
+  "noise": {
+   "lufs": 0.1999999999999993,
+   "brightness": 0.039000000000000146,
+   "low": 0.18000000000000016,
+   "high": 0.35999999999999943,
+   "width": 0.09999999999999787,
+   "tail": 0.09000000000000008,
+   "attack": 5.0,
+   "sustain": 0.7000000000000002,
+   "glide": 0.0,
+   "vibrato": 0.0,
+   "beating": 0.5,
+   "correlation": 0.0,
+   "velocity": 0.9199999999999999,
+   "detune": 0.7000000000000002
+  },
+  "baseline": {
+   "lufs": -14.7,
+   "silent": false,
+   "brightness": -2.919,
+   "low": -1.35,
+   "high": -30.97,
+   "width": -20.7,
+   "tail": 1.19,
+   "attack": 35.0,
+   "sustain": -3.5,
+   "sweep": 0.09,
+   "glide": 0.0,
+   "vibrato": 0.0,
+   "beating": 2.9,
+   "detune": 4.8,
+   "correlation": 0.98,
+   "beatingHz": 16.6,
+   "velocity": 14.27
+  },
+  "parameters": {
+   "Output": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "50.00"
+     ],
+     [
+      0.5,
+      "100.00"
+     ],
+     [
+      0.75,
+      "150.00"
+     ],
+     [
+      1.0,
+      "200.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 63.9,
+      "atMin": -70.0,
+      "atMax": -6.1,
+      "direction": "up",
+      "ratio": 63.9
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.74,
+      "atMin": 0.4,
+      "atMax": -0.34,
+      "direction": "down",
+      "ratio": 4.9
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 63.9 LU, filter sweep ↓ 0.74 oct"
+   },
+   "Active #FX1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 11.9,
+      "atMin": -20.5,
+      "atMax": -8.8,
+      "direction": "up",
+      "ratio": 4.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.1,
+      "atMin": -14.7,
+      "atMax": -16.6,
+      "direction": "down",
+      "ratio": 2.1
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 0.21,
+      "atMin": 0.98,
+      "atMax": 0.77,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "stereo width ↑ 11.9 dB, loudness ↓ 2.1 LU, L/R correlation ↓ 0.21 "
+   },
+   "LED Colour": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "0.25"
+     ],
+     [
+      0.5,
+      "0.50"
+     ],
+     [
+      0.75,
+      "0.75"
+     ],
+     [
+      1.0,
+      "1.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.33,
+      "atMin": 0.09,
+      "atMax": -0.24,
+      "direction": "down",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.33 oct"
+   },
+   "Voices": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "2"
+     ],
+     [
+      0.25,
+      "4"
+     ],
+     [
+      0.5,
+      "6"
+     ],
+     [
+      0.75,
+      "12"
+     ],
+     [
+      1.0,
+      "16"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.34,
+      "atMin": -2.76,
+      "atMax": -3.01,
+      "direction": "down",
+      "ratio": 1.4
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.47,
+      "atMin": -29.57,
+      "atMax": -31.12,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "brightness ↓ 0.34 oct, highs ↓ 2.47 dB"
+   },
+   "Voice Stack": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1"
+     ],
+     [
+      0.25,
+      "2"
+     ],
+     [
+      0.5,
+      "4"
+     ],
+     [
+      0.75,
+      "5"
+     ],
+     [
+      1.0,
+      "6"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 9.12,
+      "atMin": -31.22,
+      "atMax": -22.1,
+      "direction": "up",
+      "ratio": 4.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 4.1,
+      "atMin": -14.5,
+      "atMax": -11.0,
+      "direction": "varies",
+      "ratio": 4.1
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 6.47,
+      "atMin": 14.09,
+      "atMax": 10.74,
+      "direction": "varies",
+      "ratio": 3.2
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.75,
+      "atMin": -2.96,
+      "atMax": -2.2,
+      "direction": "up",
+      "ratio": 3.0
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.42,
+      "atMin": 0.56,
+      "atMax": 0.14,
+      "direction": "down",
+      "ratio": 2.8
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.3,
+      "atMin": 5.6,
+      "atMax": 3.4,
+      "direction": "down",
+      "ratio": 1.2
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.13,
+      "atMin": -1.2,
+      "atMax": -3.33,
+      "direction": "down",
+      "ratio": 1.1
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.19,
+      "atMin": 1.23,
+      "atMax": 1.33,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "highs ↑ 9.12 dB, loudness ↕ 4.1 LU, velocity response ↕ 6.47 dB"
+   },
+   "Mode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "poly"
+     ],
+     [
+      0.25,
+      "mono"
+     ],
+     [
+      0.5,
+      "legato"
+     ],
+     [
+      0.75,
+      "duo"
+     ],
+     [
+      1.0,
+      "poly2"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 4.3,
+      "atMin": -14.4,
+      "atMax": -14.8,
+      "direction": "varies",
+      "ratio": 4.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 6.64,
+      "atMin": -31.22,
+      "atMax": -29.64,
+      "direction": "varies",
+      "ratio": 3.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.53,
+      "atMin": -2.92,
+      "atMax": -2.98,
+      "direction": "varies",
+      "ratio": 2.1
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 6.3,
+      "atMin": -3.8,
+      "atMax": -6.7,
+      "direction": "varies",
+      "ratio": 2.1
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 2.78,
+      "atMin": 14.09,
+      "atMax": 11.47,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↕ 4.3 LU, highs ↕ 6.64 dB, brightness ↕ 0.53 oct"
+   },
+   "GlideMode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "time"
+     ],
+     [
+      0.25,
+      "time"
+     ],
+     [
+      0.5,
+      "rate"
+     ],
+     [
+      0.75,
+      "rate"
+     ],
+     [
+      1.0,
+      "rate"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.5,
+      "atMin": 4.2,
+      "atMax": 1.7,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 2.5 dB"
+   },
+   "Glide": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 30.7,
+      "atMin": 4.5,
+      "atMax": 34.5,
+      "direction": "up",
+      "ratio": 6.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.65,
+      "atMin": -0.05,
+      "atMax": -0.12,
+      "direction": "varies",
+      "ratio": 4.3
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 7.61,
+      "atMin": 13.69,
+      "atMax": 6.08,
+      "direction": "down",
+      "ratio": 3.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.74,
+      "atMin": -3.02,
+      "atMax": -3.72,
+      "direction": "down",
+      "ratio": 3.0
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.8,
+      "atMin": -4.1,
+      "atMax": -12.9,
+      "direction": "down",
+      "ratio": 2.9
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 5.05,
+      "atMin": -31.0,
+      "atMax": -36.05,
+      "direction": "down",
+      "ratio": 2.5
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.2,
+      "atMin": -14.7,
+      "atMax": -15.6,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "detune ↑ 30.7 ct, filter sweep ↕ 0.65 oct, velocity response ↓ 7.61 dB"
+   },
+   "Glide2": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 1.45,
+      "atMin": -0.44,
+      "atMax": 0.41,
+      "direction": "varies",
+      "ratio": 9.7
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 11.93,
+      "atMin": 13.72,
+      "atMax": 2.09,
+      "direction": "down",
+      "ratio": 6.0
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 23.3,
+      "atMin": 4.5,
+      "atMax": 27.8,
+      "direction": "up",
+      "ratio": 4.7
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.79,
+      "atMin": -3.01,
+      "atMax": -3.74,
+      "direction": "down",
+      "ratio": 3.1
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 4.48,
+      "atMin": -31.19,
+      "atMax": -35.67,
+      "direction": "down",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 1.45 oct, velocity response ↓ 11.93 dB, detune ↑ 23.3 ct"
+   },
+   "GlideRange": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.29,
+      "atMin": -0.14,
+      "atMax": 0.13,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.29 oct"
+   },
+   "TuningMode": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.46,
+      "atMin": 0.09,
+      "atMax": -0.21,
+      "direction": "varies",
+      "ratio": 3.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.46 oct"
+   },
+   "Transpose": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-24"
+     ],
+     [
+      0.25,
+      "-12"
+     ],
+     [
+      0.5,
+      "0"
+     ],
+     [
+      0.75,
+      "12"
+     ],
+     [
+      1.0,
+      "24"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 34.93,
+      "atMin": -0.52,
+      "atMax": -35.45,
+      "direction": "down",
+      "ratio": 17.5
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 3.12,
+      "atMin": -3.64,
+      "atMax": -0.52,
+      "direction": "up",
+      "ratio": 12.5
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 22.9,
+      "atMin": -3.0,
+      "atMax": -25.9,
+      "direction": "down",
+      "ratio": 7.6
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 14.93,
+      "atMin": -33.64,
+      "atMax": -18.71,
+      "direction": "up",
+      "ratio": 7.5
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 11.51,
+      "atMin": 9.61,
+      "atMax": 20.73,
+      "direction": "up",
+      "ratio": 5.8
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.4,
+      "atMin": -16.6,
+      "atMax": -16.4,
+      "direction": "varies",
+      "ratio": 2.4
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.38,
+      "atMin": 1.22,
+      "atMax": 0.86,
+      "direction": "down",
+      "ratio": 2.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.24,
+      "atMin": -0.06,
+      "atMax": 0.18,
+      "direction": "up",
+      "ratio": 1.6
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 30.0,
+      "atMin": 30.0,
+      "atMax": 60.0,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "lows ↓ 34.93 dB, brightness ↑ 3.12 oct, sustain ↓ 22.9 dB"
+   },
+   "FineTuneCents": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.18,
+      "atMin": 1.35,
+      "atMax": 1.17,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "tail/decay ↓ 0.18 s"
+   },
+   "Note Priority": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "last"
+     ],
+     [
+      0.25,
+      "last"
+     ],
+     [
+      0.5,
+      "lowest"
+     ],
+     [
+      0.75,
+      "highest"
+     ],
+     [
+      1.0,
+      "highest"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.2,
+      "atMin": -2.9,
+      "atMax": -2.9,
+      "direction": "varies",
+      "ratio": 2.4
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 7.2 dB"
+   },
+   "MultiCore": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.2,
+      "atMin": 0.04,
+      "atMax": 0.24,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.2 oct"
+   },
+   "Accuracy": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "draft"
+     ],
+     [
+      0.25,
+      "fast"
+     ],
+     [
+      0.5,
+      "great"
+     ],
+     [
+      0.75,
+      "divine"
+     ],
+     [
+      1.0,
+      "divine"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.48,
+      "atMin": -0.47,
+      "atMax": 0.01,
+      "direction": "up",
+      "ratio": 3.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.48 oct"
+   },
+   "OfflineAcc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "same"
+     ],
+     [
+      0.25,
+      "same"
+     ],
+     [
+      0.5,
+      "best"
+     ],
+     [
+      0.75,
+      "best"
+     ],
+     [
+      1.0,
+      "best"
+     ]
+    ],
+    "needs": [
+     "MultiCore"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.38,
+      "atMin": 0.18,
+      "atMax": -0.2,
+      "direction": "down",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.38 oct"
+   },
+   "TuneSlop": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.52,
+      "atMin": -0.05,
+      "atMax": -0.13,
+      "direction": "varies",
+      "ratio": 3.5
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.3,
+      "atMin": -4.0,
+      "atMax": -1.8,
+      "direction": "varies",
+      "ratio": 2.8
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.3,
+      "atMin": 3.0,
+      "atMax": 4.7,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.52 oct, sustain ↕ 8.3 dB, level beating ↑ 2.3 dB"
+   },
+   "CutoffSlop": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.47,
+      "atMin": -0.03,
+      "atMax": -0.25,
+      "direction": "varies",
+      "ratio": 3.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.47 oct"
+   },
+   "GlideSlop": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.4,
+      "atMin": 0.2,
+      "atMax": -0.17,
+      "direction": "down",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.4 oct"
+   },
+   "PWSlop": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.45,
+      "atMin": 0.04,
+      "atMax": 0.35,
+      "direction": "varies",
+      "ratio": 3.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.45 oct"
+   },
+   "EnvrateSlop": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.08,
+      "atMin": -31.05,
+      "atMax": -28.97,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "highs ↑ 2.08 dB"
+   },
+   "V1Mod": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.4,
+      "atMin": -0.05,
+      "atMax": 0.06,
+      "direction": "varies",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.4 oct"
+   },
+   "Attack": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 15.9,
+      "atMin": -14.9,
+      "atMax": -29.8,
+      "direction": "varies",
+      "ratio": 15.9
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 145.0,
+      "atMin": 30.0,
+      "atMax": 160.0,
+      "direction": "up",
+      "ratio": 5.8
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 10.98,
+      "atMin": 14.18,
+      "atMax": 3.2,
+      "direction": "down",
+      "ratio": 5.5
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 8.07,
+      "atMin": -30.8,
+      "atMax": -38.87,
+      "direction": "down",
+      "ratio": 4.0
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.47,
+      "atMin": 0.22,
+      "atMax": 0.16,
+      "direction": "varies",
+      "ratio": 3.1
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.64,
+      "atMin": -2.92,
+      "atMax": -3.56,
+      "direction": "down",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 15.9 LU, attack ↑ 145.0 ms, velocity response ↓ 10.98 dB"
+   },
+   "Decay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 1.04,
+      "atMin": 1.21,
+      "atMax": 2.25,
+      "direction": "up",
+      "ratio": 5.8
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 8.56,
+      "atMin": 5.49,
+      "atMax": 13.24,
+      "direction": "varies",
+      "ratio": 4.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.77,
+      "atMin": -29.19,
+      "atMax": -31.63,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "tail/decay ↑ 1.04 s, velocity response ↕ 8.56 dB, highs ↓ 2.77 dB"
+   },
+   "Sustain": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.53,
+      "atMin": 0.77,
+      "atMax": 1.2,
+      "direction": "varies",
+      "ratio": 2.9
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.0,
+      "atMin": -16.9,
+      "atMax": -14.9,
+      "direction": "up",
+      "ratio": 2.0
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.41,
+      "atMin": -2.59,
+      "atMax": -2.94,
+      "direction": "down",
+      "ratio": 1.6
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.66,
+      "atMin": -28.37,
+      "atMax": -30.92,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "tail/decay ↕ 0.53 s, loudness ↑ 2.0 LU, brightness ↓ 0.41 oct"
+   },
+   "Release": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.24,
+      "atMin": 0.04,
+      "atMax": -0.2,
+      "direction": "down",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.24 oct"
+   },
+   "Velocity": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.2,
+      "atMin": -2.0,
+      "atMax": -4.3,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 3.2 dB"
+   },
+   "Model": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "ADS"
+     ],
+     [
+      0.25,
+      "ADS"
+     ],
+     [
+      0.5,
+      "analogue"
+     ],
+     [
+      0.75,
+      "digital"
+     ],
+     [
+      1.0,
+      "digital"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.7,
+      "atMin": -14.5,
+      "atMax": -17.2,
+      "direction": "down",
+      "ratio": 2.7
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": -2.1,
+      "atMax": -3.8,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "loudness ↓ 2.7 LU, sustain ↓ 3.0 dB"
+   },
+   "Trigger": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Gate"
+     ],
+     [
+      0.25,
+      "Loop"
+     ],
+     [
+      0.5,
+      "LFO1"
+     ],
+     [
+      0.75,
+      "LFO2"
+     ],
+     [
+      1.0,
+      "LFO2"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.37,
+      "atMin": 0.11,
+      "atMax": -0.26,
+      "direction": "down",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.37 oct"
+   },
+   "Quantise": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "needs": [
+     "Release On"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.32,
+      "atMin": -0.23,
+      "atMax": 0.09,
+      "direction": "up",
+      "ratio": 2.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.32 oct"
+   },
+   "Curve": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.54,
+      "atMin": 0.23,
+      "atMax": 0.14,
+      "direction": "varies",
+      "ratio": 3.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.54 oct"
+   },
+   "Release On": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 8.22,
+      "atMin": 5.52,
+      "atMax": 13.39,
+      "direction": "up",
+      "ratio": 4.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.31,
+      "atMin": 0.19,
+      "atMax": -0.12,
+      "direction": "down",
+      "ratio": 2.1
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.9,
+      "atMin": 6.2,
+      "atMax": 2.3,
+      "direction": "down",
+      "ratio": 2.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "velocity response ↑ 8.22 dB, filter sweep ↓ 0.31 oct, level beating ↓ 3.9 dB"
+   },
+   "KeyFollow": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.84,
+      "atMin": -0.3,
+      "atMax": 0.32,
+      "direction": "varies",
+      "ratio": 5.6
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.97,
+      "atMin": 1.28,
+      "atMax": 2.25,
+      "direction": "up",
+      "ratio": 5.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 0.84 oct, tail/decay ↑ 0.97 s"
+   },
+   "Attack (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 17.9,
+      "atMin": -14.5,
+      "atMax": -32.4,
+      "direction": "down",
+      "ratio": 17.9
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 220.0,
+      "atMin": 30.0,
+      "atMax": 10.0,
+      "direction": "varies",
+      "ratio": 8.8
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 16.56,
+      "atMin": 13.4,
+      "atMax": 0.54,
+      "direction": "varies",
+      "ratio": 8.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 13.32,
+      "atMin": -31.32,
+      "atMax": -40.0,
+      "direction": "varies",
+      "ratio": 6.7
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.41,
+      "atMin": -2.95,
+      "atMax": -4.36,
+      "direction": "down",
+      "ratio": 5.6
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.67,
+      "atMin": -0.06,
+      "atMax": -0.61,
+      "direction": "varies",
+      "ratio": 4.5
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.7,
+      "atMin": -2.0,
+      "atMax": 1.0,
+      "direction": "up",
+      "ratio": 1.2
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.2,
+      "atMin": 2.4,
+      "atMax": 4.4,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↓ 17.9 LU, attack ↕ 220.0 ms, velocity response ↕ 16.56 dB"
+   },
+   "Decay (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 18.51,
+      "atMin": -40.0,
+      "atMax": -21.49,
+      "direction": "up",
+      "ratio": 9.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 7.9,
+      "atMin": -21.3,
+      "atMax": -13.6,
+      "direction": "up",
+      "ratio": 7.9
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 9.87,
+      "atMin": 6.56,
+      "atMax": 12.05,
+      "direction": "varies",
+      "ratio": 4.9
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.15,
+      "atMin": -3.78,
+      "atMax": -2.63,
+      "direction": "up",
+      "ratio": 4.6
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 85.0,
+      "atMin": 115.0,
+      "atMax": 30.0,
+      "direction": "down",
+      "ratio": 3.4
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.38,
+      "atMin": -0.26,
+      "atMax": 0.12,
+      "direction": "up",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "highs ↑ 18.51 dB, loudness ↑ 7.9 LU, velocity response ↕ 9.87 dB"
+   },
+   "Sustain (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 10.27,
+      "atMin": -33.82,
+      "atMax": -23.55,
+      "direction": "up",
+      "ratio": 5.1
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.67,
+      "atMin": 0.79,
+      "atMax": 1.42,
+      "direction": "up",
+      "ratio": 3.7
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.47,
+      "atMin": 0.02,
+      "atMax": -0.18,
+      "direction": "varies",
+      "ratio": 3.1
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 2.1,
+      "atMin": -15.5,
+      "atMax": -13.4,
+      "direction": "up",
+      "ratio": 2.1
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.26,
+      "atMin": -2.88,
+      "atMax": -2.69,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "highs ↑ 10.27 dB, tail/decay ↑ 0.67 s, filter sweep ↕ 0.47 oct"
+   },
+   "Release (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.43,
+      "atMin": -0.07,
+      "atMax": 0.36,
+      "direction": "up",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.43 oct"
+   },
+   "Velocity (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 18.13,
+      "atMin": 1.1,
+      "atMax": 19.23,
+      "direction": "up",
+      "ratio": 9.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.72,
+      "atMin": -0.05,
+      "atMax": -0.64,
+      "direction": "varies",
+      "ratio": 4.8
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 9.27,
+      "atMin": -24.22,
+      "atMax": -33.49,
+      "direction": "down",
+      "ratio": 4.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -13.8,
+      "atMax": -14.8,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "velocity response ↑ 18.13 dB, filter sweep ↕ 0.72 oct, highs ↓ 9.27 dB"
+   },
+   "Model (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "ADS"
+     ],
+     [
+      0.25,
+      "ADS"
+     ],
+     [
+      0.5,
+      "analogue"
+     ],
+     [
+      0.75,
+      "digital"
+     ],
+     [
+      1.0,
+      "digital"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 8.7,
+      "atMin": -31.3,
+      "atMax": -40.0,
+      "direction": "down",
+      "ratio": 4.3
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.28,
+      "atMin": 0.35,
+      "atMax": 0.07,
+      "direction": "down",
+      "ratio": 1.9
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 2.14,
+      "atMin": 13.06,
+      "atMax": 14.98,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "highs ↓ 8.7 dB, filter sweep ↓ 0.28 oct, velocity response ↑ 2.14 dB"
+   },
+   "Trigger (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Gate"
+     ],
+     [
+      0.25,
+      "Single"
+     ],
+     [
+      0.5,
+      "Loop"
+     ],
+     [
+      0.75,
+      "LFO1"
+     ],
+     [
+      1.0,
+      "LFO2"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.43,
+      "atMin": 0.2,
+      "atMax": 0.14,
+      "direction": "varies",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.43 oct"
+   },
+   "Quantise (2)": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.27,
+      "atMin": -0.11,
+      "atMax": 0.16,
+      "direction": "up",
+      "ratio": 1.8
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.27 oct"
+   },
+   "Curve (2)": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.28,
+      "atMin": -0.2,
+      "atMax": -0.02,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.28 oct"
+   },
+   "Release On (2)": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.76,
+      "atMin": 0.02,
+      "atMax": -0.24,
+      "direction": "varies",
+      "ratio": 5.1
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 3.24,
+      "atMin": -31.12,
+      "atMax": -28.08,
+      "direction": "up",
+      "ratio": 1.6
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 2.78,
+      "atMin": 13.07,
+      "atMax": 10.65,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 0.76 oct, highs ↑ 3.24 dB, velocity response ↓ 2.78 dB"
+   },
+   "KeyFollow (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.39,
+      "atMin": -0.37,
+      "atMax": 0.02,
+      "direction": "up",
+      "ratio": 2.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -16.5,
+      "atMax": -16.1,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.39 oct, loudness ↑ 1.0 LU"
+   },
+   "Sync": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "0.1s"
+     ],
+     [
+      0.25,
+      "1/8"
+     ],
+     [
+      0.5,
+      "1/4 dot"
+     ],
+     [
+      0.75,
+      "2/1"
+     ],
+     [
+      1.0,
+      "8/1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.33,
+      "atMin": -0.14,
+      "atMax": -0.3,
+      "direction": "varies",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.33 oct"
+   },
+   "Restart": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "sync"
+     ],
+     [
+      0.25,
+      "gate"
+     ],
+     [
+      0.5,
+      "single"
+     ],
+     [
+      0.75,
+      "random"
+     ],
+     [
+      1.0,
+      "random"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.63,
+      "atMin": 0.34,
+      "atMax": -0.29,
+      "direction": "down",
+      "ratio": 4.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.63 oct"
+   },
+   "Waveform": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "sine"
+     ],
+     [
+      0.25,
+      "saw up"
+     ],
+     [
+      0.5,
+      "sqr hi-lo"
+     ],
+     [
+      0.75,
+      "rand hold"
+     ],
+     [
+      1.0,
+      "rand glide"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 6.0,
+      "atMin": -3.0,
+      "atMax": -3.1,
+      "direction": "varies",
+      "ratio": 2.0
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.18,
+      "atMin": 0.21,
+      "atMax": 0.03,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 6.0 dB, filter sweep ↓ 0.18 oct"
+   },
+   "Phase": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.41,
+      "atMin": 0.04,
+      "atMax": -0.29,
+      "direction": "varies",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.41 oct"
+   },
+   "Delay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.5,
+      "atMin": -10.4,
+      "atMax": -2.9,
+      "direction": "up",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↑ 7.5 dB"
+   },
+   "DepthMod Src1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 23.0,
+      "atMin": 5.2,
+      "atMax": 4.5,
+      "direction": "varies",
+      "ratio": 4.6
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.63,
+      "atMin": 0.1,
+      "atMax": -0.16,
+      "direction": "varies",
+      "ratio": 4.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "detune ↕ 23.0 ct, filter sweep ↕ 0.63 oct"
+   },
+   "DepthMod Dpt1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 27.0,
+      "atMin": 29.5,
+      "atMax": 3.0,
+      "direction": "down",
+      "ratio": 5.4
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.55,
+      "atMin": 0.56,
+      "atMax": 0.01,
+      "direction": "down",
+      "ratio": 3.7
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.1,
+      "atMin": 4.8,
+      "atMax": 2.7,
+      "direction": "down",
+      "ratio": 1.1
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -13.9,
+      "atMax": -14.6,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "detune ↓ 27.0 ct, filter sweep ↓ 0.55 oct, level beating ↓ 2.1 dB"
+   },
+   "Rate": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-5.00"
+     ],
+     [
+      0.25,
+      "-2.50"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "2.50"
+     ],
+     [
+      1.0,
+      "5.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 5.7,
+      "atMin": -8.6,
+      "atMax": -3.1,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.17,
+      "atMin": 0.12,
+      "atMax": -0.05,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 5.7 dB, filter sweep ↓ 0.17 oct"
+   },
+   "FreqMod Src1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.28,
+      "atMin": -0.17,
+      "atMax": 0.11,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.28 oct"
+   },
+   "FreqMod Dpt": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-5.00"
+     ],
+     [
+      0.25,
+      "-2.50"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "2.50"
+     ],
+     [
+      1.0,
+      "5.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.4,
+      "atMin": -0.1,
+      "atMax": -0.27,
+      "direction": "varies",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.4 oct"
+   },
+   "Polarity": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "bipolar"
+     ],
+     [
+      0.25,
+      "bipolar"
+     ],
+     [
+      0.5,
+      "positive"
+     ],
+     [
+      0.75,
+      "positive"
+     ],
+     [
+      1.0,
+      "positive"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.45,
+      "atMin": -0.03,
+      "atMax": -0.17,
+      "direction": "varies",
+      "ratio": 3.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.45 oct"
+   },
+   "Sync (2)": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "0.1s"
+     ],
+     [
+      0.25,
+      "1/8"
+     ],
+     [
+      0.5,
+      "1/4 dot"
+     ],
+     [
+      0.75,
+      "2/1"
+     ],
+     [
+      1.0,
+      "8/1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.53,
+      "atMin": -0.27,
+      "atMax": 0.18,
+      "direction": "varies",
+      "ratio": 3.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.53 oct"
+   },
+   "Restart (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "sync"
+     ],
+     [
+      0.25,
+      "gate"
+     ],
+     [
+      0.5,
+      "single"
+     ],
+     [
+      0.75,
+      "random"
+     ],
+     [
+      1.0,
+      "random"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.48,
+      "atMin": -0.26,
+      "atMax": -0.03,
+      "direction": "varies",
+      "ratio": 3.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.48 oct"
+   },
+   "Waveform (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "sine"
+     ],
+     [
+      0.25,
+      "saw up"
+     ],
+     [
+      0.5,
+      "sqr hi-lo"
+     ],
+     [
+      0.75,
+      "rand hold"
+     ],
+     [
+      1.0,
+      "rand glide"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.19,
+      "atMin": -0.01,
+      "atMax": -0.2,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.19 oct"
+   },
+   "Phase (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.47,
+      "atMin": 0.13,
+      "atMax": -0.34,
+      "direction": "down",
+      "ratio": 3.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.47 oct"
+   },
+   "Delay (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX2"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.8,
+      "atMin": -10.6,
+      "atMax": -2.8,
+      "direction": "up",
+      "ratio": 2.6
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.2,
+      "atMin": 5.6,
+      "atMax": 2.6,
+      "direction": "down",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↑ 7.8 dB, level beating ↓ 3.2 dB"
+   },
+   "DepthMod Src1 (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.65,
+      "atMin": -0.26,
+      "atMax": -0.44,
+      "direction": "varies",
+      "ratio": 4.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.65 oct"
+   },
+   "DepthMod Dpt1 (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.55,
+      "atMin": 0.18,
+      "atMax": -0.09,
+      "direction": "varies",
+      "ratio": 3.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.55 oct"
+   },
+   "Rate (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-5.00"
+     ],
+     [
+      0.25,
+      "-2.50"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "2.50"
+     ],
+     [
+      1.0,
+      "5.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.17,
+      "atMin": 0.04,
+      "atMax": -0.13,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.17 oct"
+   },
+   "FreqMod Src1 (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.43,
+      "atMin": 0.18,
+      "atMax": -0.25,
+      "direction": "down",
+      "ratio": 2.9
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.9,
+      "atMin": 4.1,
+      "atMax": 2.4,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.43 oct, level beating ↓ 2.9 dB"
+   },
+   "FreqMod Dpt (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-5.00"
+     ],
+     [
+      0.25,
+      "-2.50"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "2.50"
+     ],
+     [
+      1.0,
+      "5.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 5.8,
+      "atMin": -8.7,
+      "atMax": -2.9,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.18,
+      "atMin": 0.18,
+      "atMax": 0.07,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 5.8 dB, filter sweep ↓ 0.18 oct"
+   },
+   "Polarity (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "bipolar"
+     ],
+     [
+      0.25,
+      "bipolar"
+     ],
+     [
+      0.5,
+      "positive"
+     ],
+     [
+      0.75,
+      "positive"
+     ],
+     [
+      1.0,
+      "positive"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.4,
+      "atMin": -10.2,
+      "atMax": -2.9,
+      "direction": "up",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↑ 7.4 dB"
+   },
+   "Slew Rate": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 9.0,
+      "atMin": -15.1,
+      "atMax": -23.6,
+      "direction": "down",
+      "ratio": 9.0
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 18.01,
+      "atMin": 1.15,
+      "atMax": -4.49,
+      "direction": "varies",
+      "ratio": 9.0
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 14.85,
+      "atMin": -25.15,
+      "atMax": -40.0,
+      "direction": "down",
+      "ratio": 7.4
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 155.0,
+      "atMin": 5.0,
+      "atMax": 10.0,
+      "direction": "varies",
+      "ratio": 6.2
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.21,
+      "atMin": -2.9,
+      "atMax": -4.1,
+      "direction": "down",
+      "ratio": 4.9
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.0,
+      "atMin": -6.5,
+      "atMax": -8.6,
+      "direction": "varies",
+      "ratio": 2.3
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.38,
+      "atMin": 1.23,
+      "atMax": 1.6,
+      "direction": "up",
+      "ratio": 2.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.15,
+      "atMin": 0.09,
+      "atMax": -0.06,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↓ 9.0 LU, velocity response ↕ 18.01 dB, highs ↓ 14.85 dB"
+   },
+   "RectifySource": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.41,
+      "atMin": 0.13,
+      "atMax": -0.28,
+      "direction": "down",
+      "ratio": 2.7
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.4,
+      "atMin": 2.4,
+      "atMax": 5.8,
+      "direction": "up",
+      "ratio": 1.7
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 2.31,
+      "atMin": 11.2,
+      "atMax": 13.4,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.41 oct, level beating ↑ 3.4 dB, velocity response ↑ 2.31 dB"
+   },
+   "InvertSource": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.43,
+      "atMin": 0.22,
+      "atMax": -0.21,
+      "direction": "down",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.43 oct"
+   },
+   "QuantiseSource": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.0,
+      "atMin": -7.6,
+      "atMax": -9.8,
+      "direction": "varies",
+      "ratio": 2.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 7.0 dB"
+   },
+   "LagSource": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 32.6,
+      "atMin": -45.1,
+      "atMax": -45.0,
+      "direction": "varies",
+      "ratio": 32.6
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 20.82,
+      "atMin": -40.0,
+      "atMax": -40.0,
+      "direction": "varies",
+      "ratio": 10.4
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 20.24,
+      "atMin": 0.58,
+      "atMax": 1.91,
+      "direction": "varies",
+      "ratio": 10.1
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.41,
+      "atMin": -4.75,
+      "atMax": -4.77,
+      "direction": "varies",
+      "ratio": 9.6
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 23.5,
+      "atMin": -10.8,
+      "atMax": -12.7,
+      "direction": "varies",
+      "ratio": 7.8
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.63,
+      "atMin": 1.69,
+      "atMax": 1.73,
+      "direction": "varies",
+      "ratio": 3.5
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 15.5,
+      "atMin": 6.2,
+      "atMax": 5.0,
+      "direction": "varies",
+      "ratio": 3.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.4,
+      "atMin": 0.13,
+      "atMax": 0.51,
+      "direction": "up",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 32.6 LU, highs ↕ 20.82 dB, velocity response ↕ 20.24 dB"
+   },
+   "AddSource1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.59,
+      "atMin": -0.18,
+      "atMax": -0.11,
+      "direction": "varies",
+      "ratio": 3.9
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 4.65,
+      "atMin": 14.65,
+      "atMax": 14.58,
+      "direction": "varies",
+      "ratio": 2.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 4.34,
+      "atMin": -34.69,
+      "atMax": -34.66,
+      "direction": "varies",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.59 oct, velocity response ↕ 4.65 dB, highs ↕ 4.34 dB"
+   },
+   "MulSource1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.27,
+      "atMin": 0.15,
+      "atMax": -0.12,
+      "direction": "down",
+      "ratio": 1.8
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.27 oct"
+   },
+   "Tune1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-30.00"
+     ],
+     [
+      0.25,
+      "-15.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "15.00"
+     ],
+     [
+      1.0,
+      "30.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.33,
+      "atMin": 0.12,
+      "atMax": 0.19,
+      "direction": "varies",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.33 oct"
+   },
+   "Vibrato": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 6.5,
+      "atMin": 3.0,
+      "atMax": 9.5,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "detune ↑ 6.5 ct"
+   },
+   "PulseWidth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.38,
+      "atMin": -0.61,
+      "atMax": -0.23,
+      "direction": "up",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.38 oct"
+   },
+   "Shape1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "3.00"
+     ],
+     [
+      0.5,
+      "5.00"
+     ],
+     [
+      0.75,
+      "7.00"
+     ],
+     [
+      1.0,
+      "9.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.4,
+      "atMin": 5.2,
+      "atMax": 2.4,
+      "direction": "down",
+      "ratio": 1.7
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 3.4 dB"
+   },
+   "FM": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 1.61,
+      "atMin": -0.24,
+      "atMax": 1.37,
+      "direction": "up",
+      "ratio": 10.7
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 22.4,
+      "atMin": 4.8,
+      "atMax": 23.0,
+      "direction": "up",
+      "ratio": 4.5
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 6.56,
+      "atMin": 13.28,
+      "atMax": 6.72,
+      "direction": "down",
+      "ratio": 3.3
+     },
+     {
+      "metric": "glide",
+      "unit": "share",
+      "span": 0.75,
+      "atMin": 0.0,
+      "atMax": 0.25,
+      "direction": "up",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↑ 1.61 oct, detune ↑ 22.4 ct, velocity response ↓ 6.56 dB"
+   },
+   "Sync2": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "needs": [
+     "Active #FX2"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.22,
+      "atMin": -0.08,
+      "atMax": -0.3,
+      "direction": "down",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.22 oct"
+   },
+   "OscMix": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.37,
+      "atMin": 0.02,
+      "atMax": -0.35,
+      "direction": "down",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.37 oct"
+   },
+   "Volume1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.33,
+      "atMin": 0.17,
+      "atMax": 0.5,
+      "direction": "up",
+      "ratio": 2.2
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.3,
+      "atMin": -14.7,
+      "atMax": -13.4,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.33 oct, loudness ↑ 1.3 LU"
+   },
+   "PulseShape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "off"
+     ],
+     [
+      0.25,
+      "__--"
+     ],
+     [
+      0.5,
+      "___-"
+     ],
+     [
+      0.75,
+      "pwm"
+     ],
+     [
+      1.0,
+      "pwm"
+     ]
+    ],
+    "needs": [
+     "Release On (2)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.97,
+      "atMin": 0.77,
+      "atMax": -0.13,
+      "direction": "varies",
+      "ratio": 6.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 0.97 oct"
+   },
+   "SawShape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "off"
+     ],
+     [
+      0.25,
+      "/|"
+     ],
+     [
+      0.5,
+      "pwm"
+     ],
+     [
+      0.75,
+      "||||||"
+     ],
+     [
+      1.0,
+      "||  ||"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.16,
+      "atMin": 0.0,
+      "atMax": 0.14,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.16 oct"
+   },
+   "SuboscShape": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "____----"
+     ],
+     [
+      0.25,
+      "______--"
+     ],
+     [
+      0.5,
+      "____||||"
+     ],
+     [
+      0.75,
+      "_____-----"
+     ],
+     [
+      1.0,
+      "_______---"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.95,
+      "atMin": 0.46,
+      "atMax": 0.29,
+      "direction": "varies",
+      "ratio": 6.3
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.7,
+      "atMin": 2.7,
+      "atMax": 5.8,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 0.95 oct, level beating ↑ 3.7 dB"
+   },
+   "Tune1ModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "needs": [
+     "Active #FX2"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.39,
+      "atMin": -0.28,
+      "atMax": 0.11,
+      "direction": "up",
+      "ratio": 2.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.39 oct"
+   },
+   "Tune1ModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-24.00"
+     ],
+     [
+      0.25,
+      "-12.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "12.00"
+     ],
+     [
+      1.0,
+      "24.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 4.4,
+      "atMin": -3.7,
+      "atMax": -6.8,
+      "direction": "down",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↓ 4.4 dB"
+   },
+   "PWModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.53,
+      "atMin": -0.26,
+      "atMax": -0.16,
+      "direction": "varies",
+      "ratio": 3.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.53 oct"
+   },
+   "PWModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-50.00"
+     ],
+     [
+      0.25,
+      "-25.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "25.00"
+     ],
+     [
+      1.0,
+      "50.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.2,
+      "atMin": 0.21,
+      "atMax": 0.01,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.2 oct"
+   },
+   "ShapeSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.18,
+      "atMin": -0.14,
+      "atMax": 0.04,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.18 oct"
+   },
+   "ShapeDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-50.00"
+     ],
+     [
+      0.25,
+      "-25.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "25.00"
+     ],
+     [
+      1.0,
+      "50.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX2"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.4,
+      "atMin": -0.23,
+      "atMax": 0.17,
+      "direction": "up",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.4 oct"
+   },
+   "Triangle1On": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "needs": [
+     "MultiCore"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.37,
+      "atMin": 0.19,
+      "atMax": -0.18,
+      "direction": "down",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.37 oct"
+   },
+   "Sine2On": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "needs": [
+     "Release On (2)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.98,
+      "atMin": 0.7,
+      "atMax": -0.17,
+      "direction": "varies",
+      "ratio": 6.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 0.98 oct"
+   },
+   "Saw1On": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.2,
+      "atMin": 5.6,
+      "atMax": 2.5,
+      "direction": "down",
+      "ratio": 1.6
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.22,
+      "atMin": -0.4,
+      "atMax": -0.18,
+      "direction": "up",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 3.2 dB, filter sweep ↑ 0.22 oct"
+   },
+   "Pwm1On": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.23,
+      "atMin": 0.09,
+      "atMax": 0.32,
+      "direction": "up",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.23 oct"
+   },
+   "Pulse2On": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.26,
+      "atMin": -0.11,
+      "atMax": 0.15,
+      "direction": "up",
+      "ratio": 1.7
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.26 oct"
+   },
+   "PWM2On": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.42,
+      "atMin": -0.05,
+      "atMax": -0.47,
+      "direction": "down",
+      "ratio": 2.8
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.42 oct"
+   },
+   "Noise1On": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.5,
+      "atMin": -0.0,
+      "atMax": 0.27,
+      "direction": "varies",
+      "ratio": 3.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.5 oct"
+   },
+   "ShapeModel": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "ideal"
+     ],
+     [
+      0.25,
+      "ideal"
+     ],
+     [
+      0.5,
+      "analog1"
+     ],
+     [
+      0.75,
+      "analog2"
+     ],
+     [
+      1.0,
+      "analog2"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.1,
+      "atMin": 4.7,
+      "atMax": 1.6,
+      "direction": "down",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 3.1 dB"
+   },
+   "NoiseVol": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 1.77,
+      "atMin": 0.12,
+      "atMax": 1.89,
+      "direction": "up",
+      "ratio": 11.8
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 13.65,
+      "atMin": -31.33,
+      "atMax": -17.68,
+      "direction": "up",
+      "ratio": 6.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.37,
+      "atMin": -2.96,
+      "atMax": -2.59,
+      "direction": "up",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↑ 1.77 oct, highs ↑ 13.65 dB, brightness ↑ 0.37 oct"
+   },
+   "NoiseColor": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "white"
+     ],
+     [
+      0.25,
+      "white"
+     ],
+     [
+      0.5,
+      "pink"
+     ],
+     [
+      0.75,
+      "pink"
+     ],
+     [
+      1.0,
+      "pink"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.57,
+      "atMin": 0.2,
+      "atMax": -0.37,
+      "direction": "down",
+      "ratio": 3.8
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.57 oct"
+   },
+   "TuneModOsc1": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 13.1,
+      "atMin": -2.5,
+      "atMax": -14.7,
+      "direction": "varies",
+      "ratio": 4.4
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 13.1 dB"
+   },
+   "ShapeModOsc1": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.52,
+      "atMin": -0.2,
+      "atMax": 0.28,
+      "direction": "up",
+      "ratio": 3.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.52 oct"
+   },
+   "TuneModMode": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "2->1, 1->1"
+     ],
+     [
+      0.25,
+      "1->1, 2->1, 1->2, 2->2"
+     ],
+     [
+      0.5,
+      "2->2, 1->2"
+     ],
+     [
+      0.75,
+      "1->1, 2->2"
+     ],
+     [
+      1.0,
+      "1->1, 2->2"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.15,
+      "atMin": -0.22,
+      "atMax": -0.07,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.15 oct"
+   },
+   "EcoWave1": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "1.75"
+     ],
+     [
+      0.5,
+      "2.50"
+     ],
+     [
+      0.75,
+      "3.25"
+     ],
+     [
+      1.0,
+      "4.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.65,
+      "atMin": -0.39,
+      "atMax": 0.26,
+      "direction": "varies",
+      "ratio": 4.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.65 oct"
+   },
+   "RingmodPulse": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "needs": [
+     "Release On (2)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 1.0,
+      "atMin": 0.61,
+      "atMax": -0.2,
+      "direction": "varies",
+      "ratio": 6.7
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 1.0 oct"
+   },
+   "Drift": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "50.00"
+     ],
+     [
+      0.5,
+      "100.00"
+     ],
+     [
+      0.75,
+      "150.00"
+     ],
+     [
+      1.0,
+      "200.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 6.7,
+      "atMin": -3.1,
+      "atMax": -3.4,
+      "direction": "varies",
+      "ratio": 2.2
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.25,
+      "atMin": -0.09,
+      "atMax": 0.16,
+      "direction": "up",
+      "ratio": 1.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 6.7 dB, filter sweep ↑ 0.25 oct"
+   },
+   "FmModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.45,
+      "atMin": -0.24,
+      "atMax": 0.21,
+      "direction": "up",
+      "ratio": 3.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.45 oct"
+   },
+   "FmModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.46,
+      "atMin": 0.13,
+      "atMax": -0.33,
+      "direction": "down",
+      "ratio": 3.1
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.1,
+      "atMin": -3.0,
+      "atMax": -3.0,
+      "direction": "varies",
+      "ratio": 2.4
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.46 oct, sustain ↕ 7.1 dB"
+   },
+   "NoiseVolModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.43,
+      "atMin": 0.14,
+      "atMax": 0.06,
+      "direction": "varies",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.43 oct"
+   },
+   "NoiseVolModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX2"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.59,
+      "atMin": -0.3,
+      "atMax": 0.29,
+      "direction": "up",
+      "ratio": 3.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.59 oct"
+   },
+   "DigitalShape2": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.18,
+      "atMin": -0.25,
+      "atMax": -0.37,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.18 oct"
+   },
+   "DigitalType1": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Multisaw"
+     ],
+     [
+      0.25,
+      "TriWrap"
+     ],
+     [
+      0.5,
+      "Feedback"
+     ],
+     [
+      0.75,
+      "Saw"
+     ],
+     [
+      1.0,
+      "Triangle"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.24,
+      "atMin": 0.06,
+      "atMax": -0.18,
+      "direction": "down",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.24 oct"
+   },
+   "DigitalAntiAlias": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.22,
+      "atMin": 0.03,
+      "atMax": -0.19,
+      "direction": "down",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.22 oct"
+   },
+   "Frequency": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "30.00"
+     ],
+     [
+      0.25,
+      "60.00"
+     ],
+     [
+      0.5,
+      "90.00"
+     ],
+     [
+      0.75,
+      "120.00"
+     ],
+     [
+      1.0,
+      "150.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.33,
+      "atMin": 0.03,
+      "atMax": -0.3,
+      "direction": "down",
+      "ratio": 2.2
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.1,
+      "atMin": 2.4,
+      "atMax": 5.5,
+      "direction": "up",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.33 oct, level beating ↑ 3.1 dB"
+   },
+   "Resonance": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.7,
+      "atMin": -10.5,
+      "atMax": -2.8,
+      "direction": "up",
+      "ratio": 2.6
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.31,
+      "atMin": -0.1,
+      "atMax": 0.21,
+      "direction": "up",
+      "ratio": 2.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↑ 7.7 dB, filter sweep ↑ 0.31 oct"
+   },
+   "Revision": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "1"
+     ],
+     [
+      0.25,
+      "1"
+     ],
+     [
+      0.5,
+      "2"
+     ],
+     [
+      0.75,
+      "2"
+     ],
+     [
+      1.0,
+      "2"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.3,
+      "atMin": -0.17,
+      "atMax": 0.13,
+      "direction": "up",
+      "ratio": 2.0
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -16.0,
+      "atMax": -16.7,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.3 oct, loudness ↓ 1.0 LU"
+   },
+   "FreqModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.56,
+      "atMin": -0.46,
+      "atMax": -0.26,
+      "direction": "varies",
+      "ratio": 3.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.56 oct"
+   },
+   "FreqModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-120.00"
+     ],
+     [
+      0.25,
+      "-60.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "60.00"
+     ],
+     [
+      1.0,
+      "120.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.25,
+      "atMin": -0.04,
+      "atMax": -0.29,
+      "direction": "down",
+      "ratio": 1.7
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.25 oct"
+   },
+   "Post-HPF Freq": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-1"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "2"
+     ],
+     [
+      1.0,
+      "3"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.19,
+      "atMin": -0.3,
+      "atMax": -0.11,
+      "direction": "up",
+      "ratio": 1.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -16.2,
+      "atMax": -16.1,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.19 oct, loudness ↑ 1.0 LU"
+   },
+   "Frequency (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "30.00"
+     ],
+     [
+      0.25,
+      "60.00"
+     ],
+     [
+      0.5,
+      "90.00"
+     ],
+     [
+      0.75,
+      "120.00"
+     ],
+     [
+      1.0,
+      "150.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 20.39,
+      "atMin": 20.79,
+      "atMax": 0.4,
+      "direction": "down",
+      "ratio": 10.2
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 18.28,
+      "atMin": -37.76,
+      "atMax": -19.48,
+      "direction": "up",
+      "ratio": 9.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.52,
+      "atMin": -0.15,
+      "atMax": 0.23,
+      "direction": "varies",
+      "ratio": 3.5
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 3.3,
+      "atMin": -15.7,
+      "atMax": -12.4,
+      "direction": "up",
+      "ratio": 3.3
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.52,
+      "atMin": 1.16,
+      "atMax": 1.68,
+      "direction": "up",
+      "ratio": 2.9
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.7,
+      "atMin": -4.5,
+      "atMax": -1.2,
+      "direction": "varies",
+      "ratio": 2.9
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.58,
+      "atMin": -3.01,
+      "atMax": -2.44,
+      "direction": "up",
+      "ratio": 2.3
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 35.0,
+      "atMin": 40.0,
+      "atMax": 5.0,
+      "direction": "down",
+      "ratio": 1.4
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.9,
+      "atMin": 4.3,
+      "atMax": 1.6,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "strong",
+    "summary": "velocity response ↓ 20.39 dB, highs ↑ 18.28 dB, filter sweep ↕ 0.52 oct"
+   },
+   "Resonance (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 4.0,
+      "atMin": -0.01,
+      "atMax": 3.61,
+      "direction": "varies",
+      "ratio": 26.7
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 23.61,
+      "atMin": -31.01,
+      "atMax": -7.4,
+      "direction": "up",
+      "ratio": 11.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.41,
+      "atMin": -2.93,
+      "atMax": -0.53,
+      "direction": "up",
+      "ratio": 9.6
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 9.0,
+      "atMin": -14.7,
+      "atMax": -18.4,
+      "direction": "varies",
+      "ratio": 9.0
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 11.48,
+      "atMin": 13.25,
+      "atMax": 2.94,
+      "direction": "varies",
+      "ratio": 5.7
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 6.73,
+      "atMin": -1.33,
+      "atMax": -8.06,
+      "direction": "down",
+      "ratio": 3.4
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.35,
+      "atMin": 1.24,
+      "atMax": 1.5,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 4.0 oct, highs ↑ 23.61 dB, brightness ↑ 2.41 oct"
+   },
+   "FreqModSrc (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 32.6,
+      "atMin": -45.1,
+      "atMax": -45.1,
+      "direction": "varies",
+      "ratio": 32.6
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 20.82,
+      "atMin": -40.0,
+      "atMax": -40.0,
+      "direction": "varies",
+      "ratio": 10.4
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.34,
+      "atMin": -4.75,
+      "atMax": -4.75,
+      "direction": "varies",
+      "ratio": 9.4
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 9.9,
+      "atMin": -10.8,
+      "atMax": -10.8,
+      "direction": "varies",
+      "ratio": 3.3
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 4.32,
+      "atMin": 0.52,
+      "atMax": 0.67,
+      "direction": "varies",
+      "ratio": 2.2
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.24,
+      "atMin": 0.36,
+      "atMax": 0.12,
+      "direction": "down",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 32.6 LU, highs ↕ 20.82 dB, brightness ↕ 2.34 oct"
+   },
+   "FreqModDepth (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-120.00"
+     ],
+     [
+      0.25,
+      "-60.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "60.00"
+     ],
+     [
+      1.0,
+      "120.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 36.0,
+      "atMin": -50.4,
+      "atMax": -14.6,
+      "direction": "up",
+      "ratio": 36.0
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 17.92,
+      "atMin": -1.93,
+      "atMax": 13.36,
+      "direction": "varies",
+      "ratio": 9.0
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 1.99,
+      "atMin": -4.92,
+      "atMax": -2.93,
+      "direction": "up",
+      "ratio": 8.0
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 19.7,
+      "atMin": -22.8,
+      "atMax": -3.1,
+      "direction": "up",
+      "ratio": 6.6
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 8.81,
+      "atMin": -40.0,
+      "atMax": -31.19,
+      "direction": "up",
+      "ratio": 4.4
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.63,
+      "atMin": 1.77,
+      "atMax": 1.28,
+      "direction": "varies",
+      "ratio": 3.5
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 55.0,
+      "atMin": 10.0,
+      "atMax": 30.0,
+      "direction": "varies",
+      "ratio": 2.2
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.5,
+      "atMin": 5.8,
+      "atMax": 2.4,
+      "direction": "down",
+      "ratio": 1.8
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 36.0 LU, velocity response ↕ 17.92 dB, brightness ↑ 1.99 oct"
+   },
+   "FreqMod2Src": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 4.71,
+      "atMin": 14.48,
+      "atMax": 14.63,
+      "direction": "varies",
+      "ratio": 2.4
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 4.43,
+      "atMin": -34.88,
+      "atMax": -34.57,
+      "direction": "varies",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "velocity response ↕ 4.71 dB, highs ↕ 4.43 dB"
+   },
+   "FreqMod2Depth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-120.00"
+     ],
+     [
+      0.25,
+      "-60.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "60.00"
+     ],
+     [
+      1.0,
+      "120.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 37.3,
+      "atMin": -49.8,
+      "atMax": -12.5,
+      "direction": "up",
+      "ratio": 37.3
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 2.51,
+      "atMin": -4.98,
+      "atMax": -2.47,
+      "direction": "up",
+      "ratio": 10.0
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 19.84,
+      "atMin": -40.0,
+      "atMax": -20.16,
+      "direction": "up",
+      "ratio": 9.9
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 18.87,
+      "atMin": -4.47,
+      "atMax": 1.59,
+      "direction": "varies",
+      "ratio": 9.4
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 19.8,
+      "atMin": -23.4,
+      "atMax": -10.3,
+      "direction": "varies",
+      "ratio": 6.6
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 1.06,
+      "atMin": 1.74,
+      "atMax": 1.68,
+      "direction": "varies",
+      "ratio": 5.9
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.46,
+      "atMin": -0.03,
+      "atMax": 0.18,
+      "direction": "varies",
+      "ratio": 3.1
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 75.0,
+      "atMin": 20.0,
+      "atMax": 5.0,
+      "direction": "varies",
+      "ratio": 3.0
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.5,
+      "atMin": 5.4,
+      "atMax": 2.2,
+      "direction": "down",
+      "ratio": 1.8
+     },
+     {
+      "metric": "low",
+      "unit": "dB",
+      "span": 2.33,
+      "atMin": -0.0,
+      "atMax": -2.33,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 37.3 LU, brightness ↑ 2.51 oct, highs ↑ 19.84 dB"
+   },
+   "FilterFM": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-24.00"
+     ],
+     [
+      0.25,
+      "-12.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "12.00"
+     ],
+     [
+      1.0,
+      "24.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.22,
+      "atMin": -29.4,
+      "atMax": -31.14,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "highs ↓ 2.22 dB"
+   },
+   "LadderMode": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "24db"
+     ],
+     [
+      0.25,
+      "24db"
+     ],
+     [
+      0.5,
+      "12db"
+     ],
+     [
+      0.75,
+      "12db"
+     ],
+     [
+      1.0,
+      "12db"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 5.28,
+      "atMin": 13.28,
+      "atMax": 8.46,
+      "direction": "down",
+      "ratio": 2.6
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.34,
+      "atMin": 0.19,
+      "atMax": 0.17,
+      "direction": "varies",
+      "ratio": 2.3
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 3.95,
+      "atMin": -31.31,
+      "atMax": -27.66,
+      "direction": "up",
+      "ratio": 2.0
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.26,
+      "atMin": 1.22,
+      "atMax": 1.37,
+      "direction": "up",
+      "ratio": 1.4
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -14.5,
+      "atMax": -13.6,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "velocity response ↓ 5.28 dB, filter sweep ↕ 0.34 oct, highs ↑ 3.95 dB"
+   },
+   "LadderColor": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "clean"
+     ],
+     [
+      0.25,
+      "clean"
+     ],
+     [
+      0.5,
+      "rough"
+     ],
+     [
+      0.75,
+      "rough"
+     ],
+     [
+      1.0,
+      "rough"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.69,
+      "atMin": 0.27,
+      "atMax": -0.05,
+      "direction": "varies",
+      "ratio": 4.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.69 oct"
+   },
+   "SlnKyRevision": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "1"
+     ],
+     [
+      0.25,
+      "1"
+     ],
+     [
+      0.5,
+      "2"
+     ],
+     [
+      0.75,
+      "2"
+     ],
+     [
+      1.0,
+      "2"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.41,
+      "atMin": 0.11,
+      "atMax": 0.02,
+      "direction": "varies",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.41 oct"
+   },
+   "SvfMode": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "LP 24db"
+     ],
+     [
+      0.25,
+      "LP 12db"
+     ],
+     [
+      0.5,
+      "HP"
+     ],
+     [
+      0.75,
+      "BP"
+     ],
+     [
+      1.0,
+      "BP"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 9.4,
+      "atMin": -2.9,
+      "atMax": -3.0,
+      "direction": "varies",
+      "ratio": 3.1
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.22,
+      "atMin": 0.25,
+      "atMax": 0.03,
+      "direction": "down",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 9.4 dB, filter sweep ↓ 0.22 oct"
+   },
+   "Feedback": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 6.7,
+      "atMin": -17.1,
+      "atMax": -10.4,
+      "direction": "up",
+      "ratio": 6.7
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 11.1,
+      "atMin": 10.07,
+      "atMax": 5.67,
+      "direction": "varies",
+      "ratio": 5.5
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 8.95,
+      "atMin": -27.79,
+      "atMax": -36.74,
+      "direction": "down",
+      "ratio": 4.5
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 9.1,
+      "atMin": -2.4,
+      "atMax": -11.5,
+      "direction": "down",
+      "ratio": 3.0
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.31,
+      "atMin": -2.93,
+      "atMax": -3.24,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 6.7 LU, velocity response ↕ 11.1 dB, highs ↓ 8.95 dB"
+   },
+   "ResModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.3,
+      "atMin": 0.13,
+      "atMax": 0.07,
+      "direction": "varies",
+      "ratio": 2.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.3 oct"
+   },
+   "ResModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.49,
+      "atMin": 0.02,
+      "atMax": 0.15,
+      "direction": "varies",
+      "ratio": 3.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.49 oct"
+   },
+   "FmAmountModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "needs": [
+     "Release On"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.37,
+      "atMin": 0.11,
+      "atMax": -0.26,
+      "direction": "down",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.37 oct"
+   },
+   "FmAmountModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-24.00"
+     ],
+     [
+      0.25,
+      "-12.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "12.00"
+     ],
+     [
+      1.0,
+      "24.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.26,
+      "atMin": 0.04,
+      "atMax": -0.22,
+      "direction": "down",
+      "ratio": 1.7
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.26 oct"
+   },
+   "FeedbackModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.51,
+      "atMin": 0.24,
+      "atMax": -0.17,
+      "direction": "varies",
+      "ratio": 3.4
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.51 oct"
+   },
+   "FeedbackModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.23,
+      "atMin": -0.12,
+      "atMax": -0.0,
+      "direction": "up",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.23 oct"
+   },
+   "ShapeMix": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.28,
+      "atMin": -0.16,
+      "atMax": 0.12,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.28 oct"
+   },
+   "ShapeModSrc": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.46,
+      "atMin": -0.41,
+      "atMax": 0.05,
+      "direction": "up",
+      "ratio": 3.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.46 oct"
+   },
+   "ShapeModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.54,
+      "atMin": 0.14,
+      "atMax": 0.34,
+      "direction": "varies",
+      "ratio": 3.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.54 oct"
+   },
+   "UhbieBandpass": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "0"
+     ],
+     [
+      0.25,
+      "0"
+     ],
+     [
+      0.5,
+      "1"
+     ],
+     [
+      0.75,
+      "1"
+     ],
+     [
+      1.0,
+      "1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.9,
+      "atMin": -3.1,
+      "atMax": -2.9,
+      "direction": "varies",
+      "ratio": 2.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 7.9 dB"
+   },
+   "Pan": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 20.5,
+      "atMin": 0.0,
+      "atMax": -0.1,
+      "direction": "varies",
+      "ratio": 6.8
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 0.98,
+      "atMin": 0.0,
+      "atMax": 0.04,
+      "direction": "varies",
+      "ratio": 4.9
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.19,
+      "atMin": -0.14,
+      "atMax": 0.05,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↕ 20.5 dB, L/R correlation ↕ 0.98 , filter sweep ↑ 0.19 oct"
+   },
+   "Volume": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 59.7,
+      "atMin": -70.0,
+      "atMax": -10.3,
+      "direction": "up",
+      "ratio": 59.7
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.37,
+      "atMin": 0.19,
+      "atMax": -0.18,
+      "direction": "down",
+      "ratio": 2.5
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 2.45,
+      "atMin": -31.8,
+      "atMax": -29.35,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↑ 59.7 LU, filter sweep ↓ 0.37 oct, highs ↑ 2.45 dB"
+   },
+   "VCA": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Gate"
+     ],
+     [
+      0.25,
+      "Gate"
+     ],
+     [
+      0.5,
+      "Env1"
+     ],
+     [
+      0.75,
+      "Env1"
+     ],
+     [
+      1.0,
+      "Env1"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 11.4,
+      "atMin": -4.7,
+      "atMax": -2.8,
+      "direction": "varies",
+      "ratio": 3.8
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 5.92,
+      "atMin": 8.16,
+      "atMax": 13.3,
+      "direction": "up",
+      "ratio": 3.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 11.4 dB, velocity response ↑ 5.92 dB"
+   },
+   "Modulation": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.21,
+      "atMin": -0.17,
+      "atMax": 0.04,
+      "direction": "up",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.21 oct"
+   },
+   "ModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.5,
+      "atMin": -0.35,
+      "atMax": 0.14,
+      "direction": "up",
+      "ratio": 3.3
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.7,
+      "atMin": -4.0,
+      "atMax": -3.0,
+      "direction": "varies",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.5 oct, sustain ↕ 8.7 dB"
+   },
+   "PanModulation": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "none"
+     ],
+     [
+      0.25,
+      "Velocity"
+     ],
+     [
+      0.5,
+      "StackVoice"
+     ],
+     [
+      0.75,
+      "Rectify"
+     ],
+     [
+      1.0,
+      "Multiply"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 4.4,
+      "atMin": -7.2,
+      "atMax": -2.8,
+      "direction": "up",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "sustain ↑ 4.4 dB"
+   },
+   "PanModDepth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-100.00"
+     ],
+     [
+      0.25,
+      "-50.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "50.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.46,
+      "atMin": 0.26,
+      "atMax": -0.2,
+      "direction": "varies",
+      "ratio": 3.1
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.2,
+      "atMin": -6.0,
+      "atMax": -2.8,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.46 oct, sustain ↑ 3.2 dB"
+   },
+   "Mode (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "lin"
+     ],
+     [
+      0.25,
+      "lin"
+     ],
+     [
+      0.5,
+      "simple moog"
+     ],
+     [
+      0.75,
+      "complex moog"
+     ],
+     [
+      1.0,
+      "complex moog"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.15,
+      "atMin": 0.03,
+      "atMax": 0.18,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.15 oct"
+   },
+   "Offset": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-1.00"
+     ],
+     [
+      0.25,
+      "-0.50"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "0.50"
+     ],
+     [
+      1.0,
+      "1.00"
+     ]
+    ],
+    "needs": [
+     "other amounts up (gain, ratio, …)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.18,
+      "atMin": -0.24,
+      "atMax": -0.06,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.18 oct"
+   },
+   "Scale": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-5.00"
+     ],
+     [
+      0.25,
+      "-2.50"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "2.50"
+     ],
+     [
+      1.0,
+      "5.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.18,
+      "atMin": 0.2,
+      "atMax": 0.02,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.18 oct"
+   },
+   "Module": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Chorus1"
+     ],
+     [
+      0.25,
+      "Phaser1"
+     ],
+     [
+      0.5,
+      "Plate1"
+     ],
+     [
+      0.75,
+      "Delay1"
+     ],
+     [
+      1.0,
+      "Rotary1"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.1,
+      "atMin": -16.9,
+      "atMax": -19.6,
+      "direction": "varies",
+      "ratio": 5.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "loudness ↕ 5.1 LU"
+   },
+   "Type": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Classic"
+     ],
+     [
+      0.25,
+      "Classic"
+     ],
+     [
+      0.5,
+      "Dramatic"
+     ],
+     [
+      0.75,
+      "Ensemble"
+     ],
+     [
+      1.0,
+      "Ensemble"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.49,
+      "atMin": 0.28,
+      "atMax": -0.01,
+      "direction": "varies",
+      "ratio": 3.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.49 oct"
+   },
+   "Depth": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.2,
+      "atMin": 0.23,
+      "atMax": 0.03,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.2 oct"
+   },
+   "Wet": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.19,
+      "atMin": 0.16,
+      "atMax": -0.03,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.19 oct"
+   },
+   "Type (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Stoned"
+     ],
+     [
+      0.25,
+      "Stoned"
+     ],
+     [
+      0.5,
+      "Flanged"
+     ],
+     [
+      0.75,
+      "Flanged"
+     ],
+     [
+      1.0,
+      "Flanged"
+     ]
+    ],
+    "needs": [
+     "Release On"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.2,
+      "atMin": 0.14,
+      "atMax": -0.06,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.2 oct"
+   },
+   "Feedback (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.32,
+      "atMin": -0.13,
+      "atMax": 0.19,
+      "direction": "up",
+      "ratio": 2.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.32 oct"
+   },
+   "Stereo": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-50.00"
+     ],
+     [
+      0.25,
+      "-25.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "25.00"
+     ],
+     [
+      1.0,
+      "50.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.39,
+      "atMin": 0.22,
+      "atMax": -0.12,
+      "direction": "down",
+      "ratio": 2.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.39 oct"
+   },
+   "Wet (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.4,
+      "atMin": 0.15,
+      "atMax": -0.25,
+      "direction": "down",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.4 oct"
+   },
+   "Depth (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.42,
+      "atMin": 0.05,
+      "atMax": -0.16,
+      "direction": "varies",
+      "ratio": 2.8
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.42 oct"
+   },
+   "Center": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX2"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.55,
+      "atMin": -0.48,
+      "atMax": 0.07,
+      "direction": "up",
+      "ratio": 3.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.55 oct"
+   },
+   "PreDelay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "62.50"
+     ],
+     [
+      0.5,
+      "125.00"
+     ],
+     [
+      0.75,
+      "187.50"
+     ],
+     [
+      1.0,
+      "250.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.45,
+      "atMin": 0.01,
+      "atMax": -0.25,
+      "direction": "varies",
+      "ratio": 3.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.45 oct"
+   },
+   "Diffusion": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.31,
+      "atMin": 0.11,
+      "atMax": 0.2,
+      "direction": "varies",
+      "ratio": 2.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.31 oct"
+   },
+   "Damp": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.26,
+      "atMin": -0.12,
+      "atMax": 0.14,
+      "direction": "up",
+      "ratio": 1.7
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.26 oct"
+   },
+   "Size": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "50.75"
+     ],
+     [
+      0.5,
+      "100.50"
+     ],
+     [
+      0.75,
+      "150.25"
+     ],
+     [
+      1.0,
+      "200.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": 5.4,
+      "atMax": 2.4,
+      "direction": "down",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 3.0 dB"
+   },
+   "Dry": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX2"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.2,
+      "atMin": 0.04,
+      "atMax": -0.16,
+      "direction": "down",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.2 oct"
+   },
+   "Left Delay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "4.75"
+     ],
+     [
+      0.5,
+      "8.50"
+     ],
+     [
+      0.75,
+      "12.25"
+     ],
+     [
+      1.0,
+      "16.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.36,
+      "atMin": 0.14,
+      "atMax": -0.22,
+      "direction": "down",
+      "ratio": 2.4
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 6.5,
+      "atMin": -3.0,
+      "atMax": -3.1,
+      "direction": "varies",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.36 oct, sustain ↕ 6.5 dB"
+   },
+   "Center Delay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "4.75"
+     ],
+     [
+      0.5,
+      "8.50"
+     ],
+     [
+      0.75,
+      "12.25"
+     ],
+     [
+      1.0,
+      "16.00"
+     ]
+    ],
+    "needs": [
+     "Release On (2)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.97,
+      "atMin": 0.71,
+      "atMax": -0.24,
+      "direction": "varies",
+      "ratio": 6.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 0.97 oct"
+   },
+   "Right Delay": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "4.75"
+     ],
+     [
+      0.5,
+      "8.50"
+     ],
+     [
+      0.75,
+      "12.25"
+     ],
+     [
+      1.0,
+      "16.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.37,
+      "atMin": 0.14,
+      "atMax": -0.02,
+      "direction": "varies",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.37 oct"
+   },
+   "Side Vol": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.22,
+      "atMin": -0.11,
+      "atMax": -0.33,
+      "direction": "down",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.22 oct"
+   },
+   "Center Vol": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.28,
+      "atMin": -0.21,
+      "atMax": 0.07,
+      "direction": "up",
+      "ratio": 1.9
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.1,
+      "atMin": 5.5,
+      "atMax": 2.6,
+      "direction": "down",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.28 oct, level beating ↓ 3.1 dB"
+   },
+   "HP": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.36,
+      "atMin": -0.17,
+      "atMax": 0.19,
+      "direction": "up",
+      "ratio": 2.4
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.36 oct"
+   },
+   "LP": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.51,
+      "atMin": 0.14,
+      "atMax": -0.37,
+      "direction": "varies",
+      "ratio": 3.4
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.51 oct"
+   },
+   "Dry (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.34,
+      "atMin": 0.05,
+      "atMax": -0.29,
+      "direction": "down",
+      "ratio": 2.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.34 oct"
+   },
+   "Wow": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "MultiCore"
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.0,
+      "atMin": 4.3,
+      "atMax": 2.3,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 2.0 dB"
+   },
+   "Mix": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.55,
+      "atMin": 0.02,
+      "atMax": 0.1,
+      "direction": "varies",
+      "ratio": 3.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.55 oct"
+   },
+   "Balance": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.31,
+      "atMin": 0.19,
+      "atMax": -0.12,
+      "direction": "down",
+      "ratio": 2.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.31 oct"
+   },
+   "Drive": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.16,
+      "atMin": -0.2,
+      "atMax": -0.36,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.16 oct"
+   },
+   "Stereo (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.7,
+      "atMin": 4.0,
+      "atMax": 2.2,
+      "direction": "down",
+      "ratio": 1.4
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.0,
+      "atMin": -16.0,
+      "atMax": -16.2,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 2.7 dB, loudness ↓ 1.0 LU"
+   },
+   "Out": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-20.00"
+     ],
+     [
+      0.25,
+      "-10.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "10.00"
+     ],
+     [
+      1.0,
+      "20.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.3,
+      "atMin": -11.2,
+      "atMax": -3.0,
+      "direction": "up",
+      "ratio": 2.8
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↑ 8.3 dB"
+   },
+   "Slow": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.32,
+      "atMin": 0.31,
+      "atMax": -0.01,
+      "direction": "down",
+      "ratio": 2.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.32 oct"
+   },
+   "Fast": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.31,
+      "atMin": -0.24,
+      "atMax": 0.02,
+      "direction": "up",
+      "ratio": 2.1
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.31 oct"
+   },
+   "RiseTime": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 9.5,
+      "atMin": -11.1,
+      "atMax": -3.2,
+      "direction": "up",
+      "ratio": 3.2
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.44,
+      "atMin": 0.22,
+      "atMax": -0.22,
+      "direction": "down",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↑ 9.5 dB, filter sweep ↓ 0.44 oct"
+   },
+   "Controller": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "ModWheel"
+     ],
+     [
+      0.25,
+      "Control A"
+     ],
+     [
+      0.5,
+      "Control B"
+     ],
+     [
+      0.75,
+      "Pressure"
+     ],
+     [
+      1.0,
+      "Pressure"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 8.6,
+      "atMin": -3.1,
+      "atMax": -2.8,
+      "direction": "varies",
+      "ratio": 2.9
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.41,
+      "atMin": -0.24,
+      "atMax": 0.17,
+      "direction": "up",
+      "ratio": 2.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 8.6 dB, filter sweep ↑ 0.41 oct"
+   },
+   "Module (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Chorus2"
+     ],
+     [
+      0.25,
+      "Phaser2"
+     ],
+     [
+      0.5,
+      "Plate2"
+     ],
+     [
+      0.75,
+      "Delay2"
+     ],
+     [
+      1.0,
+      "Rotary2"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 37.0,
+      "atMin": -3.0,
+      "atMax": -8.8,
+      "direction": "varies",
+      "ratio": 12.3
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 5.7,
+      "atMin": -11.9,
+      "atMax": -17.6,
+      "direction": "varies",
+      "ratio": 5.7
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.82,
+      "atMin": 0.83,
+      "atMax": 0.92,
+      "direction": "varies",
+      "ratio": 4.6
+     },
+     {
+      "metric": "detune",
+      "unit": "ct",
+      "span": 19.0,
+      "atMin": 23.0,
+      "atMax": 4.0,
+      "direction": "varies",
+      "ratio": 3.8
+     },
+     {
+      "metric": "correlation",
+      "unit": "",
+      "span": 0.66,
+      "atMin": 0.34,
+      "atMax": 0.77,
+      "direction": "varies",
+      "ratio": 3.3
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 6.8,
+      "atMin": -3.0,
+      "atMax": -2.0,
+      "direction": "varies",
+      "ratio": 2.3
+     },
+     {
+      "metric": "attack",
+      "unit": "ms",
+      "span": 45.0,
+      "atMin": 65.0,
+      "atMax": 30.0,
+      "direction": "down",
+      "ratio": 1.8
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.3,
+      "atMin": -3.07,
+      "atMax": -3.2,
+      "direction": "down",
+      "ratio": 1.2
+     },
+     {
+      "metric": "velocity",
+      "unit": "dB",
+      "span": 2.32,
+      "atMin": 12.86,
+      "atMax": 11.48,
+      "direction": "down",
+      "ratio": 1.2
+     },
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.16,
+      "atMin": -0.14,
+      "atMax": 0.02,
+      "direction": "up",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "strong",
+    "summary": "stereo width ↕ 37.0 dB, loudness ↕ 5.7 LU, tail/decay ↕ 0.82 s"
+   },
+   "Center (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.45,
+      "atMin": -0.11,
+      "atMax": 0.17,
+      "direction": "varies",
+      "ratio": 3.0
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.0,
+      "atMin": 4.4,
+      "atMax": 2.4,
+      "direction": "down",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.45 oct, level beating ↓ 2.0 dB"
+   },
+   "PreDelay (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "62.50"
+     ],
+     [
+      0.5,
+      "125.00"
+     ],
+     [
+      0.75,
+      "187.50"
+     ],
+     [
+      1.0,
+      "250.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.29,
+      "atMin": 1.24,
+      "atMax": 1.53,
+      "direction": "up",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "weak",
+    "summary": "tail/decay ↑ 0.29 s"
+   },
+   "Diffusion (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.36,
+      "atMin": 1.02,
+      "atMax": 1.35,
+      "direction": "up",
+      "ratio": 2.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "tail/decay ↑ 0.36 s"
+   },
+   "Damp (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 13.1,
+      "atMin": -20.5,
+      "atMax": -33.6,
+      "direction": "down",
+      "ratio": 4.4
+     },
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 0.54,
+      "atMin": 1.24,
+      "atMax": 0.74,
+      "direction": "down",
+      "ratio": 3.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "stereo width ↓ 13.1 dB, tail/decay ↓ 0.54 s"
+   },
+   "Size (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "50.75"
+     ],
+     [
+      0.5,
+      "100.50"
+     ],
+     [
+      0.75,
+      "150.25"
+     ],
+     [
+      1.0,
+      "200.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "tail",
+      "unit": "s",
+      "span": 1.02,
+      "atMin": 0.74,
+      "atMax": 1.76,
+      "direction": "up",
+      "ratio": 5.7
+     },
+     {
+      "metric": "width",
+      "unit": "dB",
+      "span": 14.9,
+      "atMin": -33.0,
+      "atMax": -19.9,
+      "direction": "up",
+      "ratio": 5.0
+     }
+    ],
+    "strength": "strong",
+    "summary": "tail/decay ↑ 1.02 s, stereo width ↑ 14.9 dB"
+   },
+   "Left Delay (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "4.75"
+     ],
+     [
+      0.5,
+      "8.50"
+     ],
+     [
+      0.75,
+      "12.25"
+     ],
+     [
+      1.0,
+      "16.00"
+     ]
+    ],
+    "needs": [
+     "MultiCore"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.29,
+      "atMin": -0.16,
+      "atMax": 0.13,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.29 oct"
+   },
+   "Center Delay (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "4.75"
+     ],
+     [
+      0.5,
+      "8.50"
+     ],
+     [
+      0.75,
+      "12.25"
+     ],
+     [
+      1.0,
+      "16.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.59,
+      "atMin": 0.11,
+      "atMax": 0.15,
+      "direction": "varies",
+      "ratio": 3.9
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 4.7,
+      "atMin": -2.9,
+      "atMax": -7.6,
+      "direction": "down",
+      "ratio": 1.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.59 oct, sustain ↓ 4.7 dB"
+   },
+   "Right Delay (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "1.00"
+     ],
+     [
+      0.25,
+      "4.75"
+     ],
+     [
+      0.5,
+      "8.50"
+     ],
+     [
+      0.75,
+      "12.25"
+     ],
+     [
+      1.0,
+      "16.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.43,
+      "atMin": 0.29,
+      "atMax": -0.14,
+      "direction": "down",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.43 oct"
+   },
+   "Side Vol (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.18,
+      "atMin": -0.02,
+      "atMax": -0.2,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.18 oct"
+   },
+   "Center Vol (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.4,
+      "atMin": 3.9,
+      "atMax": 1.6,
+      "direction": "down",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↓ 2.4 dB"
+   },
+   "HP (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.38,
+      "atMin": -0.23,
+      "atMax": 0.15,
+      "direction": "up",
+      "ratio": 2.5
+     },
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 3.0,
+      "atMin": -3.1,
+      "atMax": -5.8,
+      "direction": "down",
+      "ratio": 1.0
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.0,
+      "atMin": 3.0,
+      "atMax": 4.3,
+      "direction": "up",
+      "ratio": 1.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.38 oct, sustain ↓ 3.0 dB, level beating ↑ 2.0 dB"
+   },
+   "LP (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.33,
+      "atMin": 0.17,
+      "atMax": -0.16,
+      "direction": "down",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.33 oct"
+   },
+   "Wow (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.16,
+      "atMin": 0.09,
+      "atMax": -0.07,
+      "direction": "down",
+      "ratio": 1.1
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.16 oct"
+   },
+   "Mix (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.55,
+      "atMin": 0.17,
+      "atMax": -0.38,
+      "direction": "down",
+      "ratio": 3.7
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.55 oct"
+   },
+   "Balance (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Release On (2)"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.83,
+      "atMin": 0.52,
+      "atMax": -0.29,
+      "direction": "varies",
+      "ratio": 5.5
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 0.83 oct"
+   },
+   "Drive (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.43,
+      "atMin": 0.26,
+      "atMax": -0.13,
+      "direction": "varies",
+      "ratio": 2.9
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↕ 0.43 oct"
+   },
+   "Out (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "-20.00"
+     ],
+     [
+      0.25,
+      "-10.00"
+     ],
+     [
+      0.5,
+      "0.00"
+     ],
+     [
+      0.75,
+      "10.00"
+     ],
+     [
+      1.0,
+      "20.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.22,
+      "atMin": 0.22,
+      "atMax": 0.0,
+      "direction": "down",
+      "ratio": 1.5
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.22 oct"
+   },
+   "Slow (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sustain",
+      "unit": "dB",
+      "span": 7.8,
+      "atMin": -3.0,
+      "atMax": -9.6,
+      "direction": "varies",
+      "ratio": 2.6
+     }
+    ],
+    "strength": "medium",
+    "summary": "sustain ↕ 7.8 dB"
+   },
+   "Fast (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.28,
+      "atMin": 0.05,
+      "atMax": -0.18,
+      "direction": "down",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.28 oct"
+   },
+   "RiseTime (2)": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.21,
+      "atMin": 0.07,
+      "atMax": -0.14,
+      "direction": "down",
+      "ratio": 1.4
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↓ 0.21 oct"
+   },
+   "Controller (2)": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "ModWheel"
+     ],
+     [
+      0.25,
+      "Control A"
+     ],
+     [
+      0.5,
+      "Control B"
+     ],
+     [
+      0.75,
+      "Pressure"
+     ],
+     [
+      1.0,
+      "Pressure"
+     ]
+    ],
+    "needs": [
+     "MultiCore"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.23,
+      "atMin": -0.27,
+      "atMax": -0.04,
+      "direction": "up",
+      "ratio": 1.5
+     },
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 2.5,
+      "atMin": 2.4,
+      "atMax": 4.9,
+      "direction": "up",
+      "ratio": 1.3
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.23 oct, level beating ↑ 2.5 dB"
+   },
+   "Multiply": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "50.00"
+     ],
+     [
+      0.25,
+      "87.50"
+     ],
+     [
+      0.5,
+      "125.00"
+     ],
+     [
+      0.75,
+      "162.50"
+     ],
+     [
+      1.0,
+      "200.00"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.34,
+      "atMin": -0.24,
+      "atMax": 0.1,
+      "direction": "up",
+      "ratio": 2.3
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↑ 0.34 oct"
+   },
+   "TimeBase": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "1/32"
+     ],
+     [
+      0.25,
+      "1/16"
+     ],
+     [
+      0.5,
+      "1/8"
+     ],
+     [
+      0.75,
+      "1/4"
+     ],
+     [
+      1.0,
+      "1/4"
+     ]
+    ],
+    "needs": [
+     "MultiCore"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.27,
+      "atMin": -0.16,
+      "atMax": 0.11,
+      "direction": "up",
+      "ratio": 1.8
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.27 oct"
+   },
+   "Swing": {
+    "scale": "linear",
+    "points": [
+     [
+      0.0,
+      "0.00"
+     ],
+     [
+      0.25,
+      "25.00"
+     ],
+     [
+      0.5,
+      "50.00"
+     ],
+     [
+      0.75,
+      "75.00"
+     ],
+     [
+      1.0,
+      "100.00"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.33,
+      "atMin": 0.32,
+      "atMax": -0.01,
+      "direction": "down",
+      "ratio": 2.2
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.33 oct"
+   },
+   "Direction": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "played"
+     ],
+     [
+      0.25,
+      "up"
+     ],
+     [
+      0.5,
+      "up+dn 1"
+     ],
+     [
+      0.75,
+      "up+dn 2"
+     ],
+     [
+      1.0,
+      "random"
+     ]
+    ],
+    "needs": [
+     "Active #FX2"
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.3,
+      "atMin": 0.13,
+      "atMax": -0.13,
+      "direction": "down",
+      "ratio": 2.0
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.3 oct"
+   },
+   "Octaves": {
+    "scale": "stepped",
+    "points": [
+     [
+      0.0,
+      "1"
+     ],
+     [
+      0.25,
+      "2"
+     ],
+     [
+      0.5,
+      "3"
+     ],
+     [
+      0.75,
+      "4"
+     ],
+     [
+      1.0,
+      "4"
+     ]
+    ],
+    "needs": [
+     "Active #FX1"
+    ],
+    "does": [
+     {
+      "metric": "beating",
+      "unit": "dB",
+      "span": 3.4,
+      "atMin": 2.4,
+      "atMax": 5.2,
+      "direction": "up",
+      "ratio": 1.7
+     }
+    ],
+    "strength": "weak",
+    "summary": "level beating ↑ 3.4 dB"
+   },
+   "Multiply (2)": {
+    "scale": "log",
+    "points": [
+     [
+      0.0,
+      "1x"
+     ],
+     [
+      0.25,
+      "2x"
+     ],
+     [
+      0.5,
+      "4x"
+     ],
+     [
+      0.75,
+      "8x"
+     ],
+     [
+      1.0,
+      "16x"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.37,
+      "atMin": 0.13,
+      "atMax": -0.24,
+      "direction": "down",
+      "ratio": 2.5
+     }
+    ],
+    "strength": "medium",
+    "summary": "filter sweep ↓ 0.37 oct"
+   },
+   "OnOff": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "Off"
+     ],
+     [
+      0.25,
+      "Off"
+     ],
+     [
+      0.5,
+      "On"
+     ],
+     [
+      0.75,
+      "On"
+     ],
+     [
+      1.0,
+      "On"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 1.03,
+      "atMin": 0.03,
+      "atMax": -0.56,
+      "direction": "varies",
+      "ratio": 6.9
+     },
+     {
+      "metric": "lufs",
+      "unit": "LU",
+      "span": 1.5,
+      "atMin": -14.5,
+      "atMax": -16.0,
+      "direction": "down",
+      "ratio": 1.5
+     },
+     {
+      "metric": "high",
+      "unit": "dB",
+      "span": 3.01,
+      "atMin": -31.3,
+      "atMax": -28.34,
+      "direction": "up",
+      "ratio": 1.5
+     },
+     {
+      "metric": "brightness",
+      "unit": "oct",
+      "span": 0.29,
+      "atMin": -2.96,
+      "atMax": -2.67,
+      "direction": "up",
+      "ratio": 1.2
+     }
+    ],
+    "strength": "strong",
+    "summary": "filter sweep ↕ 1.03 oct, loudness ↓ 1.5 LU, highs ↑ 3.01 dB"
+   },
+   "Order": {
+    "scale": "choice",
+    "points": [
+     [
+      0.0,
+      "serial"
+     ],
+     [
+      0.25,
+      "round"
+     ],
+     [
+      0.5,
+      "leap"
+     ],
+     [
+      0.75,
+      "repeat"
+     ],
+     [
+      1.0,
+      "repeat"
+     ]
+    ],
+    "does": [
+     {
+      "metric": "sweep",
+      "unit": "oct",
+      "span": 0.28,
+      "atMin": -0.16,
+      "atMax": 0.12,
+      "direction": "up",
+      "ratio": 1.9
+     }
+    ],
+    "strength": "weak",
+    "summary": "filter sweep ↑ 0.28 oct"
+   },
+   "Active #FX2": {
+    "sameAs": "Active #FX1"
+   },
+   "V2Mod": {
+    "sameAs": "V1Mod"
+   },
+   "V3Mod": {
+    "sameAs": "V1Mod"
+   },
+   "V4Mod": {
+    "sameAs": "V1Mod"
+   },
+   "V5Mod": {
+    "sameAs": "V1Mod"
+   },
+   "V6Mod": {
+    "sameAs": "V1Mod"
+   },
+   "V7Mod": {
+    "sameAs": "V1Mod"
+   },
+   "V8Mod": {
+    "sameAs": "V1Mod"
+   },
+   "Quantise (3)": {
+    "sameAs": "Quantise (2)"
+   },
+   "AddSource2": {
+    "sameAs": "AddSource1"
+   },
+   "MulSource2": {
+    "sameAs": "MulSource1"
+   },
+   "Model (3)": {
+    "sameAs": "Model (2)"
+   },
+   "Tune2": {
+    "sameAs": "Tune1"
+   },
+   "Tune3": {
+    "sameAs": "Tune1"
+   },
+   "Shape2": {
+    "sameAs": "Shape1"
+   },
+   "Shape3": {
+    "sameAs": "Shape1"
+   },
+   "Volume2": {
+    "sameAs": "Volume1"
+   },
+   "Volume3": {
+    "sameAs": "Volume1"
+   },
+   "Tune2ModSrc": {
+    "sameAs": "Tune1ModSrc"
+   },
+   "Tune2ModDepth": {
+    "sameAs": "Tune1ModDepth"
+   },
+   "Triangle2On": {
+    "sameAs": "Triangle1On"
+   },
+   "Saw2On": {
+    "sameAs": "Saw1On"
+   },
+   "Sync3": {
+    "sameAs": "Sync2"
+   },
+   "TuneModOsc2": {
+    "sameAs": "TuneModOsc1"
+   },
+   "TuneModOsc3": {
+    "sameAs": "TuneModOsc1"
+   },
+   "ShapeModOsc2": {
+    "sameAs": "ShapeModOsc1"
+   },
+   "ShapeModOsc3": {
+    "sameAs": "ShapeModOsc1"
+   },
+   "EcoWave2": {
+    "sameAs": "EcoWave1"
+   },
+   "DigitalShape3": {
+    "sameAs": "DigitalShape2"
+   },
+   "DigitalShape4": {
+    "sameAs": "DigitalShape2"
+   },
+   "DigitalType2": {
+    "sameAs": "DigitalType1"
+   },
+   "Model (4)": {
+    "sameAs": "Model (2)"
+   },
+   "KeyFollow (3)": {
+    "sameAs": "KeyFollow (2)"
+   },
+   "Model (5)": {
+    "sameAs": "Model (2)"
+   },
+   "KeyFollow (4)": {
+    "sameAs": "KeyFollow (2)"
+   },
+   "Frequency (3)": {
+    "sameAs": "Frequency (2)"
+   },
+   "Rate (3)": {
+    "sameAs": "Rate (2)"
+   },
+   "Rate (4)": {
+    "sameAs": "Rate (2)"
+   },
+   "Sync (3)": {
+    "sameAs": "Sync (2)"
+   },
+   "Phase (3)": {
+    "sameAs": "Phase (2)"
+   },
+   "Decay (3)": {
+    "sameAs": "Decay (2)"
+   },
+   "Wet (3)": {
+    "sameAs": "Wet (2)"
+   },
+   "Feedback (3)": {
+    "sameAs": "Feedback (2)"
+   },
+   "Mode (3)": {
+    "sameAs": "Mode (2)"
+   },
+   "Type (3)": {
+    "sameAs": "Type (2)"
+   },
+   "Rate (5)": {
+    "sameAs": "Rate (2)"
+   },
+   "Depth (3)": {
+    "sameAs": "Depth (2)"
+   },
+   "Wet (4)": {
+    "sameAs": "Wet (2)"
+   },
+   "Type (4)": {
+    "sameAs": "Type (2)"
+   },
+   "Rate (6)": {
+    "sameAs": "Rate (2)"
+   },
+   "Feedback (4)": {
+    "sameAs": "Feedback (2)"
+   },
+   "Stereo (3)": {
+    "sameAs": "Stereo (2)"
+   },
+   "Sync (4)": {
+    "sameAs": "Sync (2)"
+   },
+   "Phase (4)": {
+    "sameAs": "Phase (2)"
+   },
+   "Wet (5)": {
+    "sameAs": "Wet (2)"
+   },
+   "Depth (4)": {
+    "sameAs": "Depth (2)"
+   },
+   "Decay (4)": {
+    "sameAs": "Decay (2)"
+   },
+   "Dry (3)": {
+    "sameAs": "Dry (2)"
+   },
+   "Wet (6)": {
+    "sameAs": "Wet (2)"
+   },
+   "Feedback (5)": {
+    "sameAs": "Feedback (2)"
+   },
+   "Dry (4)": {
+    "sameAs": "Dry (2)"
+   },
+   "Mode (4)": {
+    "sameAs": "Mode (2)"
+   },
+   "Stereo (4)": {
+    "sameAs": "Stereo (2)"
+   },
+   "Restart (3)": {
+    "sameAs": "Restart (2)"
+   }
+  },
+  "switches": [
+   "Active #FX1",
+   "Active #FX2",
+   "MultiCore",
+   "Release On",
+   "Release On (2)",
+   "PulseShape",
+   "OnOff"
+  ]
+ }
+}

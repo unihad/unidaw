@@ -1,0 +1,52 @@
+--- a/modules/juce_audio_processors/format_types/juce_VST3PluginFormat.cpp
++++ b/modules/juce_audio_processors/format_types/juce_VST3PluginFormat.cpp
+@@ -232,6 +232,30 @@
+     };
+ };
+ 
++#if JUCE_LINUX || JUCE_BSD
++/*  One IRunLoop for the whole process, never destroyed. Some plugins keep the run
++    loop of their first editor and call it again for the next one without asking
++    the new frame (u-he Diva: it never unregisters its timer either). With a run
++    loop that died with its window, opening the editor a second time crashed.
++*/
++struct ProcessRunLoop final : public RunLoop
++{
++    tresult PLUGIN_API queryInterface (const TUID queryIid, void** obj) override
++    {
++        return testForMultiple (*this, queryIid, UniqueBase<Linux::IRunLoop>{}, UniqueBase<FUnknown>{}).extract (obj);
++    }
++
++    uint32 PLUGIN_API addRef() override   { return 1; }
++    uint32 PLUGIN_API release() override  { return 1; }
++
++    static ProcessRunLoop& get()
++    {
++        static auto* loop = new ProcessRunLoop();   // deliberately leaked: plugins may call it until the end
++        return *loop;
++    }
++};
++#endif
++
+ struct VST3PluginWindow final : public AudioProcessorEditor,
+                                 public RunLoop,
+                                 public IPlugFrame,
+@@ -285,12 +309,12 @@
+ 
+     tresult PLUGIN_API queryInterface (const TUID queryIid, void** obj) override
+     {
+-        return testForMultiple (*this,
+-                                queryIid,
+-                               #if JUCE_LINUX || JUCE_BSD
+-                                UniqueBase<Linux::IRunLoop>{},
+-                               #endif
+-                                UniqueBase<IPlugFrame>{}).extract (obj);
++       #if JUCE_LINUX || JUCE_BSD
++        if (doUIDsMatch (queryIid, Linux::IRunLoop::iid))
++            return ProcessRunLoop::get().queryInterface (queryIid, obj);
++       #endif
++
++        return testForMultiple (*this, queryIid, UniqueBase<IPlugFrame>{}).extract (obj);
+     }
+ 
+     JUCE_DECLARE_VST3_COM_REF_METHODS

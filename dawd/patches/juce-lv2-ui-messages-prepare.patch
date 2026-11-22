@@ -1,0 +1,29 @@
+--- a/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
++++ b/modules/juce_audio_processors_headless/format_types/juce_LV2PluginFormatImpl.h
+@@ -3503,6 +3503,16 @@
+         MemoryBlock mb;
+         getStateInformation (mb);
+ 
++        // Messages from an open editor wait in the instance's queue for the next
++        // processBlock(). Keep them for the new instance, otherwise a change made in
++        // the editor of an instance that was not prepared yet is lost.
++        std::vector<std::pair<MessageHeader, std::vector<char>>> uiMessages;
++        instance->uiToProcessor.readAllAndClear ([&] (MessageHeader header, uint32_t size, const void* buffer)
++        {
++            const auto* bytes = static_cast<const char*> (buffer);
++            uiMessages.emplace_back (header, std::vector<char> (bytes, bytes + size));
++        });
++
+         instance = std::make_unique<InstanceWithSupports> (*world,
+                                                            std::move (instance->symap),
+                                                            plugin,
+@@ -3510,6 +3520,9 @@
+                                                            numSamples,
+                                                            sampleRate);
+ 
++        for (const auto& [header, bytes] : uiMessages)
++            instance->uiToProcessor.pushMessage (header, (uint32_t) bytes.size(), bytes.data());
++
+         // prepareToPlay is *guaranteed* not to be called concurrently with processBlock
+         setStateInformationImpl (mb.getData(), (int) mb.getSize(), ConcurrentWithAudioCallback::no);
+         parameterValues.restorePendingProcessorValues (pending);

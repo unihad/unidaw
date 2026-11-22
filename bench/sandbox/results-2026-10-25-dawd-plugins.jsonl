@@ -1,0 +1,13 @@
+# bench/sandbox/dawd_plugins.py, Ryzen 7 4800H, Kernel 7.0, ALSA 512 Frames / 44,1 kHz (Standard-Geraet), Branch sandbox-phase1 (1dbd00a); ein zweiter Agent baute parallel
+# 2026-10-25T15:26:22 tracks=4x Dragonfly Room + 4x Surge XT, song 30 s, loadavg 1.81 2.00 2.07
+{"mode": "in-process", "load_s": 0.382, "hosts": 0, "pss_mb": 253.8, "render_wall_s": 2.617, "render_cpu_s": 7.24, "render_runs": [2.62, 2.66, 2.44], "live_playing": true, "live_cpu_pct": 36.4, "live_missed_blocks": 0}
+{"mode": "sandbox", "load_s": 1.003, "hosts": 8, "pss_mb": 357.1, "render_wall_s": 1.815, "render_cpu_s": 7.61, "render_runs": [2.03, 1.81, 1.75], "live_playing": true, "live_cpu_pct": 66.2, "live_missed_blocks": 0}
+# 2026-10-25T15:27:32 tracks=4x Dragonfly Room + 4x Surge XT, song 30 s, loadavg 2.62 2.27 2.16
+{"mode": "in-process", "load_s": 0.366, "hosts": 0, "pss_mb": 255.7, "render_wall_s": 2.496, "render_cpu_s": 7.33, "render_runs": [2.64, 2.5, 2.33], "block": 512, "live_playing": true, "live_cpu_pct": 42.7, "live_cpu_dawd_pct": 42.7, "live_missed_blocks": 0}
+{"mode": "sandbox", "load_s": 0.988, "hosts": 8, "pss_mb": 358.6, "render_wall_s": 1.733, "render_cpu_s": 7.23, "render_runs": [1.7, 1.73, 1.83], "block": 512, "live_playing": true, "live_cpu_pct": 55.1, "live_cpu_dawd_pct": 21.8, "live_missed_blocks": 0}
+# 2026-10-25T15:28:28 tracks=1x Dragonfly Room + 1x Surge XT, song 30 s, loadavg 2.72 2.37 2.20
+{"mode": "in-process", "load_s": 0.105, "hosts": 0, "pss_mb": 184.5, "render_wall_s": 1.181, "render_cpu_s": 2.09, "render_runs": [1.18, 1.22, 1.17], "block": 512, "live_playing": true, "live_cpu_pct": 26.5, "live_cpu_dawd_pct": 26.5, "live_missed_blocks": 0}
+{"mode": "sandbox", "load_s": 0.253, "hosts": 2, "pss_mb": 210.4, "render_wall_s": 1.211, "render_cpu_s": 2.28, "render_runs": [1.2, 1.21, 1.21], "block": 512, "live_playing": true, "live_cpu_pct": 29.0, "live_cpu_dawd_pct": 19.4, "live_missed_blocks": 0}
+# 2026-10-25T15:29:09 tracks=8x Dragonfly Room + 8x Surge XT, song 30 s, loadavg 1.40 2.07 2.11
+{"mode": "in-process", "load_s": 0.728, "hosts": 0, "pss_mb": 363.0, "render_wall_s": 2.991, "render_cpu_s": 15.3, "render_runs": [3.54, 2.99, 2.94], "block": 512, "live_playing": true, "live_cpu_pct": 81.7, "live_cpu_dawd_pct": 81.7, "live_missed_blocks": 0}
+{"mode": "sandbox", "load_s": 2.140, "hosts": 16, "pss_mb": 562.0, "render_wall_s": 2.725, "render_cpu_s": 16.73, "render_runs": [2.76, 2.73, 2.66], "block": 512, "live_playing": true, "live_cpu_pct": 98.2, "live_cpu_dawd_pct": 27.7, "live_missed_blocks": 0}

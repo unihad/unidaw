@@ -1,0 +1,43 @@
+--- a/modules/tracktion_engine/plugins/effects/tracktion_FourOscPlugin.cpp
++++ b/modules/tracktion_engine/plugins/effects/tracktion_FourOscPlugin.cpp
+@@ -781,7 +781,7 @@ FourOscPlugin::OscParams::OscParams (FourOscPlugin& plugin, int oscNum)
+     };
+ 
+     tune        = plugin.addParam (paramID (IDs::tune, oscNum), TRANS("Tune") + " " + juce::String (oscNum), {-36.0f, 36.0f, 1.0f}, "st");
+-    fineTune    = plugin.addParam (paramID (IDs::fineTune, oscNum), TRANS("Fine Tune") + " " + juce::String (oscNum), {-100.0f, 100.0f});
++    fineTune    = plugin.addParam (paramID (IDs::fineTune, oscNum), TRANS("Fine Tune") + " " + juce::String (oscNum), {-100.0f, 100.0f}, "ct");
+     level       = plugin.addParam (paramID (IDs::level, oscNum), TRANS("Level") + " " + juce::String (oscNum), {-100.0f, 0.0f, 0.0f, 4.0f}, "dB");
+     pulseWidth  = plugin.addParam (paramID (IDs::pulseWidth, oscNum), TRANS("Pulse Width") + " " + juce::String (oscNum), {0.01f, 0.99f});
+     detune      = plugin.addParam (paramID (IDs::detune, oscNum), TRANS("Detune") + " " + juce::String (oscNum), {0.0f, 0.5f});
+@@ -1030,7 +1030,7 @@ FourOscPlugin::FourOscPlugin (PluginCreationInfo info)  : Plugin (info)
+     masterLevelValue.referTo (state, IDs::masterLevel, um, 0);
+ 
+     legato          = addParam ("legato",           TRANS("Legato"),    {0.0f, 500.0f}, "ms");
+-    masterLevel     = addParam ("masterLevel",      TRANS("Level"),     {-100.0f, 0.0f, 0.0f, 4.0f});
++    masterLevel     = addParam ("masterLevel",      TRANS("Level"),     {-100.0f, 0.0f, 0.0f, 4.0f}, "dB");
+ 
+     legato->attachToCurrentValue (legatoValue);
+     masterLevel->attachToCurrentValue (masterLevelValue);
+@@ -1167,13 +1167,6 @@ void FourOscPlugin::setupTextFunctions()
+         return juce::String (value, 2) + "s";
+     };
+ 
+-    auto panValueToTextFunction = [] (float value)
+-    {
+-        if (value < 0.0f)
+-            return juce::String (juce::roundToInt (-value * 100)) + "L";
+-        return juce::String (juce::roundToInt (value * 100)) + "R";
+-    };
+-
+     auto percentValueToTextFunction = [] (float value)
+     {
+         return juce::String (juce::roundToInt (value * 100)) + "%";
+@@ -1207,7 +1200,7 @@ void FourOscPlugin::setupTextFunctions()
+         p->pulseWidth->valueToStringFunction = percentValueToTextFunction;
+         p->tune->valueToStringFunction = tuneValueToTextFunction;
+         p->detune->valueToStringFunction = percentValueToTextFunction;
+-        p->pan->valueToStringFunction = panValueToTextFunction;
++        p->pan->valueToStringFunction = percentValueToTextFunction;
+     }
+ 
+     for (auto p : lfoParams)

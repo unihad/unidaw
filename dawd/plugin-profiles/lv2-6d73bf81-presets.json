@@ -1,0 +1,328 @@
+{
+ "plugin": {
+  "name": "MDA Piano",
+  "format": "LV2",
+  "uid": "6d73bf81",
+  "vendor": "David Robillard",
+  "version": 4
+ },
+ "generated": "2026-10-27T10:20:36",
+ "signal": "MIDI v3: legato line C4 E4 G4 E4 (overlapping), long A3 1 s, rest 0.25 s, staccato C5 velocity 50 50 120 120, chord C2+C3 E3 G3 1 s (120 BPM)",
+ "phrase": 3,
+ "presets": [
+  {
+   "name": "Broken Piano",
+   "category": "",
+   "source": "program",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "hard attack",
+    "decaying",
+    "wide"
+   ],
+   "features": {
+    "lufs": -19.3,
+    "brightness": -1.084,
+    "width": -5.1,
+    "attack": 5.0,
+    "sustain": -19.5,
+    "tail": 1.48,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 1.3,
+    "detune": 1.0,
+    "correlation": 0.54,
+    "velocity": 1.76
+   },
+   "phrase": 3,
+   "clap": "+AAA+gEGCQcD//34/QMIAPz9Cf0B/gAB/fwAAfYCCP8CBQD+CPz/9wAG+/f6BQUBAQz9+f4F+wIEBQT6CAH6/v/4/QP+CQgDAfwFAAMB+wT8AgcA/Pz9BgQEAAH39/33BPQGB/v8/gH9//cJAP319gEE/wT9+vv4B//3/fz//gb8Avz+BfgJBQP3BgP8AgoOCfwJ+QD5/Qf7DgD4/fsIBAf99/8E9AEE/Qf+AQIAAfkHAvcCCfgFAPwAAfwF9vr/AQYGA/0H//4JAQUPA/gFBPv7Bf7/AgAFA/4D8gv7/gf59/v/CP38A/YC/A/++AEI/v///QD6BPkI/wIF9v3+B/4E/gr3+gMDB/oFBAT2+Qj5Avv//PsB9QL9DPsHBPcC+QEDAPgB/AkDAwEGAAMO9/sB/Pj9AfwEAPkACP/1AwL4C/8H+fUD+f4MBfkCBPoBBgYCDwAGAfMA/QYC/fsE/wABCwECBf8H/fgFAfj3AAL6BQoDBAL3AQMC/vwD9/kH/ff+/AIBAAQBCPsEAAH8+/3/DPv6+AAEA/r2+PgD/fn4CwH9+fgC+wX/Bg0K/wED/gIA+wD4AQAB/QD9BfkFBfj9AQQD/fwA/AAD+//+/gMBBQgE9foD/gX5Cf8DAfj//f8G9v71Cv4IBv8D+f71BPcJ//r8/Pj69/0DCAUEAQY=",
+   "sound": {
+    "oneShot": true,
+    "attackMs": 398.0,
+    "punchDb": -3.2,
+    "low": 0.0,
+    "brightness": 593,
+    "pitchHz": 164.2,
+    "note": "E3",
+    "peakDb": -5.9
+   },
+   "program": 5
+  },
+  {
+   "name": "Compressed Piano",
+   "category": "",
+   "source": "program",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "wide"
+   ],
+   "features": {
+    "lufs": -12.0,
+    "brightness": -1.064,
+    "width": -5.6,
+    "attack": 15.0,
+    "sustain": -11.8,
+    "tail": 0.68,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 3.9,
+    "detune": 1.5,
+    "correlation": 0.57,
+    "velocity": 8.01
+   },
+   "phrase": 3,
+   "clap": "/AAB/gEGCQIABPr8/ggJ//YABwED/vwA+f0CA/cABwICCP37CgD7+QEG+fn5BwX9Agn69gAF/AH+BwT9CPz6//z6/QH7BQgABP4H/gUA/QYAAAIA/vv/AwYEAgD59v33A/QICPr+AgP//fcO/wL69QEF/wT+APryCgT4/QAA/wUABvv9B/sKBAL8BgT9AgkKC/4E+P37/QL+CP37/vgEAQUD+/0E8QAC/gMBAwAAAfsIAvYBCvsB/wP8BPoE8vYA/wQFAv4HAQAJAQcKAvkDBPoBBAH6AgEA/gAC9gn7/wb69voBB/z5Avb8/A35/QEJ/wP5//78A/wHAQEC+v3/CP0E/Aj5/gIEDPcDAwTz+wj7BP3+/vkB9f36AvoFBvkA+gMC//gA/wkE/wMGAAcR/fcA/Pj6APkBAPgDB/71AwH9Dv8H+vkD+v8MBvsGAPwEBAYFDAEC/PT9/Aj+//oF/QMBCwIGBwAJAPcDBvX0AQT7AwkCAgT8AAQA/gEH+PkGAfj9/wL9AAP///kEAQP8/Pz/C/j5+/0DA/z3+PoF/vz2BgD9+vkI+QQBCQ4N/AECAQIB/gD0/AP//QD+BvgJBPn/AwQD/PsC+wL/+wD8/wQDBgYB+vkE/Qb8CgEEAvsB//4H9f/1DPsHCf0A/Pz1A/EIAvv6/vX8+fsCCQEFAAk=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 412.0,
+    "punchDb": -6.5,
+    "low": 0.0,
+    "brightness": 575,
+    "pitchHz": 221.2,
+    "note": "A3",
+    "bpm": 120.3,
+    "peakDb": -1.3
+   },
+   "program": 1
+  },
+  {
+   "name": "Concert Piano",
+   "category": "",
+   "source": "program",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "hard attack",
+    "wide"
+   ],
+   "features": {
+    "lufs": -12.6,
+    "brightness": -1.047,
+    "width": -5.3,
+    "attack": 5.0,
+    "sustain": -12.7,
+    "tail": 0.76,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 3.3,
+    "detune": 1.5,
+    "correlation": 0.55,
+    "velocity": 10.58
+   },
+   "phrase": 3,
+   "clap": "+wD//gEGCAT/BPz8/QYJAPgABwEC//4A+/4CBPcBBgEDCP76Cf/8+AEH+vn7BgX+Awr69/8F/AH/CAX9B//5/v36/f/7BQcBA/8G/gX//AX/AAMB/vsAAwUFAgD39/72BPMIB/n9AQL+/vYO///59QAG/gX9//rzCgX4/P8B/QX+Bfr9B/oJBQL8BgP+AggKCv0G+P36/AL8C/77//sFAwb/+/wE8gED/wMAAQL9AfkIAfUBDPkC/wL9A/sF8/gB/wYHAvwHAAEJAQcKAfcEBfoCBgH7AgID//4E9Qn6/gf79/r/CPz4Avb8/Q36/AEJ/wP7//78BPwI/wED+PwAB/0E/Qn5/AICCvcEAwXz/Af7A/z8/PoC9v77A/wFBvkA/AIBAfkA/wgE/wIF/QUQ/PgB/Pj6APgB/vgCCP30BAH8DgAH+vgD+wALB/kGAvoCBQcCDQEE/vP9+wj+/voF/gECDAMFBgAK//cEBfb0AQT7BAoBAgT5AAMB//4F+PkGAPj8AAH9AgP+APsE/gH6/P0BDPr5+v0DAvz3+foF/v32BgL8+/cE+AQABw4N/gECAQEB/QH2/gMA+QH9B/gHBPn+AwQD/fwB/AMA+gD8/gMCBQYC+fkE/Qb7CwAFA/0B//4H9P72C/wICf4C+/70AvIJAf37/vb6+PsDCgMFAQk=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 298.0,
+    "punchDb": 0.7,
+    "low": 0.02,
+    "brightness": 585,
+    "pitchHz": 221.5,
+    "note": "A3",
+    "bpm": 120.3,
+    "peakDb": -1.3
+   },
+   "program": 0
+  },
+  {
+   "name": "Dance Piano",
+   "category": "",
+   "source": "program",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [],
+   "features": {
+    "lufs": -16.0,
+    "brightness": -1.058,
+    "width": -16.5,
+    "attack": 25.0,
+    "sustain": -12.0,
+    "tail": 0.44,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 2.9,
+    "detune": 2.0,
+    "correlation": 0.96,
+    "velocity": 4.61
+   },
+   "phrase": 3,
+   "clap": "+wAC/gEHCAUCAv39/QYH//n/CAEDAP4C+/4CAvUCBgIDCf/8CgH8+QEH+Pr7Bwj+Agr69wAC/QEBBwX9Cf75/v37/gH/BQcBAf8G/wT+/Ab/AAQB//z/BAUCAP/49//3A/IGBfn8AAP//fcO/wD39/8G/wb9/vz1CQX5/v4B/QT/Avr8B/kKBgT7BQT8AQgMC/4F9/37+wP7Cf75//oEAgYA+v4E8wEC/wT+Af/+AfoHAfUBC/oD/wL9BPsG9PgAAQQGAv0GAf0HAgcLA/gEBPsCBQH7BAID/f8D8wn9/wb6+foCB/z4Avb7/wz5+gEJ/wX8/QD+BP4JAQAB+P4ACP8D/gn4+QEDC/UCAQX0+gb7Avz//PgB9/37BvsGBPoB+gEAAPcB/QoEAQMD/gUQ/PgC+vr7/vgCAPcEBf70AgH9Df0J+/kE+gAMCPkEA/oDBgcDDgMF/PL/+Qj//fkD/gUCDAQGBwEJ/vcEB/b2AAP5BAsDAgT7AQMA//8F+PkHAPb8/QH//gIAAvsFAAL6+/wAC/v6+v4BAvv4+fsF//r2BQH9+/cG+wQACQ4M/gMDAwIA/gP1/gH/+///BfgIBPj9AQUC/voE/QIA+P78/gUBBQgD+PoG/Ab7CwAEBPwB/v4I9v32CvwHCv0B+v73BPMLAvz7//b89/sFCQEFAQo=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 288.0,
+    "punchDb": 0.4,
+    "low": 0.086,
+    "brightness": 614,
+    "pitchHz": 262.4,
+    "note": "C4",
+    "bpm": 80.4,
+    "peakDb": -1.1
+   },
+   "program": 4
+  },
+  {
+   "name": "Dark Piano",
+   "category": "",
+   "source": "program",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "hard attack",
+    "wide"
+   ],
+   "features": {
+    "lufs": -12.4,
+    "brightness": -1.625,
+    "width": -1.2,
+    "attack": 5.0,
+    "sustain": -10.0,
+    "tail": 0.83,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 2.6,
+    "detune": 2.5,
+    "correlation": 0.14,
+    "velocity": 13.48
+   },
+   "phrase": 3,
+   "clap": "+QD++wMICAT+Avr7/wgHAfoBCAAB+gEC+/v/A/gDBQIDB/74B//79wEG+vj9CAIABAv29v8H+wIDCAX8CPz7//36/Pz7BgYBA/0F/wIA/QT9AwYB/f3+AwIFAgL59v71AfQFB/n8AAL9/PoK/gH29f8EAgT+AfvxCQH4/f/+/wL+BfsACfoIBAL9CAL7BQkJCQAG9gD6+wT7Df77//oHBAUE9/4E8f4F/AP/BQP8AfkIAPUEDfwG/AL7A/kD9fYB/gMJAPwE/P4JBAQLAfoCBPr+BP/6AgEAAAAE9wf9/wf79/sACvz5AvX+/gr5+AMJ/QD+/gD8AfwEAQAC+Pr7BfwG/Qf3/gEECPcGAwP2/Av6BP/+//v/8wH7BPkHB/gA+f8C/vkAAAYF/wEE/QYQ+/oC/ff7APkD/vgCBv71BAP8DgIH+vYF+v8NBPwBAf0EBQgDDQAFAfX9/Qb/+/gH/QH/BwQBCP8J/fUDB/X1AwL7BAkDAgL7/gP//v4D+PcI//f9/AH/AwIDAPsDAQT8/f3+Cfn4+/8ECPv29/kF//32BwL9/PkH+gUEBwsP/gECAAQB+v7z/gMB/wP9BvoDB/j+BAID/fv//QED+P/9/wMBBAQB+/sG/gb6C/8GBPn/AAAH9f/3Cv0ICv0B/P71AvUJAfz7/fb5+v4DCQQG/Qc=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 26.0,
+    "punchDb": 1.6,
+    "low": 0.038,
+    "brightness": 360,
+    "pitchHz": 220.8,
+    "note": "A3",
+    "bpm": 119.7,
+    "peakDb": -1.7
+   },
+   "program": 6
+  },
+  {
+   "name": "MDA Piano",
+   "category": "",
+   "source": "program",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "hard attack",
+    "wide"
+   ],
+   "features": {
+    "lufs": -12.6,
+    "brightness": -1.047,
+    "width": -5.3,
+    "attack": 5.0,
+    "sustain": -12.7,
+    "tail": 0.76,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 3.3,
+    "detune": 1.5,
+    "correlation": 0.55,
+    "velocity": 10.58
+   },
+   "phrase": 3,
+   "clap": "+wD//gEGCAT/BPz8/QYJAPgABwEC//4A+/4CBPcBBgEDCP76Cf/8+AEH+vn7BgX+Awr69/8F/AH/CAX9B//5/v36/f/7BQcBA/8G/gX//AX/AAMB/vsAAwUFAgD39/72BPMIB/n9AQL+/vYO///59QAG/gX9//rzCgX4/P8B/QX+Bfr9B/oJBQL8BgP+AggKCv0G+P36/AL8C/77//sFAwb/+/wE8gED/wMAAQL9AfkIAfUBDPkC/wL9A/sF8/gB/wYHAvwHAAEJAQcKAfcEBfoCBgH7AgID//4E9Qn6/gf79/r/CPz4Avb8/Q36/AEJ/wP7//78BPwI/wED+PwAB/0E/Qn5/AICCvcEAwXz/Af7A/z8/PoC9v77A/wFBvkA/AIBAfkA/wgE/wIF/QUQ/PgB/Pj6APgB/vgCCP30BAH8DgAH+vgD+wALB/kGAvoCBQcCDQEE/vP9+wj+/voF/gECDAMFBgAK//cEBfb0AQT7BAoBAgT5AAMB//4F+PkGAPj8AAH9AgP+APsE/gH6/P0BDPr5+v0DAvz3+foF/v32BgL8+/cE+AQABw4N/gECAQEB/QH2/gMA+QH9B/gHBPn+AwQD/fwB/AMA+gD8/gMCBQYC+fkE/Qb7CwAFA/0B//4H9P72C/wICf4C+/70AvIJAf37/vb6+PsDCgMFAQk=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 298.0,
+    "punchDb": 0.7,
+    "low": 0.02,
+    "brightness": 585,
+    "pitchHz": 221.5,
+    "note": "A3",
+    "bpm": 120.3,
+    "peakDb": -1.3
+   },
+   "program": 7
+  },
+  {
+   "name": "Plain Piano",
+   "category": "",
+   "source": "program",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "mono"
+   ],
+   "features": {
+    "lufs": -12.3,
+    "brightness": -1.084,
+    "width": -40.0,
+    "attack": 15.0,
+    "sustain": -12.9,
+    "tail": 0.71,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 3.4,
+    "detune": 1.5,
+    "correlation": 1.0,
+    "velocity": 10.2
+   },
+   "phrase": 3,
+   "clap": "/AH//gIGCAP/Bfz8/QcJAPcABwED/v0A+v4CA/YABgEDCP75Cf/8+QEG+fn7BgX+Awn69/8F/QEABwX9CP/5/v36/P/7BQYAA/4G/gUA/AUAAAMB/fsABAUFAgD49v33A/QJB/r+AQP+/fcO///59AAG/wT7//rzCgX3/f8A/gX+BPv+B/oIBAL8BwT+AQgKCv0G+P36/AL8C/36/voFAgUA+vwD8gED/wMAAgL9AfoIAvUBC/oC/gL9A/sF8vcB/wUHAf0I/wAJAgcKAfgEBPsCBQH6AwEB/v4E9Qn7/gf79/oACPz5A/X9/Q36/QEJ/wP7///8A/0JAAEC+P0AB/0E/An4/QIDCvcFAwXz/Af6A/39/PoC9f77A/wGB/oA+wIBAfkA/wgEAAMG/gUQ/PgA/Pj6//kB//gCCP30AwH8DgEH+vcC+v8LBvoGAvsDBQcEDQEE/vP8/Af+/vsG/QEBCwQGBgAJ//cDBvX0AQT6BAoBAgT5AAMA/v8G9/kHAPf8AQH9AAP/APoD/wH6/P0BDPn4+v0DAvz2+foF/v31BgL8+/cG+QQACA0N/gECAgIB/QH1/gMA+wH+BvgHBfr+AgQD/fwB/AQA+QD8/wQCBQYB+foE/Qf7CwAFAvwC//4H9P31C/wICv4C+/31AvIJAvz7//b6+fsCCQMFAgo=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 298.0,
+    "punchDb": 0.9,
+    "low": 0.019,
+    "brightness": 566,
+    "pitchHz": 221.3,
+    "note": "A3",
+    "bpm": 120.3,
+    "peakDb": 0.0
+   },
+   "program": 2
+  },
+  {
+   "name": "School Piano",
+   "category": "",
+   "source": "program",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "hard attack"
+   ],
+   "features": {
+    "lufs": -14.4,
+    "brightness": -1.085,
+    "width": -11.5,
+    "attack": 5.0,
+    "sustain": -16.4,
+    "tail": 0.87,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 3.5,
+    "detune": 1.5,
+    "correlation": 0.87,
+    "velocity": 6.98
+   },
+   "phrase": 3,
+   "clap": "+wH//gEGBwT/A/38/gYJAPkBCQAD/f8A+/4AAvYCBwICCf/6Cf/9+QMH+fr7BwX+Agr59/8F/QICCAT9CP/6/vz5/AD8BQYBAv8G/gQA/QT/AQMB/fwAAwUFAAD49v/3A/MGBvr+AAP9/fgOAAD49f8F/wX7APv0CgX3/f8B/wX9A/v9CPkIBQL7BwP8AgkLCv4G9/77/AP6DP75//sGAQUB+v0D8gAE/gT/AgL+APkJAvUAC/oC/gL+BPoG8vgA/wQHAv0HAAAJAgcKAvkFBPoABgH7AgEC/v4D9An7/gf69vkACPz5A/b9/Q76+wEJ/gT8/v/+AfsJ/wEC+P3+B/4F/Qn5/AEECvYDAwX0/Aj6A/39/PkB9v/7BP0FB/oB+gIAAfj//gkE/wMG/gUQ/PgB+vf7//kC/vcBB/30AwL8DQIH+/cD+gAMBvkFAfsCBQcBDgEE/vT++gkA/foF/QIBCwQGBgAJ//YEBvf1AQX6AwoBAQP6AQQB//8G+PkG//j8AAH+AQL///kEAQL6/P0BC/r4+/0CBPz2+foF/vz1BwH++/YF+QQABw0M/QACAQEB/AH2/wMA+wH9B/oGBfn/AgUC/vsB/QQB+f78/wMCBAYB+vkE/gb8DAAFA/oBAP8H9v33C/wHCf4C+/31A/MKAfz6//b6+PwECQQFAQo=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 302.0,
+    "punchDb": -0.2,
+    "low": 0.026,
+    "brightness": 570,
+    "pitchHz": 221.8,
+    "note": "A3",
+    "bpm": 119.7,
+    "peakDb": -0.6
+   },
+   "program": 3
+  }
+ ]
+}

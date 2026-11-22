@@ -1,0 +1,96 @@
+{
+ "plugin": {
+  "name": "sfizz",
+  "format": "VST3",
+  "uid": "5da1643a",
+  "vendor": "SFZTools",
+  "version": 4
+ },
+ "generated": "2026-10-27T10:20:56",
+ "signal": "MIDI v3: legato line C4 E4 G4 E4 (overlapping), long A3 1 s, rest 0.25 s, staccato C5 velocity 50 50 120 120, chord C2+C3 E3 G3 1 s (120 BPM)",
+ "phrase": 3,
+ "presets": [
+  {
+   "name": "SalamanderGrandPianoV3",
+   "category": "SalamanderGrandPianoV3_44.1khz16bit",
+   "source": "file",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "hard attack",
+    "wide",
+    "wide anti-phase"
+   ],
+   "features": {
+    "lufs": -20.8,
+    "brightness": -1.283,
+    "width": 0.6,
+    "attack": 10.0,
+    "sustain": -13.0,
+    "tail": 0.45,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 2.7,
+    "detune": 1.5,
+    "correlation": -0.06,
+    "velocity": 17.95
+   },
+   "phrase": 3,
+   "clap": "+/0AA/0GAQQFBf7+/AYHBPr6C/wBAwIE/QAAAfcDBwABCwT7CAH69/0B+PkABwYAAgn4+wP++QAGBgb9BgH6/fz8/QL/BgYAAgAG+wgC+wX9AQYB+vz7BAAB/wL3+v33AfYIA/f4AQT/APkM//34/P8HAgb7/gH4BQT4/vkB/gD8Bfn9B/cGBQT7BQL5BgoLBv4F+P76/AX7Bvz2+vgHCAYA9/8E9QED/gQCAAEB/voJAfgCCv8D/gD/BPwK+Pr/AggLAv0AAPsHAgUJAQAHBf0CAP79BgMDBP4A9Af4/gT6/PUCCf35//P6/wr6+v8JAgP5/f/7Bf0LAwEE+Pz9BP4A/gf69wMEB/kEAQb2+AL6///9/PQE+Pv5Cf4IAfsA/fz+Aff8AgYF/gL/+QUN9/gB+fb1+/f/AfsJA/3xBwP5DPwH/PgF+v4KCfcDAvkDBQUEDAEE/PT89Ab7/fsE9wEACgMJBQIH/fkBAfjzBAP5AQoCAgT8BAf7+/3//foI//j3+gP/APv8Bf0HAQD6/P4CCfz/+wEBBPz++/wG//n4DAX7+voE+gj9BgoMBQQCAgL//QT1/v/8/wH8A/kBBP78AgH/APkC+gAA9wQAAgH+BAkC+v0F/AX9DAECCPn5A/8K9/n3CfwCB/8DAAP2BPYM//33+vv4+AQEDAQG/wg=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 12.0,
+    "punchDb": 3.9,
+    "low": 0.289,
+    "brightness": 506,
+    "pitchHz": 221.3,
+    "note": "A3",
+    "bpm": 239.8,
+    "peakDb": -10.5
+   },
+   "path": "SalamanderGrandPianoV3_44.1khz16bit/SalamanderGrandPianoV3.sfz"
+  },
+  {
+   "name": "SalamanderGrandPianoV3Retuned",
+   "category": "SalamanderGrandPianoV3_44.1khz16bit",
+   "source": "file",
+   "class": "keys",
+   "classFrom": "name",
+   "words": [
+    "hard attack",
+    "wide",
+    "wide anti-phase"
+   ],
+   "features": {
+    "lufs": -20.2,
+    "brightness": -1.31,
+    "width": 0.6,
+    "attack": 10.0,
+    "sustain": -12.9,
+    "tail": 0.41,
+    "silent": false,
+    "glide": 0.0,
+    "vibrato": 0.0,
+    "beating": 2.6,
+    "detune": 1.5,
+    "correlation": -0.08,
+    "velocity": 17.45
+   },
+   "phrase": 3,
+   "clap": "/P4AAf0GAAQGBP/+/AUHA/r6Cv0BAwIE/QAAAvcDBgABCQT7CAH69v0B+fgABwYAAgr4+wP++gAGBgb7BwH6/fz9/gH/BgYAAQAG+gcB/Ab+AQYC+vz7BAAC/wL3+v72AfcIBPj3AQQA//oL//z4+/8HAwb6/gD4BgP3//gA/gD8Bfr9B/cGBQT7BgL5BwoLBf8F+f77/AX7Bv32+vcHCAYA9/8F9QIE/gUCAQEA//oJAfgCCf8E/gD+A/wJ+Pn/AgkLA/0AAPoGAgUJAv8HBv0BAP7+BgMDBP4A9Aj5/QT6/PYDCf34//T7/wn6+f8IAQL6/f/6Bf0LAwIE+Pz9A/4B/gj59wMEB/kEAQb2+AP6/v79+/UE9/v5Cv0JAfsA/Pz+APj7AgYF/wIA+QUN9/gB+fb1+/f/AvsIA/7yBwP5DfwI/PkG+v4LCfcDAvkEBQYEDAAE/PT79Qb8/fsE+AEACQMJBgIH/fkCAvfzBQP6AQsCAwT8BAf7+/3//PkJ/vj3+gL/APz9Bv4HAAH6/P4CCfz++wAAA/z++/wH//n5DQX7+foE+gf9BgsMBQMCAgL//QT0/v/8AAD9AvkBBf37AQIAAPkC+gAA9wMAAgH+BAkD+f0F+wX8DAECCPj6AgAK9vn2Cf0CB/8DAAP2A/YL/v34+vv5+AUDDAQG/gc=",
+   "sound": {
+    "oneShot": false,
+    "attackMs": 285.0,
+    "punchDb": 0.1,
+    "low": 0.172,
+    "brightness": 477,
+    "pitchHz": 221.0,
+    "note": "A3",
+    "bpm": 240.0,
+    "peakDb": -10.2
+   },
+   "path": "SalamanderGrandPianoV3_44.1khz16bit/SalamanderGrandPianoV3Retuned.sfz"
+  }
+ ]
+}
