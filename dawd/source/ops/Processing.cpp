@@ -447,6 +447,7 @@ namespace dawd
             auto viaChild = editFile.getChildFile (p);
             return viaChild.existsAsFile() ? viaChild : editFile.getSiblingFile (p);
         };
+        relinkKitSamples (*other);
         ensureRouting (*other);
         applySectionTempos (*other);
         refreshAutoCrossfades (*other);   // Blendlaengen haelt die Engine nur im Speicher

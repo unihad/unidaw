@@ -103,7 +103,15 @@ const need = (r, what) => { if (!r || r.ok === false) throw new Error(what + ': 
     if (body.op === 'recipeInfo' && body.id === 'check-recipe')
       return route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, recipe: { id: 'check-recipe', tracks: recipeTracks, steps: [{ op: 'trackMix' }] } }) });
     // Antwort mitschreiben (ok?) — nur gelungene Änderungen werden zurückgenommen
-    const resp = await route.fetch();
+    // Ohne Zeitlimit wie fetch() im Browser: route.fetch gibt sonst nach 30 s
+    // auf (unter Last ein Poll wie inputLevel hinter einem langen Befehl), und
+    // die Ausnahme beendete den ganzen Lauf. Scheitert es doch, sieht die
+    // Seite einen Netzfehler wie ohne Mitschnitt.
+    let resp;
+    try { resp = await route.fetch({ timeout: 0 }); } catch (e) {
+      console.log('route.fetch ' + body.op + ': ' + e.message.split('\n')[0]);
+      return route.abort().catch(() => {});
+    }
     try { body.resultOk = (await resp.json()).ok !== false; } catch (e) {}
     return route.fulfill({ response: resp });
   });
@@ -1044,11 +1052,74 @@ const need = (r, what) => { if (!r || r.ok === false) throw new Error(what + ': 
     report('R', 'ohne Projekt: Tempo und Analyze (Ziel Referenz, Song gesperrt) laufen', tempo && tempo.file === ref && tempo.resultOk
            && tgt === 'reference' && songOff && ana && ana.file === ref && ana.resultOk && /LUFS|silent/.test(card),
            { tempo: tempo ? tempo.resultOk : 'kein detectTempo', ziel: tgt, songAus: songOff, analyze: ana ? ana.resultOk : 'kein analyze', card });
+    // Von außen geöffnet: die leere UI zeigt den Song ohne Neuladen
+    // (Todo 2026-11-23-ui-uebernimmt-von-aussen-geoeffneten-song)
+    // want: Text, den eine Spurzeile tragen muss (null = irgendeine Spur)
+    const shownSong = async (want = null) => {
+      const t0 = Date.now();
+      try {
+        await page.waitForFunction((w) => !document.querySelector('#app').classList.contains('noproject')
+                                         && [...document.querySelectorAll('#linearTracks .ltrow[data-track]')]
+                                              .some(r => w === null || r.textContent.includes(w)), want, { timeout: 5000 });
+      } catch (e) { return null; }
+      return Date.now() - t0;
+    };
     need(await api('treeOpen', { dir: DIR }), 'treeOpen');
-    await page.reload(); await quiet(1500);
+    const openMs = await shownSong();
+    report('L', 'leere UI zeigt einen von außen geöffneten Song ohne Neuladen', openMs !== null, { ms: openMs });
+    await quiet(500);
     const after = await ev(() => ({ ref: refFile(), noproj: document.querySelector('#app').classList.contains('noproject'),
                                     compare: document.querySelector('#refCompare').disabled }));
     report('R', 'Projekt öffnen übernimmt die Referenz von vorher', after.ref === ref && !after.noproj && !after.compare, after);
+    // Von außen angelegt: Song zu (UI wird leer), dann treeSeed + batch wie
+    // ein Agent — der Song kommt ohne Neuladen an
+    need(await api('treeClose'), 'treeClose');
+    let empty = true;
+    try { await page.waitForFunction(() => document.querySelector('#app').classList.contains('noproject'), null, { timeout: 5000 }); }
+    catch (e) { empty = false; }
+    const dir2 = DIR + '-seed';
+    fs.rmSync(dir2, { recursive: true, force: true });
+    need(await api('treeSeed', { dir: dir2, label: 'outside' }), 'treeSeed outside');
+    need(await api('batch', { commands: [{ op: 'updateSection', name: 'Section 1', length: 8, bpm: 100 },
+                                         { op: 'createTrack', type: 'midi', instrument: '4OSC', name: 'Outside Lead' }] }), 'batch outside');
+    const seedMs = await shownSong('Outside Lead');
+    const names = await ev(() => [...document.querySelectorAll('#linearTracks .ltrow[data-track]')].map(r => r.textContent).join(' '));
+    // nur die neue Spur, nichts vom vorigen Song (Drum Kit, Bass Synth)
+    report('L', 'leere UI zeigt einen von außen angelegten Song ohne Neuladen', empty && seedMs !== null
+           && /Outside Lead/.test(names) && !/Drum Kit|Bass Synth/.test(names),
+           { leerNachClose: empty, ms: seedMs, spuren: names.slice(0, 60) });
+    await api('treeClose');
+    fs.rmSync(dir2, { recursive: true, force: true });
+  }
+
+  // ── S: Section-Namen im Band (Todo 2026-11-23-name-der-ersten-section-
+  // fehlt): "Intro" 10 s + "Verse" 20 s bei 13 px/s — ohne Hover zeigt jede
+  // Section ihren Namen ganz, auch die schmale erste (die verborgenen Knöpfe
+  // belegen keinen Platz); gewählt sind alle vier Knöpfe im Bild ──
+  {
+    await api('treeClose');
+    need(await api('treeSeed', { dir: DIR + '-sections', label: 'sections' }), 'treeSeed sections');
+    need(await api('updateSection', { name: 'Section 1', label: 'Intro', length: 10, bpm: 96 }), 'updateSection Intro');
+    need(await api('addSection', { name: 'Verse', length: 20 }), 'addSection Verse');
+    await page.reload(); await quiet(1500);
+    await ev(() => { pps = 13; renderLinear(lastState); });
+    await page.mouse.move(W - 5, H - 5); await quiet(300);
+    const names = await ev(() => [...document.querySelectorAll('#linearSections .section')].map(el => {
+      const n = el.querySelector('.secname'), s = el.getBoundingClientRect(), b = n.getBoundingClientRect();
+      return { name: el.dataset.name, shown: Math.round(b.width), full: n.scrollWidth,
+               inside: b.left >= s.left - 1 && b.right <= s.right + 1, width: Math.round(s.width) };
+    }));
+    report('S', 'Section-Namen bei 13 px/s ganz sichtbar ("Intro" 10 s, "Verse" 20 s)',
+           names.length === 2 && names.every(x => x.full > 0 && x.shown >= x.full && x.inside), names);
+    await ev(() => { selectedSection = 'Intro'; renderLinear(lastState); }); await quiet(300);
+    const btns = await ev(() => { const el = document.querySelector('#linearSections .section[data-name="Intro"]');
+      const s = el.getBoundingClientRect();
+      return [...el.querySelectorAll('.secbtn')].map(b => b.getBoundingClientRect())
+        .filter(b => b.width > 0 && b.left >= s.left - 1 && b.right <= s.right + 1).length; });
+    report('S', 'Gewählte schmale Section: alle vier Knöpfe im Bild', btns === 4, btns);
+    await ev(() => { selectedSection = ''; renderLinear(lastState); });
+    await api('treeClose');
+    need(await api('treeOpen', { dir: DIR }), 'treeOpen');
   }
 
   report(0, 'keine JS-Fehler auf der Seite', pageErrors.length === 0, pageErrors.slice(0, 3).join(' | '));

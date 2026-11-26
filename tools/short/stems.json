@@ -1,0 +1,48 @@
+{
+  "id": "stems",
+  "title": "Split a mix",
+  "project": "~/music/unidaw-short-stems",
+  "inputs": [
+    {
+      "file": "mix.wav",
+      "copy": "~/music/unidaw-short-intro/song.wav"
+    }
+  ],
+  "prompt": "Start a new song in ~/music/unidaw-short-stems at 96 BPM with one section called Song that is as long as mix.wav from that folder. Split mix.wav into stems and put each stem on its own track in that section. Then tell me which stems have sound.",
+  "captions": [
+    {
+      "at": 0,
+      "text": "One mix in"
+    }
+  ],
+  "answerPick": "drums|bass",
+  "scenes": [
+    {
+      "solo": "drum",
+      "from": 6,
+      "seconds": 4,
+      "audio": {
+        "stem": "drum"
+      },
+      "caption": "Drums"
+    },
+    {
+      "solo": "bass",
+      "from": 6,
+      "seconds": 4,
+      "audio": {
+        "stem": "bass"
+      },
+      "caption": "Bass · Stems on their own tracks"
+    }
+  ],
+  "timing": {
+    "intro": 3,
+    "typing": 5,
+    "agent": 12,
+    "end": 3
+  },
+  "ui": {
+    "pps": 13
+  }
+}

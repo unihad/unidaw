@@ -1,0 +1,28 @@
+{
+  "id": "intro",
+  "title": "unidaw 0.1 is out",
+  "project": "~/music/unidaw-short-intro",
+  "render": "~/music/unidaw-short-intro/song.wav",
+  "prompt": "Start a new song in ~/music/unidaw-short-intro at 96 BPM. Make two sections: Intro (4 bars) and Verse (8 bars). Add a drum beat with the built-in drum kit and a simple bass line in A minor with the 4OSC synth, both playing through both sections. Then render the song to ~/music/unidaw-short-intro/song.wav.",
+  "captions": [
+    {
+      "at": 4,
+      "text": "A DAW for people and AI agents"
+    },
+    {
+      "at": 12,
+      "text": "The agent works over MCP. You see every change."
+    }
+  ],
+  "timing": {
+    "intro": 4,
+    "typing": 6,
+    "agent": 18,
+    "play": 12,
+    "playFrom": 4,
+    "end": 3
+  },
+  "ui": {
+    "pps": 13
+  }
+}

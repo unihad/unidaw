@@ -59,6 +59,7 @@ ersetzt:
 - [2026-11-19 MP3-Decoder von JUCE bleibt im öffentlichen Release](2026-11-19-mp3-decoder-bleibt.md)
 - [2026-11-18 dawd wird Open Source (AGPLv3), Einnahmen nur über Spenden](2026-11-18-open-source-agpl-spenden.md)
 - [2026-11-19 Produktname unidaw](2026-11-19-produktname-unidaw.md)
+- [2026-11-23 Shorts-Reihe statt Demo-Video, Agents nehmen auf](2026-11-23-shorts-statt-demo-video.md)
 
 ## Vorschläge (warten auf Matthias, gelten noch nicht)
 

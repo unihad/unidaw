@@ -1,0 +1,42 @@
+{
+  "id": "listen",
+  "title": "The agent listens",
+  "project": "~/music/unidaw-short-listen",
+  "base": "~/music/unidaw-short-intro",
+  "inputs": [
+    {
+      "file": "melody.wav",
+      "make": "melody"
+    }
+  ],
+  "prompt": "Open the song in ~/music/unidaw-short-listen. Put melody.wav from that folder on a new audio track called Melody in the Verse. What key is it in? Then add a soft pad with the 4OSC synth that plays chords in that key under the Verse, and put a little of the built-in reverb on the melody.",
+  "captions": [
+    {
+      "at": 0,
+      "text": "It hears the key of a recording"
+    }
+  ],
+  "answerPick": "minor|major",
+  "answerCaptions": [
+    {
+      "re": "\\b([A-G][#b♯♭]? (?:minor|major))",
+      "text": "Key: $1"
+    }
+  ],
+  "scenes": [
+    {
+      "section": "Verse",
+      "seconds": 10,
+      "audio": "render"
+    }
+  ],
+  "timing": {
+    "intro": 3,
+    "typing": 5,
+    "agent": 12,
+    "end": 3
+  },
+  "ui": {
+    "pps": 13
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "song-tree",
+  "title": "Try it, keep both",
+  "project": "~/music/unidaw-short-song-tree",
+  "base": "~/music/unidaw-short-intro",
+  "prompt": "Open the song in ~/music/unidaw-short-song-tree. Try a more energetic version of the Verse in a new branch: sixteenth-note hi-hats and a busier bass line. Keep the current version as it is, so I can compare both.",
+  "captions": [
+    {
+      "at": 0,
+      "text": "Every idea is a branch"
+    }
+  ],
+  "scenes": [
+    {
+      "node": "start",
+      "section": "Verse",
+      "seconds": 6,
+      "audio": "node",
+      "caption": "calm"
+    },
+    {
+      "node": "end",
+      "section": "Verse",
+      "seconds": 6,
+      "audio": "node",
+      "caption": "energetic · Keep both. Pick later."
+    }
+  ],
+  "timing": {
+    "intro": 3,
+    "typing": 5,
+    "agent": 12,
+    "end": 3
+  },
+  "ui": {
+    "pps": 13
+  }
+}

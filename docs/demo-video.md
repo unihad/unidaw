@@ -1,5 +1,10 @@
 # Demo-Video: Agent arrangiert, Mensch nimmt auf
 
+> **Abgelöst** (2026-11-23): statt dieses Videos gibt es eine Reihe von
+> Shorts, die Agents automatisch aufnehmen — [`docs/shorts.md`](shorts.md),
+> Decision [2026-11-23-shorts-statt-demo-video](decisions/2026-11-23-shorts-statt-demo-video.md).
+> Prompts, Fallstricke und Trockenlauf unten gelten weiter als Grundlage.
+
 Drehbuch für das erste Demo-Video von unidaw (Todo
 `2026-11-18-demo-video-aufnehmen`, Ziel
 `agent-daw-bereit-fuer-den-vertrieb-machen`). Verwendet in README und

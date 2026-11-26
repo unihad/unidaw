@@ -580,6 +580,7 @@ namespace dawd
         if (ctx.edit != nullptr)
         {
             ctx.load.setPhase ("routing");
+            relinkKitSamples (*ctx.edit);   // Kit der laufenden Binary (Todo 2026-11-23-eingebautes-kit-mit-absolutem-pfad)
             ensureRouting (*ctx.edit);
             applySectionTempos (*ctx.edit);
             refreshAutoCrossfades (*ctx.edit);

@@ -452,6 +452,95 @@ namespace dawd::voice
         return out;
     }
 
+    int joinRingSplits (std::vector<transcription::Note>& notes, const std::vector<float>& mono, double rate)
+    {
+        // Pegel (dB) am Grundton im Fenster [t0, t1): Goertzel mit Hann-Fenster
+        auto levelAt = [&] (double freq, double t0, double t1)
+        {
+            const auto a = (juce::int64) juce::jmax (0.0, t0 * rate), b = juce::jmin ((juce::int64) mono.size(), (juce::int64) (t1 * rate));
+
+            if (b - a < 16)
+                return -200.0;
+
+            const double w = 2.0 * juce::MathConstants<double>::pi * freq / rate, c = 2.0 * std::cos (w);
+            double s1 = 0.0, s2 = 0.0;
+
+            for (auto i = a; i < b; ++i)
+            {
+                const double hann = 0.5 - 0.5 * std::cos (2.0 * juce::MathConstants<double>::pi * (double) (i - a) / (double) (b - a - 1));
+                const double s0 = mono[(size_t) i] * hann + c * s1 - s2;
+                s2 = s1;
+                s1 = s0;
+            }
+
+            return 10.0 * std::log10 (juce::jmax (1.0e-20, s1 * s1 + s2 * s2 - c * s1 * s2));
+        };
+
+        std::sort (notes.begin(), notes.end(), [] (auto& a, auto& b) { return a.pitch < b.pitch || (a.pitch == b.pitch && a.start < b.start); });
+        std::vector<transcription::Note> out;
+        int joined = 0;
+        const auto env = envelopeOf (mono, rate);
+
+        // Beginn des Tons: eine Kette gleich hoher Noten ohne Luecke zaehlt
+        // als ein Ton (der Nachklang ist selbst oft geteilt)
+        std::vector<double> toneStart (notes.size());
+
+        for (size_t i = 0; i < notes.size(); ++i)
+            toneStart[i] = i > 0 && notes[i - 1].pitch == notes[i].pitch && notes[i].start - notes[i - 1].end < 0.04
+                               ? toneStart[i - 1] : notes[i].start;
+
+        for (auto& n : notes)
+        {
+            if (! out.empty() && out.back().pitch == n.pitch && n.start > out.back().start && n.start - out.back().end < 0.04)
+            {
+                // Ausloeser: eine andere Tonhoehe setzt zugleich ein (30 ms)
+                // oder ein aelterer Ton, der schon vor dem ersten Teil klang,
+                // endet dort (60 ms, das Ende schaetzt das Modell ungenauer;
+                // abgedaempfte Saite). Das Fenster ist so lang, dass die
+                // Nullstelle des Hann-Fensters (2 / Laenge) auf dem Nachbarn
+                // liegt, sonst steigt beim Halbton daneben der Pegel nur
+                // scheinbar (60 -> 59: +8 dB mit 50 ms, -1,6 dB mit 136 ms)
+                const auto hz = [] (int p) { return 440.0 * std::pow (2.0, (p - 69) / 12.0); };
+                const double f = hz (n.pitch);
+                bool trigger = false;
+                double len = 0.05;
+
+                for (size_t j = 0; j < notes.size(); ++j)
+                    if (const auto& m = notes[j]; m.pitch != n.pitch && (std::abs (m.start - n.start) <= 0.03
+                                               || (toneStart[j] < out.back().start && std::abs (m.end - n.start) <= 0.06)))
+                    {
+                        trigger = true;
+                        len = juce::jmax (len, juce::jmin (0.25, 2.0 / std::abs (f - hz (m.pitch))));
+                    }
+
+                // Ohne Ausloeser: mitten im Ausklang setzt das Modell einen
+                // neuen Einsatz (langer Zupfton). Verbinden nur, wenn der
+                // Gesamtpegel bis 150 ms danach nicht steigt — das Modell
+                // setzt echte Anschlaege bis 80 ms zu frueh (Oktav-Bass
+                // E1/E2: +5 dB, der Ausklang: -1,3 dB) — und ueber die
+                // Grenze klar faellt (Ausklang 5 .. 7 dB in 200 ms; ein
+                // gehaltener Ton mit Vibrato bleibt bei 0 dB und zerfaellt
+                // weiter, das verbindet erst legato)
+                if (! trigger)
+                    trigger = env.maxIn (n.start - 0.02, n.start + 0.15) - env.meanIn (n.start - 0.12, n.start - 0.03) < 1.5
+                              && env.meanIn (n.start - 0.25, n.start - 0.05) - env.meanIn (n.start + 0.05, n.start + 0.25) > 3.0;
+
+                if (trigger && levelAt (f, n.start + 0.01, n.start + 0.01 + len) - levelAt (f, n.start - 0.01 - len, n.start - 0.01) < 3.0)
+                {
+                    out.back().end = juce::jmax (out.back().end, n.end);
+                    ++joined;
+                    continue;
+                }
+            }
+
+            out.push_back (n);
+        }
+
+        std::sort (out.begin(), out.end(), [] (auto& a, auto& b) { return a.start < b.start || (a.start == b.start && a.pitch < b.pitch); });
+        notes = std::move (out);
+        return joined;
+    }
+
     int joinLegato (std::vector<transcription::Note>& notes, const std::vector<float>& mono, double rate, double overlap)
     {
         const auto env = envelopeOf (mono, rate);

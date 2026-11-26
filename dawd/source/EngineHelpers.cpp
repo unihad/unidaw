@@ -2,6 +2,7 @@
 #include "Origins.h"
 #include "PluginSettings.h"
 #include "PluginSandbox.h"
+#include "SampleLibrary.h"
 
 #include <algorithm>
 #include <cmath>
@@ -864,14 +865,16 @@ namespace dawd
 
         // Sekunden einer linearen Rampe ueber beats Schlaege von bpm1 nach
         // bpm2 — so, wie die Engine sie abspielt (tempo::Sequence: 4 Stufen
-        // je Beat, 1..100, jede mit dem Tempo an ihrem Anfang)
-        double rampSeconds (double beats, double bpm1, double bpm2)
+        // je Beat, 1..100, jede mit dem Tempo an ihrem Anfang). Beats der
+        // Engine zaehlen in Nennerwerten (in 3/8 Achtel: 240 / (bpm * den) s
+        // je Beat, tracktion_Tempo.h), bpm zaehlen Viertel.
+        double rampSeconds (double beats, double bpm1, double bpm2, int den)
         {
             const int n = (int) juce::jlimit (1.0, 100.0, 4.0 * beats);
             double t = 0.0;
 
             for (int k = 0; k < n; ++k)
-                t += beats / n * 60.0 / (bpm1 + (bpm2 - bpm1) * k / n);
+                t += beats / n * 240.0 / (den * (bpm1 + (bpm2 - bpm1) * k / n));
 
             return t;
         }
@@ -968,13 +971,14 @@ namespace dawd
         if (! tempo.ramps())
             return pos.getLength().inSeconds() / tempo.barSeconds();
 
+        // Beats der Engine in Nennerwerten: num je Takt
         auto& ts = edit.tempoSequence;
-        return (ts.toBeats (pos.getEnd()) - ts.toBeats (pos.getStart())).inBeats() / tempo.beatsPerBar();
+        return (ts.toBeats (pos.getEnd()) - ts.toBeats (pos.getStart())).inBeats() / tempo.num;
     }
 
     double secondsForBars (const SectionTempo& tempo, double bars)
     {
-        return tempo.ramps() ? rampSeconds (bars * tempo.beatsPerBar(), tempo.bpm, tempo.bpmEnd)
+        return tempo.ramps() ? rampSeconds (bars * tempo.num, tempo.bpm, tempo.bpmEnd, tempo.den)
                              : bars * tempo.barSeconds();
     }
 
@@ -1050,7 +1054,8 @@ namespace dawd
         // Section-Starts faellt: der Beat haengt von der Rampe ab, die vom
         // Beat abhaengt — nachfuehren, bis die Engine die Zeit trifft (die
         // Stufenzahl der Engine springt mit dem Beat: bester Wert zaehlt)
-        auto settle = [&] (te::TempoSetting& t, double target, double bpm, float curve)
+        // (Schritt in Beats der Engine: Nennerwerte, den der Rampen-Section)
+        auto settle = [&] (te::TempoSetting& t, double target, double bpm, int den, float curve)
         {
             auto best = t.getStartBeat();
             double bestErr = HUGE_VAL;
@@ -1065,7 +1070,7 @@ namespace dawd
                 if (std::abs (err) < 1.0e-7)
                     break;
 
-                t.set (t.getStartBeat() + te::BeatDuration::fromBeats (err * bpm / 60.0), bpm, curve, false);
+                t.set (t.getStartBeat() + te::BeatDuration::fromBeats (err * bpm * den / 240.0), bpm, curve, false);
             }
 
             t.set (best, bpm, curve, false);
@@ -1085,19 +1090,20 @@ namespace dawd
                 auto beat = ts.toBeats (start);
 
                 // Nach einer Rampe: Startwert aus der Formel der linearen
-                // Rampe (Sekunden -> Beats), settle macht ihn genau
+                // Rampe (Sekunden -> Viertel -> Beats der Engine in
+                // Nennerwerten), settle macht ihn genau
                 if (prev.ramps())
                 {
                     const double secs0 = secs[i - 1]->getPosition().getStart().inSeconds();
                     const double len = start.inSeconds() - secs0;
                     beat = ts.toBeats (secs[i - 1]->getPosition().getStart())
-                         + te::BeatDuration::fromBeats (len * (cur.bpm - prev.bpm) / (60.0 * std::log (cur.bpm / prev.bpm)));
+                         + te::BeatDuration::fromBeats (len * (cur.bpm - prev.bpm) / (60.0 * std::log (cur.bpm / prev.bpm)) * prev.den / 4.0);
                 }
 
                 point = ts.insertTempo (beat, cur.bpm, curveOf (i));
 
                 if (point != nullptr && prev.ramps())
-                    settle (*point, start.inSeconds(), cur.bpm, curveOf (i));
+                    settle (*point, start.inSeconds(), cur.bpm, prev.den, curveOf (i));
             }
 
             if (cur.num != prev.num || cur.den != prev.den)
@@ -1109,7 +1115,7 @@ namespace dawd
                     // Ein Taktwechsel knapp vor dem Endpunkt verschiebt die
                     // Rampe der Engine ein wenig: nachfuehren
                     if (point != nullptr && prev.ramps())
-                        settle (*point, start.inSeconds(), cur.bpm, curveOf (i));
+                        settle (*point, start.inSeconds(), cur.bpm, prev.den, curveOf (i));
                 }
         }
     }
@@ -2354,6 +2360,50 @@ namespace dawd
                     return true;
 
         return false;
+    }
+
+    int relinkKitSamples (te::Edit& edit)
+    {
+        const auto kits = kitsDirectory();
+        int n = 0;
+
+        for (auto* p : te::getAllPlugins (edit, true))
+            if (auto* sp = dynamic_cast<te::SamplerPlugin*> (p))
+                for (int i = 0; i < sp->state.getNumChildren(); ++i)
+                {
+                    auto v = sp->state.getChild (i);
+
+                    if (! v.hasType (te::IDs::SOUND))
+                        continue;
+
+                    const auto src = v[te::IDs::source].toString();
+
+                    if (! juce::File::isAbsolutePath (src) || juce::File (src).existsAsFile())
+                        continue;
+
+                    // letztes "/kits/" im Pfad: dahinter <kit>/<datei>
+                    const auto path = src.replaceCharacter ('\\', '/');
+                    const auto at = path.lastIndexOf ("/kits/");
+
+                    if (at < 0)
+                        continue;
+
+                    const auto rest = path.substring (at + 6);
+                    const auto kit = rest.upToFirstOccurrenceOf ("/", false, false);
+                    const auto now = kits.getChildFile (rest);
+
+                    if (kit.isEmpty() || ! kits.getChildFile (kit).getChildFile ("kit.json").existsAsFile()
+                        || ! now.existsAsFile() || ! now.isAChildOf (kits))
+                        continue;
+
+                    v.setProperty (te::IDs::source, now.getFullPathName(), nullptr);
+                    ++n;
+                }
+
+        if (n > 0)
+            std::cerr << "[kit] " << n << " sampler sound(s) relinked to " << kits.getFullPathName() << "\n";
+
+        return n;
     }
 
     void settlePlugins (te::Edit& edit)

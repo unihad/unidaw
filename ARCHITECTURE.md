@@ -107,7 +107,9 @@ Skripte/Tests ─┘                      │              │
      eine Datei (`start`/`end` in Dateisekunden, ohne Projekt) oder der Mix
      über `renderMixRange` (aus `Processing.cpp`, wie `analyze`). Die
      Signalverarbeitung (Onsets über eine Terzband-Filterbank, Chroma,
-     Beat-Tracking, Krumhansl-Profile, Akkord-Vorlagen mit Viterbi,
+     Beat-Tracking, Krumhansl-Profile auf einer Tonart-Chroma mit Obertönen
+     beim Grundton (sonst hört ein gezupfter Ton die Quinte als Tonart),
+     Akkord-Vorlagen mit Viterbi,
      Merkmale je Takt und Foote-Neuheit für den Aufbau) liegt ohne
      Engine-Bezug in `source/MusicAnalysis.{h,cpp}`
    - Noten aus Audio (`audioToMidi`, `addMidiFromAudio` in `Analysis.cpp`):
@@ -257,7 +259,11 @@ Skripte/Tests ─┘                      │              │
      als Textdatei in `<config>/index/` zwischengespeichert; versteckte und
      Vorhör-Ordner sowie AIFFs im Ableton-Codec fallen weg). Die Kits unter
      `dawd/kits/` sind immer dabei (`make_basic_kit.py` erzeugt das Kit
-     "basic"); das Built-in "Drum Kit" ist ein Sampler mit diesem Kit,
+     "basic"); das Built-in "Drum Kit" ist ein Sampler mit diesem Kit
+     (Kit-Samples bleiben im Kit-Ordner der Binary, absoluter Pfad im
+     Edit; stimmt er nach einem Umzug nicht mehr — anderer Build,
+     Worktree weg, AppImage —, biegt `relinkKitSamples` (EngineHelpers)
+     ihn beim Laden auf `kitsDirectory()` um),
      `setSamples`/`listSamples` (Processing.cpp) belegen Sampler-Module und
      kopieren fremde Samples nach `media/samples/`; Velocity-Layer,
      Round-Robin-/Choke-Gruppen und Attack/Release je Sample kommen aus dem
@@ -1292,7 +1298,9 @@ des nächsten Punkts hängt von der Rampe ab — `applySectionTempos` führt ihn
 nach, bis die Engine die Sekunde des Section-Starts trifft. Takte einer
 Section mit Rampe zählt die Tempospur (`sectionBars`), `bars` setzen rechnet
 die Stufen der Engine nach (`secondsForBars`: 4 Stufen je Beat, 1..100, je
-mit dem Tempo am Stufenanfang); `exportMidi` schreibt dieselben Stufen. **Immer ohne Remap**: `TempoSetting::setBpm`
+mit dem Tempo am Stufenanfang); Beats der Engine zählen in Nennerwerten
+(in 3/8 Achtel: 240 / (bpm · Nenner) s, bpm zählen Viertel), ein Takt hat
+also `num` Beats (Test tempo_ramp_eighths_flow); `exportMidi` schreibt dieselben Stufen. **Immer ohne Remap**: `TempoSetting::setBpm`
 rechnet alle Positionen im Edit auf die Beat-Lage um — unidaw hält Sections und
 Clips in Sekunden (`set (…, false)`). MIDI-Noten liegen in Beats und folgen
 dem Tempo. Noten kommen über `mergeNotesRelative` in den Clip (die Engine

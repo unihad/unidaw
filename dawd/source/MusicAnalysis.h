@@ -32,6 +32,9 @@ namespace dawd::analysis
         double chromaFps = 0.0;
         std::vector<std::array<float, 12>> chroma;
         std::vector<float> chromaEnergy;   // Summe vor der Normierung — Stille erkennen
+        // Fuer die Tonart: Spektral-Spitzen, Obertoene (3., 5., 6., 7. … eines
+        // tieferen Tons) auf dessen Tonklasse; nicht normiert
+        std::vector<std::array<float, 12>> keyChroma;
         std::vector<std::array<float, 3>> bandEnergy;   // je Onset-Frame: bis 250 Hz, bis 4 kHz, darueber
         double duration = 0.0;
     };

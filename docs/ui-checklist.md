@@ -71,6 +71,10 @@ Statuszeile gemeint.
       ungleich lang); "Bars" danach setzt die Länge passend zur Rampe
 - [ ] Section-Buttons sitzen direkt hinter dem Namen (nicht am Ende —
       lange Sections würden sie off-screen schieben)
+- [ ] Jede Section zeigt ohne Hover ihren ganzen Namen, auch eine schmale
+      (z. B. 10 s bei 13 px/s): verborgene Buttons belegen keinen Platz; bei
+      Hover/Wahl sind alle vier Buttons im Bild, Name und Tempo kürzen mit
+      „…“ (`fehler_check.js`, Abschnitt S)
 - [ ] Icons haben Kontrast auf ihrem Grund (kein text-quiet auf hellem
       Button); Record einheitlich rot für beide Typen
 - [ ] Clip zeigt seinen Inhalt (Waveform bzw. Noten über `clipPeaks`)
@@ -979,6 +983,9 @@ Statuszeile gemeint.
       Bedienung: bei gehaltener Maustaste, Fokus in einem Feld, offenem
       Popover oder laufendem eigenem Befehl erst danach (Decision
       2026-10-31-aenderungen-von-aussen-live)
+- [ ] Auch ohne offenen Song: legt ein Agent einen Song an (`treeSeed`)
+      oder öffnet einen (`treeOpen`), zeigt die leere UI ihn ohne Neuladen
+      (Poll läuft im Start-Panel weiter, ~2 Hz; `fehler_check.sh`, L)
 - [ ] Neuzeichnen der Timeline (Klick auf A, M, S, Arm, Gruppe auf/zu,
       Änderung von außen) lässt die Ansicht stehen: gleicher Scroll-Stand
       senkrecht und waagrecht (`renderLinear` hält ihn; vorher sprang sie

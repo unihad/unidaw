@@ -430,6 +430,21 @@ namespace dawd
         if (k.keys.size() > 1 && analysis::isRelativeKey (best, k.keys[1]) && best.score - k.keys[1].score < 0.1)
             hints.add (keyName (k.keys[1]) + juce::String::fromUTF8 (" shares the same notes (relative key) — the chords tell which is home"));
 
+        // Naechste Tonart ausser der Paralleltonart eine Quinte entfernt und
+        // knapp dahinter: die Tonleitern unterscheiden sich in einem Ton
+        for (size_t i = 1; i < k.keys.size(); ++i)
+        {
+            if (analysis::isRelativeKey (best, k.keys[i]))
+                continue;
+
+            auto steps = (k.keys[i].tonic - best.tonic + 12) % 12;
+
+            if (k.keys[i].minor == best.minor && (steps == 5 || steps == 7) && best.score - k.keys[i].score < 0.1)
+                hints.add (keyName (k.keys[i]) + juce::String::fromUTF8 (" is a fifth away and close — its scale differs by one note; check that note and where the melody comes to rest"));
+
+            break;
+        }
+
         if (! grid)
             hints.add (juce::String::fromUTF8 ("no steady pulse — chords are in 0.5 s steps, without bar/beat (pass bpm + firstDownbeat for a grid)"));
         else if (gridFrom == "detected")
@@ -760,15 +775,25 @@ namespace dawd
             auto notes = voice::soundingNotes (transcription::transcribe (src.audio22k, o, err, extras.bends ? &extras.contour : nullptr),
                                                src.audio22k, 22050.0);
 
+            // Nachklang beim naechsten Einsatz neu angeschlagen (Zupfton:
+            // geteilte Toene, in melody gewann der hoehere Nachklang)
+            voice::joinRingSplits (notes, src.audio22k, 22050.0);
+
             // Gehaltene Toene zerfallen in Fragmente (Praxistest 1c: Vibrato
             // und Schwellungen lasen sich als Achtel-Stabs) — vor dem
             // Oberton-Filter verschmelzen, wie describeVoice
             if (extras.legato)
                 notes = voice::mergedFragments (notes, src.audio22k, 22050.0, extras.merged);
 
-            // Obertoene als Geisternoten: eine Oktave, Duodezime oder zwei
-            // Oktaven ueber einer lauteren Note, die sie zeitlich zu mehr als
-            // der Haelfte ueberdeckt, und deutlich leiser — weg (abschaltbar)
+            // Obertoene als Geisternoten: auf dem 2. bis 17. Teilton (Oktave,
+            // Duodezime, zwei Oktaven, grosse Terz, Quinte, kleine Septime,
+            // drei Oktaven darueber, dann auf Halbtoene gerundet; tief
+            // gezupft kommt der 9. und 17. als Note) einer lauteren Note, die sie
+            // zeitlich zu mehr als der Haelfte ueberdeckt, und deutlich
+            // leiser — weg (abschaltbar). Der Zupfton hat einen starken
+            // 7. Teilton (A4 -> G7). Setzt sie zugleich ein (30 ms), ist
+            // leiser und endet nach weniger als 60 % der Laenge, reicht
+            // das: hohe Teiltoene klingen schneller ab (Zupfton E5 -> E6)
             if (! (bool) cmd.getProperty ("keepHarmonics", false))
             {
                 std::vector<transcription::Note> kept;
@@ -781,7 +806,12 @@ namespace dawd
                     {
                         auto iv = n.pitch - m.pitch;
 
-                        if ((iv == 12 || iv == 19 || iv == 24 || iv == 28) && n.amplitude < 0.75 * m.amplitude
+                        const bool partial = iv == 12 || iv == 19 || iv == 24 || iv == 28 || iv == 31 || iv == 34 || iv == 36
+                                             || iv == 38 || iv == 40 || iv == 42 || iv == 43 || iv == 44 || iv == 46 || iv == 47 || iv == 48 || iv == 49;
+                        const bool dying = std::abs (n.start - m.start) <= 0.03 && n.amplitude < m.amplitude
+                                           && n.end - n.start < 0.6 * (m.end - m.start);
+
+                        if (partial && (n.amplitude < 0.75 * m.amplitude || dying)
                             && juce::jmin (n.end, m.end) - juce::jmax (n.start, m.start) > 0.5 * (n.end - n.start))
                             ghost = true;
                     }

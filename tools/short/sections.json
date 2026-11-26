@@ -1,0 +1,31 @@
+{
+  "id": "sections",
+  "title": "Longer song, one sentence",
+  "project": "~/music/unidaw-short-sections",
+  "base": "~/music/unidaw-short-intro",
+  "prompt": "Open the song in ~/music/unidaw-short-sections. Make it a full song: add a Chorus (8 bars) after the Verse with a simple lead melody on the 4OSC synth, then repeat Verse and Chorus once, and end with a 4-bar Outro where only the bass plays.",
+  "captions": [
+    {
+      "at": 0,
+      "text": "From 12 bars to a full song"
+    }
+  ],
+  "scenes": [
+    {
+      "section": "Chorus",
+      "nth": 1,
+      "from": 15,
+      "seconds": 10,
+      "audio": "render"
+    }
+  ],
+  "timing": {
+    "intro": 3,
+    "typing": 5,
+    "agent": 12,
+    "end": 3
+  },
+  "ui": {
+    "pps": 5
+  }
+}

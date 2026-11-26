@@ -430,8 +430,11 @@
   .section.dragging { opacity: .7; z-index: 4; cursor: grabbing; }
   .secname { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
   .secname input { font-size: 11px; padding: 0 .25rem; width: 9rem; }
-  .secbtns { display: flex; gap: 2px; flex: none; opacity: 0; transition: opacity .12s; }
-  .section:hover .secbtns, .section.sel .secbtns, .secbtns.keep { opacity: 1; }
+  /* Verborgene Knöpfe belegen keinen Platz (max-width 0), sonst drücken sie
+     den Namen einer schmalen Section auf null; sichtbar gehen sie vor Name
+     und Tempo, die dann mit "…" kürzen */
+  .secbtns { display: flex; gap: 2px; flex: none; opacity: 0; max-width: 0; overflow: hidden; transition: opacity .12s; }
+  .section:hover .secbtns, .section.sel .secbtns, .secbtns.keep { opacity: 1; max-width: none; }
   .secbtn { width: 1.3rem; height: 1.3rem; padding: 0; justify-content: center; border-radius: 5px;
             background: rgb(10 12 18 / .55); border: 1px solid rgb(255 255 255 / .14); color: #fff; }
   .secbtn:hover { background: rgb(10 12 18 / .85); }
@@ -439,7 +442,7 @@
   .section.favorite .secname::before { content: "★ "; color: var(--fav); }
   .looptag { color: var(--warn); flex: none; }
   /* Tempo/Takt je Section: Tag in der Section, Popover zum Setzen, Taktlinien im Band */
-  .sectempo { flex: none; font-family: var(--mono); font-size: 10px; font-weight: 500; opacity: .6;
+  .sectempo { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-family: var(--mono); font-size: 10px; font-weight: 500; opacity: .6;
               padding: 0 .3rem; border-radius: 4px; cursor: pointer; }
   .sectempo.set { opacity: 1; background: rgb(10 12 18 / .4); }
   .sectempo:hover { opacity: 1; outline: 1px solid rgb(255 255 255 / .3); }
@@ -5512,6 +5515,14 @@ function drawPlayhead () {
 async function pollPosition () {
   const r = await api('position', {}, false);
 
+  // Version anders als der selbst gerenderte Stand: von außen (Agent,
+  // OSC) wurde etwas geändert — gleich neu zeichnen, aber nicht mitten in
+  // einer Bedienung (Decision 2026-10-31-aenderungen-von-aussen-live).
+  // Auch ohne Song: dann scheitert position am Guard, die Antwort trägt die
+  // Version trotzdem — so sieht die leere UI, dass ein Agent einen Song
+  // anlegt oder öffnet
+  if (lastVersion !== null && r.version !== undefined && r.version !== lastVersion) liveRefresh();
+
   if (r.ok) {
     const was = playOn;
     playOn = r.playing;
@@ -5525,11 +5536,6 @@ async function pollPosition () {
     }
 
     updatePlayBtn();
-
-    // Version anders als der selbst gerenderte Stand: von außen (Agent,
-    // OSC) wurde etwas geändert — gleich neu zeichnen, aber nicht mitten in
-    // einer Bedienung (Decision 2026-10-31-aenderungen-von-aussen-live)
-    if (lastVersion !== null && r.version !== lastVersion) liveRefresh();
 
     // Plugin-Fenster, die ueber ihre Titelleiste zugingen, aendern keine
     // Version: Fenster-Knoepfe mit dem Stand des Daemons abgleichen (sonst
@@ -5554,11 +5560,13 @@ async function pollPosition () {
 }
 
 // 8 Hz beim Abspielen, sonst ~2 Hz (Playhead rechnet die UI selbst weiter;
-// der Poll sieht Stopp am Ende, Agenten-Aenderungen und den Refresh-Bedarf)
+// der Poll sieht Stopp am Ende, Agenten-Aenderungen und den Refresh-Bedarf).
+// Ohne Song (Start-Panel) weiter ~2 Hz: nur so kommt ein Song an, den ein
+// Agent anlegt oder öffnet
 let positionTick = 0;
 setInterval(() => {
-  if ($('#work').style.display === 'none') return;
-  if (!playOn && (positionTick++ % 4)) return;
+  const noSong = $('#work').style.display === 'none';
+  if ((noSong || !playOn) && (positionTick++ % 4)) return;
   pollOnce('position', pollPosition);
 }, 120);
 

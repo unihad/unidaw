@@ -352,6 +352,13 @@ namespace dawd
     // Render direkt nach treeCheckout im selben Batch war ohne Samples)
     void settlePlugins (te::Edit&);
 
+    // Sampler-Sounds aus einem mitgelieferten Kit, deren Pfad zur Binary
+    // nicht mehr stimmt (Worktree weg, anderer Build, AppImage unter neuem
+    // /tmp/.mount_…): auf das Kit der laufenden Binary umbiegen — Pfad
+    // ".../kits/<kit>/<datei>", den es unter kitsDirectory() gibt. Beim
+    // Laden eines Edits, ohne Undo. Gibt die Zahl der umgebogenen Sounds.
+    int relinkKitSamples (te::Edit&);
+
     // VST3 (im Prozess und in der Sandbox): Controller mit dem aktuellen
     // Zustand der Komponente abgleichen, dann Namen und Werte neu lesen —
     // auch die Parameter der Engine, sofort (nicht erst in der naechsten

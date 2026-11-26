@@ -100,6 +100,7 @@ namespace dawd::transcription
 
             // rueckwaerts in der Zeit (wie np.where(...)[::-1])
             std::reverse (starts.begin(), starts.end());
+            std::vector<std::array<int, 3>> spans;
 
             auto add = [&] (int s, int e, int p)
             {
@@ -119,8 +120,27 @@ namespace dawd::transcription
                 if (p > 0) energy[(size_t) t][(size_t) p - 1] = 0.0f;
             };
 
+            // Nachbarn (p +- 1) der Noten einer Gruppe gleichzeitiger Einsaetze
+            // (bis 2 Frames, 23 ms) erst nach der Gruppe loeschen
+            auto clearSpans = [&]
+            {
+                for (auto& sp : spans)
+                    for (int t = sp[0]; t < sp[1]; ++t)
+                        clear (t, sp[2]);
+
+                spans.clear();
+            };
+
+            int groupT = -1;
+
             for (auto& st : starts)
             {
+                if (groupT - st.t > 2)
+                    clearSpans();
+
+                if (spans.empty())
+                    groupT = st.t;
+
                 if (st.t >= n - 1)
                     continue;
 
@@ -137,11 +157,21 @@ namespace dawd::transcription
                 if (i - st.t <= minLen)
                     continue;
 
+                // Hier nur die eigene Tonhoehe verbrauchen: basic-pitch loescht
+                // auch p +- 1, ein Ton einen Halbton neben einem Nachklang
+                // verlor so seinen Einsatz (der Nachklang setzt im selben
+                // Moment neu ein; 72 -> 71 kam erst beim naechsten Einsatz).
+                // Die Nachbarn erst nach der Gruppe: fuer Einsaetze in
+                // anderen Frames bleiben sie geloescht wie bisher, sonst wird
+                // der Halbton in einem Glide (65 -> 66 -> 67) eine eigene Note
                 for (int t = st.t; t < i; ++t)
-                    clear (t, st.p);
+                    energy[(size_t) t][(size_t) st.p] = 0.0f;
 
+                spans.push_back ({ st.t, i, st.p });
                 add (st.t, i, st.p);
             }
+
+            clearSpans();
 
             if (o.melodiaTrick)
             {

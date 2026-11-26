@@ -10,11 +10,19 @@ HERE=$(cd "$(dirname "$0")" && pwd)
 REPO=$(cd "$HERE/../.." && pwd)
 DAWD=${DAWD:-$REPO/dawd/build/unidaw_artefacts/Release/unidaw}
 WORK=${WORK:-/tmp/dawd-fehler-check-$PORT}
+# Ein Lauf je Port: ein zweiter Lauf zugleich loeschte sonst per rm -rf die
+# Mediendateien des ersten (Clips zeigen dann "⚠", Checks ab F6 rot). Er
+# wartet hier, bis der erste fertig ist.
+exec 9>"/tmp/dawd-fehler-check-$PORT.lock"
+flock -w 1200 9 || { echo "fehler_check: Port $PORT seit 20 min von einem anderen Lauf belegt" >&2; exit 3; }
+if curl -s -m 2 "127.0.0.1:$PORT/health" >/dev/null; then
+  echo "fehler_check: auf Port $PORT antwortet schon ein Server — anderen Port nehmen" >&2; exit 3
+fi
 rm -rf "$WORK"; mkdir -p "$WORK/config" "$WORK/recipes"
 # Token der localhost-API: die Instanz erbt ihn, curl und node schicken ihn
 export UNIDAW_TOKEN="${UNIDAW_TOKEN:-$(head -c 32 /dev/urandom | od -An -tx1 | tr -d ' \n')}"
 "$DAWD" --port "$PORT" --config "$WORK/config" --recipes "$WORK/recipes" --log "$WORK/events.jsonl" \
-  --session "$WORK/session.json" --ui "${UI_FILE:-$REPO/dawd/ui/flow.html}" --interface-sim --no-audio > "$WORK/dawd.log" 2>&1 &
+  --session "$WORK/session.json" --ui "${UI_FILE:-$REPO/dawd/ui/flow.html}" --interface-sim --no-audio > "$WORK/dawd.log" 2>&1 9>&- &
 PID=$!
 for i in $(seq 1 60); do curl -s -m 2 -X POST -H "Authorization: Bearer $UNIDAW_TOKEN" "127.0.0.1:$PORT/command" -d '{"op":"ping"}' >/dev/null && break; sleep 1; done
 NODE_PATH=${NODE_PATH:-$HOME/dev/unspill/node_modules} node "$HERE/fehler_check.js" --port "$PORT" --dir "$WORK/song" "$@"

@@ -1,0 +1,46 @@
+{
+  "id": "audio-to-midi",
+  "title": "Melody to MIDI",
+  "project": "~/music/unidaw-short-midi",
+  "inputs": [
+    {
+      "file": "melody.wav",
+      "make": "melody"
+    }
+  ],
+  "prompt": "Start a new song in ~/music/unidaw-short-midi at 96 BPM with one 8-bar section called Verse. Put melody.wav from that folder on an audio track called Melody. Then turn the melody (a single line) into MIDI notes on a new track called Lead and let the 4OSC synth play it with a bright lead sound. Mute the Melody track.",
+  "captions": [
+    {
+      "at": 0,
+      "text": "Audio in, MIDI out"
+    }
+  ],
+  "scenes": [
+    {
+      "section": "Verse",
+      "seconds": 5,
+      "audio": {
+        "file": "melody.wav"
+      },
+      "caption": "Audio in"
+    },
+    {
+      "section": "Verse",
+      "seconds": 8,
+      "audio": "render",
+      "caption": "Same melody, new sound",
+      "notes": true
+    }
+  ],
+  "timing": {
+    "intro": 3,
+    "typing": 5,
+    "agent": 12,
+    "end": 3
+  },
+  "ui": {
+    "pps": 22,
+    "dockH": 430
+  },
+  "answerPick": "\\d+ (MIDI )?notes"
+}

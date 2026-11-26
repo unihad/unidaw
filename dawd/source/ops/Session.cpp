@@ -88,6 +88,7 @@ namespace dawd
 
         if (ctx.edit != nullptr)
         {
+            relinkKitSamples (*ctx.edit);
             ensureRouting (*ctx.edit);
             applySectionTempos (*ctx.edit);
             playWarpSources (*ctx.edit);

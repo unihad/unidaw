@@ -225,6 +225,18 @@ namespace dawd::voice
     std::vector<transcription::Note> mergedFragments (const std::vector<transcription::Note>& notes, const std::vector<float>& mono,
                                                       double rate, int& merged);
 
+    // audioToMidi: ein ausklingender Ton (Saite, Zupfton) bekommt von
+    // basic-pitch beim Einsatz des naechsten Tons einen eigenen Onset und
+    // zerfaellt in zwei Noten. Schliesst eine Note an eine gleich hohe an
+    // (Luecke unter 40 ms), setzt zugleich mit einer anderen Tonhoehe ein
+    // und steigt ihr Grundton dabei um weniger als 3 dB, ist sie Nachklang
+    // und wird angehaengt. Ein echter Neuanschlag hebt den Grundton.
+    // Ohne anderen Einsatz (Teilung mitten im Ausklang) zusaetzlich nur,
+    // wenn der Gesamtpegel bis 150 ms danach um weniger als 1,5 dB steigt
+    // und ueber die Grenze um mehr als 3 dB faellt (Abklingen).
+    // Rueckgabe: angehaengte Noten.
+    int joinRingSplits (std::vector<transcription::Note>& notes, const std::vector<float>& mono, double rate);
+
     // audioToMidi {legato}: eine Note klingt bis zum naechsten Einsatz,
     // wenn der Pegel dazwischen nicht einbricht (weniger als 9 dB unter
     // ihrem Gipfel, Luecke bis 0,5 s), und ueberlappt ihn um overlap

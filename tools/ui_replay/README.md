@@ -127,6 +127,19 @@ zeigt den Stand vorher — als Kopie neben einem Link `vendor` →
 fehlt er, liegt der Ordner-Dialog ungestylt unter der Seite und D/M
 scheitern). Todo: `todos/2026-10-29-ui-fehler-nachstell-lauf.md`.
 
+Ein Lauf je Port: ein zweiter Lauf auf demselben Port wartet (Sperre
+`/tmp/dawd-fehler-check-<port>.lock`, bis 20 min), bis der erste fertig
+ist. Vorher löschte er dessen Arbeitsordner samt Mediendateien — die Clips
+zeigten „⚠“, und ab F6 brach der Check ab. Antwortet auf dem Port schon ein
+fremder Server, endet das Skript mit Exit 3.
+
+Der Mitschnitt der Befehle (`page.route`) leitet jede Anfrage ohne
+Zeitlimit weiter, wie `fetch()` im Browser. Mit dem Standard von
+Playwright (30 s) brach unter Last ein Poll (`inputLevel`) hinter einem
+langen Befehl den ganzen Lauf mit `TimeoutError` ab. Scheitert die
+Weiterleitung doch, steht `route.fetch <op>: …` in der Ausgabe, und die
+Seite sieht einen Netzfehler.
+
 ## Platz
 
 Ein Lauf braucht bis zu 2 GB (das UI lädt jede eingefügte Datei und jede

@@ -97,6 +97,9 @@ Nichts davon liegt außerhalb des Repos.
   prüft es ohne Quellordner (bubblewrap), Einstieg und Desktop-Datei in
   `dawd/appimage/`, Modelle per `dawd/launcher/unidaw-fetch-models`;
   Aufbau und Grenzen (glibc des Build-Rechners): `docs/appimage.md`.
+- `tools/short/` — Aufnahme-Kette der Shorts (`record_short.js`, Drehbuch
+  je Short als `<short>.json`); Ablauf und Umgehungen: `docs/shorts.md`,
+  Abschnitt Aufnahme-Kette. Test: `short_chain_flow`.
 - `recipes/` — geprüfte Rezepte (Klang, Kette, Arbeitsablauf, Mix-Ziel);
   Index `recipes/README.md`, erzeugt von `tools/recipes.py index`.
 
@@ -336,13 +339,15 @@ aus; ein roter Test blockt den Commit.
   synthetischer Groove 128 BPM 4/4 und Walzer 90 BPM 3/4 mit bekannter
   Takt-Eins, Bereich, detail, ohne Puls, Fehlertexte, Mix aus Audio-Clip und
   MIDI durch 4OSC), Tonart/Akkorde (detect_key_flow: C-Dur I-IV-V-I mit
-  Takt/Schlag, B-Dur mit b, Am F C G mit Paralleltonart, ohne Puls, Mix aus
-  MIDI-Akkorden durch 4OSC), Aufbau (analyze_structure_flow: Song mit
+  Takt/Schlag, B-Dur mit b, Am F C G mit Paralleltonart, gezupfte
+  Melodie (Karplus-Strong) in a-, c- und e-Moll mit Quint-Hinweis, wenn
+  knapp, ohne Puls, Mix aus MIDI-Akkorden durch 4OSC), Aufbau (analyze_structure_flow: Song mit
   Auftakt, Intro/Strophe/Refrain/Outro an den richtigen Takten, Buchstaben,
   Energie, Akkorde, sectionCommands per batch, ohne Puls, Mix),
   Noten in Beats (notes_in_beats_flow: startBeat/lengthBeats und
   beat/beats bei 90 BPM, setMidiNotes, clipPeaks mit Beats, Mischen und
-  Fehlertexte), Clips teilen/kopieren (clip_split_duplicate_flow: split
+  Fehlertexte; beats_eighth_time_flow: in 3/8 und 6/8 ist ein Beat eine
+  Achtel, bpm zählt Viertel — Clip-Start und Taktlänge in Sekunden), Clips teilen/kopieren (clip_split_duplicate_flow: split
   MIDI/Audio mit freien Namen und aufgeräumten Noten, duplicate count am
   Stück und in eine andere Section, duplicateSection mit
   Clips/Tempo und Verschieben, Fehlertexte, Undo; clip_ops_flow: trimClip nach links
@@ -363,7 +368,8 @@ aus; ein roter Test blockt den Commit.
   (section_delete_flow: Clips weg, spätere rücken, letzte bleibt, Undo;
   Schnitt an den Grenzen: section_time_flow),
   Audio→MIDI (audio_to_midi_flow: Tonleiter 44,1/48 kHz, Akkorde
-  polyphon/melody/bass ohne Oberton-Geister, Bereich, Mix, addMidiFromAudio
+  polyphon/melody/bass ohne Oberton-Geister, gezupfte Melodie (Karplus-Strong)
+  polyphon und melody ohne geteilten Nachklang (auch mitten im Ausklang) und Teilton-Geister, auch transponiert (−12, −5, +3, +7) mit Ton einen Halbton neben dem Nachklang, Bereich, Mix, addMidiFromAudio
   in eine Section; ohne ONNX skip; audio_to_midi_legato_flow: legato
   verschmilzt Vibrato-Fragmente und bindet eine 4OSC-Glide-Linie, Staccato
   bleibt kurz, Velocity aus dem Pegel, bends mit Glide von unten/oben und
@@ -624,7 +630,8 @@ aus; ein roter Test blockt den Commit.
   tempo_ramp_flow: Rampe zum Tempo der nächsten Section, Sekunden bleiben,
   Noten auf der Rampe wie die Engine sie rechnet, nächste Section auf ihrer
   Sekunde auch mit Taktwechsel, bars mit Rampe, exportMidi-Stufen, Kopie,
-  Fehlertexte, Undo, treeOpen),
+  Fehlertexte, Undo, treeOpen; tempo_ramp_eighths_flow: bars und Länge
+  mit Rampe in 3/8 und 6/8, Beats der Engine in Achteln),
   Automation (automation_flow: Stufe
   hörbar im Render, Kante an/aus, Wet/Parameter/Link, Feedback, Fehlertexte,
   coalesce, treeOpen/Branch, trackMix volumeDb/pan), LFO je Parameter

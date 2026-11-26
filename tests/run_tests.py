@@ -377,7 +377,8 @@ def _():
         check(marker in html, f"ui contains {marker}")
     # Playhead mitlaufen lassen (Knopf neben Play, Taste F; Handprüfung 2026-10-31)
     for marker in ('id="followBtn"', "function followPlayhead", "if (playOn && followPlay) followPlayhead(t);", "e.key === 'f' || e.key === 'F') toggleFollow()",
-                   "const d = Math.round(x - (left + right) / 2);", "if (lastVersion !== null && r.version !== lastVersion) liveRefresh();",
+                   "const d = Math.round(x - (left + right) / 2);", "if (lastVersion !== null && r.version !== undefined && r.version !== lastVersion) liveRefresh();",
+                   "if ((noSong || !playOn) && (positionTick++ % 4)) return;",
                    "async function liveRefresh ()", "if (sc.scrollTop !== keepTop) sc.scrollTop = keepTop;"):
         check(marker in html, f"ui contains {marker}")
     for gone in ("modeSeg", "nactbtn", "nodeModes", "currentAction", "dawd.action", "Switch to Collect"):
@@ -4603,6 +4604,37 @@ def make_chords(path, bpm, chords, bars, offset=0.0, drums=True, rate=44100):
         w.writeframes(b"".join(struct.pack("<h", max(-32767, min(32767, int(v * 32767)))) for v in buf))
 
 
+def make_pluck_melody(path, transpose=0, bpm=96, rate=44100, melody=None):
+    """Einstimmige gezupfte Melodie in a-Moll (mit F, Anfang und Schluss auf
+    A), Karplus-Strong-Ton mit vielen Obertoenen; transpose verschiebt sie,
+    melody ersetzt sie ([(MIDI-Note oder None, Schlaege)]). Ohne Zufall:
+    gleicher Aufruf, gleiche Datei."""
+    import random
+    rnd = random.Random(96)
+    melody = melody or [(69, 1), (72, 1), (76, 1.5), (74, 0.5), (72, 1), (71, 1), (69, 2), (64, 1), (67, 1), (69, 1.5), (71, 0.5),
+              (72, 2), (71, 1), (67, 1), (69, 1), (72, 1), (76, 1), (79, 1), (77, 1.5), (76, 0.5), (74, 1), (72, 1),
+              (71, 1), (72, 0.5), (71, 0.5), (67, 1), (64, 1), (69, 3), (None, 1)]
+    beat = 60 / bpm
+    buf = [0.0] * int((sum(b for _, b in melody) * beat + 1) * rate)
+    pos = 0.0
+    for note, beats in melody:
+        if note is not None:
+            period = round(rate / (440 * 2 ** ((note + transpose - 69) / 12)))
+            ring = [rnd.uniform(-1, 1) for _ in range(period)]
+            s0 = int(pos * beat * rate)
+            for i in range(min(int((beats * beat + 0.25) * rate), len(buf) - s0)):
+                j = i % period
+                buf[s0 + i] += ring[j]
+                ring[j] = 0.996 * 0.5 * (ring[j] + ring[(j + 1) % period])
+        pos += beats
+    peak = max(abs(v) for v in buf)
+    with wave.open(path, "w") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(rate)
+        w.writeframes(b"".join(struct.pack("<h", int(v / peak * 0.7 * 32767)) for v in buf))
+
+
 @t("detect_key_flow")
 def _():
     # detectKey: Tonart (mit Tonleiter, Alternativen, Paralleltonart-Hinweis)
@@ -4636,6 +4668,18 @@ def _():
     alts = [a["key"] for a in r.get("alternatives", [])]
     check(r.get("key") in ("C major", "A minor") and ({"C major", "A minor"} - {r.get("key")}) <= set(alts)
           and names[:4] == ["Am", "F", "C", "G"], f"Am F C G: {r.get('key')} {alts} {names}")
+
+    # Gezupfte Melodie (Karplus-Strong): der 3. Teilton zog die Tonart eine
+    # Quinte nach oben (a-Moll -> e-Moll); auch transponiert. Liegt die
+    # Quint-Tonart knapp dahinter, sagt es ein Hinweis
+    for tr, want, fifth in ((0, "A minor", "E minor"), (3, "C minor", "G minor"), (-5, "E minor", None)):
+        pl = os.path.join(d, f"pluck{tr}.wav")
+        make_pluck_melody(pl, tr)
+        r = api("detectKey", file=pl, bpm=96, firstDownbeat=0)
+        hinted = [h for h in r.get("hints", []) if "is a fifth away" in h]
+        check(r.get("ok") is True and r.get("key") == want, f"gezupft {want}: {r.get('key')} {r.get('confidence')} {r.get('alternatives')}")
+        check(hinted == ([f"{fifth} is a fifth away and close — its scale differs by one note; check that note and where the melody comes to rest"] if fifth else []),
+              f"Quint-Hinweis {want}: {r.get('hints')}")
 
     pad = os.path.join(d, "pad.wav")
     make_sine(pad, 220, 0.3, seconds=6)
@@ -4903,6 +4947,67 @@ def make_tone(path, freq=440.0, seconds=0.5, rate=44100, amp=0.5):
         w.setframerate(rate)
         w.writeframes(b"".join(struct.pack("<h", int(amp * 32767 * math.exp(-i / rate * 6) * math.sin(2 * math.pi * freq * i / rate)))
                                for i in range(int(seconds * rate))))
+
+
+@t("kit_relink_flow")
+def _():
+    # Eingebautes Drum Kit nach einem Umzug von unidaw (Todo
+    # 2026-11-23-eingebautes-kit-mit-absolutem-pfad): das Edit traegt den
+    # absoluten Pfad zum Kit der Binary, die den Song gebaut hat. Steht dort
+    # nichts mehr (Worktree weg, AppImage unter neuem /tmp/.mount_…), biegt
+    # unidaw die Pfade beim Laden auf das Kit der laufenden Binary um —
+    # offener Node (treeOpen) und ein anderer Node im renderBatch.
+    api("treeClose")
+    d = tempfile.mkdtemp(prefix="dawd-kit-relink-")
+    check(api("treeSeed", dir=d, label="kit").get("ok") is True, "seed")
+    check(api("treeSettings", autoBranch=False).get("ok") is True, "autoBranch aus")
+    check(api("updateSection", name="Section 1", bars=2, bpm=120).get("ok") is True, "2 Takte")
+    kit = api("createTrack", type="midi", instrument="Drum Kit")
+    check(kit.get("ok") is True, f"createTrack Drum Kit: {kit}")
+    files = [x["file"] for x in api("listSamples", plugin=kit.get("id")).get("samples", [])]
+    kits = os.path.dirname(os.path.dirname(files[0])) if files else ""
+    check(len(files) == 20 and os.path.basename(kits) == "kits", f"Kit-Dateien unter .../kits: {files[:1]}")
+    notes = [{"pitch": 36 if i % 2 == 0 else 38, "start": i * 0.5, "length": 0.1, "velocity": 110} for i in range(8)]
+    check(api("addMidiClip", track=kit["index"], section="Section 1", notes=notes).get("ok") is True, "Beat")
+    before = os.path.join(d, "before.wav")
+    check(api("render", file=before, section="Section 1").get("ok") is True, "Render vorher")
+    br = api("treeBranch", label="other")
+    check(br.get("ok") is True, f"Zweig: {br}")
+    check(api("treeClose").get("ok") is True, "treeClose")
+
+    # Kit-Pfade in allen Node-Edits auf einen Ordner biegen, den es nicht gibt
+    gone = os.path.join(tempfile.gettempdir(), "dawd-kit-gone-%d" % os.getpid(), "Release", "kits")
+    check(not os.path.exists(gone), "alter Kit-Ordner fehlt")
+    moved = []
+    for f in sorted(os.listdir(d)):
+        if not f.endswith(".tracktionedit"):
+            continue
+        p = os.path.join(d, f)
+        with open(p) as fh:
+            text = fh.read()
+        if kits + "/" in text:
+            moved.append(f)
+            with open(p, "w") as fh:
+                fh.write(text.replace(kits + "/", gone + "/"))
+    check("node-1.tracktionedit" in moved and "node-2.tracktionedit" in moved, f"alte Pfade in {moved}")
+
+    r = api("treeOpen", dir=d)
+    check(r.get("ok") is True, f"treeOpen: {r}")
+    now = [x["file"] for x in api("listSamples", plugin=kit.get("id")).get("samples", [])]
+    check(now == files, f"Kit der laufenden Binary: {now[:1]}")
+    check("missingFiles" not in api("state"), "state ohne missingFiles")
+    after = os.path.join(d, "after.wav")
+    check(api("render", file=after, section="Section 1").get("ok") is True, "Render nach treeOpen")
+    p0, p1 = wav_peak(before, 0, 4), wav_peak(after, 0, 4)
+    check(p0 > 0.1 and abs(p1 - p0) < 0.01, f"Drums klingen wie vorher: {p0:.3f} / {p1:.3f}")
+
+    # anderer Node: zum Rendern geladen, nicht offen
+    out = os.path.join(d, "batch")
+    r = api("renderBatch", dir=out, nodes=[1], sections=["Section 1"], song=False, formats=["wav"])
+    rs = r.get("renders", [])
+    check(r.get("ok") is True and len(rs) == 1 and abs(wav_peak(rs[0]["file"], 0, 4) - p0) < 0.01,
+          f"Node 1 im renderBatch mit Drums: {r.get('error') or r.get('failed')}")
+    api("treeClose")
 
 
 @t("sampler_flow")
@@ -5484,6 +5589,48 @@ def _():
                       ({"startBeat": -1, "notes": [{"pitch": 60, "beat": 0, "beats": 1}]}, "start must be >= 0")]:
         r = api("addMidiClip", track=-1, section="B", **args)
         check(r.get("ok") is False and str(r.get("error")).startswith(err), f"addMidiClip {err}: {r}")
+    api("treeClose")
+
+
+@t("beats_eighth_time_flow")
+def _():
+    # Beat-Einheit bei x/8 (Todo 2026-11-25-beat-einheit-bei-achtel-takten-nennen):
+    # ein Beat ist der Notenwert des Nenners (in 3/8 und 6/8 eine Achtel),
+    # bpm zaehlt Viertel - wie die Engine (240 / (bpm * Nenner) s je Beat).
+    api("treeClose")
+    d = tempfile.mkdtemp(prefix="dawd-eighths-")
+    check(api("treeSeed", dir=d, label="eighths").get("ok") is True, "seed")
+    check(api("treeSettings", autoBranch=False).get("ok") is True, "autoBranch aus")
+    check(api("updateSection", name="Section 1", bars=4, bpm=72, timeSig="3/8").get("ok") is True, "3/8 72 BPM")
+    check(api("addSection", name="Six", bars=2, bpm=120, timeSig="6/8").get("ok") is True, "6/8 120 BPM")
+    secs = {x["name"]: x for x in api("state")["sections"]}
+    a, six = secs["Section 1"], secs["Six"]
+    # Taktlaenge: 3/8 bei 72 = 1,25 s, 6/8 bei 120 = 1,5 s
+    check(abs(a["length"] - 4 * 1.25) < 1e-3 and abs(a["bars"] - 4) < 1e-3 and a["timeSig"] == "3/8",
+          f"3/8: vier Takte = 5 s: {a}")
+    check(abs(six["length"] - 2 * 1.5) < 1e-3 and abs(six["bars"] - 2) < 1e-3 and six["timeSig"] == "6/8",
+          f"6/8: zwei Takte = 3 s: {six}")
+
+    # 3/8: Beat 1 = eine Achtel = 0,4167 s, drei Beats = ein Takt
+    r = api("addMidiClip", track=-1, section="Section 1", startBeat=1, lengthBeats=3,
+            notes=[{"pitch": 60, "beat": 0, "beats": 1}, {"pitch": 64, "beat": 2, "beats": 1}])
+    check(r.get("ok") is True and abs(r["start"] - (a["start"] + 60 / 72 / 2)) < 1e-3
+          and abs(r["length"] - 1.25) < 1e-3 and r.get("startBeat") == 1.0 and r.get("lengthBeats") == 3.0,
+          f"3/8: startBeat 1 = 0,417 s, lengthBeats 3 = 1,25 s: {r}")
+    name = next(c["name"] for c in api("state")["trackList"][r["track"]]["clips"])
+    n = api("clipPeaks", track=r["track"], name=name).get("notes", [])
+    check(len(n) == 2 and abs(n[1]["start"] - 2 * 60 / 72 / 2) < 1e-3 and abs(n[0]["length"] - 60 / 72 / 2) < 1e-3
+          and (n[1]["beat"], n[1]["beats"]) == (2.0, 1.0), f"3/8: Noten in Achteln: {n}")
+
+    # 6/8: startBeat 6 = Takt 2 = 1,5 s, Beat 3 = 0,75 s
+    r = api("addMidiClip", track=-1, section="Six", startBeat=6, lengthBeats=6,
+            notes=[{"pitch": 67, "beat": 3, "beats": 1.5}])
+    check(r.get("ok") is True and abs(r["start"] - (six["start"] + 1.5)) < 1e-3
+          and abs(r["length"] - 1.5) < 1e-3, f"6/8: startBeat 6 = ein Takt = 1,5 s: {r}")
+    name = next(c["name"] for c in api("state")["trackList"][r["track"]]["clips"])
+    n = api("clipPeaks", track=r["track"], name=name).get("notes", [])
+    check(len(n) == 1 and abs(n[0]["start"] - 0.75) < 1e-3 and abs(n[0]["length"] - 0.375) < 1e-3,
+          f"6/8: Beat 3 = 0,75 s, 1,5 Beats = 0,375 s: {n}")
     api("treeClose")
 
 
@@ -6151,6 +6298,55 @@ def _():
     api("treeClose")
 
 
+@t("tempo_ramp_eighths_flow")
+def _():
+    # Rampe in x/8-Takten: die Beats der Engine zaehlen dort Achtel, bpm
+    # Viertel — bars und Laenge mit Rampe stimmen in 3/8 und 6/8, die
+    # naechste Section beginnt auf ihrer Sekunde, Noten folgen der Rampe
+    # (Todo 2026-11-25-tempo-rampe-bars-bei-achtel-takten).
+    import math
+    for sig, num in (("3/8", 3), ("6/8", 6)):
+        api("treeClose")
+        d = tempfile.mkdtemp(prefix="dawd-ramp8-")
+        check(api("treeSeed", dir=d, label="ramp8").get("ok") is True, "seed")
+        check(api("treeSettings", autoBranch=False).get("ok") is True, "autoBranch aus")
+        check(api("updateSection", name="Section 1", bars=4, bpm=72, timeSig=sig).get("ok") is True, f"A {sig} 72")
+        check(api("addSection", name="B", bars=4, bpm=96, timeSig=sig).get("ok") is True, f"B {sig} 96")
+
+        def secs():
+            return {x["name"]: x for x in api("state")["sections"]}
+
+        # Ohne Rampe: 4 Takte = 4 * num Achtel zu 60/72/2 s
+        s = secs()
+        flat = 4 * num * 30 / 72
+        check(abs(s["Section 1"]["length"] - flat) < 1e-6 and s["Section 1"]["bars"] == 4, f"{sig} flach: {s['Section 1']}")
+        # Rampe an, Sekunden bleiben: Viertel der linearen Rampe = L * 24 / (60 ln(96/72))
+        r = api("updateSection", name="Section 1", ramp=True)
+        s = secs()
+        quarters = flat * 24 / (60 * math.log(96 / 72))
+        check(r.get("ok") is True and abs(s["Section 1"]["bars"] - quarters * 2 / num) < 0.02, f"{sig} Rampe an: bars {s['Section 1']['bars']} statt {quarters * 2 / num:.3f}")
+        check(abs(s["B"]["start"] - flat) < 1e-9, f"{sig} B bleibt: {s['B']}")
+
+        # bars setzen: 4 Takte = 4 * num Achtel, Engine-Stufen (4 je Achtel)
+        eighths = 4 * num
+        n = int(min(100, 4 * eighths))
+        want = sum(eighths / n * 30 / (72 + 24 * k / n) for k in range(n))
+        r = api("updateSection", name="Section 1", ramp=True, bars=4)
+        s = secs()
+        check(r.get("ok") is True and abs(s["Section 1"]["bars"] - 4) < 0.002 and abs(s["Section 1"]["length"] - want) < 0.002,
+              f"{sig} 4 Takte Rampe: bars {s['Section 1']['bars']} Laenge {s['Section 1']['length']} statt {want:.4f}")
+        check(abs(s["B"]["start"] - s["Section 1"]["end"]) < 1e-9 and s["B"]["bars"] == 4, f"{sig} B danach: {s['B']}")
+
+        # Note auf Beat 0 und 1 von B: B beginnt auf seiner Sekunde, in 96
+        # (Beat = Achtel in x/8)
+        b = api("addMidiClip", track=-1, section="B", notes=[{"pitch": 62, "beat": 0, "beats": 1}, {"pitch": 62, "beat": 1, "beats": 1}])
+        bn = [c for c in api("state")["trackList"][b["track"]]["clips"]][0]
+        bnotes = api("clipPeaks", track=b["track"], name=bn["name"])["notes"]
+        check(abs(bn["start"] - s["B"]["start"]) < 1e-6 and abs(bnotes[0]["start"]) < 0.001 and abs(bnotes[1]["start"] - 30 / 96) < 0.001,
+              f"{sig} B in 96: {bn} {bnotes}")
+        api("treeClose")
+
+
 @t("section_delete_flow")
 def _():
     # deleteSection: der Zeitbereich der Section samt der Clips darin weg
@@ -6280,6 +6476,37 @@ def _():
     make_notes_wav(octs, [(28 if i % 2 == 0 else 40, 0.2 + i * 0.3, 0.28) for i in range(10)], total=3.4)
     bl = [n["pitch"] for n in api("audioToMidi", file=octs, mode="bass").get("notes", [])]
     check(bl.count(28) >= 4 and bl.count(40) >= 4, f"Oktavspruenge im Bass bleiben: {bl}")
+    # Gezupfte Melodie (Karplus-Strong, 96 BPM): jeder Ton klingt 0,25 s in
+    # den naechsten — basic-pitch teilte ihn beim neuen Einsatz (in melody
+    # gewann der hoehere Nachklang), der 7. Teilton kam als Note (A4 -> G7).
+    # Polyphon und melody: genau die Melodie (Todo
+    # 2026-11-23-audiotomidi-obertoene-gezupft; Melodie wie MELODY in
+    # tools/short/make_melody.py)
+    line = [(69, 1), (72, 1), (76, 1), (72, 1), (74, 1), (72, 1), (69, 2), (65, 1), (69, 1), (72, 1.5), (71, 0.5),
+            (69, 2), (64, 1), (68, 1), (69, 1), (72, 1), (76, 1.5), (74, 0.5), (77, 1), (76, 1), (74, 1), (72, 1),
+            (71, 1), (69, 1), (68, 1), (71, 1), (69, 3), (None, 1)]
+    # +7: der letzte Ton (3 Schlaege) teilte sich mitten im Ausklang, ohne
+    # dass ein anderer Ton einsetzt (Todo 2026-11-24-audiotomidi-teilung-im-ausklang)
+    for tr in (0, 7):
+        pluck = os.path.join(d, f"line{tr}.wav")
+        make_pluck_melody(pluck, transpose=tr, melody=line)
+        want = [p + tr for p, _ in line if p is not None]
+        for mode in ("polyphonic", "melody"):
+            ns = api("audioToMidi", file=pluck, bpm=96, mode=mode).get("notes", [])
+            got = [n["pitch"] for n in ns]
+            check(got == want, f"gezupft {tr:+d} {mode}: {len(got)} Noten {got}")
+    # Suite-Melodie (make_pluck_melody), auch transponiert: ein Ton einen
+    # Halbton neben dem Nachklang verlor seinen Einsatz (72 -> 71 kam spaet),
+    # der Nachklang daneben wurde nicht angehaengt (Goertzel sah den Nachbarn),
+    # tief gezupft kamen der 9. und 17. Teilton und Teilungen beim Abbruch des
+    # Vortons (Todo 2026-11-23-audiotomidi-halbton-neben-nachklang)
+    base = [69, 72, 76, 74, 72, 71, 69, 64, 67, 69, 71, 72, 71, 67, 69, 72, 76, 79, 77, 76, 74, 72, 71, 72, 71, 67, 64, 69]
+    for tr in (0, -12, -5, 3, 7):
+        pl = os.path.join(d, f"pluck{tr}.wav")
+        make_pluck_melody(pl, tr)
+        for mode in ("polyphonic", "melody"):
+            got = [n["pitch"] for n in api("audioToMidi", file=pl, bpm=96, mode=mode).get("notes", [])]
+            check(got == [p + tr for p in base], f"Suite-Melodie {tr:+d} {mode}: {len(got)} Noten {got}")
     for args, err in [({"file": chord, "mode": "beats"}, "mode must be polyphonic, melody, bass or drums"),
                       ({"file": chord, "minPitch": 80, "maxPitch": 70}, "need 0 <= minPitch <= maxPitch <= 127")]:
         r = api("audioToMidi", **args)
@@ -8515,6 +8742,64 @@ def _():
         odd = [s["id"] for s in cat["sounds"] if s.get("phrase") != profile_plugin.VERSION or not s.get("clap")]
         check(cat.get("phrase") == profile_plugin.VERSION and not odd,
               f"{os.path.basename(path)}: Phrase {cat.get('phrase')}, abweichend {odd[:5]}")
+
+
+@t("short_chain_flow")
+def _():
+    # Aufnahme-Kette der Shorts (tools/short/record_short.js, docs/shorts.md):
+    # ohne Agent und Browser nur, was still brechen kann — die Kette ersetzt
+    # die Adresse im MCP-Server, die Drehbuch-Dateien tragen alle Felder, der
+    # Prompt nennt Projekt und Render, Szenen haben gueltigen Ton und Node,
+    # Regex der Einblendungen kompilieren, die Melodie ist je Aufruf gleich,
+    # das Skript ist gueltiges JS
+    import glob
+    import hashlib
+    root = os.path.join(os.path.dirname(__file__), "..")
+    mcp = open(os.path.join(root, "mcp", "unidaw_mcp.py")).read()
+    check('UNIDAW_URL = "http://127.0.0.1:7400"' in mcp, "MCP-Server: Zeile UNIDAW_URL, die die Kette ersetzt")
+    shots = sorted(glob.glob(os.path.join(root, "tools", "short", "*.json")))
+    check(len(shots) >= 7, f"sieben Drehbuecher in tools/short/: {len(shots)}")
+    for path in shots:
+        s = json.load(open(path))
+        name = os.path.basename(path)
+        missing = [k for k in ("id", "title", "project", "prompt", "captions", "timing", "ui") if k not in s]
+        timing = ("intro", "typing", "agent", "end") + (() if "scenes" in s else ("play", "playFrom"))
+        missing += [k for k in timing if k not in s.get("timing", {})]
+        check(not missing, f"{name}: Felder fehlen {missing}")
+        check(s.get("id") == name[:-5], f"{name}: id {s.get('id')} gleich Dateiname")
+        check(s.get("project", "") in s.get("prompt", "") and s.get("render", "") in s.get("prompt", ""),
+              f"{name}: Prompt nennt Projekt und Render")
+        for sc in s.get("scenes", []):
+            a = sc.get("audio")
+            ok = a in ("render", "node") or (isinstance(a, dict) and ("stem" in a or "file" in a))
+            check(ok and sc.get("seconds", 0) > 0, f"{name}: Szene {sc}")
+            check(sc.get("node") in (None, "start", "end") and (sc.get("node") != "start" or "base" in s),
+                  f"{name}: Node {sc.get('node')} (start braucht base)")
+            check(a != "render" or "render" in s or "scenes" in s, f"{name}: Ton render")
+        for inp in s.get("inputs", []):
+            check(inp.get("make") == "melody" or "copy" in inp, f"{name}: Eingabe {inp}")
+        for c in s.get("answerCaptions", []):
+            re.compile(c["re"])
+        if "answerPick" in s:
+            re.compile(s["answerPick"])
+    d = tempfile.mkdtemp(prefix="dawd-short-")
+    sums = []
+    for i in range(2):
+        f = os.path.join(d, f"m{i}.wav")
+        r = subprocess.run([sys.executable, os.path.join(root, "tools", "short", "make_melody.py"), f],
+                           capture_output=True, text=True)
+        check(r.returncode == 0, f"make_melody.py: {r.stderr[:300]}")
+        sums.append(hashlib.sha256(open(f, "rb").read()).hexdigest())
+    with wave.open(os.path.join(d, "m0.wav")) as w:
+        secs = w.getnframes() / w.getframerate()
+    check(sums[0] == sums[1] and abs(secs - 20.0) < 0.01, f"Melodie gleich je Aufruf, 8 Takte bei 96 BPM: {secs} s")
+    shutil.rmtree(d, ignore_errors=True)
+    if shutil.which("node") is None:
+        print("    skip (no node)")
+        return
+    r = subprocess.run(["node", "--check", os.path.join(root, "tools", "short", "record_short.js")],
+                       capture_output=True, text=True)
+    check(r.returncode == 0, f"record_short.js: {r.stderr[:300]}")
 
 
 @t("catalog_paths_flow")

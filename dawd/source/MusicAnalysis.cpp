@@ -238,20 +238,79 @@ namespace dawd::analysis
             struct BinMap { int bin, pc; float weight; };
             std::vector<BinMap> map;
 
-            for (int b = (int) std::ceil (80.0 / binHz); b * binHz <= juce::jmin (5000.0, a.sampleRate * 0.45); ++b)
+            // Tonklasse und Gewicht (Abstand zur Halbton-Mitte) einer Frequenz
+            auto pitchClassOf = [] (double hz)
             {
-                auto midi = 69.0 + 12.0 * std::log2 (b * binHz / 440.0);
+                auto midi = 69.0 + 12.0 * std::log2 (hz / 440.0);
                 auto nearest = std::round (midi);
                 auto dev = midi - nearest;
-                map.push_back ({ b, ((int) nearest % 12 + 12) % 12, (float) std::exp (-0.5 * (dev / 0.25) * (dev / 0.25)) });
+                return std::pair<int, float> { ((int) nearest % 12 + 12) % 12, (float) std::exp (-0.5 * (dev / 0.25) * (dev / 0.25)) };
+            };
+
+            for (int b = (int) std::ceil (80.0 / binHz); b * binHz <= juce::jmin (5000.0, a.sampleRate * 0.45); ++b)
+            {
+                auto [pc, weight] = pitchClassOf (b * binHz);
+                map.push_back ({ b, pc, weight });
             }
+
+            struct Peak { double hz; float mag; };
+            std::vector<Peak> peaks, fundamentals;
 
             forEachFrame (a, chromaOrder, chromaHop, [&] (int, const float* mag)
             {
                 std::array<float, 12> c {};
+                float top = 0.0f;
 
                 for (auto& m : map)
+                {
                     c[(size_t) m.pc] += mag[m.bin] * m.weight;
+                    top = juce::jmax (top, mag[m.bin]);
+                }
+
+                // Tonart-Chroma: Spitzen ueber 2 % der lautesten; eine Spitze
+                // auf dem h-fachen (h 2..10, +-30 Cent) einer tieferen
+                // Grundton-Spitze zaehlt fuer deren Tonklasse. Sonst zieht
+                // ein obertonreicher Ton (gezupft, Saege) die Tonart eine
+                // Quinte nach oben (3. Teilton)
+                std::array<float, 12> k {};
+                peaks.clear();
+                fundamentals.clear();
+
+                for (auto& m : map)
+                {
+                    auto y0 = mag[m.bin - 1], y1 = mag[m.bin], y2 = mag[m.bin + 1];
+
+                    if (y1 > y0 && y1 >= y2 && y1 > 0.02f * top && top > 1e-9f)
+                    {
+                        auto den = (double) y0 - 2.0 * y1 + y2;
+                        peaks.push_back ({ (m.bin + (den != 0.0 ? 0.5 * (y0 - y2) / den : 0.0)) * binHz, y1 });
+                    }
+                }
+
+                for (auto& p : peaks)
+                {
+                    auto home = p.hz;
+
+                    for (auto& f0 : fundamentals)
+                    {
+                        auto ratio = p.hz / f0.hz;
+                        auto h = std::round (ratio);
+
+                        if (h >= 2.0 && h <= 10.0 && std::abs (1200.0 * std::log2 (ratio / h)) < 30.0)
+                        {
+                            home = f0.hz;
+                            break;
+                        }
+                    }
+
+                    if (home == p.hz)
+                        fundamentals.push_back (p);
+
+                    auto [pc, weight] = pitchClassOf (home);
+                    k[(size_t) pc] += p.mag * weight;
+                }
+
+                f.keyChroma.push_back (k);
 
                 auto mx = *std::max_element (c.begin(), c.end());
                 f.chromaEnergy.push_back (std::accumulate (c.begin(), c.end(), 0.0f));
@@ -1076,14 +1135,20 @@ namespace dawd::analysis
         const float maxEnergy = *std::max_element (f.chromaEnergy.begin(), f.chromaEnergy.end());
         auto audible = [&] (int i) { return f.chromaEnergy[(size_t) i] > 0.02f * maxEnergy && maxEnergy > 1e-6f; };
 
-        // 1. Tonart: Chroma-Summe (energie-gewichtet) gegen die
+        // 1. Tonart: Tonart-Chroma je Frame auf Max 1, mal Wurzel seiner
+        //    Summe, ueber alle hoerbaren Frames gegen die
         //    Krumhansl-Kessler-Profile in allen 24 Lagen (Pearson)
         std::array<double, 12> total {};
 
-        for (int i = 0; i < n; ++i)
-            if (audible (i))
+        for (int i = 0; i < n && i < (int) f.keyChroma.size(); ++i)
+        {
+            auto& k = f.keyChroma[(size_t) i];
+            auto mx = *std::max_element (k.begin(), k.end());
+
+            if (audible (i) && mx > 1e-6f)
                 for (size_t p = 0; p < 12; ++p)
-                    total[p] += f.chroma[(size_t) i][p] * std::sqrt ((double) f.chromaEnergy[(size_t) i]);
+                    total[p] += k[p] / mx * std::sqrt ((double) std::accumulate (k.begin(), k.end(), 0.0f));
+        }
 
         if (std::accumulate (total.begin(), total.end(), 0.0) <= 0.0)
             return r;

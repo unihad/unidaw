@@ -1,0 +1,41 @@
+{
+  "id": "mix",
+  "title": "Ready for streaming",
+  "project": "~/music/unidaw-short-mix",
+  "base": "~/music/unidaw-short-intro",
+  "render": "~/music/unidaw-short-mix/mix.wav",
+  "prompt": "Open the song in ~/music/unidaw-short-mix. Mix it for streaming: about -14 LUFS and no clipping. Render the whole song to ~/music/unidaw-short-mix/mix.wav and tell me the loudness.",
+  "captions": [
+    {
+      "at": 0,
+      "text": "Mix to a target"
+    }
+  ],
+  "answerPick": "LUFS",
+  "answerCaptions": [
+    {
+      "re": "([-−]\\d+(?:\\.\\d+)?) ?LUFS",
+      "text": "$1 LUFS"
+    },
+    {
+      "re": "([-−]\\d+(?:\\.\\d+)?) ?(?:dB ?TP|dB true peak)",
+      "text": "$1 dB true peak"
+    }
+  ],
+  "scenes": [
+    {
+      "section": "Verse",
+      "seconds": 9,
+      "audio": "render"
+    }
+  ],
+  "timing": {
+    "intro": 3,
+    "typing": 5,
+    "agent": 10,
+    "end": 3
+  },
+  "ui": {
+    "pps": 13
+  }
+}
